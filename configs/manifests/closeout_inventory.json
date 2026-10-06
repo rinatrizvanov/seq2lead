@@ -1,0 +1,356 @@
+{
+ "excluded_from_git": {
+  "M10 docking runs, receptors and poses": {
+   "bytes": 53432351,
+   "files": 3564,
+   "sole_copy_is_local_disk": true,
+   "tracked_in_git": false
+  },
+  "M9 per-seed records and checkpoints": {
+   "bytes": 178920547,
+   "files": 60,
+   "sole_copy_is_local_disk": true,
+   "tracked_in_git": false
+  },
+  "feature caches and extensions": {
+   "bytes": 866154787,
+   "files": 9,
+   "sole_copy_is_local_disk": true,
+   "tracked_in_git": false
+  },
+  "large baseline run records": {
+   "bytes": 79189068,
+   "files": 1,
+   "sole_copy_is_local_disk": true,
+   "tracked_in_git": false
+  },
+  "model checkpoints": {
+   "bytes": 53648798,
+   "files": 6,
+   "sole_copy_is_local_disk": true,
+   "tracked_in_git": false
+  },
+  "private design documents": {
+   "bytes": 59257,
+   "files": 2,
+   "sole_copy_is_local_disk": true,
+   "tracked_in_git": false
+  },
+  "raw observation exports": {
+   "bytes": 166458830,
+   "files": 2,
+   "sole_copy_is_local_disk": true,
+   "tracked_in_git": false
+  },
+  "third-party binaries": {
+   "bytes": 1171704,
+   "files": 1,
+   "sole_copy_is_local_disk": true,
+   "tracked_in_git": false
+  },
+  "training membership export": {
+   "bytes": 433552003,
+   "files": 1,
+   "sole_copy_is_local_disk": true,
+   "tracked_in_git": false
+  }
+ },
+ "inventory": "seq2lead-closeout-inventory-v1",
+ "never_delete": [
+  "raw source archives",
+  "database volumes",
+  "feature caches and extensions",
+  "model checkpoints",
+  "saved predictions",
+  "training membership exports",
+  "docking runs, receptors and poses"
+ ],
+ "recorded_at": "2026-10-06T03:21:23.716233+00:00",
+ "repository": {
+  "commit": "4a64d900f48b1bbf10e3f54845b6a31ea1d60d3c",
+  "tag": "m11h-closeout",
+  "tracked_files": 336,
+  "url": "https://github.com/rinatrizvanov/seq2lead",
+  "visibility": "PRIVATE"
+ },
+ "retention_rule": "A wrapper may be deleted only when every one of its unique members is preserved in Git or an independent backup. Because this repository has a single initial commit, the PRE-correction revisions of reports, manifests and contracts exist only inside these wrappers, so 15 of 17 are not yet safely deletable.",
+ "review_zips": {
+  "entries": [
+   {
+    "also_on_disk": 53,
+    "examples": [
+     "docs/M11.md",
+     "src/seq2lead/cli.py",
+     "src/seq2lead/curate/pipeline.py",
+     "src/seq2lead/ingest/auxiliary.py",
+     "src/seq2lead/ingest/bindingdb.py"
+    ],
+    "mb": 1.2,
+    "members": 230,
+    "only_here": 9,
+    "only_here_scientific": 7,
+    "sha256": "280475deea30109b109ea537fc183db2657328603d314d1a0fd18702843388ce",
+    "unique": 62,
+    "zip": "seq2lead-m10-review-v3.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [
+     "configs/manifests/m11_archive_inventory.json",
+     "docs/M11.md",
+     "src/seq2lead/asof/__init__.py",
+     "src/seq2lead/asof/evaluation.py",
+     "src/seq2lead/asof/matching.py"
+    ],
+    "mb": 1.0,
+    "members": 184,
+    "only_here": 14,
+    "only_here_scientific": 12,
+    "sha256": "a0bd6a6fb29959208173531c771d936ab6c09d86abd3c80896c405d441b2d1f3",
+    "unique": 14,
+    "zip": "seq2lead-m11b-review-v3.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [
+     "docs/M11.md",
+     "src/seq2lead/cli.py"
+    ],
+    "mb": 1.0,
+    "members": 196,
+    "only_here": 4,
+    "only_here_scientific": 2,
+    "sha256": "8ab8260e85b592ef8d82bcc0b0702cd75e61eca69e94d62c6c45def4e6f91cde",
+    "unique": 4,
+    "zip": "seq2lead-m11c-ingest-review-v1.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [
+     "configs/manifests/m11d_matching_202601_202609.json",
+     "docs/M11.md",
+     "reports/m11d_matching.md",
+     "reports/results/m11d_examples.json",
+     "src/seq2lead/asof/sharded.py"
+    ],
+    "mb": 1.1,
+    "members": 206,
+    "only_here": 10,
+    "only_here_scientific": 8,
+    "sha256": "bcf6a592263437a6be57d42c5f698ede8e2fbad8b192bf5c98fe76a4822ab336",
+    "unique": 10,
+    "zip": "seq2lead-m11d-matching-review-v1.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [
+     "configs/manifests/m11d_matching_202601_202609.json",
+     "docs/M11.md",
+     "reports/m11d_matching.md",
+     "src/seq2lead/asof/sharded.py",
+     "src/seq2lead/cli.py"
+    ],
+    "mb": 1.1,
+    "members": 208,
+    "only_here": 10,
+    "only_here_scientific": 8,
+    "sha256": "fbc97ea5ee8609b242b1ecf0c86ea6584aa612101733205b17724c6fd28f991f",
+    "unique": 10,
+    "zip": "seq2lead-m11d-matching-review-v2.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [
+     "configs/m11f_evaluation_contract.json",
+     "docs/M11.md",
+     "tests/test_m11e_record.py"
+    ],
+    "mb": 1.2,
+    "members": 220,
+    "only_here": 5,
+    "only_here_scientific": 3,
+    "sha256": "ae0f8c88e4031370b98a54c424672edd20b5fe99cb1c82c6f16338bd43012cec",
+    "unique": 5,
+    "zip": "seq2lead-m11e-closeout-review-v1.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [
+     "configs/manifests/m11e_ki_aggregation.json",
+     "docs/M11.md",
+     "reports/m11e_ki_aggregation.md",
+     "reports/results/m11e_examples.json",
+     "reports/results/m11e_ki_aggregation_summary.json"
+    ],
+    "mb": 1.1,
+    "members": 216,
+    "only_here": 10,
+    "only_here_scientific": 8,
+    "sha256": "a5a2337e3ff32802409c6a451d1cd533b12c145762abf17c5183a1667fa3353b",
+    "unique": 10,
+    "zip": "seq2lead-m11e-ki-aggregation-review-v1.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [
+     "configs/manifests/m11e_ki_aggregation.json",
+     "docs/M11.md",
+     "reports/m11e_ki_aggregation.md",
+     "reports/results/m11e_audit_reconstruction.json",
+     "reports/results/m11e_ki_aggregation_summary.json"
+    ],
+    "mb": 1.1,
+    "members": 218,
+    "only_here": 10,
+    "only_here_scientific": 8,
+    "sha256": "f5a64cd53d919257cb373a31be79803da62bf9699948120bc7d7a167fd72e588",
+    "unique": 10,
+    "zip": "seq2lead-m11e-ki-aggregation-review-v2.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [
+     "configs/m11f_evaluation_contract.json",
+     "configs/manifests/m11f_preflight.json",
+     "docs/M11.md",
+     "reports/m11f_preflight.md",
+     "reports/results/m11f_cohort_preflight.json"
+    ],
+    "mb": 1.2,
+    "members": 228,
+    "only_here": 12,
+    "only_here_scientific": 10,
+    "sha256": "53dd0c8c0ee8beac3971e8dd94899243287ab1721214503214e486c0a5e0a3c0",
+    "unique": 12,
+    "zip": "seq2lead-m11f-preflight-review-v1.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [
+     "configs/m11f_evaluation_contract.json",
+     "configs/manifests/m11f_preflight.json",
+     "docs/M11.md",
+     "reports/m11f_preflight.md",
+     "src/seq2lead/asof/datasets.py"
+    ],
+    "mb": 1.2,
+    "members": 232,
+    "only_here": 10,
+    "only_here_scientific": 8,
+    "sha256": "780c0dfd21f7cdfdef6d43f74c96b0808fdc558628493e25baec2612aa18ba45",
+    "unique": 10,
+    "zip": "seq2lead-m11f-preflight-review-v2.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [],
+    "mb": 5.9,
+    "members": 274,
+    "only_here": 2,
+    "only_here_scientific": 0,
+    "sha256": "08aa226ef33703d2c2346d702f84b2ccd64523b2ce5f520b69dd6a4e5611d1aa",
+    "unique": 2,
+    "zip": "seq2lead-m11g-preflight-review-v2.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [
+     "configs/m11f_evaluation_contract.json",
+     "configs/manifests/m11g_preflight.json",
+     "data/asof/m11g/cohort-preflight.json",
+     "data/asof/m11g/feature-binding.json",
+     "data/asof/m11g/feature-coverage.json"
+    ],
+    "mb": 5.7,
+    "members": 272,
+    "only_here": 17,
+    "only_here_scientific": 15,
+    "sha256": "94e860cbcdf4a439c95a8e4909f5306614a891c403ba47f7809b02f57f159979",
+    "unique": 17,
+    "zip": "seq2lead-m11g-preflight-review.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [
+     "configs/manifests/m11h_fit.json",
+     "data/asof/m11h/closeout-changes.json",
+     "data/asof/m11h/run-20261005T134842Z/verification.json",
+     "reports/m11h_results.md",
+     "scripts/asof/README.md"
+    ],
+    "mb": 9.6,
+    "members": 303,
+    "only_here": 11,
+    "only_here_scientific": 9,
+    "sha256": "ccf55c462befa523a1406498a1e8c5a30f6aa36121912c604e9f5c29fee0d1f2",
+    "unique": 11,
+    "zip": "seq2lead-m11h-closeout-review.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [],
+    "mb": 9.6,
+    "members": 307,
+    "only_here": 2,
+    "only_here_scientific": 0,
+    "sha256": "8768c266cbb1728c9540b1fbad168f0e21aeced3d5d2dfddaf24abebf8bda692",
+    "unique": 2,
+    "zip": "seq2lead-m11h-integrity-review.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [
+     "configs/manifests/m11h_fit.json",
+     "data/asof/m11h/run-20261005T134842Z/results.json",
+     "data/asof/m11h/run-20261005T134842Z/verification.json",
+     "reports/m11h_results.md"
+    ],
+    "mb": 9.5,
+    "members": 285,
+    "only_here": 6,
+    "only_here_scientific": 4,
+    "sha256": "c7263145310684a9d72cb99af746ae80159537d08d46b8287656dead13e0b2b7",
+    "unique": 6,
+    "zip": "seq2lead-m11h-results-review.zip"
+   },
+   {
+    "also_on_disk": 0,
+    "examples": [
+     "reports/results/artifacts.md",
+     "reports/results/index.json",
+     "src/seq2lead/cli.py",
+     "src/seq2lead/curate/pipeline.py",
+     "src/seq2lead/db/migrations.py"
+    ],
+    "mb": 0.7,
+    "members": 123,
+    "only_here": 14,
+    "only_here_scientific": 10,
+    "sha256": "e3587a416911fbc528b515758066ed692d84ac87ba3f239317fb8d6360e24023",
+    "unique": 14,
+    "zip": "seq2lead-m8-review-v4.zip"
+   },
+   {
+    "also_on_disk": 40,
+    "examples": [
+     "src/seq2lead/cli.py",
+     "src/seq2lead/curate/pipeline.py",
+     "src/seq2lead/ingest/auxiliary.py",
+     "src/seq2lead/ingest/bindingdb.py",
+     "src/seq2lead/ingest/sources.py"
+    ],
+    "mb": 0.8,
+    "members": 188,
+    "only_here": 9,
+    "only_here_scientific": 6,
+    "sha256": "5c1d63e1a60c5b27ed096ff2d5040cf4e2fa1521d650c29e391ace4bcd141ca5",
+    "unique": 49,
+    "zip": "seq2lead-m9-review-v4.zip"
+   }
+  ],
+  "method": "every member hashed and matched against the tracked tree and against local disk. `only_here` counts members whose bytes exist in no other checked location; `only_here_scientific` excludes README/pyproject/.gitignore/uv.lock/REVIEW churn.",
+  "total_count": 17,
+  "total_megabytes": 53.0
+ },
+ "statement": "A private GitHub copy is NOT a backup of the excluded scientific artifacts. Everything listed under `excluded_from_git` exists only on local disk and needs an independent backup."
+}
