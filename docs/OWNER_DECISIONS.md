@@ -72,6 +72,35 @@ artifacts, not restated from memory.
 
 ---
 
+## Short public-release checklist
+
+Run in order. Each line is checkable, and nothing here is "looks fine".
+
+1. **A1–A4 approved**, and the drafts renamed: `LICENSE.draft` → `LICENSE`,
+   `DATA_LICENSE.draft` → `DATA_LICENSE`. Then update `README.md`, which currently
+   states no licence is in effect.
+2. **Backup verified** (A9). `backup_evidence.py verify` must have written
+   `VERIFIED.json` on a destination that is a different physical disk. A private
+   repository is not a backup of anything in group C.
+3. **Inventory current.** `uv run python scripts/release/build_inventory.py --check`
+   exits 0. Renaming the licence files in step 1 changes two paths, so the
+   classification needs those keys updated and the inventory regenerated.
+4. **CI green on the exact commit being published**, not an earlier one. Check the
+   commit SHA in the run, not just the badge colour, and remember it covers 909 of
+   1,324 tests.
+5. **Decide A6** — `docs/CLAUDE_CLOSEOUT_PROMPT.md` is reachable at `4a64d90` and
+   publication exposes it.
+6. **No secrets.** `.env` is ignored and `.env.example` carries no values; confirm
+   before flipping visibility, because history is public too.
+7. **Flip visibility** (A10). Separately decide manuscript posting — it is a
+   different decision, and the manuscript must not be described as submitted or
+   peer-reviewed.
+8. **After publishing**, add the public URL to the manuscript and `CITATION.cff`,
+   and consider a tagged release plus a DOI. A DOI identifies a release; it does
+   not certify quality.
+
+Not part of release: anything in Part 2. Those are disclosed, not resolved.
+
 ## What this document replaces
 
 `docs/NEXT_STEPS.md` steps 2–5 described the closeout that has since been

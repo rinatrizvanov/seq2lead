@@ -639,11 +639,11 @@
    "sha256": "8d721218d986e355a483a2d7a80a3dc30b36163bbf9bf09ef61c73d7ee98831f"
   },
   {
-   "bytes": 9561,
+   "bytes": 11193,
    "category": "prose",
    "licence": "MIT",
    "path": "docs/OWNER_DECISIONS.md",
-   "sha256": "1cd9d8a0bbddac6290bf4546518cf4dd945ce676b2518b7c1e6dd797a088c8b4"
+   "sha256": "2159143616d52816ea82d6f4dedefd5d92ee1f02c1d0af36f04f4dcf6cd0e480"
   },
   {
    "bytes": 2370,
@@ -2490,7 +2490,7 @@
   }
  ],
  "files": 351,
- "generated_after_commit": "8a189315f9bc2d91cf67230f0fe3cfcda685c8e6",
+ "generated_after_commit": "2a7dde99a67ebd0f431b3a09c0a1b8b120ea2cb7",
  "generated_by": "scripts/release/build_inventory.py",
  "inventory": "seq2lead-complete-release-inventory-v2",
  "licence_basis": {
@@ -2519,7 +2519,7 @@
   ],
   "tracked_at_head": 353
  },
- "recorded_at": "2026-10-06T09:19:24.253684+00:00",
+ "recorded_at": "2026-10-06T09:21:09.309670+00:00",
  "release_option": "A - complete benchmark, pending owner approval. Repository remains PRIVATE.",
  "scientific_bytes_preserved": true,
  "self_excluded": {
@@ -2529,5 +2529,5 @@
   ],
   "why": "Neither file can record its own digest: writing the digest changes the bytes being described. Verify both by the commit they are attached to."
  },
- "total_bytes": 36598247
+ "total_bytes": 36599879
 }
