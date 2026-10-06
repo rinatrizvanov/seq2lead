@@ -1,0 +1,74 @@
+{
+  "inputs": {
+    "predictions.npz": "9c3f7c85deafbe1aa87fa01c96add3821c44b1e2ffdefb8e6c030859b2df0503",
+    "evaluation-pairs.jsonl": "c21ee0ab7bffe00985919e4d15394fdaa1ed189110680dae4ad09a73c6a5d8ee",
+    "results.json": "0d380b37f1f91782ba192be12c8d54cb4d7270505bb685a51aedf666a866ee48"
+  },
+  "notes": [
+    "Schematics are original explanatory diagrams, not molecular measurements.",
+    "Prediction plots reproduce saved scores without fitting or selection.",
+    "Seed points and ranges are not confidence intervals.",
+    "Per-target scatter is descriptive and does not test significance or equivalence."
+  ],
+  "figure_3_family_metrics": {
+    "Target mean": {
+      "seed_values": [
+        0.5
+      ],
+      "mean": 0.5
+    },
+    "Ligand LightGBM": {
+      "seed_values": [
+        0.6940964290200844,
+        0.6940957717855128,
+        0.6940964290200844,
+        0.6940957717855128,
+        0.6940964290200844
+      ],
+      "mean": 0.6940961661262557
+    },
+    "Protein LightGBM": {
+      "seed_values": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "mean": 0.5
+    },
+    "Target-conditioned 1-NN": {
+      "seed_values": [
+        0.6981506554240976
+      ],
+      "mean": 0.6981506554240976
+    },
+    "Concat MLP": {
+      "seed_values": [
+        0.7813179346290768,
+        0.7928160373556116,
+        0.7888596709011676,
+        0.7883753521121921,
+        0.792996511510236
+      ],
+      "mean": 0.7888731013016568
+    },
+    "Dual encoder": {
+      "seed_values": [
+        0.7836971659934154,
+        0.7700996943007975,
+        0.788875748486396,
+        0.7764578777675692,
+        0.787014787440891
+      ],
+      "mean": 0.7812290547978138
+    }
+  },
+  "figure_4": {
+    "rankable_targets": 123,
+    "mean_concat": 0.7888731013016567,
+    "mean_dual": 0.7812290547978139,
+    "independent_auroc": "Mann\u2013Whitney rank-sum with half credit for ties"
+  },
+  "figure_5": "Numbers copied from the accepted docking report; no pose or docking score recomputed here."
+}

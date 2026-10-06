@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="572.4pt" height="297.144pt" viewBox="0 0 572.4 297.144" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-05T14:12:23.097687</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 297.144 
+L 572.4 297.144 
+L 572.4 -0 
+L 0 -0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 22.824 98.243568 
+L 164.556 98.243568 
+Q 175.716 98.243568 175.716 92.588688 
+L 175.716 32.081472 
+Q 175.716 26.426592 164.556 26.426592 
+L 22.824 26.426592 
+Q 11.664 26.426592 11.664 32.081472 
+L 11.664 92.588688 
+Q 11.664 98.243568 22.824 98.243568 
+z
+" clip-path="url(#p04212ae333)" style="fill: #eaf0f5; stroke: #647585; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 22.824 216.996048 
+L 164.556 216.996048 
+Q 175.716 216.996048 175.716 211.341168 
+L 175.716 150.833952 
+Q 175.716 145.179072 164.556 145.179072 
+L 22.824 145.179072 
+Q 11.664 145.179072 11.664 150.833952 
+L 11.664 211.341168 
+Q 11.664 216.996048 22.824 216.996048 
+z
+" clip-path="url(#p04212ae333)" style="fill: #eaf0f5; stroke: #647585; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 223.704 98.243568 
+L 354.276 98.243568 
+Q 365.436 98.243568 365.436 92.588688 
+L 365.436 32.081472 
+Q 365.436 26.426592 354.276 26.426592 
+L 223.704 26.426592 
+Q 212.544 26.426592 212.544 32.081472 
+L 212.544 92.588688 
+Q 212.544 98.243568 223.704 98.243568 
+z
+" clip-path="url(#p04212ae333)" style="fill: #e7f2ed; stroke: #647585; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 223.704 216.996048 
+L 354.276 216.996048 
+Q 365.436 216.996048 365.436 211.341168 
+L 365.436 150.833952 
+Q 365.436 145.179072 354.276 145.179072 
+L 223.704 145.179072 
+Q 212.544 145.179072 212.544 150.833952 
+L 212.544 211.341168 
+Q 212.544 216.996048 223.704 216.996048 
+z
+" clip-path="url(#p04212ae333)" style="fill: #e7f2ed; stroke: #647585; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 171.021566 62.33508 
+Q 194.131628 62.33508 215.732344 62.33508 
+" clip-path="url(#p04212ae333)" style="fill: none; stroke: #526575; stroke-width: 1.35; stroke-linecap: round"/>
+    <path d="M 210.532344 59.73508 
+L 215.732344 62.33508 
+L 210.532344 64.93508 
+z
+" clip-path="url(#p04212ae333)" style="fill: #526575; stroke: #526575; stroke-width: 1.35; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 171.021566 181.08756 
+Q 194.131628 181.08756 215.732344 181.08756 
+" clip-path="url(#p04212ae333)" style="fill: none; stroke: #526575; stroke-width: 1.35; stroke-linecap: round"/>
+    <path d="M 210.532344 178.48756 
+L 215.732344 181.08756 
+L 210.532344 183.68756 
+z
+" clip-path="url(#p04212ae333)" style="fill: #526575; stroke: #526575; stroke-width: 1.35; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 419.004 157.619808 
+L 549.576 157.619808 
+Q 560.736 157.619808 560.736 151.964928 
+L 560.736 91.457712 
+Q 560.736 85.802832 549.576 85.802832 
+L 419.004 85.802832 
+Q 407.844 85.802832 407.844 91.457712 
+L 407.844 151.964928 
+Q 407.844 157.619808 419.004 157.619808 
+z
+" clip-path="url(#p04212ae333)" style="fill: #f8ebdf; stroke: #647585; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 360.612828 63.028566 
+Q 395.008297 75.764789 427.988341 87.976899 
+" clip-path="url(#p04212ae333)" style="fill: none; stroke: #526575; stroke-width: 1.35; stroke-linecap: round"/>
+    <path d="M 424.014756 83.733005 
+L 427.988341 87.976899 
+L 422.209076 88.60943 
+z
+" clip-path="url(#p04212ae333)" style="fill: #526575; stroke: #526575; stroke-width: 1.35; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 360.612828 180.394074 
+Q 395.008297 167.657851 427.988341 155.445741 
+" clip-path="url(#p04212ae333)" style="fill: none; stroke: #526575; stroke-width: 1.35; stroke-linecap: round"/>
+    <path d="M 422.209076 154.81321 
+L 427.988341 155.445741 
+L 424.014756 159.689635 
+z
+" clip-path="url(#p04212ae333)" style="fill: #526575; stroke: #526575; stroke-width: 1.35; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans'" transform="translate(39.675703 53.474721)">Compound structure</text>
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans'" transform="translate(28.938633 65.232424)">Chiral ECFP4 · 2,048 bits</text>
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans'" transform="translate(39.919336 76.990127)">Fixed representation</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans'" transform="translate(48.320977 172.227201)">Protein sequence</text>
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans'" transform="translate(19.623164 183.984904)">Frozen ESM-2 · 1,280 values</text>
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans'" transform="translate(42.250664 195.742607)">Mean over residues</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(241.694297 53.052799)">Compound tower</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(237.527188 65.370392)">Learned projection</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(235.459531 77.687986)">512-dimensional zc</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(252.300703 171.805279)">Protein tower</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(225.455547 184.122872)">A-train fitted transform</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(234.992031 196.440466)">512-dimensional zp</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(433.576562 112.165039)">Affine cosine head</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(423.387812 125.010632)">ŷ = a · cos(zc, zp) + b</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(448.098281 137.328226)">Predicted pKi</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle" x="286.2" y="258.84216" transform="rotate(-0 286.2 258.84216)">Fit exact-Ki MSE on A-train → select by A-validation RMSE → score B once</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="286.2" y="280.04796" transform="rotate(-0 286.2 280.04796)">Independent towers permit precomputed library projections; ranking uses the affine score.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p04212ae333">
+   <rect x="7.2" y="7.2" width="558" height="282.744"/>
+  </clipPath>
+ </defs>
+</svg>

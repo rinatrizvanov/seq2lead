@@ -1,0 +1,125 @@
+{
+  "chosen": {
+    "chemistry_disjoint-v3": 512,
+    "cold_protein-v3": 512,
+    "random_pair-v3": 512,
+    "temporal_proxy-v4": 512
+  },
+  "config_sha256": "58662cd2033d81c73e0b3b90fdea0861d7d9f19fe76bff49cbb7ee37958b951f",
+  "declared_projection_dims": [
+    256,
+    512
+  ],
+  "declared_splits": [
+    "chemistry_disjoint-v3",
+    "cold_protein-v3",
+    "random_pair-v3",
+    "temporal_proxy-v4"
+  ],
+  "direction": "minimise",
+  "entries": [
+    {
+      "best_epoch": 11,
+      "chosen": false,
+      "fallback_from": null,
+      "n_validation_pairs": 40905,
+      "n_validation_targets": 2140,
+      "projection_dim": 256,
+      "seconds": 57.082610209006816,
+      "split": "random_pair-v3",
+      "sufficient_coverage": true,
+      "validation_rmse": 0.771932351002867
+    },
+    {
+      "best_epoch": 19,
+      "chosen": true,
+      "fallback_from": null,
+      "n_validation_pairs": 40905,
+      "n_validation_targets": 2140,
+      "projection_dim": 512,
+      "seconds": 100.66942304198164,
+      "split": "random_pair-v3",
+      "sufficient_coverage": true,
+      "validation_rmse": 0.7455026870096217
+    },
+    {
+      "best_epoch": 1,
+      "chosen": false,
+      "fallback_from": null,
+      "n_validation_pairs": 40892,
+      "n_validation_targets": 1007,
+      "projection_dim": 256,
+      "seconds": 22.20705112500582,
+      "split": "cold_protein-v3",
+      "sufficient_coverage": true,
+      "validation_rmse": 1.5858715262749452
+    },
+    {
+      "best_epoch": 1,
+      "chosen": true,
+      "fallback_from": null,
+      "n_validation_pairs": 40892,
+      "n_validation_targets": 1007,
+      "projection_dim": 512,
+      "seconds": 30.87409391597612,
+      "split": "cold_protein-v3",
+      "sufficient_coverage": true,
+      "validation_rmse": 1.553582276594823
+    },
+    {
+      "best_epoch": 6,
+      "chosen": false,
+      "fallback_from": null,
+      "n_validation_pairs": 41448,
+      "n_validation_targets": 1979,
+      "projection_dim": 256,
+      "seconds": 40.387782332953066,
+      "split": "chemistry_disjoint-v3",
+      "sufficient_coverage": true,
+      "validation_rmse": 0.956898666891472
+    },
+    {
+      "best_epoch": 6,
+      "chosen": true,
+      "fallback_from": null,
+      "n_validation_pairs": 41448,
+      "n_validation_targets": 1979,
+      "projection_dim": 512,
+      "seconds": 56.41172012500465,
+      "split": "chemistry_disjoint-v3",
+      "sufficient_coverage": true,
+      "validation_rmse": 0.9372912523616745
+    },
+    {
+      "best_epoch": 2,
+      "chosen": false,
+      "fallback_from": null,
+      "n_validation_pairs": 36028,
+      "n_validation_targets": 752,
+      "projection_dim": 256,
+      "seconds": 29.466605708003044,
+      "split": "temporal_proxy-v4",
+      "sufficient_coverage": true,
+      "validation_rmse": 1.1242695311771183
+    },
+    {
+      "best_epoch": 2,
+      "chosen": true,
+      "fallback_from": null,
+      "n_validation_pairs": 36028,
+      "n_validation_targets": 752,
+      "projection_dim": 512,
+      "seconds": 42.4565737079829,
+      "split": "temporal_proxy-v4",
+      "sufficient_coverage": true,
+      "validation_rmse": 1.11163663019892
+    }
+  ],
+  "experiment": "m9-dual-encoder-v1",
+  "frozen_at": "2026-09-30T16:47:21+00:00",
+  "metric": "validation_rmse",
+  "min_validation_pairs": 1000,
+  "min_validation_targets": 20,
+  "note": "Selected on validation RMSE only. Frozen before any test partition was scored; the test pass reads this file and cannot change it.  Binding fields (config_sha256, declared_splits, declared_projection_dims) were RECOVERED RETROSPECTIVELY: the selection predates them. The splits and dimensions are read from this record's own `entries`, which list every (split, projection_dim) actually fitted; the config digest is that of configs/experiments/m9-dual-encoder-v1.yaml, confirmed to declare exactly those splits and dimensions. No model was refitted.",
+  "seed": 20260930
+}

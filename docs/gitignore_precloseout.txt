@@ -1,0 +1,37 @@
+# Reference material — copyrighted papers and private design docs, not redistributable
+literature/
+*.docx
+
+# Data: never committed. All of it is rebuildable from a pinned source_release.
+data/
+caches/
+*.zip
+*.sdf
+
+# Bulk tabular/sequence dumps, except small fixtures committed on purpose.
+*.tsv
+*.fasta
+!tests/fixtures/**
+
+# Generated artifacts. The markdown reports ARE the scientific record and are
+# tracked; anything bulkier written beside them is not.
+reports/*
+!reports/.gitkeep
+!reports/*.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Env / OS
+.env
+.DS_Store
+data/predictions/
+data/m9/
+data/predictions_m9/

@@ -1,0 +1,41 @@
+{
+  "description": "Effect of includeChirality=True on the ECFP4 cache: how many fingerprints change, and how many distinct compounds stop sharing a vector.",
+  "failures": [],
+  "measurements": [
+    {
+      "metric": "compounds_in_both",
+      "value": 1423920
+    },
+    {
+      "metric": "fingerprint_changed",
+      "value": 563538
+    },
+    {
+      "metric": "achiral_colliding_compounds",
+      "value": 181182
+    },
+    {
+      "metric": "achiral_collision_groups",
+      "value": 77352
+    },
+    {
+      "metric": "chiral_colliding_compounds",
+      "value": 36259
+    },
+    {
+      "metric": "chiral_collision_groups",
+      "value": 15295
+    }
+  ],
+  "metadata": {
+    "achiral_cache": "ecfp4-compound-1c19f7836e5e",
+    "chiral_cache": "ecfp4-compound-42351e003acb",
+    "note": "Collisions are counted over compounds present in both caches. A hashed 2,048-bit fingerprint collides regardless of stereochemistry, so the residual count is expected to be non-zero.",
+    "run_at": "2026-09-30T10:38:33+00:00"
+  },
+  "name": "chirality_impact",
+  "selection": {
+    "n": 1423920,
+    "rule": "compounds present in both caches"
+  }
+}

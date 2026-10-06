@@ -1,0 +1,174 @@
+{
+  "detail_files": {
+    "additions": {
+      "bytes": 102156861,
+      "records": 238367,
+      "sha256": "2fc6bfae5c157cebba638fdbcb1adb1cf2fbead6c8b4cd43b23f3ff4e2452583"
+    },
+    "ambiguous_slots": {
+      "bytes": 1110,
+      "records": 7,
+      "sha256": "9e744975d46de52e8d9afcd58776d4595202d9e894ffc2e5c872bf013149d293"
+    },
+    "correction_candidates": {
+      "bytes": 40551,
+      "records": 101,
+      "sha256": "58988361e71833fcd666164eb6f05aa126afc04a38dd82ef5ff9b9fae731578e"
+    },
+    "identifier_conflicts": {
+      "bytes": 486,
+      "records": 1,
+      "sha256": "4ec402817efca9e4a32931ef0eb0c026ef56281b9b5298357ca7c131d0f18a38"
+    },
+    "new_slots": {
+      "bytes": 33965483,
+      "records": 212307,
+      "sha256": "3f588ca92f42ba1af745fa2d352a5c909b1581de463cc0e895d1cd37587103c9"
+    },
+    "removals": {
+      "bytes": 61112872,
+      "records": 141240,
+      "sha256": "b9f558e43ff0fd45564af441dabb9a81a22ff543e1ee35e39fe3c05b214f950b"
+    },
+    "removed_slots": {
+      "bytes": 19695427,
+      "records": 120054,
+      "sha256": "3206f20e6bcf0546b447408c1ad4b0549c6897cfe4e01484303cd05cf65e13f0"
+    },
+    "unresolved_additions": {
+      "bytes": 102113694,
+      "records": 238266,
+      "sha256": "5deabb5b1dbeeaac2358c288bedda34fcd6b097cad8c26a4624e1ac3b7ad9d04"
+    },
+    "unresolved_removals": {
+      "bytes": 61069218,
+      "records": 141139,
+      "sha256": "2ab1235f6097d938829d7d40781d65f55deb2208717731fc5f07013201cd9e8e"
+    }
+  },
+  "inputs": {
+    "202601": {
+      "path": "data/asof/observations-202601.jsonl.gz",
+      "rows": 3136836,
+      "sha256": "0b67b64bef49fb7cdb765a929e51cd03d696696333bd9a993150c2d48aa55e80"
+    },
+    "202609": {
+      "path": "data/asof/observations-202609.jsonl.gz",
+      "rows": 3233963,
+      "sha256": "2b2b4ad8b920241f5a3852707f99fcfa8353744fd31bd03c86adaf8c66d02ac9"
+    }
+  },
+  "machine": {
+    "physical_memory_bytes": 17179869184,
+    "physical_memory_gib": 16
+  },
+  "pilot": {
+    "bytes_per_observation_at_peak": 4674,
+    "observations": 200060,
+    "peak_rss_gb": 0.89,
+    "seconds": 2.9,
+    "shard": 26
+  },
+  "recorded_at": "2026-10-03T02:32:45.185327+00:00",
+  "result": {
+    "a_observations_in": 3136836,
+    "added_observations": 238367,
+    "ambiguous_slots": 7,
+    "b_observations_in": 3233963,
+    "by_measurement_type": {
+      "EC50": {
+        "a_observations": 280436,
+        "additions": 12686,
+        "b_observations": 270299,
+        "removals": 22823,
+        "unchanged": 257613
+      },
+      "IC50": {
+        "a_observations": 2117146,
+        "additions": 180423,
+        "b_observations": 2212313,
+        "removals": 85256,
+        "unchanged": 2031890
+      },
+      "KD": {
+        "a_observations": 124499,
+        "additions": 11305,
+        "b_observations": 131420,
+        "removals": 4384,
+        "unchanged": 120115
+      },
+      "KI": {
+        "a_observations": 614755,
+        "additions": 33953,
+        "b_observations": 619931,
+        "removals": 28777,
+        "unchanged": 585978
+      }
+    },
+    "correction_candidates": 101,
+    "correction_candidates_by_link": {
+      "entry_doi": 101
+    },
+    "identifier_agreement": {
+      "entry_doi": {
+        "agreed": 101,
+        "agreement_rate_within_both_present": 0.990196,
+        "both_present": 102,
+        "disagreed": 1,
+        "disagreed_but_surrogate_agreed": 0
+      },
+      "many_to_many_slots": 7,
+      "one_to_one_slots": 102,
+      "reactant_set_id": {
+        "agreed": 0,
+        "agreement_rate_when_consulted": null,
+        "consulted_because_entry_doi_could_not_decide": 0,
+        "did_not_agree_or_absent": 0
+      }
+    },
+    "identifier_conflicts": 1,
+    "new_slots": 212307,
+    "normalisation_version": "m11-normalise-v2",
+    "peak_rss_bytes": 962478080,
+    "peak_rss_gb": 0.9,
+    "per_shard_peak_observations": 200060,
+    "reconciliation": {
+      "a_equals_unchanged_plus_removals": 3136836,
+      "a_observations_in": 3136836,
+      "b_equals_unchanged_plus_additions": 3233963,
+      "b_observations_in": 3233963,
+      "reconciles": true
+    },
+    "removed_observations": 141240,
+    "removed_slots": 120054,
+    "seconds": 100.8,
+    "shard_count": 32,
+    "shard_hash": "blake2b-64",
+    "shard_version": "m11d/shard/v1",
+    "shards_processed": 32,
+    "unchanged_observations": 2995596,
+    "unresolved_additions": 238266,
+    "unresolved_removals": 141139
+  },
+  "run": "m11d-sharded-matching-v1",
+  "scope": "Descriptive snapshot matching only. No endpoint build, no Ki aggregation, no pair-eligibility calculation, no features, no fitting, no evaluation score, no docking. The confirmatory freeze is not signed and the study remains exploratory.",
+  "shard_configuration": {
+    "budget_observations_per_pair": 400000,
+    "pair_max": 200060,
+    "pair_min": 197370,
+    "partition_peak_rss_bytes": 56016896,
+    "partition_seconds": {
+      "a": 14.2,
+      "b": 15.1
+    },
+    "shard_count": 32,
+    "shard_hash": "blake2b-64",
+    "within_budget": true
+  },
+  "versions": {
+    "normalisation_version": "m11-normalise-v2",
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "python": "3.11.15",
+    "shard_version": "m11d/shard/v1"
+  }
+}

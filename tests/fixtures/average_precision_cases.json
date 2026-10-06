@@ -1,0 +1,93 @@
+{
+  "description": "Discriminating cases for threshold-block average precision. `superseded` is the M8 v1 value, retained so the regression stays visible. `expected` matches sklearn.metrics.average_precision_score.",
+  "cases": [
+    {
+      "name": "partially tied block: the case that broke M8 v1",
+      "scores": [
+        2,
+        1,
+        1
+      ],
+      "positive": [
+        true,
+        true,
+        false
+      ],
+      "expected": 0.8333333333333333,
+      "superseded": 0.8541666666666666,
+      "why": "Admitting the tied block whole gives precision 2/3 at full recall: 0.5*1 + 0.5*(2/3). Averaging over orderings inside the block credits the positive for sometimes landing first."
+    },
+    {
+      "name": "the superseded value errs LOW here",
+      "scores": [
+        1,
+        1,
+        2
+      ],
+      "positive": [
+        true,
+        true,
+        false
+      ],
+      "expected": 0.6666666666666666,
+      "superseded": 0.5833333333333333,
+      "why": "A tied block at the bottom holding both positives. The v1 error is not one-directional: here it returns a value 0.083 BELOW the standard, which is why it is a different quantity rather than a bounded approximation. Found by exhaustive search over all score/label assignments of length <= 6."
+    },
+    {
+      "name": "fully tied: AP equals prevalence",
+      "scores": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "expected": 0.5,
+      "superseded": 0.5,
+      "why": "One threshold admits everything; precision is the prevalence and recall is 1. Both implementations agree here, which is why fully-tied baselines were unaffected by the correction."
+    },
+    {
+      "name": "untied, interleaved",
+      "scores": [
+        5,
+        4,
+        3,
+        2
+      ],
+      "positive": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "expected": 0.8333333333333333,
+      "superseded": 0.8333333333333333,
+      "why": "With no ties every block has size one and the two definitions coincide."
+    },
+    {
+      "name": "mixed tied block",
+      "scores": [
+        3,
+        2,
+        2,
+        2,
+        1
+      ],
+      "positive": [
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "expected": 0.7,
+      "superseded": 0.7246913580246914,
+      "why": "A three-row block holding one positive."
+    }
+  ]
+}

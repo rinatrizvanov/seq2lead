@@ -1,0 +1,1023 @@
+[
+  {
+    "best_epoch": null,
+    "best_validation_rmse": null,
+    "checkpoint": null,
+    "epochs_run": null,
+    "failure": null,
+    "history": [],
+    "model": "B0-target-mean",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "curve_recorded": "none; this model has no epochs",
+      "fallback": "global training mean for unseen targets",
+      "global_mean_pki": 7.0536,
+      "targets_seen": 3466
+    },
+    "seconds": 0.04649654193781316,
+    "seed": null,
+    "selected_on": "n/a",
+    "stopped_early": null
+  },
+  {
+    "best_epoch": null,
+    "best_validation_rmse": null,
+    "checkpoint": null,
+    "epochs_run": null,
+    "failure": null,
+    "history": [],
+    "model": "B1-ligand-ecfp4-lgbm",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_iteration": 400,
+      "curve_recorded": "none; this model has no epochs",
+      "n_features": 2048,
+      "round_cap": 400,
+      "round_cap_was_binding": true,
+      "selected_on": "validation RMSE, early stopping 50 rounds",
+      "selection_note": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation."
+    },
+    "seconds": 8.471193249919452,
+    "seed": 20260930,
+    "selected_on": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation.",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": null,
+    "best_validation_rmse": null,
+    "checkpoint": null,
+    "epochs_run": null,
+    "failure": null,
+    "history": [],
+    "model": "B1-ligand-ecfp4-lgbm",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_iteration": 400,
+      "curve_recorded": "none; this model has no epochs",
+      "n_features": 2048,
+      "round_cap": 400,
+      "round_cap_was_binding": true,
+      "selected_on": "validation RMSE, early stopping 50 rounds",
+      "selection_note": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation."
+    },
+    "seconds": 7.487007541931234,
+    "seed": 20260931,
+    "selected_on": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation.",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": null,
+    "best_validation_rmse": null,
+    "checkpoint": null,
+    "epochs_run": null,
+    "failure": null,
+    "history": [],
+    "model": "B1-ligand-ecfp4-lgbm",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_iteration": 400,
+      "curve_recorded": "none; this model has no epochs",
+      "n_features": 2048,
+      "round_cap": 400,
+      "round_cap_was_binding": true,
+      "selected_on": "validation RMSE, early stopping 50 rounds",
+      "selection_note": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation."
+    },
+    "seconds": 7.693514292011969,
+    "seed": 20260932,
+    "selected_on": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation.",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": null,
+    "best_validation_rmse": null,
+    "checkpoint": null,
+    "epochs_run": null,
+    "failure": null,
+    "history": [],
+    "model": "B1-ligand-ecfp4-lgbm",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_iteration": 400,
+      "curve_recorded": "none; this model has no epochs",
+      "n_features": 2048,
+      "round_cap": 400,
+      "round_cap_was_binding": true,
+      "selected_on": "validation RMSE, early stopping 50 rounds",
+      "selection_note": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation."
+    },
+    "seconds": 7.137690208968706,
+    "seed": 20260933,
+    "selected_on": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation.",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": null,
+    "best_validation_rmse": null,
+    "checkpoint": null,
+    "epochs_run": null,
+    "failure": null,
+    "history": [],
+    "model": "B1-ligand-ecfp4-lgbm",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_iteration": 400,
+      "curve_recorded": "none; this model has no epochs",
+      "n_features": 2048,
+      "round_cap": 400,
+      "round_cap_was_binding": true,
+      "selected_on": "validation RMSE, early stopping 50 rounds",
+      "selection_note": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation."
+    },
+    "seconds": 7.333885542000644,
+    "seed": 20260934,
+    "selected_on": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation.",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": null,
+    "best_validation_rmse": null,
+    "checkpoint": null,
+    "epochs_run": null,
+    "failure": null,
+    "history": [],
+    "model": "B2-protein-esm2-lgbm",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_iteration": 400,
+      "curve_recorded": "none; this model has no epochs",
+      "n_features": 1280,
+      "round_cap": 400,
+      "round_cap_was_binding": true,
+      "selected_on": "validation RMSE, early stopping 50 rounds",
+      "selection_note": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation."
+    },
+    "seconds": 70.7753096249653,
+    "seed": 20260930,
+    "selected_on": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation.",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": null,
+    "best_validation_rmse": null,
+    "checkpoint": null,
+    "epochs_run": null,
+    "failure": null,
+    "history": [],
+    "model": "B2-protein-esm2-lgbm",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_iteration": 400,
+      "curve_recorded": "none; this model has no epochs",
+      "n_features": 1280,
+      "round_cap": 400,
+      "round_cap_was_binding": true,
+      "selected_on": "validation RMSE, early stopping 50 rounds",
+      "selection_note": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation."
+    },
+    "seconds": 69.7808908339357,
+    "seed": 20260931,
+    "selected_on": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation.",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": null,
+    "best_validation_rmse": null,
+    "checkpoint": null,
+    "epochs_run": null,
+    "failure": null,
+    "history": [],
+    "model": "B2-protein-esm2-lgbm",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_iteration": 400,
+      "curve_recorded": "none; this model has no epochs",
+      "n_features": 1280,
+      "round_cap": 400,
+      "round_cap_was_binding": true,
+      "selected_on": "validation RMSE, early stopping 50 rounds",
+      "selection_note": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation."
+    },
+    "seconds": 69.79008766706102,
+    "seed": 20260932,
+    "selected_on": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation.",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": null,
+    "best_validation_rmse": null,
+    "checkpoint": null,
+    "epochs_run": null,
+    "failure": null,
+    "history": [],
+    "model": "B2-protein-esm2-lgbm",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_iteration": 400,
+      "curve_recorded": "none; this model has no epochs",
+      "n_features": 1280,
+      "round_cap": 400,
+      "round_cap_was_binding": true,
+      "selected_on": "validation RMSE, early stopping 50 rounds",
+      "selection_note": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation."
+    },
+    "seconds": 70.18207491701469,
+    "seed": 20260933,
+    "selected_on": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation.",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": null,
+    "best_validation_rmse": null,
+    "checkpoint": null,
+    "epochs_run": null,
+    "failure": null,
+    "history": [],
+    "model": "B2-protein-esm2-lgbm",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_iteration": 400,
+      "curve_recorded": "none; this model has no epochs",
+      "n_features": 1280,
+      "round_cap": 400,
+      "round_cap_was_binding": true,
+      "selected_on": "validation RMSE, early stopping 50 rounds",
+      "selection_note": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation."
+    },
+    "seconds": 70.29293187498115,
+    "seed": 20260934,
+    "selected_on": "validation RMSE with 50-round early stopping was wired and did NOT trigger: validation RMSE was still improving at the 400-round cap, so the cap bound rather than validation.",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": null,
+    "best_validation_rmse": null,
+    "checkpoint": null,
+    "epochs_run": null,
+    "failure": null,
+    "history": [],
+    "model": "B3L-ligand-1nn",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "aggregation": "1-NN, the neighbour's training pKi",
+      "curve_recorded": "none; this model has no epochs",
+      "fallback": "global training mean when the target is unseen",
+      "neighbour": "highest ECFP4 Tanimoto among the target's training compounds",
+      "reference_cap": 4096,
+      "targets_sampled_at_cap": 8
+    },
+    "seconds": 0.031367874937132,
+    "seed": null,
+    "selected_on": "n/a",
+    "stopped_early": null
+  },
+  {
+    "best_epoch": 12,
+    "best_validation_rmse": 0.8077,
+    "checkpoint": null,
+    "epochs_run": 12,
+    "failure": null,
+    "history": [],
+    "model": "B4-concat-mlp",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_epoch": 12,
+      "best_validation_rmse": 0.8077,
+      "curve_recorded": "best epoch and best validation RMSE only; this model records no per-epoch curve",
+      "device": "mps",
+      "selected_on": "validation RMSE per epoch",
+      "standardisation": "protein block, fitted on training inputs only"
+    },
+    "seconds": 52.43362679204438,
+    "seed": 20260930,
+    "selected_on": "validation RMSE per epoch",
+    "stopped_early": null
+  },
+  {
+    "best_epoch": 11,
+    "best_validation_rmse": 0.827,
+    "checkpoint": null,
+    "epochs_run": 11,
+    "failure": null,
+    "history": [],
+    "model": "B4-concat-mlp",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_epoch": 11,
+      "best_validation_rmse": 0.827,
+      "curve_recorded": "best epoch and best validation RMSE only; this model records no per-epoch curve",
+      "device": "mps",
+      "selected_on": "validation RMSE per epoch",
+      "standardisation": "protein block, fitted on training inputs only"
+    },
+    "seconds": 50.52339079196099,
+    "seed": 20260931,
+    "selected_on": "validation RMSE per epoch",
+    "stopped_early": null
+  },
+  {
+    "best_epoch": 12,
+    "best_validation_rmse": 0.81,
+    "checkpoint": null,
+    "epochs_run": 12,
+    "failure": null,
+    "history": [],
+    "model": "B4-concat-mlp",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_epoch": 12,
+      "best_validation_rmse": 0.81,
+      "curve_recorded": "best epoch and best validation RMSE only; this model records no per-epoch curve",
+      "device": "mps",
+      "selected_on": "validation RMSE per epoch",
+      "standardisation": "protein block, fitted on training inputs only"
+    },
+    "seconds": 50.68021920893807,
+    "seed": 20260932,
+    "selected_on": "validation RMSE per epoch",
+    "stopped_early": null
+  },
+  {
+    "best_epoch": 11,
+    "best_validation_rmse": 0.8098,
+    "checkpoint": null,
+    "epochs_run": 11,
+    "failure": null,
+    "history": [],
+    "model": "B4-concat-mlp",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_epoch": 11,
+      "best_validation_rmse": 0.8098,
+      "curve_recorded": "best epoch and best validation RMSE only; this model records no per-epoch curve",
+      "device": "mps",
+      "selected_on": "validation RMSE per epoch",
+      "standardisation": "protein block, fitted on training inputs only"
+    },
+    "seconds": 50.875209584017284,
+    "seed": 20260933,
+    "selected_on": "validation RMSE per epoch",
+    "stopped_early": null
+  },
+  {
+    "best_epoch": 12,
+    "best_validation_rmse": 0.8095,
+    "checkpoint": null,
+    "epochs_run": 12,
+    "failure": null,
+    "history": [],
+    "model": "B4-concat-mlp",
+    "n_parameters": null,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "best_epoch": 12,
+      "best_validation_rmse": 0.8095,
+      "curve_recorded": "best epoch and best validation RMSE only; this model records no per-epoch curve",
+      "device": "mps",
+      "selected_on": "validation RMSE per epoch",
+      "standardisation": "protein block, fitted on training inputs only"
+    },
+    "seconds": 52.82556633395143,
+    "seed": 20260934,
+    "selected_on": "validation RMSE per epoch",
+    "stopped_early": null
+  },
+  {
+    "best_epoch": 17,
+    "best_validation_rmse": 0.7260452591928014,
+    "checkpoint": "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260930.pt",
+    "epochs_run": 20,
+    "failure": null,
+    "history": [
+      {
+        "epoch": 1,
+        "train_mse": 1.0248070879503721,
+        "validation_rmse": 0.8875855629567198
+      },
+      {
+        "epoch": 2,
+        "train_mse": 0.595910258961876,
+        "validation_rmse": 0.8036317367144902
+      },
+      {
+        "epoch": 3,
+        "train_mse": 0.4484812106842332,
+        "validation_rmse": 0.7772281991796417
+      },
+      {
+        "epoch": 4,
+        "train_mse": 0.3639761377684366,
+        "validation_rmse": 0.7593370823084081
+      },
+      {
+        "epoch": 5,
+        "train_mse": 0.3088471249492372,
+        "validation_rmse": 0.7519446951172819
+      },
+      {
+        "epoch": 6,
+        "train_mse": 0.2713716531477016,
+        "validation_rmse": 0.7442927514068879
+      },
+      {
+        "epoch": 7,
+        "train_mse": 0.24096338461631223,
+        "validation_rmse": 0.7432298684868801
+      },
+      {
+        "epoch": 8,
+        "train_mse": 0.21792175703890992,
+        "validation_rmse": 0.7364723388265226
+      },
+      {
+        "epoch": 9,
+        "train_mse": 0.1998636459259503,
+        "validation_rmse": 0.7345441295077909
+      },
+      {
+        "epoch": 10,
+        "train_mse": 0.1831620256377624,
+        "validation_rmse": 0.7313978020849955
+      },
+      {
+        "epoch": 11,
+        "train_mse": 0.16908517917277707,
+        "validation_rmse": 0.7365118200677582
+      },
+      {
+        "epoch": 12,
+        "train_mse": 0.157708018257827,
+        "validation_rmse": 0.7328247240096112
+      },
+      {
+        "epoch": 13,
+        "train_mse": 0.14774871804333212,
+        "validation_rmse": 0.7322388533590288
+      },
+      {
+        "epoch": 14,
+        "train_mse": 0.13823340310518004,
+        "validation_rmse": 0.7304292297320132
+      },
+      {
+        "epoch": 15,
+        "train_mse": 0.13046477893009858,
+        "validation_rmse": 0.7276337821994155
+      },
+      {
+        "epoch": 16,
+        "train_mse": 0.1229549840907018,
+        "validation_rmse": 0.7303112085056277
+      },
+      {
+        "epoch": 17,
+        "train_mse": 0.11595281247994552,
+        "validation_rmse": 0.7260452591928014
+      },
+      {
+        "epoch": 18,
+        "train_mse": 0.11010997928139599,
+        "validation_rmse": 0.7267011467602905
+      },
+      {
+        "epoch": 19,
+        "train_mse": 0.10486664773102158,
+        "validation_rmse": 0.7266161799018571
+      },
+      {
+        "epoch": 20,
+        "train_mse": 0.10070665527164592,
+        "validation_rmse": 0.7293272566862117
+      }
+    ],
+    "model": "dual-encoder",
+    "n_parameters": 2230274,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "config_digest": "805af5fd9275dde9fafb272a68a75b2610a2495d8e6860d2ab1a24c4d8f599fc",
+      "curve_recorded": "per-epoch validation RMSE",
+      "device": "mps"
+    },
+    "seconds": 124.6320228750119,
+    "seed": 20260930,
+    "selected_on": "A-validation RMSE per epoch",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": 17,
+    "best_validation_rmse": 0.7237773050009098,
+    "checkpoint": "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260931.pt",
+    "epochs_run": 20,
+    "failure": null,
+    "history": [
+      {
+        "epoch": 1,
+        "train_mse": 1.0243340662062927,
+        "validation_rmse": 0.8798715195676865
+      },
+      {
+        "epoch": 2,
+        "train_mse": 0.5996217092553744,
+        "validation_rmse": 0.8019104569184842
+      },
+      {
+        "epoch": 3,
+        "train_mse": 0.44808680277731266,
+        "validation_rmse": 0.7732994511501101
+      },
+      {
+        "epoch": 4,
+        "train_mse": 0.3625333069805761,
+        "validation_rmse": 0.7583872932978544
+      },
+      {
+        "epoch": 5,
+        "train_mse": 0.3070243921150903,
+        "validation_rmse": 0.7477609602460601
+      },
+      {
+        "epoch": 6,
+        "train_mse": 0.2674370416743147,
+        "validation_rmse": 0.7414632340366847
+      },
+      {
+        "epoch": 7,
+        "train_mse": 0.2383206537454582,
+        "validation_rmse": 0.745488142267762
+      },
+      {
+        "epoch": 8,
+        "train_mse": 0.21539024295116585,
+        "validation_rmse": 0.7358815018780992
+      },
+      {
+        "epoch": 9,
+        "train_mse": 0.19636670250989932,
+        "validation_rmse": 0.7329044706331874
+      },
+      {
+        "epoch": 10,
+        "train_mse": 0.18184133225242194,
+        "validation_rmse": 0.7285300893898211
+      },
+      {
+        "epoch": 11,
+        "train_mse": 0.1667156826541913,
+        "validation_rmse": 0.7312558251550846
+      },
+      {
+        "epoch": 12,
+        "train_mse": 0.15575524272404542,
+        "validation_rmse": 0.728692027765853
+      },
+      {
+        "epoch": 13,
+        "train_mse": 0.14654559615307977,
+        "validation_rmse": 0.7278028145398847
+      },
+      {
+        "epoch": 14,
+        "train_mse": 0.13669441981953992,
+        "validation_rmse": 0.7276328737896798
+      },
+      {
+        "epoch": 15,
+        "train_mse": 0.12822179565755512,
+        "validation_rmse": 0.7257723990087876
+      },
+      {
+        "epoch": 16,
+        "train_mse": 0.12151615167714606,
+        "validation_rmse": 0.7263542935683692
+      },
+      {
+        "epoch": 17,
+        "train_mse": 0.11515259900224177,
+        "validation_rmse": 0.7237773050009098
+      },
+      {
+        "epoch": 18,
+        "train_mse": 0.10888454540037697,
+        "validation_rmse": 0.7262949052377967
+      },
+      {
+        "epoch": 19,
+        "train_mse": 0.10409638686223723,
+        "validation_rmse": 0.7281778791398558
+      },
+      {
+        "epoch": 20,
+        "train_mse": 0.099616837361459,
+        "validation_rmse": 0.7259184666521072
+      }
+    ],
+    "model": "dual-encoder",
+    "n_parameters": 2230274,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "config_digest": "ceb3629f15ff8dded48e262bb06b4cbdb256ea25d4175ad622bb73ba038890f5",
+      "curve_recorded": "per-epoch validation RMSE",
+      "device": "mps"
+    },
+    "seconds": 130.31796570890583,
+    "seed": 20260931,
+    "selected_on": "A-validation RMSE per epoch",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": 19,
+    "best_validation_rmse": 0.7249208560209613,
+    "checkpoint": "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260932.pt",
+    "epochs_run": 20,
+    "failure": null,
+    "history": [
+      {
+        "epoch": 1,
+        "train_mse": 1.0164177956230638,
+        "validation_rmse": 0.8657541497585668
+      },
+      {
+        "epoch": 2,
+        "train_mse": 0.5916019842184088,
+        "validation_rmse": 0.8081730911401412
+      },
+      {
+        "epoch": 3,
+        "train_mse": 0.4454533729262923,
+        "validation_rmse": 0.7781109062458955
+      },
+      {
+        "epoch": 4,
+        "train_mse": 0.3614305346965845,
+        "validation_rmse": 0.7587801734157748
+      },
+      {
+        "epoch": 5,
+        "train_mse": 0.3066127042514297,
+        "validation_rmse": 0.7510145505641975
+      },
+      {
+        "epoch": 6,
+        "train_mse": 0.26790216042955595,
+        "validation_rmse": 0.7447167832476541
+      },
+      {
+        "epoch": 7,
+        "train_mse": 0.2397476773477442,
+        "validation_rmse": 0.7403364478588256
+      },
+      {
+        "epoch": 8,
+        "train_mse": 0.21685163378885594,
+        "validation_rmse": 0.7349753782721771
+      },
+      {
+        "epoch": 9,
+        "train_mse": 0.19777540591082018,
+        "validation_rmse": 0.7360340554960889
+      },
+      {
+        "epoch": 10,
+        "train_mse": 0.18216544411447708,
+        "validation_rmse": 0.7321582353144784
+      },
+      {
+        "epoch": 11,
+        "train_mse": 0.1680371005546873,
+        "validation_rmse": 0.7349740144841754
+      },
+      {
+        "epoch": 12,
+        "train_mse": 0.15686370153392395,
+        "validation_rmse": 0.7318593179704181
+      },
+      {
+        "epoch": 13,
+        "train_mse": 0.14625089642326675,
+        "validation_rmse": 0.7298371456392689
+      },
+      {
+        "epoch": 14,
+        "train_mse": 0.13759063923183484,
+        "validation_rmse": 0.7291917599489733
+      },
+      {
+        "epoch": 15,
+        "train_mse": 0.1292361826254469,
+        "validation_rmse": 0.7306900386768383
+      },
+      {
+        "epoch": 16,
+        "train_mse": 0.12234833113616125,
+        "validation_rmse": 0.7253217055315107
+      },
+      {
+        "epoch": 17,
+        "train_mse": 0.11555310262646229,
+        "validation_rmse": 0.7275874615109563
+      },
+      {
+        "epoch": 18,
+        "train_mse": 0.10958587999917352,
+        "validation_rmse": 0.7268469409916125
+      },
+      {
+        "epoch": 19,
+        "train_mse": 0.10437618353009605,
+        "validation_rmse": 0.7249208560209613
+      },
+      {
+        "epoch": 20,
+        "train_mse": 0.09975012426356125,
+        "validation_rmse": 0.729421523663507
+      }
+    ],
+    "model": "dual-encoder",
+    "n_parameters": 2230274,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "config_digest": "534ec67889a5be8e19583f2a6394b1b2f3c7d2277735fa370cd1024f812be2ee",
+      "curve_recorded": "per-epoch validation RMSE",
+      "device": "mps"
+    },
+    "seconds": 125.41873762500472,
+    "seed": 20260932,
+    "selected_on": "A-validation RMSE per epoch",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": 15,
+    "best_validation_rmse": 0.7252352972965188,
+    "checkpoint": "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260933.pt",
+    "epochs_run": 20,
+    "failure": null,
+    "history": [
+      {
+        "epoch": 1,
+        "train_mse": 1.0203529039892196,
+        "validation_rmse": 0.8713457798969976
+      },
+      {
+        "epoch": 2,
+        "train_mse": 0.5958942999869272,
+        "validation_rmse": 0.8094913432009533
+      },
+      {
+        "epoch": 3,
+        "train_mse": 0.44649077091589884,
+        "validation_rmse": 0.7850831782554344
+      },
+      {
+        "epoch": 4,
+        "train_mse": 0.3625034706477553,
+        "validation_rmse": 0.7574117600086014
+      },
+      {
+        "epoch": 5,
+        "train_mse": 0.30679127700423325,
+        "validation_rmse": 0.7488972419220007
+      },
+      {
+        "epoch": 6,
+        "train_mse": 0.26657427241764853,
+        "validation_rmse": 0.7438973453104117
+      },
+      {
+        "epoch": 7,
+        "train_mse": 0.23969864465637417,
+        "validation_rmse": 0.7488289468235622
+      },
+      {
+        "epoch": 8,
+        "train_mse": 0.21621735689749214,
+        "validation_rmse": 0.7397947416614258
+      },
+      {
+        "epoch": 9,
+        "train_mse": 0.19749207243984657,
+        "validation_rmse": 0.7346932080521152
+      },
+      {
+        "epoch": 10,
+        "train_mse": 0.18220191936959246,
+        "validation_rmse": 0.7365363727586999
+      },
+      {
+        "epoch": 11,
+        "train_mse": 0.16841741723855985,
+        "validation_rmse": 0.7309038116348978
+      },
+      {
+        "epoch": 12,
+        "train_mse": 0.1563860878028442,
+        "validation_rmse": 0.7318740695469111
+      },
+      {
+        "epoch": 13,
+        "train_mse": 0.14659779888766863,
+        "validation_rmse": 0.730683673665587
+      },
+      {
+        "epoch": 14,
+        "train_mse": 0.13779583456942426,
+        "validation_rmse": 0.7291871013767075
+      },
+      {
+        "epoch": 15,
+        "train_mse": 0.12955558632866074,
+        "validation_rmse": 0.7252352972965188
+      },
+      {
+        "epoch": 16,
+        "train_mse": 0.12237673284986549,
+        "validation_rmse": 0.7294164590973572
+      },
+      {
+        "epoch": 17,
+        "train_mse": 0.11547644983803643,
+        "validation_rmse": 0.7270040629480774
+      },
+      {
+        "epoch": 18,
+        "train_mse": 0.10987309635115934,
+        "validation_rmse": 0.7260015998698929
+      },
+      {
+        "epoch": 19,
+        "train_mse": 0.10464822161924692,
+        "validation_rmse": 0.7253858014052529
+      },
+      {
+        "epoch": 20,
+        "train_mse": 0.10009902404387695,
+        "validation_rmse": 0.7260985357623203
+      }
+    ],
+    "model": "dual-encoder",
+    "n_parameters": 2230274,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "config_digest": "9b1fff509a1cba3b68ed849a5bae99de8fecea67ffb6f1f03f64e269969246d8",
+      "curve_recorded": "per-epoch validation RMSE",
+      "device": "mps"
+    },
+    "seconds": 127.39164537494071,
+    "seed": 20260933,
+    "selected_on": "A-validation RMSE per epoch",
+    "stopped_early": false
+  },
+  {
+    "best_epoch": 14,
+    "best_validation_rmse": 0.7220810767197877,
+    "checkpoint": "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260934.pt",
+    "epochs_run": 19,
+    "failure": null,
+    "history": [
+      {
+        "epoch": 1,
+        "train_mse": 1.0183541203504547,
+        "validation_rmse": 0.8730950514337046
+      },
+      {
+        "epoch": 2,
+        "train_mse": 0.5944178937658605,
+        "validation_rmse": 0.8008880742454872
+      },
+      {
+        "epoch": 3,
+        "train_mse": 0.4463323859396305,
+        "validation_rmse": 0.7717467920619643
+      },
+      {
+        "epoch": 4,
+        "train_mse": 0.3621463145772044,
+        "validation_rmse": 0.7597055108819873
+      },
+      {
+        "epoch": 5,
+        "train_mse": 0.30786870304792596,
+        "validation_rmse": 0.7516906581349915
+      },
+      {
+        "epoch": 6,
+        "train_mse": 0.2697906814146995,
+        "validation_rmse": 0.7426982173191344
+      },
+      {
+        "epoch": 7,
+        "train_mse": 0.23969496184122827,
+        "validation_rmse": 0.7403987641772498
+      },
+      {
+        "epoch": 8,
+        "train_mse": 0.2173995143121626,
+        "validation_rmse": 0.7340644106068557
+      },
+      {
+        "epoch": 9,
+        "train_mse": 0.19781624193308153,
+        "validation_rmse": 0.7336121216931072
+      },
+      {
+        "epoch": 10,
+        "train_mse": 0.1820963390146416,
+        "validation_rmse": 0.7304747361180943
+      },
+      {
+        "epoch": 11,
+        "train_mse": 0.16931103255639615,
+        "validation_rmse": 0.729502953390257
+      },
+      {
+        "epoch": 12,
+        "train_mse": 0.1568840665987333,
+        "validation_rmse": 0.728981244269935
+      },
+      {
+        "epoch": 13,
+        "train_mse": 0.1473991297971595,
+        "validation_rmse": 0.7289697973264183
+      },
+      {
+        "epoch": 14,
+        "train_mse": 0.13754936849671653,
+        "validation_rmse": 0.7220810767197877
+      },
+      {
+        "epoch": 15,
+        "train_mse": 0.12927779484283242,
+        "validation_rmse": 0.7229258019864988
+      },
+      {
+        "epoch": 16,
+        "train_mse": 0.12222702292164798,
+        "validation_rmse": 0.7244797828107684
+      },
+      {
+        "epoch": 17,
+        "train_mse": 0.11621419360240609,
+        "validation_rmse": 0.72437605129489
+      },
+      {
+        "epoch": 18,
+        "train_mse": 0.11039756208616709,
+        "validation_rmse": 0.7228277367537724
+      },
+      {
+        "epoch": 19,
+        "train_mse": 0.10513880404502392,
+        "validation_rmse": 0.7221692818357293
+      }
+    ],
+    "model": "dual-encoder",
+    "n_parameters": 2230274,
+    "n_train": 353957,
+    "n_validation": 60981,
+    "notes": {
+      "config_digest": "1e77c4c1cafe481b8d19c127b816fbeb85fd3871a835e49e74fbfa803f351cb8",
+      "curve_recorded": "per-epoch validation RMSE",
+      "device": "mps"
+    },
+    "seconds": 120.01708262506872,
+    "seed": 20260934,
+    "selected_on": "A-validation RMSE per epoch",
+    "stopped_early": true
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "train": {
+    "dataset_version": "m11f/datasets/v1",
+    "digest": "dfe59a028fe0a1f5b33418ad668960f198ff4b3e8859347f9b3310dba7d4f6f2",
+    "distinct_compounds": 209187,
+    "distinct_sequences": 3466,
+    "emitted_by": "seq2lead.asof.runner.run, fitting mocked",
+    "excluded": {
+      "missing_or_unusable_feature": 0,
+      "no_regression_target": 55653,
+      "not_validation_rmse_eligible": 0
+    },
+    "feature_allow_list": "derived from the verified membership",
+    "pairs": 353957,
+    "role": "train"
+  },
+  "validation": {
+    "dataset_version": "m11f/datasets/v1",
+    "digest": "f2e9febdad660cfc59bf4ff9082b0666ea60016231b60dba96e5fd3e6692c652",
+    "distinct_compounds": 53870,
+    "distinct_sequences": 2394,
+    "emitted_by": "seq2lead.asof.runner.run, fitting mocked",
+    "excluded": {
+      "missing_or_unusable_feature": 0,
+      "no_regression_target": 9883,
+      "not_validation_rmse_eligible": 1722
+    },
+    "feature_allow_list": "derived from the verified membership",
+    "pairs": 60981,
+    "role": "validation"
+  }
+}

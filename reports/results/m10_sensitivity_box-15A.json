@@ -1,0 +1,76 @@
+{
+  "attrition": {
+    "active": {
+      "failed": 14,
+      "failed_docking": 2,
+      "failed_embed": 1,
+      "failed_engine_output": 1,
+      "failed_pdbqt": 10,
+      "scored": 286
+    },
+    "inactive": {
+      "failed": 8,
+      "failed_docking": 2,
+      "failed_parse": 1,
+      "failed_pdbqt": 5,
+      "scored": 292
+    }
+  },
+  "gate": {
+    "auroc": 0.6074216879011399,
+    "ci_high": 0.6533264680524954,
+    "ci_low": 0.5612352117061021,
+    "decision": "fail",
+    "effect_threshold": 0.7,
+    "n_active": 286,
+    "n_inactive": 292,
+    "reason": "AUROC 0.607 with 95% CI [0.561, 0.653]: the whole interval lies below the pre-registered threshold 0.7, so the practical effect is ruled out on this cohort.",
+    "rule": {
+      "fail": "ci_high < effect_threshold",
+      "inconclusive": "otherwise (the interval straddles the threshold)",
+      "pass": "ci_low > 0.5 AND auroc >= effect_threshold",
+      "wrong_direction": "auroc < 0.5 is a failure, never a pass"
+    },
+    "secondary": {
+      "bedroc_alpha20": 0.6090786716690841,
+      "ef_1pct": 1.684149184149184,
+      "ef_5pct": 1.1150229081263565,
+      "mannwhitney_p_two_sided": 7.864888930367264e-06,
+      "mannwhitney_u": 50727.0,
+      "median_ranking_score_active": 8.038,
+      "median_ranking_score_inactive": 7.643
+    }
+  },
+  "record": {
+    "box_center": [
+      -5.56,
+      5.03,
+      13.03
+    ],
+    "box_size": [
+      15.0,
+      15.0,
+      15.0
+    ],
+    "cohort_path": "reports/results/m10_cohort.json",
+    "cohort_sha256": "f2797290bbe71f36ce21a6f692d62329a87bb1274a3a83fc3b982095b0e2bb34",
+    "config_sha256": "141d200eb8ee76e96a563411ebe6223dc831b8380695f016eefc043309286113",
+    "created_at": "2026-10-01T17:28:59.549074+00:00",
+    "engine_sha256": "823c2bbacf26d72183861322345f0a89736aca66c8e81054c66f93af5ad623f1",
+    "engine_version": "AutoDock Vina v1.2.7",
+    "exhaustiveness": 8,
+    "experiment": "m10-docking-v1",
+    "failures_sha256": "2fa6fb9c3fc1059f66a226bad42a993c8a5a1335f8649aebaff0ddc08b481fa8",
+    "n_failed": 22,
+    "n_requested": 600,
+    "n_scored": 578,
+    "num_modes": 9,
+    "provenance": "Docked with the engine and box named in configs/experiments/m10-docking-v1.yaml (141d200eb8ee76e9\u2026). The cohort was frozen before any docking score existed; this run read it and did not modify it.",
+    "receptor_sha256": "b356cdd24da4dc04a354b454503d3c3dd4e1180939da8781c26b20880d17e8ad",
+    "run": "box-15A",
+    "scores_sha256": "c1d2aa815a80b375cafaf48062d9a2f0f63a3eeb064cab3c3a455c1449ad1f29",
+    "seed": 20261001,
+    "wall_seconds": 4139.7
+  },
+  "scale": 0.75
+}

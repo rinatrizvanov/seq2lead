@@ -1,0 +1,58 @@
+{
+  "202601": {
+    "assay_join_status": {
+      "matched": 3073862,
+      "no_rsid_match": 62974
+    },
+    "assay_joined": 3073862,
+    "bytes": 81918145,
+    "distinct_entry_dois": 55430,
+    "entry_doi_coverage": 0.997767,
+    "locator_coverage": 1.0,
+    "measurement_types": {
+      "EC50": 280436,
+      "IC50": 2117146,
+      "KD": 124499,
+      "KI": 614755
+    },
+    "path": "data/asof/observations-202601.jsonl.gz",
+    "rows": 3136836,
+    "schema": "seq2lead_m11c_202601",
+    "seconds": 110.4,
+    "sha256": "0b67b64bef49fb7cdb765a929e51cd03d696696333bd9a993150c2d48aa55e80",
+    "source_release": "BindingDB/202601/all",
+    "source_release_id": 3,
+    "with_entry_doi": 3129830,
+    "with_locator": 3136836,
+    "with_pmid": 1698817,
+    "with_publication_doi": 1598578
+  },
+  "202609": {
+    "assay_join_status": {
+      "matched": 3176034,
+      "no_rsid_match": 57929
+    },
+    "assay_joined": 3176034,
+    "bytes": 84540685,
+    "distinct_entry_dois": 57087,
+    "entry_doi_coverage": 0.999453,
+    "locator_coverage": 1.0,
+    "measurement_types": {
+      "EC50": 270299,
+      "IC50": 2212313,
+      "KD": 131420,
+      "KI": 619931
+    },
+    "path": "data/asof/observations-202609.jsonl.gz",
+    "rows": 3233963,
+    "schema": "public",
+    "seconds": 96.1,
+    "sha256": "2b2b4ad8b920241f5a3852707f99fcfa8353744fd31bd03c86adaf8c66d02ac9",
+    "source_release": "BindingDB/202609/all",
+    "source_release_id": 117,
+    "with_entry_doi": 3232193,
+    "with_locator": 3233963,
+    "with_pmid": 1742995,
+    "with_publication_doi": 1575229
+  }
+}

@@ -1,0 +1,31 @@
+# target_577 None len=443
+query: 443 residues  sha256 8c2b6e1477ff2109…
+library: curated-ki-25k-v1 (25,000 compounds, frozen)
+model: data/m9/final/M9-dual-encoder__cold_protein-v3__seed20260930.pt  projection_dim=512
+
+Scores are predicted pKi from an affine map on cosine similarity.
+They are NOT probabilities and NOT calibrated confidences.
+No compound below has been experimentally tested by this project.
+
+ rank   compound   pred pKi  prior evidence              flags                 smiles
+-------------------------------------------------------------------------------------
+    1    1369460      9.173  3 exact 0.2-0.7 nM          -                     CN1CCN(C2Cc3ccccc3Sc3ccc(Cl)cc32)CC1
+    2    1377120      8.821  -                           -                     CC(C)[C@H]1C(=O)N2CCC[C@H]2[C@]2(O)O[C@](NC(=O)[C@@H]3C=
+    3    1377113      8.817  -                           -                     CC(C)[C@@]1(NC(=O)[C@@H]2C=C3c4cccc5[nH]cc(c45)C[C@H]3N(
+    4    1351820      8.810  -                           -                     CNC(=O)OCCCC(C)(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C
+    5    1351834      8.809  -                           -                     CC(C)(CCCNS(C)(=O)=O)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)
+    6    1427034      8.784  1 exact 7.3 nM              -                     CN1CCN([C@@H]2Cc3ccccc3Sc3ccc(Cl)cc32)CC1
+    7    1351832      8.771  -                           -                     CC(=O)NCCCC(C)(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@
+    8    1351825      8.757  -                           -                     CC(C)(CCCN)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[
+    9    1351829      8.728  -                           -                     COC(=O)NCCC(C)(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@
+   10    1351833      8.720  -                           -                     CNC(=O)NCCCC(C)(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C
+   11    1426927      8.714  1 exact 0.45 nM             -                     CN1CCN(CCCN2c3ccccc3Sc3ccc(S(=O)(=O)N(C)C)cc32)CC1
+   12    1351828      8.677  -                           -                     COC(=O)NCCCC(C)(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C
+   13    1351830      8.645  -                           -                     COC(=O)NCCCCC(C)(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[
+   14    1427035      8.638  1 exact 1.1 nM              -                     CN1CCN([C@H]2Cc3ccccc3Sc3ccc(Cl)cc32)CC1
+   15    1351831      8.634  -                           -                     COC(=O)NCCCCCC(C)(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O
+
+`prior evidence` is measured data already in the database. It is shown for
+context and is NOT independent validation of this ranking: the model was not
+asked to discover those measurements, and they may have been in its training
+partition.

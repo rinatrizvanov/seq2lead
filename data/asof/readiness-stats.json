@@ -1,0 +1,86 @@
+{
+  "202601_isolated": {
+    "activity_per_raw_row": {
+      "1": 3125212,
+      "2": 5650,
+      "3": 108
+    },
+    "assay_multiplicity": {
+      "reactant_sets_per_assay_max": 7524,
+      "reactant_sets_per_assay_mean": 14.19,
+      "reactant_sets_per_assay_min": 1
+    },
+    "curation_run": {
+      "curator_version": "m3/v3+rdkit-2026.03.6/cleanup+fragment-parent+uncharge/v1",
+      "rows_curated": 3130970,
+      "rows_excluded": 9626,
+      "rows_seen": 3140596
+    },
+    "entities": {
+      "assay": 218973,
+      "assay_link": 3107915,
+      "compound": 1373204,
+      "publication": 54561,
+      "target": 10674
+    },
+    "exclusions": {
+      "invalid_smiles": 6575,
+      "missing_structure": 11,
+      "missing_target_sequence": 99,
+      "no_measurement_value": 2941
+    },
+    "reactant_ids": {
+      "distinct": 3140596,
+      "one_to_one": true,
+      "rows": 3140596
+    },
+    "releases": [
+      {
+        "column_count": 4,
+        "id": 1,
+        "rows_loaded": 218973,
+        "sha256": "67636b4417f96a8e25da9493f3902ccfb3008b9b9be0f2b6aa1c935c9dbc4c29",
+        "subset": "assays"
+      },
+      {
+        "column_count": 2,
+        "id": 2,
+        "rows_loaded": 3107915,
+        "sha256": "af4968955143a793257c6584e99e5da7be270f474cb7463400b763b980fa5aa8",
+        "subset": "rsid_eaids"
+      },
+      {
+        "column_count": 640,
+        "id": 3,
+        "rows_loaded": 3140596,
+        "sha256": "dd419291190632b6dfe883b08b55b6374a815583345e33faa64f93a04f474ef6",
+        "subset": "all"
+      }
+    ]
+  },
+  "202609_accepted": {
+    "acquisition_rows": [
+      {
+        "id": 1203,
+        "ingested": false,
+        "rows_loaded": 0,
+        "subset": "all"
+      },
+      {
+        "id": 1204,
+        "ingested": false,
+        "rows_loaded": 0,
+        "subset": "assays"
+      },
+      {
+        "id": 1205,
+        "ingested": false,
+        "rows_loaded": 0,
+        "subset": "rsid_eaids"
+      }
+    ],
+    "activity": 3233963,
+    "compound": 1424670,
+    "target": 11012
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "accepted_caches": {
+    "ecfp4": {
+      "path": "data/features/ecfp4-compound-42351e003acb.npz",
+      "sha256": "964471e0055f9178dc76e1f5ed577a0ae7251dce7953b682ada47535b427c0be"
+    },
+    "esm2": {
+      "path": "data/features/esm2-target-48cfa09487ce.npz",
+      "sha256": "1ecf4ced0d59d105df6fd1b6be7b5590e0f19a284e1871ce1fb4afc72777e5e7"
+    }
+  },
+  "accepted_caches_preserved_byte_for_byte": true,
+  "environment": {
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "python": "3.11.15"
+  },
+  "extension": "m11g-feature-extension-v1",
+  "extensions": {
+    "ecfp4": {
+      "bytes": 979365,
+      "name": "ecfp4-compound-m11g-ext-8198510a392a",
+      "path": "data/features/ecfp4-compound-m11g-ext-8198510a392a.npz",
+      "requested": 3422,
+      "seconds": 0.3,
+      "spec": {
+        "include_chirality": true,
+        "keyed_by": "inchikey (content identity)",
+        "kind": "ecfp4",
+        "logical_dim": 2048,
+        "n_bits": 2048,
+        "packing": "np.packbits, uint8",
+        "radius": 2,
+        "stored_dim": 256
+      },
+      "storage_sha256": "62594be419940123fa0f5b4636730c081ce5a2f04731048003a49f78270f95a1",
+      "unusable": 0,
+      "unusable_reasons": {},
+      "written": 3422
+    },
+    "esm2": {
+      "bytes": 68088,
+      "device": "mps",
+      "name": "esm2-target-m11g-ext-77469cfc5652",
+      "over_training_window": {
+        "0289055B52093E21E7E9D37AF4E3E36B662776E52ECFF1C44622BE9CF56980B0": 1857
+      },
+      "path": "data/features/esm2-target-m11g-ext-77469cfc5652.npz",
+      "requested": 13,
+      "seconds": 5.6,
+      "spec": {
+        "dim": 1280,
+        "dtype": "float32",
+        "keyed_by": "sequence_sha256 (content identity)",
+        "kind": "esm2",
+        "length_policy": "full",
+        "max_length": 40000,
+        "model": "facebook/esm2_t33_650M_UR50D",
+        "model_revision": "08e4846e537177426273712802403f7ba8261b6c",
+        "pooling": "mean_over_residues_excluding_special_tokens"
+      },
+      "storage_sha256": "cc7d1639a2fa16fece399fb5aaf17c2c2157372731a7cd8eaf2f53a708d5e570",
+      "unusable": 0,
+      "unusable_reasons": {},
+      "written": 13
+    }
+  },
+  "identity_rule": "reuse is decided by what the vector is a function of -- canonical SMILES for a fingerprint, sequence for an embedding -- and verified. A surrogate id is never equated across schemas.",
+  "nothing_imputed": "a vector that could not be computed is recorded as absent. No zero vector and no mean substitute is written for any entity.",
+  "recorded_at": "2026-10-05T04:15:05.331191+00:00",
+  "reuse_decision": {
+    "compounds": {
+      "canonical_smiles_disagreements": 269,
+      "reasons": {
+        "absent_from_the_202609_cache": 3153,
+        "canonical_smiles_disagrees_between_schemas": 269
+      },
+      "recompute": 3422,
+      "reuse_from_accepted_cache": 245901
+    },
+    "targets": {
+      "reasons": {
+        "absent_from_the_202609_cache": 13
+      },
+      "recompute": 13,
+      "reuse_from_accepted_cache": 3753
+    }
+  },
+  "why": "the accepted caches are keyed by 202609 surrogate ids and do not cover every A-role entity. An extension cannot inherit their identity -- a cache is its spec AND its population -- so it is registered here under its own name, manifest and storage digest, and the experiment binds the artifacts actually loaded."
+}

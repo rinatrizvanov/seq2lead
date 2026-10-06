@@ -1,0 +1,64 @@
+{
+  "a_ki_observations": 0,
+  "a_observations_read": 0,
+  "b_was_unavailable_on_this_path": true,
+  "declared_validation_fraction": 0.15,
+  "discordance_treatment": {
+    "discordant_regression_eligible_by_partition": {
+      "train": 7972,
+      "validation": 1402
+    },
+    "training": "discordant pairs REMAIN available for training. M4 leaves them available and denies them only scoring standing (docs/M11.md \u00a77a (h)); excluding them here would be a different rule than the endpoint declares.",
+    "validation_rmse": "discordant pairs are EXCLUDED from checkpoint selection, because selection is an evaluation and the endpoint's own eval rule refuses them. Replicate exacts four logs apart cannot arbitrate which checkpoint is better."
+  },
+  "eligibility": {
+    "censored_evidence_retained_for": "ranking eligibility and audit",
+    "censored_only_decisive_by_partition": {
+      "train": 50007,
+      "validation": 8901
+    },
+    "classification_by_partition": {
+      "train": 401818,
+      "validation": 71224
+    },
+    "classification_rule": "A-only status `ok` and label in {active, inactive}",
+    "note": "three different questions, kept apart. An earlier revision used the classification figure as 'supplied to fitting', which overcounted: the declared objective is exact-only pKi regression with MSE, so a decisive censored-only pair has a class label and no regression target.",
+    "regression_by_partition": {
+      "train": 353957,
+      "validation": 62703
+    },
+    "regression_rule": "median of the pair's exact pKi values, the established `pair_regression` rule. Exact, positive, finite `=` records only; a censoring boundary is never substituted for a point.",
+    "validation_rmse_by_partition": {
+      "train": 344131,
+      "validation": 60981
+    },
+    "validation_rmse_rule": "regression-eligible AND label status `ok` AND not discordant -- the endpoint's own `eval_excluded` rule. NOT derived from training eligibility: selecting checkpoints on pairs the endpoint refuses to score would pick a checkpoint on evidence that disagrees with itself."
+  },
+  "endpoint": "KI",
+  "evidence_support_digests": {
+    "train": "5c77500b2fb527ae840d7e349263c3b4b6570582e4f136dd81f05fd862b23695",
+    "validation": "cd8ed66b371bbd7139fc6c4f70d0f96cbac39bb598436beeee1ba96e01765b56"
+  },
+  "membership_digests": {
+    "train": "5b64c1c4d0be36501e50bdab52c5fb9da014fef842b7c6e62da9fc259ef2cc88",
+    "validation": "eb39b2de5c31052fd67f40395467a6b80869f4a68dddde5653345c6f3e1e34fd"
+  },
+  "observations_by_partition": {
+    "train": 522165,
+    "validation": 92589
+  },
+  "pairs_by_partition": {
+    "train": 409610,
+    "validation": 72586
+  },
+  "pairs_supplied_to_model_fitting": 353957,
+  "pairs_supplied_to_model_fitting_definition": "train-partition pairs with a regression target",
+  "pairs_with_ki_evidence_in_a": 482196,
+  "partition_hash": "blake2b-64",
+  "partition_version": "m11f/partition/v1",
+  "realised_validation_fraction": 0.150532,
+  "seconds": 16.6,
+  "seed": "m11f-partition-v1",
+  "shard_count": 64,
+  "threshold_pki": 6.0
+}

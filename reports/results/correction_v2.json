@@ -1,0 +1,3331 @@
+{
+ "changes": [
+  "average_precision: threshold-block AP. Equal scores are admitted as one block before precision is read, matching sklearn.metrics.average_precision_score. The superseded version averaged precision over orderings inside a tied block, which is a different quantity and errs in BOTH directions -- measured on one real split it disagreed with sklearn on 245 of 328 scored targets, by up to 0.057 in either direction.",
+  "temporal reporting: `new` is the headline stratum for temporal_proxy-v4; `recurrent` is reported separately; the combined figure is removed from headline comparisons.",
+  "temporal regression: `new` and `recurrent` breakouts added. These are additional results computed from the same saved predictions, not changes to any fitted value.",
+  "near-homolog reporting: seed-averaged per model with scored-target counts, replacing a selection of the single largest gap across runs."
+ ],
+ "comparisons": [
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B0-target-mean",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B0-target-mean",
+   "new": 0.6360312380566427,
+   "old": 0.6360312380566429,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B0-target-mean",
+   "new": 1.1193689942076375,
+   "old": 1.1193689942076375,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B0-target-mean",
+   "new": 0.9928172295925534,
+   "old": 0.9928172295925534,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B0-target-mean",
+   "new": null,
+   "old": null,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B0-target-mean",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B0-target-mean",
+   "new": 0.6184270551660417,
+   "old": 0.6184270551660417,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B0-target-mean",
+   "new": 1.7039525999504768,
+   "old": 1.7039525999504768,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B0-target-mean",
+   "new": 1.5726360242881023,
+   "old": 1.5726360242881023,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B0-target-mean",
+   "new": null,
+   "old": null,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B0-target-mean",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B0-target-mean",
+   "new": 0.6199697772240855,
+   "old": 0.6199697772240854,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B0-target-mean",
+   "new": 1.0486727243914125,
+   "old": 1.0486727243914125,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B0-target-mean",
+   "new": 0.9284519589643981,
+   "old": 0.9284519589643981,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B0-target-mean",
+   "new": null,
+   "old": null,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B0-target-mean",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B0-target-mean",
+   "new": 0.6195096923583954,
+   "old": 0.6195096923583955,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B0-target-mean",
+   "new": 1.4503013375218627,
+   "old": 1.4503013375218627,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B0-target-mean",
+   "new": 1.3312596920948832,
+   "old": 1.3312596920948832,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B0-target-mean",
+   "new": null,
+   "old": null,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6615414673130646,
+   "old": 0.6615414673130646,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7588192536635869,
+   "old": 0.758619858602571,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.3281980696379698,
+   "old": 1.3281980696379698,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.2001063507066905,
+   "old": 1.2001063507066905,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.22254985715519987,
+   "old": 0.22254985715519987,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6577572003536811,
+   "old": 0.6577572003536811,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7549792808886863,
+   "old": 0.7547876603864453,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.3280020786254967,
+   "old": 1.3280020786254967,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.199904420363952,
+   "old": 1.199904420363952,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.22270137930040138,
+   "old": 0.22270137930040138,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6615414673130646,
+   "old": 0.6615414673130646,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7588192536635869,
+   "old": 0.758619858602571,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.3281980696379698,
+   "old": 1.3281980696379698,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.2001063507066905,
+   "old": 1.2001063507066905,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.22254985715519987,
+   "old": 0.22254985715519987,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6615414673130646,
+   "old": 0.6615414673130646,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7588192536635869,
+   "old": 0.758619858602571,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.3281980696379698,
+   "old": 1.3281980696379698,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.2001063507066905,
+   "old": 1.2001063507066905,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.22254985715519987,
+   "old": 0.22254985715519987,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6615414673130646,
+   "old": 0.6615414673130646,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7588192536635869,
+   "old": 0.758619858602571,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.3281980696379698,
+   "old": 1.3281980696379698,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.2001063507066905,
+   "old": 1.2001063507066905,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.22254985715519987,
+   "old": 0.22254985715519987,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.5892051463607288,
+   "old": 0.5892051463607288,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6938654002033932,
+   "old": 0.6935870962349314,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.4617313124003906,
+   "old": 1.4617313124003906,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.3223333120287164,
+   "old": 1.3223333120287164,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.11522804596720122,
+   "old": 0.11522804596720122,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.5892051463607288,
+   "old": 0.5892051463607288,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6938654002033932,
+   "old": 0.6935870962349314,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.4617313124003906,
+   "old": 1.4617313124003906,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.3223333120287164,
+   "old": 1.3223333120287164,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.11522804596720122,
+   "old": 0.11522804596720122,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.5892051463607288,
+   "old": 0.5892051463607288,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6938654002033932,
+   "old": 0.6935870962349314,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.4617313124003906,
+   "old": 1.4617313124003906,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.3223333120287164,
+   "old": 1.3223333120287164,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.11522804596720122,
+   "old": 0.11522804596720122,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.5892051463607288,
+   "old": 0.5892051463607288,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6938654002033932,
+   "old": 0.6935870962349314,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.4617313124003906,
+   "old": 1.4617313124003906,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.3223333120287164,
+   "old": 1.3223333120287164,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.11522804596720122,
+   "old": 0.11522804596720122,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.5892051463607288,
+   "old": 0.5892051463607288,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6938654002033932,
+   "old": 0.6935870962349314,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.4617313124003906,
+   "old": 1.4617313124003906,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.3223333120287164,
+   "old": 1.3223333120287164,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.11522804596720122,
+   "old": 0.11522804596720122,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6890204603512985,
+   "old": 0.6890204603512985,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7707639967405857,
+   "old": 0.7706559389212505,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.2608092105824213,
+   "old": 1.2608092105824213,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.141261703987627,
+   "old": 1.141261703987627,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.29149980051003815,
+   "old": 0.29149980051003815,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6890204603512985,
+   "old": 0.6890204603512985,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7707639967405857,
+   "old": 0.7706559389212505,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.2608092105824213,
+   "old": 1.2608092105824213,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.141261703987627,
+   "old": 1.141261703987627,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.29149980051003815,
+   "old": 0.29149980051003815,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6886634424436967,
+   "old": 0.6886634424436967,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7705985585158804,
+   "old": 0.7704901453482376,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.2608273108827026,
+   "old": 1.2608273108827026,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.1412135253763593,
+   "old": 1.1412135253763593,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.29186788074868575,
+   "old": 0.29186788074868575,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6890204603512985,
+   "old": 0.6890204603512985,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7707639967405857,
+   "old": 0.7706559389212505,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.2608092105824213,
+   "old": 1.2608092105824213,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.141261703987627,
+   "old": 1.141261703987627,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.29149980051003815,
+   "old": 0.29149980051003815,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6890204603512985,
+   "old": 0.6890204603512985,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7707639967405857,
+   "old": 0.7706559389212505,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.2608092105824213,
+   "old": 1.2608092105824213,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.141261703987627,
+   "old": 1.141261703987627,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.29149980051003815,
+   "old": 0.29149980051003815,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6045482545634889,
+   "old": 0.6045482545634889,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7132164031062413,
+   "old": 0.7128157865809369,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.316889956645313,
+   "old": 1.316889956645313,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.1958128808597228,
+   "old": 1.1958128808597228,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.11812326120288931,
+   "old": 0.11812326120288931,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6045492504308105,
+   "old": 0.6045492504308105,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7132169199023286,
+   "old": 0.7128163033199869,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.316892531416843,
+   "old": 1.316892531416843,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.195815738347398,
+   "old": 1.195815738347398,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.11811788427003901,
+   "old": 0.11811788427003901,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6045492504308105,
+   "old": 0.6045492504308105,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7132169199023286,
+   "old": 0.7128163033199869,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.316892531416843,
+   "old": 1.316892531416843,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.195815738347398,
+   "old": 1.195815738347398,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.11811788427003901,
+   "old": 0.11811788427003901,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6045492504308105,
+   "old": 0.6045492504308105,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7132169199023286,
+   "old": 0.7128163033199869,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.316892531416843,
+   "old": 1.316892531416843,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.195815738347398,
+   "old": 1.195815738347398,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.11811788427003901,
+   "old": 0.11811788427003901,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.6045492504308105,
+   "old": 0.6045492504308105,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.7132169199023286,
+   "old": 0.7128163033199869,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.316892531416843,
+   "old": 1.316892531416843,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 1.195815738347398,
+   "old": 1.195815738347398,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B1-ligand-ecfp4-lgbm",
+   "new": 0.11811788427003901,
+   "old": 0.11811788427003901,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6360312380566427,
+   "old": 0.6360312380566429,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.1492950379582882,
+   "old": 1.1492950379582882,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.0254314745662965,
+   "old": 1.0254314745662965,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6360312380566427,
+   "old": 0.6360312380566429,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.149464668112746,
+   "old": 1.149464668112746,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.0255386209695805,
+   "old": 1.0255386209695805,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6360312380566427,
+   "old": 0.6360312380566429,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.1534336278602644,
+   "old": 1.1534336278602644,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.0295394370661137,
+   "old": 1.0295394370661137,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6360312380566427,
+   "old": 0.6360312380566429,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.14956006275042,
+   "old": 1.14956006275042,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.025943676117198,
+   "old": 1.025943676117198,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6360312380566427,
+   "old": 0.6360312380566429,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.1476944946136385,
+   "old": 1.1476944946136385,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.0238792495605933,
+   "old": 1.0238792495605933,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6184270551660417,
+   "old": 0.6184270551660417,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.57019646879353,
+   "old": 1.57019646879353,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.4367777150824341,
+   "old": 1.4367777150824341,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6184270551660417,
+   "old": 0.6184270551660417,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.552428784766851,
+   "old": 1.552428784766851,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.4175626606604106,
+   "old": 1.4175626606604106,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6184270551660417,
+   "old": 0.6184270551660417,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.5677397148238252,
+   "old": 1.5677397148238252,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.4337135874708145,
+   "old": 1.4337135874708145,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6184270551660417,
+   "old": 0.6184270551660417,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.582226884647484,
+   "old": 1.582226884647484,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.448154354792448,
+   "old": 1.448154354792448,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6184270551660417,
+   "old": 0.6184270551660417,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.5230025055160943,
+   "old": 1.5230025055160943,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.3880132021125984,
+   "old": 1.3880132021125984,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6199697772240855,
+   "old": 0.6199697772240854,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.0595063260514055,
+   "old": 1.0595063260514055,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.940797811174667,
+   "old": 0.940797811174667,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6199697772240855,
+   "old": 0.6199697772240854,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.0582424416081408,
+   "old": 1.0582424416081408,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.9400817623735555,
+   "old": 0.9400817623735555,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6199697772240855,
+   "old": 0.6199697772240854,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.0590299717951697,
+   "old": 1.0590299717951697,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.9404740786602321,
+   "old": 0.9404740786602321,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6199697772240855,
+   "old": 0.6199697772240854,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.0592268605735655,
+   "old": 1.0592268605735655,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.9406018835572583,
+   "old": 0.9406018835572583,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6199697772240855,
+   "old": 0.6199697772240854,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.0580824752979765,
+   "old": 1.0580824752979765,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.9398185839238504,
+   "old": 0.9398185839238504,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6195096923583954,
+   "old": 0.6195096923583955,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.3803226399725985,
+   "old": 1.3803226399725985,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.2643745378870512,
+   "old": 1.2643745378870512,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6195096923583954,
+   "old": 0.6195096923583955,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.382507461381387,
+   "old": 1.382507461381387,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.2665694979925155,
+   "old": 1.2665694979925155,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6195096923583954,
+   "old": 0.6195096923583955,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.385654265891304,
+   "old": 1.385654265891304,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.2696073157930858,
+   "old": 1.2696073157930858,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6195096923583954,
+   "old": 0.6195096923583955,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.3828017574451488,
+   "old": 1.3828017574451488,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.266746935385672,
+   "old": 1.266746935385672,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 0.6195096923583954,
+   "old": 0.6195096923583955,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.3764342986941784,
+   "old": 1.3764342986941784,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B2-protein-esm2-lgbm",
+   "new": 1.260734206515158,
+   "old": 1.260734206515158,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B2-protein-esm2-lgbm",
+   "new": null,
+   "old": null,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B3L-ligand-1nn",
+   "new": 0.781398199234409,
+   "old": 0.781398199234409,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B3L-ligand-1nn",
+   "new": 0.836445784032881,
+   "old": 0.8355552967717328,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B3L-ligand-1nn",
+   "new": 1.0545948854708083,
+   "old": 1.0545948854708083,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B3L-ligand-1nn",
+   "new": 0.901457720943411,
+   "old": 0.901457720943411,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B3L-ligand-1nn",
+   "new": 0.4502244668960768,
+   "old": 0.4502244668960768,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B3L-ligand-1nn",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B3L-ligand-1nn",
+   "new": 0.6184270551660417,
+   "old": 0.6184270551660417,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B3L-ligand-1nn",
+   "new": 1.7039525999504768,
+   "old": 1.7039525999504768,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B3L-ligand-1nn",
+   "new": 1.5726360242881023,
+   "old": 1.5726360242881023,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B3L-ligand-1nn",
+   "new": null,
+   "old": null,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B3L-ligand-1nn",
+   "new": 0.8192494785010099,
+   "old": 0.8192494785010099,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B3L-ligand-1nn",
+   "new": 0.8559121580292807,
+   "old": 0.855098931631995,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B3L-ligand-1nn",
+   "new": 0.9597530390278087,
+   "old": 0.9597530390278087,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B3L-ligand-1nn",
+   "new": 0.8094489008861036,
+   "old": 0.8094489008861036,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B3L-ligand-1nn",
+   "new": 0.5317169469286243,
+   "old": 0.5317169469286243,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B3L-ligand-1nn",
+   "new": 0.6004348275953031,
+   "old": 0.6004348275953031,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B3L-ligand-1nn",
+   "new": 0.7004606172646697,
+   "old": 0.6985693471853318,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B3L-ligand-1nn",
+   "new": 1.4568256773131962,
+   "old": 1.4568256773131962,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B3L-ligand-1nn",
+   "new": 1.2963391303689995,
+   "old": 1.2963391303689995,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B3L-ligand-1nn",
+   "new": 0.20046124081491634,
+   "old": 0.20046124081491634,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B3P-protein-1nn",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B3P-protein-1nn",
+   "new": 0.6360312380566427,
+   "old": 0.6360312380566429,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B3P-protein-1nn",
+   "new": 1.1292732155136675,
+   "old": 1.1292732155136675,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B3P-protein-1nn",
+   "new": 1.0031444770419988,
+   "old": 1.0031444770419988,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B3P-protein-1nn",
+   "new": null,
+   "old": null,
+   "seed": "None",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B3P-protein-1nn",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B3P-protein-1nn",
+   "new": 0.6184270551660417,
+   "old": 0.6184270551660417,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B3P-protein-1nn",
+   "new": 1.7940673270407004,
+   "old": 1.7940673270407004,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B3P-protein-1nn",
+   "new": 1.6528894041270572,
+   "old": 1.6528894041270572,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B3P-protein-1nn",
+   "new": null,
+   "old": null,
+   "seed": "None",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B3P-protein-1nn",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B3P-protein-1nn",
+   "new": 0.6199697772240855,
+   "old": 0.6199697772240854,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B3P-protein-1nn",
+   "new": 1.0330335044233172,
+   "old": 1.0330335044233172,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B3P-protein-1nn",
+   "new": 0.9126719892308527,
+   "old": 0.9126719892308527,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B3P-protein-1nn",
+   "new": null,
+   "old": null,
+   "seed": "None",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B3P-protein-1nn",
+   "new": 0.5,
+   "old": 0.5,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.average_precision",
+   "model": "B3P-protein-1nn",
+   "new": 0.6195096923583954,
+   "old": 0.6195096923583955,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B3P-protein-1nn",
+   "new": 1.516199739874037,
+   "old": 1.516199739874037,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B3P-protein-1nn",
+   "new": 1.3966048351176532,
+   "old": 1.3966048351176532,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B3P-protein-1nn",
+   "new": null,
+   "old": null,
+   "seed": "None",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.7963394193999361,
+   "old": 0.7963394193999361,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.8515337817306056,
+   "old": 0.8514811662104204,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.0212326394592732,
+   "old": 1.0212326394592732,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 0.8991661750816934,
+   "old": 0.8991661750816934,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.4325404254592406,
+   "old": 0.4325404254592406,
+   "seed": "20260930",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.7900584003787114,
+   "old": 0.7900584003787114,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.8492364463723774,
+   "old": 0.8491778548266514,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.0307145236932078,
+   "old": 1.0307145236932078,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 0.9086815632325649,
+   "old": 0.9086815632325649,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.4217093423988615,
+   "old": 0.4217093423988615,
+   "seed": "20260931",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.79748260504497,
+   "old": 0.79748260504497,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.8524649266812369,
+   "old": 0.8523829611561152,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.0189886486138804,
+   "old": 1.0189886486138804,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 0.8978339337600294,
+   "old": 0.8978339337600294,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.4369075476304313,
+   "old": 0.4369075476304313,
+   "seed": "20260932",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.7969284372460149,
+   "old": 0.7969284372460149,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.8504465396539354,
+   "old": 0.850405392745861,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.0300890128798434,
+   "old": 1.0300890128798434,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 0.909135828535748,
+   "old": 0.909135828535748,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.43747694275296534,
+   "old": 0.43747694275296534,
+   "seed": "20260933",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.7898635069970152,
+   "old": 0.7898635069970152,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.8475281136974745,
+   "old": 0.8474998244873767,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.0150822395753856,
+   "old": 1.0150822395753856,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 0.8930933217034613,
+   "old": 0.8930933217034613,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.42413965232152073,
+   "old": 0.42413965232152073,
+   "seed": "20260934",
+   "split": "chemistry_disjoint-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.6009663030434629,
+   "old": 0.6009663030434629,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.7001674242938943,
+   "old": 0.700035104304657,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.5725989846896733,
+   "old": 1.5725989846896733,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 1.4232582585881142,
+   "old": 1.4232582585881142,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.1342162211591604,
+   "old": 0.1342162211591604,
+   "seed": "20260930",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.601855465038795,
+   "old": 0.601855465038795,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.7010986877517098,
+   "old": 0.7009819994102028,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.5457436530935296,
+   "old": 1.5457436530935296,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 1.4005756772354694,
+   "old": 1.4005756772354694,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.12650651215433148,
+   "old": 0.12650651215433148,
+   "seed": "20260931",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.6028885512933957,
+   "old": 0.6028885512933957,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.7004765428418874,
+   "old": 0.7003214976293433,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.5751018189099708,
+   "old": 1.5751018189099708,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 1.4295509652119038,
+   "old": 1.4295509652119038,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.13380926287488426,
+   "old": 0.13380926287488426,
+   "seed": "20260932",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.6012663968167443,
+   "old": 0.6012663968167443,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.7023047039785325,
+   "old": 0.7021763986034638,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.5380917607752937,
+   "old": 1.5380917607752937,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 1.3883492148214716,
+   "old": 1.3883492148214716,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.13298422357660913,
+   "old": 0.13298422357660913,
+   "seed": "20260933",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.6008040708412649,
+   "old": 0.6008040708412649,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.7014593265131496,
+   "old": 0.7013117679855555,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.538290214553442,
+   "old": 1.538290214553442,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 1.392004642274541,
+   "old": 1.392004642274541,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.13147946016439968,
+   "old": 0.13147946016439968,
+   "seed": "20260934",
+   "split": "cold_protein-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.851736395937041,
+   "old": 0.851736395937041,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.8908717401426489,
+   "old": 0.8908619651001559,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 0.8791700932675938,
+   "old": 0.8791700932675938,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 0.7717673040305486,
+   "old": 0.7717673040305486,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.5726557826762915,
+   "old": 0.5726557826762915,
+   "seed": "20260930",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.8513816098217707,
+   "old": 0.8513816098217707,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.8901017212249328,
+   "old": 0.8900885967279767,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 0.8708362884145792,
+   "old": 0.8708362884145792,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 0.7642146986386207,
+   "old": 0.7642146986386207,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.5737563888572573,
+   "old": 0.5737563888572573,
+   "seed": "20260931",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.8498786315866632,
+   "old": 0.8498786315866632,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.8911962431584398,
+   "old": 0.8911864614800583,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 0.8778836070217525,
+   "old": 0.8778836070217525,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 0.7723740358200477,
+   "old": 0.7723740358200477,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.5582255653413714,
+   "old": 0.5582255653413714,
+   "seed": "20260932",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.8474952275650293,
+   "old": 0.8474952275650293,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.8858862582947494,
+   "old": 0.8858836102368909,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 0.8678217031788696,
+   "old": 0.8678217031788696,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 0.7598409022783856,
+   "old": 0.7598409022783856,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.5533555733132194,
+   "old": 0.5533555733132194,
+   "seed": "20260933",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.848915358784406,
+   "old": 0.848915358784406,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.8877082953890069,
+   "old": 0.8877019203646414,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 0.88039260622892,
+   "old": 0.88039260622892,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 0.7720725901148741,
+   "old": 0.7720725901148741,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.5628410665881503,
+   "old": 0.5628410665881503,
+   "seed": "20260934",
+   "split": "random_pair-v3"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.6539993216057868,
+   "old": 0.6539993216057868,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.7448317524871804,
+   "old": 0.7446329977519534,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.286363050025616,
+   "old": 1.286363050025616,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 1.1606732408569853,
+   "old": 1.1606732408569853,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.21974292241215607,
+   "old": 0.21974292241215607,
+   "seed": "20260930",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.6586793487677236,
+   "old": 0.6586793487677236,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.7453076709764582,
+   "old": 0.7451512330850955,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.3216231363387279,
+   "old": 1.3216231363387279,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 1.1939692111243319,
+   "old": 1.1939692111243319,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.20671353343493903,
+   "old": 0.20671353343493903,
+   "seed": "20260931",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.6599931290777514,
+   "old": 0.6599931290777514,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.7497713413650143,
+   "old": 0.7496119407638154,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.3087967037757513,
+   "old": 1.3087967037757513,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 1.1810330684240267,
+   "old": 1.1810330684240267,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.21554995787891945,
+   "old": 0.21554995787891945,
+   "seed": "20260932",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.6606629092985632,
+   "old": 0.6606629092985632,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.7493428549302315,
+   "old": 0.7492397935954314,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.3150572074156972,
+   "old": 1.3150572074156972,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 1.1878879552229502,
+   "old": 1.1878879552229502,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.21639492503860394,
+   "old": 0.21639492503860394,
+   "seed": "20260933",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "ranking.auroc",
+   "model": "B4-concat-mlp",
+   "new": 0.6615850162176323,
+   "old": 0.6615850162176323,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": true,
+   "metric": "ranking.average_precision",
+   "model": "B4-concat-mlp",
+   "new": 0.7490405320828646,
+   "old": 0.7488680717489482,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.rmse",
+   "model": "B4-concat-mlp",
+   "new": 1.3038467440424686,
+   "old": 1.3038467440424686,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.mae",
+   "model": "B4-concat-mlp",
+   "new": 1.1780765115969234,
+   "old": 1.1780765115969234,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  },
+  {
+   "changed": false,
+   "metric": "regression.spearman",
+   "model": "B4-concat-mlp",
+   "new": 0.2131188139197334,
+   "old": 0.2131188139197334,
+   "seed": "20260934",
+   "split": "temporal_proxy-v4"
+  }
+ ],
+ "experiment_version": "baseline-v1",
+ "metric_version": "m8/v2",
+ "n_runs": 72,
+ "prediction_digests": {
+  "B0-target-mean__chemistry_disjoint-v3__seeddet.npz": "578dfbfd2b564971b08a39adbde27a28479ba0a70881f079a771416226a06ebf",
+  "B0-target-mean__cold_protein-v3__seeddet.npz": "056690f8dc616e9d6e45a8c674a0aa28997974f3878e6a3f255de9db50908b69",
+  "B0-target-mean__random_pair-v3__seeddet.npz": "0ad438b7d3843bebb15e0dbc69de6be66589a4e046a029dd2c2b597085536119",
+  "B0-target-mean__temporal_proxy-v4__seeddet.npz": "9f58b2319582524a66e5a6bd99aa77e69da3c4aa469052d67de13489ee21fe73",
+  "B1-ligand-ecfp4-lgbm__chemistry_disjoint-v3__seed20260930.npz": "1dd2deaac315a539ca122322fa094c8d069484fedc2cbdc766945394f6d62212",
+  "B1-ligand-ecfp4-lgbm__chemistry_disjoint-v3__seed20260931.npz": "df18fee81ae900b95b58b14cae684d74bb9bacc808023feb721a4406d8197b32",
+  "B1-ligand-ecfp4-lgbm__chemistry_disjoint-v3__seed20260932.npz": "1dd2deaac315a539ca122322fa094c8d069484fedc2cbdc766945394f6d62212",
+  "B1-ligand-ecfp4-lgbm__chemistry_disjoint-v3__seed20260933.npz": "1dd2deaac315a539ca122322fa094c8d069484fedc2cbdc766945394f6d62212",
+  "B1-ligand-ecfp4-lgbm__chemistry_disjoint-v3__seed20260934.npz": "1dd2deaac315a539ca122322fa094c8d069484fedc2cbdc766945394f6d62212",
+  "B1-ligand-ecfp4-lgbm__cold_protein-v3__seed20260930.npz": "67fbe2a7941c3fc8c2cba64d5c1ac86d8850ced4d537fce2a8e0f270372f8fec",
+  "B1-ligand-ecfp4-lgbm__cold_protein-v3__seed20260931.npz": "67fbe2a7941c3fc8c2cba64d5c1ac86d8850ced4d537fce2a8e0f270372f8fec",
+  "B1-ligand-ecfp4-lgbm__cold_protein-v3__seed20260932.npz": "67fbe2a7941c3fc8c2cba64d5c1ac86d8850ced4d537fce2a8e0f270372f8fec",
+  "B1-ligand-ecfp4-lgbm__cold_protein-v3__seed20260933.npz": "67fbe2a7941c3fc8c2cba64d5c1ac86d8850ced4d537fce2a8e0f270372f8fec",
+  "B1-ligand-ecfp4-lgbm__cold_protein-v3__seed20260934.npz": "67fbe2a7941c3fc8c2cba64d5c1ac86d8850ced4d537fce2a8e0f270372f8fec",
+  "B1-ligand-ecfp4-lgbm__random_pair-v3__seed20260930.npz": "5114c804166be97c70cee6acec575d548b9c43829c78cfeeeb4481cde9d87701",
+  "B1-ligand-ecfp4-lgbm__random_pair-v3__seed20260931.npz": "5114c804166be97c70cee6acec575d548b9c43829c78cfeeeb4481cde9d87701",
+  "B1-ligand-ecfp4-lgbm__random_pair-v3__seed20260932.npz": "821cab1f40ba799f7c1c9c0a0d622c9befa7665ffe7400d18bc91aabd67131f1",
+  "B1-ligand-ecfp4-lgbm__random_pair-v3__seed20260933.npz": "5114c804166be97c70cee6acec575d548b9c43829c78cfeeeb4481cde9d87701",
+  "B1-ligand-ecfp4-lgbm__random_pair-v3__seed20260934.npz": "5114c804166be97c70cee6acec575d548b9c43829c78cfeeeb4481cde9d87701",
+  "B1-ligand-ecfp4-lgbm__temporal_proxy-v4__seed20260930.npz": "2c458abc191a32449a188ff4ec28a2d0d6d110d3cc2707ef4ff60818a993a884",
+  "B1-ligand-ecfp4-lgbm__temporal_proxy-v4__seed20260931.npz": "7665d040be482b31c35cca627c1c9f1c040dc8666aec474bfbe407ebded1c483",
+  "B1-ligand-ecfp4-lgbm__temporal_proxy-v4__seed20260932.npz": "7665d040be482b31c35cca627c1c9f1c040dc8666aec474bfbe407ebded1c483",
+  "B1-ligand-ecfp4-lgbm__temporal_proxy-v4__seed20260933.npz": "7665d040be482b31c35cca627c1c9f1c040dc8666aec474bfbe407ebded1c483",
+  "B1-ligand-ecfp4-lgbm__temporal_proxy-v4__seed20260934.npz": "7665d040be482b31c35cca627c1c9f1c040dc8666aec474bfbe407ebded1c483",
+  "B2-protein-esm2-lgbm__chemistry_disjoint-v3__seed20260930.npz": "197d59c4908178aa055b2a89db0e2123132b4acb1440cf27fbd6c18d8e4fa4f9",
+  "B2-protein-esm2-lgbm__chemistry_disjoint-v3__seed20260931.npz": "e53a63e916501528156b02534d23c341f95d9fdd4880c101685ffeff4c6993a4",
+  "B2-protein-esm2-lgbm__chemistry_disjoint-v3__seed20260932.npz": "925da83860ced26257f0529dd30196db4b29e09b496fb7001fb2386258a97642",
+  "B2-protein-esm2-lgbm__chemistry_disjoint-v3__seed20260933.npz": "7fb932012c8d82c68464f96328a9e9bee5c7d6bc5fe8b2fb102b111e30ef5341",
+  "B2-protein-esm2-lgbm__chemistry_disjoint-v3__seed20260934.npz": "250ec9bb76c819c86e5ed52393ef5d250984227796d6f910a93649d6b7c7ccfd",
+  "B2-protein-esm2-lgbm__cold_protein-v3__seed20260930.npz": "0c40f0d9d2d00647663156461b21b0648ec48680333050b76033bf58aa04f08c",
+  "B2-protein-esm2-lgbm__cold_protein-v3__seed20260931.npz": "b86dd6c137e847de5836ead39a166a890a81da547800faa6c78ac49fc06ee08a",
+  "B2-protein-esm2-lgbm__cold_protein-v3__seed20260932.npz": "0091f123945334b72a246aa0b5a8d3ac13f28da6fc284acec218b2d1feec7121",
+  "B2-protein-esm2-lgbm__cold_protein-v3__seed20260933.npz": "795f88f36b03c74054182595dbe4b59082c7f4e70d299c8d0402f5cfdb406a0e",
+  "B2-protein-esm2-lgbm__cold_protein-v3__seed20260934.npz": "3102b2a9199892a41242401dc0553f56ee35b0c25443bd6beb21ff5bb4a68e48",
+  "B2-protein-esm2-lgbm__random_pair-v3__seed20260930.npz": "5b2f84794386426b0c948ec8b7f0c7df987596fde2633060fca5f0217926d398",
+  "B2-protein-esm2-lgbm__random_pair-v3__seed20260931.npz": "6bca27d9c1c7df8ab6af6dd19f253f5ddc28db46411a9cfe0ea80723bbfe2882",
+  "B2-protein-esm2-lgbm__random_pair-v3__seed20260932.npz": "209eb1c1cb89dfeab6f84ab5160ce0d83ca4171834e2a0d74a593960cde71b53",
+  "B2-protein-esm2-lgbm__random_pair-v3__seed20260933.npz": "a6b6f47948e980bde20f8a7a1cc9ea161c71edfec411faf30ae8cd50c904fd82",
+  "B2-protein-esm2-lgbm__random_pair-v3__seed20260934.npz": "0f1cdd3ebf6e4694970cb93f31dca6e0990c536c2d9a756bbed6301f64f13631",
+  "B2-protein-esm2-lgbm__temporal_proxy-v4__seed20260930.npz": "008ab7b73a3982d61fcbc7ac618edd09fe6640c95b75c8fa5f40cfb48d320df8",
+  "B2-protein-esm2-lgbm__temporal_proxy-v4__seed20260931.npz": "9b89c54476b73bddf5082472bf64cd9587b3f2bc626a1074a8c0cb7f6b1b2652",
+  "B2-protein-esm2-lgbm__temporal_proxy-v4__seed20260932.npz": "2a40d146c361b970dece580fe3f7ed4e745743fd0f29d0e84f6361cc8482e2b7",
+  "B2-protein-esm2-lgbm__temporal_proxy-v4__seed20260933.npz": "9456f00979ffb477db028f75c5a2d4a44000ce9fc0435db04a7859f28acd4b76",
+  "B2-protein-esm2-lgbm__temporal_proxy-v4__seed20260934.npz": "e7e711a16846d3a089fefc318dc0f17ad9a0a8287aeb8bcbde8ff88b3aa5da1b",
+  "B3L-ligand-1nn__chemistry_disjoint-v3__seeddet.npz": "e7820abde1e8a14a81ad8856fb57a85d5a8067977a643906c7f1bae304418fc0",
+  "B3L-ligand-1nn__cold_protein-v3__seeddet.npz": "056690f8dc616e9d6e45a8c674a0aa28997974f3878e6a3f255de9db50908b69",
+  "B3L-ligand-1nn__random_pair-v3__seeddet.npz": "a054fd47140fda5030e1162f651df5ebeb4bbf1d935b98ec71d423564c11598d",
+  "B3L-ligand-1nn__temporal_proxy-v4__seeddet.npz": "d2eaa097e42f27bef94b447de0a6254601a5e5542bb62af58a22be29ea9243ee",
+  "B3P-protein-1nn__chemistry_disjoint-v3__seeddet.npz": "323ec8b06ee4eaf1bcc666d3b0d92e84b9ae4277d45c3a687a5ac0056047824a",
+  "B3P-protein-1nn__cold_protein-v3__seeddet.npz": "f3fd753f2d5c10b3fbde5b8825dad052827849a943459d62404a3b4f9e2885c8",
+  "B3P-protein-1nn__random_pair-v3__seeddet.npz": "a30bb20b29b1458991a22971366c1e5c4e696f1e5bb716e88e0c2f7ba5f3c08d",
+  "B3P-protein-1nn__temporal_proxy-v4__seeddet.npz": "06bb612deeb2c8ff5b594a9616ab2200c94aa45ed53da73ed7948e269093bc2c",
+  "B4-concat-mlp__chemistry_disjoint-v3__seed20260930.npz": "233b9ff6aa86531c3dbd446db853352ba62862f8de3bd0887166481b38b76866",
+  "B4-concat-mlp__chemistry_disjoint-v3__seed20260931.npz": "89439ca32479c3de8d404797d932f3f5b1c36583d6effc9310db6e0f6ce09c56",
+  "B4-concat-mlp__chemistry_disjoint-v3__seed20260932.npz": "e2f63f7a89ce8ba08eeb73480b4eb119535b8e94e1ee1557db5b5a6d63102ec8",
+  "B4-concat-mlp__chemistry_disjoint-v3__seed20260933.npz": "3c0d7b0bea6a24e7cea1fb0b7620155c06d61dbb347b0fb2b113bae8765ce4f9",
+  "B4-concat-mlp__chemistry_disjoint-v3__seed20260934.npz": "9ef04ddc8859ba513b739aeef2453e470417a1b3efe81bee9748f5a4024220ed",
+  "B4-concat-mlp__cold_protein-v3__seed20260930.npz": "5ab144f90e5ed870f2483f99d134bd3a11a95506d7a424d0eb3895d7e1aecd7e",
+  "B4-concat-mlp__cold_protein-v3__seed20260931.npz": "6c2369f6492d119ad3fa4b5c2368bf9ecf6fb83dc285d892dea567f24c2d50d8",
+  "B4-concat-mlp__cold_protein-v3__seed20260932.npz": "3f47f006d18a695781da04c028273c5bfa08f4d421a666a8c307a98885ffae1e",
+  "B4-concat-mlp__cold_protein-v3__seed20260933.npz": "ae9d1acb533f9ebf5b3e4ad2437a836423ccbd1016cb1d9ccb8df5d1ebc467c5",
+  "B4-concat-mlp__cold_protein-v3__seed20260934.npz": "05ab326201afd2d0fb021eebd664c9888d015566e18581f1f8b6728bbedf99a5",
+  "B4-concat-mlp__random_pair-v3__seed20260930.npz": "aff9f2329df17b0b4b16ec3b81a110f2b0d39a039c94afd098b4b1c7e242df31",
+  "B4-concat-mlp__random_pair-v3__seed20260931.npz": "e23dad3e5dd017ad94fb4d1240c18cd2ec60220f9d38487ba7ca8c0a90458350",
+  "B4-concat-mlp__random_pair-v3__seed20260932.npz": "135e19fad875be329fc3c736e97e8d21d0b3412cf6676894d5def460f6a5160c",
+  "B4-concat-mlp__random_pair-v3__seed20260933.npz": "026d7c435ff7c6b984ba2b969dbf83d098a558591b87bedce4bc108642366903",
+  "B4-concat-mlp__random_pair-v3__seed20260934.npz": "50e0eb06a7750281abf7a7fe2d5ad2be1e8fe3202beb741c5607950be8cc516c",
+  "B4-concat-mlp__temporal_proxy-v4__seed20260930.npz": "4e7f2eb04a9eaadb2a408fd8f2f27801bd5811a8e35d0b0a78d6ff8106ecb978",
+  "B4-concat-mlp__temporal_proxy-v4__seed20260931.npz": "c5253f1c1da4b33147220adad0fd7465e357e046e6becf76cda3a7c549cc5d4b",
+  "B4-concat-mlp__temporal_proxy-v4__seed20260932.npz": "7a684fe7798a1164eb8f90a0d7799e994d59e7f7bf8af5e876ca2fdfa34721cd",
+  "B4-concat-mlp__temporal_proxy-v4__seed20260933.npz": "a91f11f131a173f2189457e7744bbec111d071d61a8bcd82530ff7bd504a91ce",
+  "B4-concat-mlp__temporal_proxy-v4__seed20260934.npz": "ce9adeaa18679447ddabebd2d3b240f03beb0e2c49494cb3868651ee73c72ae9"
+ },
+ "source_digests": {
+  "ecfp4": "964471e0055f9178dc76e1f5ed577a0ae7251dce7953b682ada47535b427c0be",
+  "esm2": "1ecf4ced0d59d105df6fd1b6be7b5590e0f19a284e1871ce1fb4afc72777e5e7"
+ }
+}

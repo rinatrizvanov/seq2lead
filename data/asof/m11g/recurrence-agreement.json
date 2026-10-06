@@ -1,0 +1,23 @@
+{
+  "check": "m11g-recurrence-agreement",
+  "finding": "the agreement is contingent on complete feature coverage, not structural. Without the extension the stratum would have called pairs recurrent that the loader had excluded, overstating exposure to fitting by that many pairs.",
+  "question": "is every pair the recurrence stratum calls RECURRENT actually in the set the runner handed to the model-fitting callback?",
+  "recurrent_pairs": 4184,
+  "with_the_extension": {
+    "agrees": true,
+    "recurrent_pairs_not_actually_fitted": 0,
+    "runner_training_pairs": 353957
+  },
+  "without_the_extension": {
+    "agrees": false,
+    "examples": [
+      "FIAKHZXVLBNZLW-NFGXINMFSA-N|14D8675B70E8C15FF5802F733918484508B88822EB9860ABA41D435EE2A1CCEC",
+      "FIAKHZXVLBNZLW-NFGXINMFSA-N|4D0C1AE8D9C6ECF5FFEF01BD5A16F859DAC3AE273225407783296131C695C1FD",
+      "FIAKHZXVLBNZLW-NFGXINMFSA-N|945340616BAFD8D32B4CDB5A4F6A1F13EE9DE829FD7DACCF5F63FC94149D6B34",
+      "FIAKHZXVLBNZLW-NFGXINMFSA-N|B75060695513D21AC502DA540921882C3E99FD716A491E99F6757D7B78B3C62B",
+      "GJSURZIOUXUGAL-UHFFFAOYSA-N|05D2B6DDC4B9D17B8873E7CB92EBF8E337AB9CABA8E3BFB6A63D1C102F14C663"
+    ],
+    "recurrent_pairs_not_actually_fitted": 45,
+    "runner_training_pairs": 347088
+  }
+}

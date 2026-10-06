@@ -1,0 +1,146 @@
+# Reference material — copyrighted papers and private design docs, not redistributable
+literature/
+*.docx
+
+# Bulk data are excluded; preserve an independent backup of historical artifacts.
+data/**
+caches/
+*.zip
+*.sdf
+
+# Bulk tabular/sequence dumps, except small fixtures committed on purpose.
+*.tsv
+*.fasta
+!tests/fixtures/**
+
+# Generated artifacts. The markdown reports ARE the scientific record and are
+# tracked; anything bulkier written beside them is not.
+reports/*
+!reports/.gitkeep
+!reports/*.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Env / OS
+.env
+.DS_Store
+data/predictions/
+data/m9/
+data/predictions_m9/
+
+# Closeout: preserve execution evidence and the exact small review-artifact allow-list.
+!scripts/asof/README.md
+!scripts/asof/*.py
+!data/
+!reports/
+!data/asof/
+!reports/examples/
+!reports/probes/
+!reports/results/
+!data/asof/m11d/
+!data/asof/m11e/
+!data/asof/m11f/
+!data/asof/m11g/
+!data/asof/m11h/
+!data/asof/m11h/run-20261005T134842Z/
+!data/asof/export-summary-both.json
+!data/asof/m11d/examples.json
+!data/asof/m11d/matching-result.json
+!data/asof/m11d/moved-observations-comparison.json
+!data/asof/m11d/moved-observations-v2.json
+!data/asof/m11d/moved-observations.json
+!data/asof/m11d/partition-k32.json
+!data/asof/m11d/pilot-k32.json
+!data/asof/m11e/audit-reconstruction.json
+!data/asof/m11e/examples.json
+!data/asof/m11e/excluded-locators-ki.json
+!data/asof/m11e/ki-aggregation-result.json
+!data/asof/m11e/partition-k64.json
+!data/asof/m11e/worked-example-review.json
+!data/asof/m11f/cohort-preflight.json
+!data/asof/m11f/feature-binding.json
+!data/asof/m11f/feature-coverage.json
+!data/asof/m11f/model-facing-datasets.json
+!data/asof/m11f/partition-summary.json
+!data/asof/m11g/binding-defects.json
+!data/asof/m11g/cohort-preflight.json
+!data/asof/m11g/evaluation-entities.json
+!data/asof/m11g/evaluation-pairs-summary.json
+!data/asof/m11g/feature-binding.json
+!data/asof/m11g/feature-coverage.json
+!data/asof/m11g/feature-extension.json
+!data/asof/m11g/length-window.json
+!data/asof/m11g/model-facing-datasets.json
+!data/asof/m11g/recompute-compounds.json
+!data/asof/m11g/recompute-targets.json
+!data/asof/m11g/recurrence-agreement.json
+!data/asof/m11g/resolution.json
+!data/asof/m11g/reuse-compounds.json
+!data/asof/m11g/reuse-targets.json
+!data/asof/m11g/runner-record.json
+!data/asof/m11h/closeout-changes.json
+!data/asof/m11h/run-20261005T134842Z/evaluation-pairs.jsonl
+!data/asof/m11h/run-20261005T134842Z/manifest.json
+!data/asof/m11h/run-20261005T134842Z/predictions.npz
+!data/asof/m11h/run-20261005T134842Z/protein-transform.npz
+!data/asof/m11h/run-20261005T134842Z/results.json
+!data/asof/m11h/run-20261005T134842Z/training-records.json
+!data/asof/m11h/run-20261005T134842Z/verification.json
+!data/asof/readiness-stats.json
+!reports/.gitkeep
+!reports/examples/query_target.fasta
+!reports/examples/rank_demo.txt
+!reports/probes/chirality_impact.json
+!reports/probes/cluster_similarity.json
+!reports/probes/length_feasibility.json
+!reports/probes/prefix_drift.json
+!reports/results/baseline_summary.json
+!reports/results/baseline_summary_v2.json
+!reports/results/correction_m8_v2.json
+!reports/results/correction_v2.json
+!reports/results/index.json
+!reports/results/m10_cohort.json
+!reports/results/m10_gate.json
+!reports/results/m10_qa_redock.json
+!reports/results/m10_sensitivity_box-15A.json
+!reports/results/m10_sensitivity_box-25A.json
+!reports/results/m11d_ambiguous_slots.jsonl
+!reports/results/m11d_correction_candidates.jsonl
+!reports/results/m11d_examples.json
+!reports/results/m11d_identifier_conflicts.jsonl
+!reports/results/m11d_moved_observations.json
+!reports/results/m11d_moved_observations_comparison.json
+!reports/results/m11e_audit_reconstruction.json
+!reports/results/m11e_examples.json
+!reports/results/m11e_ki_aggregation_summary.json
+!reports/results/m11e_worked_example_review.json
+!reports/results/m11f_cohort_preflight.json
+!reports/results/m11f_feature_binding.json
+!reports/results/m11f_feature_coverage.json
+!reports/results/m11f_model_facing_datasets.json
+!reports/results/m11f_partition_summary.json
+!reports/results/m9_cli_checkpoint.json
+!reports/results/m9_selection.json
+!reports/results/m9_v1_summary.json
+!reports/results/prediction_sample.csv
+
+# The owner-requested editable scientific manuscript is an explicit exception.
+!paper/Seq2Lead_scientific_manuscript.docx
+
+# Third-party binaries and local tooling. Present in the working tree, absent
+# from the review pack, and matched by nothing above -- without this the 1.1 MB
+# AutoDock Vina executable would be committed.
+tools/
+
+# Large local result files that are NOT part of the approved allow-list. Named
+# explicitly because  already excludes them and no negation should
+# ever reach them.
+reports/results/baseline_runs.json

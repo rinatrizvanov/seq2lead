@@ -1,0 +1,36 @@
+{
+  "rule": "CLI queries are arbitrary user-supplied sequences, most likely unseen in training, which is the cold-protein setting. The checkpoint therefore comes from cold_protein-v3. The seed is the lowest VALIDATION RMSE within that split. Test scores were not consulted.",
+  "split": "cold_protein-v3",
+  "seed": 20260930,
+  "projection_dim": 512,
+  "validation_rmse": 1.553582276594823,
+  "best_epoch": 1,
+  "candidates": [
+    {
+      "seed": 20260930,
+      "validation_rmse": 1.553582276594823,
+      "best_epoch": 1
+    },
+    {
+      "seed": 20260931,
+      "validation_rmse": 1.5616594752694792,
+      "best_epoch": 1
+    },
+    {
+      "seed": 20260932,
+      "validation_rmse": 1.5587065584493063,
+      "best_epoch": 3
+    },
+    {
+      "seed": 20260933,
+      "validation_rmse": 1.5821097671229443,
+      "best_epoch": 3
+    },
+    {
+      "seed": 20260934,
+      "validation_rmse": 1.5826452284686376,
+      "best_epoch": 4
+    }
+  ],
+  "checkpoint": "data/m9/final/M9-dual-encoder__cold_protein-v3__seed20260930.pt"
+}

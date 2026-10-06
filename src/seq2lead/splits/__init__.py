@@ -1,0 +1,73 @@
+"""M6: leakage-controlled splits. The contract is `docs/SPLITS.md`."""
+
+from seq2lead.splits.assertions import (
+    Check,
+    LeakageError,
+    assert_index_is_training_only,
+    assert_no_leakage,
+    run_checks,
+    training_visible_activities,
+)
+from seq2lead.splits.build import (
+    BUILDER_VERSION,
+    DEFAULT_FRACTIONS,
+    DEFAULT_TEMPORAL_CUT,
+    EXCLUDED,
+    TEST,
+    TRAIN,
+    VALIDATION,
+    SplitCounters,
+    build_chemistry_disjoint,
+    build_cold_protein,
+    build_label_reversal,
+    build_random_pair,
+    build_temporal_proxy,
+)
+from seq2lead.splits.clustering import (
+    DEFAULT_IDENTITY,
+    MMSEQS_METHOD,
+    SCAFFOLD_METHOD,
+    cluster_compounds,
+    cluster_sequences,
+    mmseqs_available,
+    store_compound_clusters,
+    store_target_clusters,
+)
+from seq2lead.splits.similarity import (
+    SimilarityDistribution,
+    compound_tanimoto_to_train,
+    target_identity_to_train,
+)
+
+__all__ = [
+    "BUILDER_VERSION",
+    "DEFAULT_FRACTIONS",
+    "DEFAULT_IDENTITY",
+    "DEFAULT_TEMPORAL_CUT",
+    "EXCLUDED",
+    "MMSEQS_METHOD",
+    "SCAFFOLD_METHOD",
+    "TEST",
+    "TRAIN",
+    "VALIDATION",
+    "Check",
+    "LeakageError",
+    "SimilarityDistribution",
+    "SplitCounters",
+    "assert_index_is_training_only",
+    "assert_no_leakage",
+    "build_chemistry_disjoint",
+    "build_cold_protein",
+    "build_label_reversal",
+    "build_random_pair",
+    "build_temporal_proxy",
+    "cluster_compounds",
+    "compound_tanimoto_to_train",
+    "cluster_sequences",
+    "mmseqs_available",
+    "run_checks",
+    "store_compound_clusters",
+    "store_target_clusters",
+    "target_identity_to_train",
+    "training_visible_activities",
+]

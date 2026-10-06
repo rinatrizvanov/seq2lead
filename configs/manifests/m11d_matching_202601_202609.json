@@ -1,0 +1,463 @@
+{
+  "auxiliary_files": {
+    "examples.json": {
+      "bytes": 3145,
+      "records": 60,
+      "sha256": "9942d2ac9cc3809d6570776cdbed54dfd55c87df80089af297fe121808c6e847"
+    },
+    "matching-result.json": {
+      "bytes": 5199,
+      "records": 174,
+      "sha256": "e311d354f1632cb5336901c41a0474559f6969d1a91546a1ba4bb23df2ec0d40"
+    },
+    "moved-observations-comparison.json": {
+      "bytes": 4231,
+      "records": 116,
+      "sha256": "cc3b9993048f1a47ef7a51127be33ec7f3d5897297ea488e61d6fe0c56d21d41"
+    },
+    "moved-observations-v2.json": {
+      "bytes": 3343,
+      "records": 93,
+      "sha256": "9a222cf0782dc1c95f75b94aed0b9ba0cf90da2bd78867b5cd77f7ad48890d10"
+    },
+    "moved-observations.json": {
+      "bytes": 840,
+      "records": 25,
+      "sha256": "6849400150bc4c47c1d5987e1b4dbe5c583db217d6b10b9603d76560053ce9ea"
+    },
+    "partition-k32.json": {
+      "bytes": 2699,
+      "records": 148,
+      "sha256": "62745a617dc18a39a880b57a3207e36d2357416096e82ec27dc90485303cee67"
+    },
+    "pilot-k32.json": {
+      "bytes": 800,
+      "records": 29,
+      "sha256": "727e603ee669343210dee91f7a850a2e047eef41e09dbefbd628356888ec3931"
+    }
+  },
+  "by_measurement_type": {
+    "EC50": {
+      "a_observations": 280436,
+      "additions": 12686,
+      "b_observations": 270299,
+      "removals": 22823,
+      "unchanged": 257613
+    },
+    "IC50": {
+      "a_observations": 2117146,
+      "additions": 180423,
+      "b_observations": 2212313,
+      "removals": 85256,
+      "unchanged": 2031890
+    },
+    "KD": {
+      "a_observations": 124499,
+      "additions": 11305,
+      "b_observations": 131420,
+      "removals": 4384,
+      "unchanged": 120115
+    },
+    "KI": {
+      "a_observations": 614755,
+      "additions": 33953,
+      "b_observations": 619931,
+      "removals": 28777,
+      "unchanged": 585978
+    }
+  },
+  "corrections": {
+    "comparison": {
+      "ambiguous_groups_now_reported": {
+        "addition_occurrences": 3331,
+        "groups": 1673,
+        "groups_where_candidate_identifiers_disagree": 1673,
+        "note": "No correspondence is asserted for these. The positional-pairing sensitivity, labelled algorithm-dependent, would put agreement at 85.40% (entry DOI) and 85.27% (surrogate) if they were paired greedily -- which is why they must not be blended into the headline rate.",
+        "pairable_upper_bound": 2260,
+        "record_count_shapes": {
+          "1x2": 1003,
+          "1x3": 4,
+          "2x1": 48,
+          "2x2": 500,
+          "2x3": 11,
+          "2x4": 3,
+          "3x1": 72,
+          "3x11": 1,
+          "3x3": 14,
+          "3x6": 2,
+          "4x1": 2,
+          "4x11": 1,
+          "4x13": 1,
+          "4x4": 3,
+          "4x5": 1,
+          "4x7": 2,
+          "4x8": 1,
+          "5x1": 1,
+          "6x6": 1,
+          "7x1": 1,
+          "8x10": 1
+        },
+        "removal_occurrences": 2468
+      },
+      "correction": "m11d-cross-slot-pairing-v2",
+      "direction_of_the_change": "Identifier agreement rose, from 96.91% to 99.87% for the entry DOI and from 95.26% to 99.87% for the surrogate. The old figure UNDERSTATED agreement on the forced-correspondence population, because it folded in ambiguous groups where it had paired records arbitrarily -- and all 1,673 ambiguous groups contain candidates whose identifiers disagree, so those arbitrary pairings were counted as disagreements. Blending the two populations was the error; the corrected figures report them apart.",
+      "fields": {
+        "ambiguous_groups": {
+          "corrected": 1673,
+          "old": "not reported -- silently resolved"
+        },
+        "by_measurement_type": {
+          "corrected": {
+            "EC50": 1663,
+            "IC50": 20679,
+            "KD": 1858,
+            "KI": 4031
+          },
+          "old": {
+            "EC50": 1756,
+            "IC50": 21851,
+            "KD": 1875,
+            "KI": 5217
+          }
+        },
+        "entry_doi_agreed": {
+          "corrected": 28194,
+          "old": 29749
+        },
+        "entry_doi_agreement_rate": {
+          "corrected": 0.998689,
+          "old": 0.969054
+        },
+        "entry_doi_both_present": {
+          "corrected": 28231,
+          "old": 30699
+        },
+        "matched_or_moved_occurrences": {
+          "corrected": 28231,
+          "old": 30699
+        },
+        "moved_on_a_non_publication_slot_field": {
+          "corrected": 0,
+          "old": "484 implied by 30,699 - 30,215, an artifact of the broken pairing"
+        },
+        "publication_changed_attribution": {
+          "corrected": 102,
+          "old": "not separated"
+        },
+        "publication_gained": {
+          "corrected": 28129,
+          "old": 30215
+        },
+        "publication_lost": {
+          "corrected": 0,
+          "old": 0
+        },
+        "reactant_set_id_agreed": {
+          "corrected": 28194,
+          "old": 29244
+        },
+        "reactant_set_id_agreement_rate": {
+          "corrected": 0.998689,
+          "old": 0.952604
+        },
+        "reactant_set_id_both_present": {
+          "corrected": 28231,
+          "old": 30699
+        }
+      },
+      "positional_pairing_sensitivity": {
+        "entry_doi": {
+          "agreed": 1930,
+          "agreement_rate": 0.853982,
+          "both_present": 2260
+        },
+        "method": "lexicographic greedy pairing of sorted removal records against sorted addition records within each ambiguous group, consuming counts",
+        "paired_occurrences": 2260,
+        "reactant_set_id": {
+          "agreed": 1927,
+          "agreement_rate": 0.852655,
+          "both_present": 2260
+        },
+        "status": "ALGORITHM-DEPENDENT, not evidence about any individual observation"
+      },
+      "what_the_old_number_actually_was": "30,699 was the count of removal OCCURRENCES sitting in a group that had at least one eligible addition -- not the count of matched pairs. It equals the corrected removal-occurrences-considered figure exactly, which is how the defect was confirmed: the old code counted every such removal and let additions be reused.",
+      "why": "The first cross-slot analysis had two defects. It matched a removal against an addition without consuming the addition's count, so two removals sharing a key both counted as moves into one addition. And it took the first eligible addition in file order, so reversing the detail file changed which record a removal was compared against, and with it the reported identifier agreement. Both are reproduced as regression tests in tests/test_m11d_cross_slot_pairing.py."
+    },
+    "items": [
+      "moved_observations: additions' counts were never consumed, so two removals sharing a key both counted as moves into one addition",
+      "moved_observations: the first eligible addition in file order was chosen, making identifier agreement depend on detail-file order",
+      "moved_observations: ambiguous groups are now counted and reported instead of being resolved by picking one candidate",
+      "diff_sharded: the row budget was checked after both shard files were materialised; it is now checked from a counted byte scan beforehand, and the reads are bounded so a stale or wrong count cannot bypass it"
+    ],
+    "main_diff_unchanged": true,
+    "pass": "m11d-correction-v1",
+    "scope": "Cross-slot candidate re-attribution analysis and the shard budget ordering only. The main matcher was NOT rerun: all nine main-diff detail files were verified byte-identical by digest before and after."
+  },
+  "detail_files": {
+    "additions": {
+      "bytes": 102156861,
+      "records": 238367,
+      "sha256": "2fc6bfae5c157cebba638fdbcb1adb1cf2fbead6c8b4cd43b23f3ff4e2452583"
+    },
+    "ambiguous_slots": {
+      "bytes": 1110,
+      "records": 7,
+      "sha256": "9e744975d46de52e8d9afcd58776d4595202d9e894ffc2e5c872bf013149d293"
+    },
+    "correction_candidates": {
+      "bytes": 40551,
+      "records": 101,
+      "sha256": "58988361e71833fcd666164eb6f05aa126afc04a38dd82ef5ff9b9fae731578e"
+    },
+    "identifier_conflicts": {
+      "bytes": 486,
+      "records": 1,
+      "sha256": "4ec402817efca9e4a32931ef0eb0c026ef56281b9b5298357ca7c131d0f18a38"
+    },
+    "new_slots": {
+      "bytes": 33965483,
+      "records": 212307,
+      "sha256": "3f588ca92f42ba1af745fa2d352a5c909b1581de463cc0e895d1cd37587103c9"
+    },
+    "removals": {
+      "bytes": 61112872,
+      "records": 141240,
+      "sha256": "b9f558e43ff0fd45564af441dabb9a81a22ff543e1ee35e39fe3c05b214f950b"
+    },
+    "removed_slots": {
+      "bytes": 19695427,
+      "records": 120054,
+      "sha256": "3206f20e6bcf0546b447408c1ad4b0549c6897cfe4e01484303cd05cf65e13f0"
+    },
+    "unresolved_additions": {
+      "bytes": 102113694,
+      "records": 238266,
+      "sha256": "5deabb5b1dbeeaac2358c288bedda34fcd6b097cad8c26a4624e1ac3b7ad9d04"
+    },
+    "unresolved_removals": {
+      "bytes": 61069218,
+      "records": 141139,
+      "sha256": "2ab1235f6097d938829d7d40781d65f55deb2208717731fc5f07013201cd9e8e"
+    }
+  },
+  "ec50_decline": {
+    "a_observations": 280436,
+    "additions": 12686,
+    "ambiguous_candidate_upper_bound": 87,
+    "b_observations": 270299,
+    "candidate_ceiling_share_of_removals": 0.0767,
+    "corrections_that_changed_measurement_type": 0,
+    "net": -10137,
+    "net_contribution_of_cross_slot_candidates": 0,
+    "removals": 22823,
+    "removals_at_attributed_slot": 10274,
+    "removals_at_unattributed_slot": 12549,
+    "statement": "The decline is 22,823 removals against 12,686 additions. For 1,663 EC50 removals (7.3%) there is an unambiguous cross-slot CANDIDATE correspondence -- same compound, target, operator and value at a different slot -- and at most 87 more sit in ambiguous groups, a ceiling of about 1,750 (7.7%). Equal values at different slots establish a candidate correspondence, NOT experimental identity. One such case is individually source-verified on both sides, where the two rows additionally share an entry DOI and a reactant set id. **Cross-slot candidates cannot explain the net decline at all**: each pairs one removal with one addition, so it is net-neutral by construction whatever the correspondence means. No correction candidate changed measurement type. Matching alone does not establish why the remaining rows are absent from the later snapshot, and no causal explanation is claimed.",
+    "unambiguous_candidate_share_of_removals": 0.0729,
+    "unambiguous_cross_slot_candidate_observations": 1663
+  },
+  "identifier_agreement": {
+    "framing": "Agreement is reported only where the correspondence is FORCED -- one removal record and one addition record in a group -- never where it was chosen. Ambiguous groups are counted, not paired. Both figures are rates WITHIN a defined population and neither is proof of global identifier stability. Correction links remain provisional.",
+    "link_candidate_population": {
+      "entry_doi": {
+        "agreed": 101,
+        "agreement_rate_within_both_present": 0.990196,
+        "both_present": 102,
+        "disagreed": 1,
+        "disagreed_but_surrogate_agreed": 0
+      },
+      "many_to_many_slots": 7,
+      "one_to_one_slots": 102,
+      "reactant_set_id": {
+        "agreed": 0,
+        "agreement_rate_when_consulted": null,
+        "consulted_because_entry_doi_could_not_decide": 0,
+        "did_not_agree_or_absent": 0
+      }
+    },
+    "moved_observation_population": {
+      "ambiguous": {
+        "addition_occurrences": 3331,
+        "by_measurement_type": {
+          "EC50": 87,
+          "IC50": 1057,
+          "KD": 17,
+          "KI": 1099
+        },
+        "definition": "more than one record on either side, so no individual correspondence is asserted. Sizes and unmatched occurrences are reported instead.",
+        "groups": 1673,
+        "groups_where_candidate_identifiers_disagree": 1673,
+        "pairable_upper_bound": 2260,
+        "record_count_shapes": {
+          "1x2": 1003,
+          "1x3": 4,
+          "2x1": 48,
+          "2x2": 500,
+          "2x3": 11,
+          "2x4": 3,
+          "3x1": 72,
+          "3x11": 1,
+          "3x3": 14,
+          "3x6": 2,
+          "4x1": 2,
+          "4x11": 1,
+          "4x13": 1,
+          "4x4": 3,
+          "4x5": 1,
+          "4x7": 2,
+          "4x8": 1,
+          "5x1": 1,
+          "6x6": 1,
+          "7x1": 1,
+          "8x10": 1
+        },
+        "removal_occurrences": 2468
+      },
+      "interpretation": "Identifier agreement is reported only on the unambiguous groups, where the correspondence is forced rather than chosen. It is evidence of stability WITHIN that population and not proof of global stability: the population is selected by value equality, the case where stability is easiest to observe. A matched candidate pairs one removal with one addition, so the pair contributes nothing to a net count in either direction -- whatever the correspondence turns out to mean.",
+      "occurrence_accounting": {
+        "addition_occurrences_considered": 31562,
+        "note": "matched + unmatched + ambiguous, on each side. Every occurrence in a group present on both sides is counted exactly once.",
+        "removal_occurrences_considered": 30699
+      },
+      "population": "Cross-slot candidate correspondences: an occurrence removed from A and an occurrence added to B at a DIFFERENT slot, with the same compound, target, operator and canonical value. Grouped without reference to either identifier, and each occurrence participates at most once.",
+      "positional_pairing_sensitivity": {
+        "entry_doi": {
+          "agreed": 1930,
+          "agreement_rate": 0.853982,
+          "both_present": 2260
+        },
+        "method": "lexicographic greedy pairing of sorted removal records against sorted addition records within each ambiguous group, consuming counts",
+        "paired_occurrences": 2260,
+        "reactant_set_id": {
+          "agreed": 1927,
+          "agreement_rate": 0.852655,
+          "both_present": 2260
+        },
+        "status": "ALGORITHM-DEPENDENT, not evidence about any individual observation"
+      },
+      "same_slot_pairs_seen": 0,
+      "status": "CANDIDATE correspondences, NOT established experimental identity",
+      "unambiguous": {
+        "by_measurement_type": {
+          "EC50": 1663,
+          "IC50": 20679,
+          "KD": 1858,
+          "KI": 4031
+        },
+        "definition": "exactly one removal record and one addition record in the group, at different slots, so the correspondence is forced",
+        "entry_doi": {
+          "agreed": 28194,
+          "agreement_rate": 0.998689,
+          "both_present": 28231
+        },
+        "groups": 28231,
+        "matched_occurrences": 28231,
+        "pairs_with_locators_both_sides": 28231,
+        "publication_ref": {
+          "changed_attribution": 102,
+          "gained_an_attribution": 28129,
+          "lost_an_attribution": 0,
+          "unchanged_so_moved_on_another_slot_field": 0
+        },
+        "reactant_set_id": {
+          "agreed": 28194,
+          "agreement_rate": 0.998689,
+          "both_present": 28231
+        },
+        "unmatched_addition_occurrences": 0,
+        "unmatched_removal_occurrences": 0
+      },
+      "what_equality_establishes": "Equal compound, target, operator and canonical value at two DIFFERENT slots establishes a candidate correspondence, not experimental identity. Nothing in the files says the two rows report the same experiment: they may be one measurement recorded again under a new attribution, or two independent measurements that happen to agree."
+    }
+  },
+  "input_accounting": {
+    "a_equals_unchanged_plus_removals": 3136836,
+    "a_observations_in": 3136836,
+    "b_equals_unchanged_plus_additions": 3233963,
+    "b_observations_in": 3233963,
+    "reconciles": true
+  },
+  "inputs": {
+    "202601": {
+      "path": "data/asof/observations-202601.jsonl.gz",
+      "rows": 3136836,
+      "sha256": "0b67b64bef49fb7cdb765a929e51cd03d696696333bd9a993150c2d48aa55e80"
+    },
+    "202609": {
+      "path": "data/asof/observations-202609.jsonl.gz",
+      "rows": 3233963,
+      "sha256": "2b2b4ad8b920241f5a3852707f99fcfa8353744fd31bd03c86adaf8c66d02ac9"
+    }
+  },
+  "machine": {
+    "physical_memory_bytes": 17179869184,
+    "physical_memory_gib": 16
+  },
+  "not_done": [
+    "Ki aggregation through the bridge and endpoint rules",
+    "pair eligibility (one compound-target pair may have evidence in several shards)",
+    "eligible new-pair count -- checklist item 8 stays OPEN",
+    "endpoint build, features, fitting, evaluation scores, docking"
+  ],
+  "pilot": {
+    "bytes_per_observation_at_peak": 4674,
+    "observations": 200060,
+    "peak_rss_gb": 0.89,
+    "seconds": 2.9,
+    "shard": 26
+  },
+  "recorded_at": "2026-10-03T02:32:45.185327+00:00",
+  "resources": {
+    "diff_peak_rss_bytes": 962478080,
+    "diff_peak_rss_gb": 0.9,
+    "diff_seconds": 100.8,
+    "partition_peak_rss_bytes": 56016896,
+    "partition_seconds": {
+      "a": 14.2,
+      "b": 15.1
+    },
+    "reduction_factor": 28.1,
+    "unsharded_projected_gb": 25.3
+  },
+  "run": "m11d-sharded-matching-v1",
+  "scope": "Descriptive snapshot matching only. No endpoint build, no Ki aggregation, no pair-eligibility calculation, no features, no fitting, no evaluation score, no docking. The confirmatory freeze is not signed and the study remains exploratory.",
+  "shard_configuration": {
+    "budget_observations_per_pair": 400000,
+    "pair_max": 200060,
+    "pair_min": 197370,
+    "partition_peak_rss_bytes": 56016896,
+    "partition_seconds": {
+      "a": 14.2,
+      "b": 15.1
+    },
+    "shard_count": 32,
+    "shard_hash": "blake2b-64",
+    "within_budget": true
+  },
+  "surplus_accounting": {
+    "additions": 238367,
+    "note": "A linked correction consumes one surplus removal and one surplus addition, which are then not reported as unresolved. So unresolved + corrections must equal the surplus on each side.",
+    "reconciles": true,
+    "removals": 141240,
+    "unresolved_additions_plus_corrections": 238367,
+    "unresolved_removals_plus_corrections": 141240
+  },
+  "totals": {
+    "added_observations": 238367,
+    "ambiguous_slots": 7,
+    "correction_candidates": 101,
+    "identifier_conflicts": 1,
+    "new_slots": 212307,
+    "removed_observations": 141240,
+    "removed_slots": 120054,
+    "unchanged_observations": 2995596,
+    "unresolved_additions": 238266,
+    "unresolved_removals": 141139
+  },
+  "versions": {
+    "normalisation_version": "m11-normalise-v2",
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "python": "3.11.15",
+    "shard_version": "m11d/shard/v1"
+  }
+}

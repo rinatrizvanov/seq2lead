@@ -1,0 +1,863 @@
+[
+  {
+    "target_sequence_sha256": "0153DBEBB226A1E5B5F70A1CA9ADD9FC132E086045E02EE6797B928C3F08547D",
+    "pairs": 723,
+    "positives": 491,
+    "concat_seed_mean_auroc": 0.8821722031041507,
+    "dual_seed_mean_auroc": 0.8963603483390689
+  },
+  {
+    "target_sequence_sha256": "022C5E46AA4D58F82EA0B1DCB834398F4F1195826519611B0447B8B5E3536EF3",
+    "pairs": 27,
+    "positives": 20,
+    "concat_seed_mean_auroc": 0.8885714285714286,
+    "dual_seed_mean_auroc": 0.8099999999999999
+  },
+  {
+    "target_sequence_sha256": "051FC4732E4921492421CDA1544C298561F4D5E41751C6E73886E38ED9280207",
+    "pairs": 63,
+    "positives": 20,
+    "concat_seed_mean_auroc": 0.45767441860465113,
+    "dual_seed_mean_auroc": 0.5344186046511629
+  },
+  {
+    "target_sequence_sha256": "0570C5D169E261BD58CEF982A478372A4DB9A32BAB2B2E079EAFC07BF05F0433",
+    "pairs": 691,
+    "positives": 623,
+    "concat_seed_mean_auroc": 0.8678122934567085,
+    "dual_seed_mean_auroc": 0.8947502596544235
+  },
+  {
+    "target_sequence_sha256": "06616FB01B8023488455BF63995D8C2BA41E3501B7F4C2DF48C2BC0E74899434",
+    "pairs": 16,
+    "positives": 6,
+    "concat_seed_mean_auroc": 0.4533333333333333,
+    "dual_seed_mean_auroc": 0.4033333333333333
+  },
+  {
+    "target_sequence_sha256": "075CD160A22E392AD92776143A4AF52ED1C6AC1E68BA82BC253BA8DD9DAEF9C1",
+    "pairs": 872,
+    "positives": 379,
+    "concat_seed_mean_auroc": 0.9259693760135297,
+    "dual_seed_mean_auroc": 0.9462704779846612
+  },
+  {
+    "target_sequence_sha256": "082EF6CFA8A9D5C17782CC036623A4C0ECE915FC6A420E54678FF55DAB70B98E",
+    "pairs": 68,
+    "positives": 8,
+    "concat_seed_mean_auroc": 0.8154166666666667,
+    "dual_seed_mean_auroc": 0.7945833333333333
+  },
+  {
+    "target_sequence_sha256": "09A77A1C0C1F1B9913770EF76772D09B115B942D35D2C1726979B39D17331813",
+    "pairs": 32,
+    "positives": 10,
+    "concat_seed_mean_auroc": 0.7163636363636364,
+    "dual_seed_mean_auroc": 0.6045454545454545
+  },
+  {
+    "target_sequence_sha256": "0B63BEB01DE62EA4910251F17EE36750F150E89785B412F48844567EC3390BAA",
+    "pairs": 19,
+    "positives": 14,
+    "concat_seed_mean_auroc": 0.7685714285714285,
+    "dual_seed_mean_auroc": 0.7771428571428571
+  },
+  {
+    "target_sequence_sha256": "0C28B2BBCD26288E922995658EC906AD6B2D7C80CA8ACD4F6764079F94EDB811",
+    "pairs": 67,
+    "positives": 42,
+    "concat_seed_mean_auroc": 0.8424761904761905,
+    "dual_seed_mean_auroc": 0.8641904761904762
+  },
+  {
+    "target_sequence_sha256": "0CF62E1CCB94ABD03E5ADAE50CA58B2B43690058C5CC6E176C4650E6C4F083E0",
+    "pairs": 113,
+    "positives": 80,
+    "concat_seed_mean_auroc": 0.7849242424242424,
+    "dual_seed_mean_auroc": 0.8224242424242425
+  },
+  {
+    "target_sequence_sha256": "0D02F196F4E9E17724E195135C2D322934ACB0F3188D944CB5C72E3F39BDA6EE",
+    "pairs": 87,
+    "positives": 74,
+    "concat_seed_mean_auroc": 0.7056133056133056,
+    "dual_seed_mean_auroc": 0.7359667359667359
+  },
+  {
+    "target_sequence_sha256": "0F08A0F33648783B36FADA752D56DEF0C2649349EF9DAE080B01812E205A122F",
+    "pairs": 27,
+    "positives": 6,
+    "concat_seed_mean_auroc": 0.7968253968253969,
+    "dual_seed_mean_auroc": 0.6619047619047619
+  },
+  {
+    "target_sequence_sha256": "0F79DD8C1EA278EDBE797CA3CCB235DE12E8D482492499A37A977A0692D3E49B",
+    "pairs": 87,
+    "positives": 12,
+    "concat_seed_mean_auroc": 0.5286666666666666,
+    "dual_seed_mean_auroc": 0.3868888888888889
+  },
+  {
+    "target_sequence_sha256": "1287BF4746A29DA750F6C6B98F8C56E324160E07114AE16472B00598F130C4A1",
+    "pairs": 75,
+    "positives": 30,
+    "concat_seed_mean_auroc": 0.8296296296296297,
+    "dual_seed_mean_auroc": 0.7601481481481482
+  },
+  {
+    "target_sequence_sha256": "14D8675B70E8C15FF5802F733918484508B88822EB9860ABA41D435EE2A1CCEC",
+    "pairs": 39,
+    "positives": 28,
+    "concat_seed_mean_auroc": 0.5746753246753247,
+    "dual_seed_mean_auroc": 0.6415584415584416
+  },
+  {
+    "target_sequence_sha256": "1745754698CFDA0DA91A4AB57A3167699FD9968011B4A7887A53C1DA2876FBE1",
+    "pairs": 50,
+    "positives": 40,
+    "concat_seed_mean_auroc": 0.549,
+    "dual_seed_mean_auroc": 0.6579999999999999
+  },
+  {
+    "target_sequence_sha256": "18E4FE4189D4300E2C85DC966249934AACD3DC3E351A62364A698AA32CEFC59A",
+    "pairs": 50,
+    "positives": 21,
+    "concat_seed_mean_auroc": 0.9536945812807882,
+    "dual_seed_mean_auroc": 0.9510673234811167
+  },
+  {
+    "target_sequence_sha256": "18FCD61221AC38D04DAC6BA1884D8ECD1C47C0E94922905C5B51382D95849C3A",
+    "pairs": 354,
+    "positives": 205,
+    "concat_seed_mean_auroc": 0.9007497135374039,
+    "dual_seed_mean_auroc": 0.9297037158291046
+  },
+  {
+    "target_sequence_sha256": "1A9D5667ABCFBE96D50F29121E815EEF32AE5FBFB3DE52728D9A2DE30D764B20",
+    "pairs": 28,
+    "positives": 11,
+    "concat_seed_mean_auroc": 0.8759358288770054,
+    "dual_seed_mean_auroc": 0.6577540106951872
+  },
+  {
+    "target_sequence_sha256": "1E43C78D6315A3DC0AD9DC09A01362CC3AF4E2B1D92C816A8B74702648515890",
+    "pairs": 31,
+    "positives": 8,
+    "concat_seed_mean_auroc": 0.9152173913043479,
+    "dual_seed_mean_auroc": 0.8086956521739129
+  },
+  {
+    "target_sequence_sha256": "1FC281BC0377A44D573C730A9C58649A3F9C3D9AF338C2E7BA3F6CC82975DE42",
+    "pairs": 13,
+    "positives": 7,
+    "concat_seed_mean_auroc": 0.8523809523809524,
+    "dual_seed_mean_auroc": 0.919047619047619
+  },
+  {
+    "target_sequence_sha256": "2B9B5928CCA6AC49D4004D64FC2F2598FD08812DD42E720993169A86769075F5",
+    "pairs": 295,
+    "positives": 245,
+    "concat_seed_mean_auroc": 0.8619428571428571,
+    "dual_seed_mean_auroc": 0.858204081632653
+  },
+  {
+    "target_sequence_sha256": "3022E4ECD19D9622D20A4BCF5A82ABBBBC2392DEA73200AFDA92048E136C000F",
+    "pairs": 32,
+    "positives": 8,
+    "concat_seed_mean_auroc": 0.49375,
+    "dual_seed_mean_auroc": 0.7020833333333333
+  },
+  {
+    "target_sequence_sha256": "32D61ABA7A823674FD552153A3ED08E864258B7720546B2CA65E7E29F6CC0A13",
+    "pairs": 65,
+    "positives": 43,
+    "concat_seed_mean_auroc": 0.9010570824524313,
+    "dual_seed_mean_auroc": 0.9084566596194502
+  },
+  {
+    "target_sequence_sha256": "3501FF1A2C34E139907D0B8726E0CE2D830CFC7304472A862525F3428A6A534C",
+    "pairs": 276,
+    "positives": 187,
+    "concat_seed_mean_auroc": 0.7632037493240401,
+    "dual_seed_mean_auroc": 0.753734302709848
+  },
+  {
+    "target_sequence_sha256": "351664067C22D7E6A071E811DDB3B5759E91101E0C46D4454FC61CE4BCA10FA2",
+    "pairs": 375,
+    "positives": 179,
+    "concat_seed_mean_auroc": 0.7718048113099988,
+    "dual_seed_mean_auroc": 0.7980161897161098
+  },
+  {
+    "target_sequence_sha256": "3C818EE2C080F534EAF3CB422F25C94F2F49241F958D47673D7C8575EC18A73E",
+    "pairs": 20,
+    "positives": 8,
+    "concat_seed_mean_auroc": 0.5583333333333333,
+    "dual_seed_mean_auroc": 0.6479166666666667
+  },
+  {
+    "target_sequence_sha256": "4212E6C5E472FD686B30C69E8D14749ADDD3C89EEE2F3EAB47F1D4C1637DFA2C",
+    "pairs": 57,
+    "positives": 44,
+    "concat_seed_mean_auroc": 0.8923076923076924,
+    "dual_seed_mean_auroc": 0.8846153846153847
+  },
+  {
+    "target_sequence_sha256": "426A120E9105502534446B6B2F93D80918127F6D0A708F46A005683D0DB7C88E",
+    "pairs": 56,
+    "positives": 33,
+    "concat_seed_mean_auroc": 0.3633728590250329,
+    "dual_seed_mean_auroc": 0.30039525691699603
+  },
+  {
+    "target_sequence_sha256": "43B649A8E088A5C0054CC47C614CB08DBB1EAC2E071A42EC86F2AB44F117D073",
+    "pairs": 26,
+    "positives": 9,
+    "concat_seed_mean_auroc": 0.8313725490196078,
+    "dual_seed_mean_auroc": 0.8222222222222223
+  },
+  {
+    "target_sequence_sha256": "4CF523E4F20641BD9BBBE1036FB5A523DBA1B2BF3127CD5B69B0A6D2E2CC6314",
+    "pairs": 82,
+    "positives": 25,
+    "concat_seed_mean_auroc": 0.9120000000000001,
+    "dual_seed_mean_auroc": 0.9042807017543859
+  },
+  {
+    "target_sequence_sha256": "4D0C1AE8D9C6ECF5FFEF01BD5A16F859DAC3AE273225407783296131C695C1FD",
+    "pairs": 171,
+    "positives": 90,
+    "concat_seed_mean_auroc": 0.8742661179698217,
+    "dual_seed_mean_auroc": 0.8509190672153636
+  },
+  {
+    "target_sequence_sha256": "4F30314865693BC9810BA484EA21699089D5BBCD2D4C75461668DB8C9468BBF4",
+    "pairs": 784,
+    "positives": 656,
+    "concat_seed_mean_auroc": 0.9117663871951219,
+    "dual_seed_mean_auroc": 0.9239210175304878
+  },
+  {
+    "target_sequence_sha256": "505BFB3D1260C6A4E19CDE894AF5B280BDB5F0833BC980CB58448501FC7E158B",
+    "pairs": 42,
+    "positives": 23,
+    "concat_seed_mean_auroc": 0.7986270022883295,
+    "dual_seed_mean_auroc": 0.8622425629290618
+  },
+  {
+    "target_sequence_sha256": "5862305C8302B2D7DD9DE31F34102A1220D9099D9F6F7B961610ED4337934880",
+    "pairs": 337,
+    "positives": 165,
+    "concat_seed_mean_auroc": 0.7725475687103595,
+    "dual_seed_mean_auroc": 0.735521494009866
+  },
+  {
+    "target_sequence_sha256": "5C619DCB6235F38247072EACD7FA6AD3AA7E69D3D4F661EBFDC4251E2B2752B4",
+    "pairs": 47,
+    "positives": 18,
+    "concat_seed_mean_auroc": 0.7547892720306514,
+    "dual_seed_mean_auroc": 0.5229885057471264
+  },
+  {
+    "target_sequence_sha256": "5EED92EE1FF0E650FEC2FB446464621C91B046E7FCA62D4535725EAC0A355ABD",
+    "pairs": 20,
+    "positives": 6,
+    "concat_seed_mean_auroc": 0.6095238095238096,
+    "dual_seed_mean_auroc": 0.6142857142857143
+  },
+  {
+    "target_sequence_sha256": "6001055D0866D9EE2C225EB36B22F1F56726909686411070689B585515E38D7B",
+    "pairs": 58,
+    "positives": 8,
+    "concat_seed_mean_auroc": 0.9869999999999999,
+    "dual_seed_mean_auroc": 0.9695
+  },
+  {
+    "target_sequence_sha256": "60FC8804E78A6A349ED1E235854E1E39D1F4C8D6E7E00FD008F48F1EA5C73DAC",
+    "pairs": 35,
+    "positives": 23,
+    "concat_seed_mean_auroc": 0.8282608695652174,
+    "dual_seed_mean_auroc": 0.8391304347826087
+  },
+  {
+    "target_sequence_sha256": "62F5E1881B0EFC28F2F60C2972F6226477C26B841E00762613F38246A2677974",
+    "pairs": 48,
+    "positives": 29,
+    "concat_seed_mean_auroc": 0.6613430127041743,
+    "dual_seed_mean_auroc": 0.6914700544464608
+  },
+  {
+    "target_sequence_sha256": "6527C327073CF933B7884865D0BDFC7697389718B2DD717C906348EBBF546C65",
+    "pairs": 80,
+    "positives": 59,
+    "concat_seed_mean_auroc": 0.6892655367231638,
+    "dual_seed_mean_auroc": 0.7265536723163842
+  },
+  {
+    "target_sequence_sha256": "67540DA68467479FAEEDB7EBCD6629F2494423B949BE8F07DE2C5DD364D133A9",
+    "pairs": 36,
+    "positives": 28,
+    "concat_seed_mean_auroc": 0.6625,
+    "dual_seed_mean_auroc": 0.5669642857142858
+  },
+  {
+    "target_sequence_sha256": "6915055CBE1F1A40EB0618F56D431DCF661B91181B1634A8734F09AA81476292",
+    "pairs": 76,
+    "positives": 6,
+    "concat_seed_mean_auroc": 0.7119047619047619,
+    "dual_seed_mean_auroc": 0.8295238095238096
+  },
+  {
+    "target_sequence_sha256": "6C38D5B5D26B5C883E726212BA8ACED20E26C244E3B129B1F139634AE59F2AE5",
+    "pairs": 31,
+    "positives": 5,
+    "concat_seed_mean_auroc": 0.6169230769230769,
+    "dual_seed_mean_auroc": 0.5353846153846153
+  },
+  {
+    "target_sequence_sha256": "6CAFCB7B73CD4A888A56672F7918414880D65496FFAF95EC385AE03D299E5862",
+    "pairs": 22,
+    "positives": 11,
+    "concat_seed_mean_auroc": 0.684297520661157,
+    "dual_seed_mean_auroc": 0.7553719008264463
+  },
+  {
+    "target_sequence_sha256": "6EEEFB3D1F9BEB3B51B41546F553C008402677F95C2183B45C1F9B34BFB175E0",
+    "pairs": 16,
+    "positives": 6,
+    "concat_seed_mean_auroc": 0.8799999999999999,
+    "dual_seed_mean_auroc": 0.85
+  },
+  {
+    "target_sequence_sha256": "7192D652F813D4D86F957B1EDB7729C8ADB429515FB591D7F4C6937A9D54DEC2",
+    "pairs": 177,
+    "positives": 124,
+    "concat_seed_mean_auroc": 0.9361533779671334,
+    "dual_seed_mean_auroc": 0.9586122945830796
+  },
+  {
+    "target_sequence_sha256": "721595553D881234455031CDAF6A565E80E7FF6F4F8F4FD53DA883B1E3BB6517",
+    "pairs": 57,
+    "positives": 48,
+    "concat_seed_mean_auroc": 0.9416666666666668,
+    "dual_seed_mean_auroc": 0.913888888888889
+  },
+  {
+    "target_sequence_sha256": "74850FF3A746768B63892FB357A9655AAF2E7ED5CD149CCBC0728915128A35BA",
+    "pairs": 50,
+    "positives": 29,
+    "concat_seed_mean_auroc": 0.9720853858784894,
+    "dual_seed_mean_auroc": 0.8167487684729065
+  },
+  {
+    "target_sequence_sha256": "75C34E924155E3529903BD10DAF1DA3D8929C12D17075FF191D84EC07703843F",
+    "pairs": 125,
+    "positives": 118,
+    "concat_seed_mean_auroc": 0.6556900726392252,
+    "dual_seed_mean_auroc": 0.711864406779661
+  },
+  {
+    "target_sequence_sha256": "7810003B5817178CF1F0238A337D954F732E3387DA5080F93DF679003054F5A6",
+    "pairs": 74,
+    "positives": 55,
+    "concat_seed_mean_auroc": 0.8022966507177033,
+    "dual_seed_mean_auroc": 0.9289952153110047
+  },
+  {
+    "target_sequence_sha256": "796377537C0EAF1BF6344DFE0EF3B287D84934267233F526F4E40EB6BF5A86E3",
+    "pairs": 11,
+    "positives": 5,
+    "concat_seed_mean_auroc": 0.8533333333333333,
+    "dual_seed_mean_auroc": 0.8866666666666667
+  },
+  {
+    "target_sequence_sha256": "79EB42E86A334E24CB68650F7C9BA16AA6069B424229C1752AFC33047980DD08",
+    "pairs": 43,
+    "positives": 33,
+    "concat_seed_mean_auroc": 0.835151515151515,
+    "dual_seed_mean_auroc": 0.8024242424242424
+  },
+  {
+    "target_sequence_sha256": "7B6CFCFA50F9A9A5152DD688648FB19728833345FE619E1837946EA5DF4987BB",
+    "pairs": 56,
+    "positives": 27,
+    "concat_seed_mean_auroc": 0.7874840357598978,
+    "dual_seed_mean_auroc": 0.9604086845466157
+  },
+  {
+    "target_sequence_sha256": "7BE15BEF7AEB161CC050A294E7A4A2E1F70CD9358F41B59831A41A435A20EBED",
+    "pairs": 79,
+    "positives": 61,
+    "concat_seed_mean_auroc": 0.8845173041894352,
+    "dual_seed_mean_auroc": 0.9196721311475411
+  },
+  {
+    "target_sequence_sha256": "7C5F8C3C5B77CB8B97001FA1886FCAF21964C996F7B2F600CD0037E203310BCD",
+    "pairs": 58,
+    "positives": 26,
+    "concat_seed_mean_auroc": 0.6776442307692307,
+    "dual_seed_mean_auroc": 0.7615384615384616
+  },
+  {
+    "target_sequence_sha256": "7F99A3866638D052E67847FD928F4271427440A3B7622FF21E0269FE5F0E1E03",
+    "pairs": 35,
+    "positives": 10,
+    "concat_seed_mean_auroc": 0.8424000000000001,
+    "dual_seed_mean_auroc": 0.8936
+  },
+  {
+    "target_sequence_sha256": "816500F8CAACC6B7C14110CAEBF587FBDE8148D8F28F1F1BCC5713FAEDB959B8",
+    "pairs": 31,
+    "positives": 5,
+    "concat_seed_mean_auroc": 0.5261538461538462,
+    "dual_seed_mean_auroc": 0.7692307692307693
+  },
+  {
+    "target_sequence_sha256": "84F03C7918B76C7E07D3B922A5793387567DE20FD8792BD18D405D3F61DEE66C",
+    "pairs": 42,
+    "positives": 9,
+    "concat_seed_mean_auroc": 0.9003367003367003,
+    "dual_seed_mean_auroc": 0.9494949494949495
+  },
+  {
+    "target_sequence_sha256": "850ABA8BA2A5E1681E7E3DBC08958A52248C816C95BE57B749D282E591253998",
+    "pairs": 56,
+    "positives": 45,
+    "concat_seed_mean_auroc": 0.6408080808080807,
+    "dual_seed_mean_auroc": 0.6404040404040405
+  },
+  {
+    "target_sequence_sha256": "8BB8E760C142B1A44BA1409375E34DE5C0836B1B5E77EC6FAC96A7A9D07D121F",
+    "pairs": 2246,
+    "positives": 1694,
+    "concat_seed_mean_auroc": 0.8879576039902126,
+    "dual_seed_mean_auroc": 0.9134468627551632
+  },
+  {
+    "target_sequence_sha256": "8C2B6E1477FF21093D6BDEE1A4482A36B1024AAEBBD4E968C54262742CEFD3E0",
+    "pairs": 118,
+    "positives": 43,
+    "concat_seed_mean_auroc": 0.8560310077519379,
+    "dual_seed_mean_auroc": 0.8547906976744187
+  },
+  {
+    "target_sequence_sha256": "9112BBED27C42F31D518060045F8F075E25408811EC7AF9D1B9BB91C91CBD1D2",
+    "pairs": 27,
+    "positives": 7,
+    "concat_seed_mean_auroc": 0.8971428571428571,
+    "dual_seed_mean_auroc": 0.862857142857143
+  },
+  {
+    "target_sequence_sha256": "92962676F214E5A64A684DCB0DAEA96F595B5C4CCF2E8DB1315AE9D36623E43B",
+    "pairs": 42,
+    "positives": 6,
+    "concat_seed_mean_auroc": 0.5907407407407408,
+    "dual_seed_mean_auroc": 0.42314814814814816
+  },
+  {
+    "target_sequence_sha256": "9413C76D3D6F9CFC34A43BC74828513C034AD5064F7DD447B8B2B6AB48E234F6",
+    "pairs": 85,
+    "positives": 67,
+    "concat_seed_mean_auroc": 0.9797678275290215,
+    "dual_seed_mean_auroc": 0.9721393034825871
+  },
+  {
+    "target_sequence_sha256": "945340616BAFD8D32B4CDB5A4F6A1F13EE9DE829FD7DACCF5F63FC94149D6B34",
+    "pairs": 241,
+    "positives": 147,
+    "concat_seed_mean_auroc": 0.8472861485019539,
+    "dual_seed_mean_auroc": 0.8374583876103634
+  },
+  {
+    "target_sequence_sha256": "972248DBCB8036F0B7359D92C3D8AC3D6B2A2797C08897E5248DA40D44FDC63E",
+    "pairs": 64,
+    "positives": 50,
+    "concat_seed_mean_auroc": 0.8391428571428572,
+    "dual_seed_mean_auroc": 0.7628571428571428
+  },
+  {
+    "target_sequence_sha256": "987E15538F0F1AB2FDAC22DE66091CF0A704C2A7EAE4E9AF9419D590682C51D7",
+    "pairs": 20,
+    "positives": 10,
+    "concat_seed_mean_auroc": 0.9279999999999999,
+    "dual_seed_mean_auroc": 0.9460000000000001
+  },
+  {
+    "target_sequence_sha256": "9A2657FA53C2073146E48E443489559CDBFC220B161C20897CB3BA8A6B9C2FD6",
+    "pairs": 40,
+    "positives": 14,
+    "concat_seed_mean_auroc": 0.8725274725274726,
+    "dual_seed_mean_auroc": 0.9153846153846155
+  },
+  {
+    "target_sequence_sha256": "9B4D7F141AE58580813AA6B030F67B51EFC5AF3076F4DF2CB5B0DBC27F0C7810",
+    "pairs": 90,
+    "positives": 42,
+    "concat_seed_mean_auroc": 0.829861111111111,
+    "dual_seed_mean_auroc": 0.8012896825396826
+  },
+  {
+    "target_sequence_sha256": "9DEC884956B52202741953CAAA537916AD6312352334832DD7A3581D560D8966",
+    "pairs": 46,
+    "positives": 38,
+    "concat_seed_mean_auroc": 0.4480263157894737,
+    "dual_seed_mean_auroc": 0.43157894736842106
+  },
+  {
+    "target_sequence_sha256": "9FE5E04939477B4F60CD74887EA8C81FF0E434B864CCF76BBE8993A2CBCC6947",
+    "pairs": 41,
+    "positives": 16,
+    "concat_seed_mean_auroc": 0.8870000000000001,
+    "dual_seed_mean_auroc": 0.8135
+  },
+  {
+    "target_sequence_sha256": "A9754AA0EED81BF0E9E2FD8EF8D35D6F3D58F467B794F3E3B2A3037373E0C7AD",
+    "pairs": 159,
+    "positives": 144,
+    "concat_seed_mean_auroc": 0.9912037037037036,
+    "dual_seed_mean_auroc": 0.9706481481481483
+  },
+  {
+    "target_sequence_sha256": "A9D70E6DD79A9D6D5FEF6772B08EFB426EBA56FFBC49737C550220E71C521746",
+    "pairs": 34,
+    "positives": 9,
+    "concat_seed_mean_auroc": 0.9093333333333333,
+    "dual_seed_mean_auroc": 0.9653333333333334
+  },
+  {
+    "target_sequence_sha256": "AA4CB2E390B3C64BEDAF30E4029DD69134421808C79FB51D996785AA5521ED84",
+    "pairs": 14,
+    "positives": 6,
+    "concat_seed_mean_auroc": 0.7833333333333334,
+    "dual_seed_mean_auroc": 0.7625
+  },
+  {
+    "target_sequence_sha256": "AA99D79DF457EAE7C8804B0CBF6E4955973B7F683F0CBA39682444921E522CF3",
+    "pairs": 194,
+    "positives": 187,
+    "concat_seed_mean_auroc": 0.3121466768525592,
+    "dual_seed_mean_auroc": 0.46799083269671504
+  },
+  {
+    "target_sequence_sha256": "AF1DA04FF0AEC04B89F2C4605EB222FC00BA4B5FDB08B537F284CAC275B33A17",
+    "pairs": 356,
+    "positives": 315,
+    "concat_seed_mean_auroc": 0.9364614789005034,
+    "dual_seed_mean_auroc": 0.9598451413085559
+  },
+  {
+    "target_sequence_sha256": "AF987650896002D008D596B93AA829EDE1AFA3E3B9ED769B9A8F70AFD7BE25D0",
+    "pairs": 56,
+    "positives": 33,
+    "concat_seed_mean_auroc": 0.4295125164690382,
+    "dual_seed_mean_auroc": 0.7270092226613967
+  },
+  {
+    "target_sequence_sha256": "B263B22B3360761991316E48CB14CBF385B45DFEBF9F369FCADC77201AD72E9E",
+    "pairs": 45,
+    "positives": 39,
+    "concat_seed_mean_auroc": 0.9076923076923077,
+    "dual_seed_mean_auroc": 0.6666666666666666
+  },
+  {
+    "target_sequence_sha256": "B5E7CA71EF5AF9CE9E3FFC10EEBC77B2BB95D592400670484EE596F06BE68E78",
+    "pairs": 34,
+    "positives": 28,
+    "concat_seed_mean_auroc": 0.8547619047619047,
+    "dual_seed_mean_auroc": 0.7345238095238095
+  },
+  {
+    "target_sequence_sha256": "B75060695513D21AC502DA540921882C3E99FD716A491E99F6757D7B78B3C62B",
+    "pairs": 168,
+    "positives": 75,
+    "concat_seed_mean_auroc": 0.9365161290322581,
+    "dual_seed_mean_auroc": 0.9382078853046595
+  },
+  {
+    "target_sequence_sha256": "B7C5362C168B0A1EFB482E33444363F383EBFEDC7CBF97406491BBCA73A78B70",
+    "pairs": 69,
+    "positives": 29,
+    "concat_seed_mean_auroc": 0.7082758620689654,
+    "dual_seed_mean_auroc": 0.7305172413793103
+  },
+  {
+    "target_sequence_sha256": "B988033CE3865DD511193DA531F612E7BFE6B7F6C3B4A73A4E14AF316C587916",
+    "pairs": 118,
+    "positives": 111,
+    "concat_seed_mean_auroc": 0.3292149292149292,
+    "dual_seed_mean_auroc": 0.216988416988417
+  },
+  {
+    "target_sequence_sha256": "BE19CE51C4F3249082C6B7AFDFAFCCAEACE5A2A13254F2238C619AEEBF5300C4",
+    "pairs": 37,
+    "positives": 25,
+    "concat_seed_mean_auroc": 0.8546666666666667,
+    "dual_seed_mean_auroc": 0.9200000000000002
+  },
+  {
+    "target_sequence_sha256": "BF66E641ECA6E1BBABCFAD949A6FF20577F059B7734F4F176541DF266EF89EE3",
+    "pairs": 42,
+    "positives": 11,
+    "concat_seed_mean_auroc": 0.5718475073313783,
+    "dual_seed_mean_auroc": 0.3736070381231672
+  },
+  {
+    "target_sequence_sha256": "BFECE1EC659B83C63D328549EE62FE01431C4BC64EE08B51234078EEF2B726E1",
+    "pairs": 42,
+    "positives": 14,
+    "concat_seed_mean_auroc": 0.8989795918367347,
+    "dual_seed_mean_auroc": 0.8530612244897959
+  },
+  {
+    "target_sequence_sha256": "C497F29417B886FF019812F69B1ED95FA872225C9180283496BEC6D9CA65F664",
+    "pairs": 94,
+    "positives": 41,
+    "concat_seed_mean_auroc": 0.7653934652554073,
+    "dual_seed_mean_auroc": 0.8027611596870685
+  },
+  {
+    "target_sequence_sha256": "C5EB9A7D07A45A0C584C02CB6B592326B039690834A555BFCC71B3EE6EBE8AA1",
+    "pairs": 18,
+    "positives": 6,
+    "concat_seed_mean_auroc": 0.8416666666666668,
+    "dual_seed_mean_auroc": 0.7444444444444445
+  },
+  {
+    "target_sequence_sha256": "C72476C90452DD73AD751AB8779ADF16193D56F690021DD90646ABF1FB9CB3E8",
+    "pairs": 15,
+    "positives": 6,
+    "concat_seed_mean_auroc": 0.9555555555555555,
+    "dual_seed_mean_auroc": 0.6296296296296297
+  },
+  {
+    "target_sequence_sha256": "CA94DD0E5E867B54DD4E2CF867982BB2847612A5488987D8177C81508B2C9F4C",
+    "pairs": 31,
+    "positives": 9,
+    "concat_seed_mean_auroc": 0.5878787878787879,
+    "dual_seed_mean_auroc": 0.4808080808080808
+  },
+  {
+    "target_sequence_sha256": "CB779EE5465A79579574B8C3A0BC5FA314A26D6DB9398767F8E713057FCE512D",
+    "pairs": 18,
+    "positives": 10,
+    "concat_seed_mean_auroc": 0.79,
+    "dual_seed_mean_auroc": 0.8450000000000001
+  },
+  {
+    "target_sequence_sha256": "CE82CC02FD301BA6E478BE5129EF6DD8F51452CE094B362910739B89E26B4995",
+    "pairs": 43,
+    "positives": 6,
+    "concat_seed_mean_auroc": 0.7558558558558559,
+    "dual_seed_mean_auroc": 0.8414414414414415
+  },
+  {
+    "target_sequence_sha256": "D04B5492B6834B6082BDA39D8E4D2FD37DD159A7C80A5855D173034FD05577E1",
+    "pairs": 57,
+    "positives": 40,
+    "concat_seed_mean_auroc": 0.9661764705882353,
+    "dual_seed_mean_auroc": 0.9211764705882353
+  },
+  {
+    "target_sequence_sha256": "D1707E447AC7D7FCD10F6F1C1E61754460B8F5E206EEDC0BA64747CD49B733F2",
+    "pairs": 86,
+    "positives": 72,
+    "concat_seed_mean_auroc": 0.9924603174603174,
+    "dual_seed_mean_auroc": 0.972420634920635
+  },
+  {
+    "target_sequence_sha256": "D195EE4029E80E71159AC797FC03232C0DDF74D2F865F939179ACD0FC14D81A6",
+    "pairs": 44,
+    "positives": 16,
+    "concat_seed_mean_auroc": 0.8772321428571429,
+    "dual_seed_mean_auroc": 0.9084821428571429
+  },
+  {
+    "target_sequence_sha256": "D2F2F70ECE4E15359B239D748893980CAF60BF73406B2777723AEE6E168D8371",
+    "pairs": 40,
+    "positives": 22,
+    "concat_seed_mean_auroc": 0.9585858585858587,
+    "dual_seed_mean_auroc": 0.9707070707070707
+  },
+  {
+    "target_sequence_sha256": "D490DE2BA2E67DEB14F4897332180B775ED815AAB47993463F5FF4AFF2F464CD",
+    "pairs": 12,
+    "positives": 6,
+    "concat_seed_mean_auroc": 0.5333333333333334,
+    "dual_seed_mean_auroc": 0.85
+  },
+  {
+    "target_sequence_sha256": "D606EC68B032C7D9DE2B6D7A8C68D6C696B43F51E8F915F992E129AF271F0BCD",
+    "pairs": 1420,
+    "positives": 1112,
+    "concat_seed_mean_auroc": 0.8572467999626273,
+    "dual_seed_mean_auroc": 0.9088865271419226
+  },
+  {
+    "target_sequence_sha256": "D89AA1703772AB0D843C4B6D2D4FDB768A09306CFD03519F41314FA57166024C",
+    "pairs": 288,
+    "positives": 218,
+    "concat_seed_mean_auroc": 0.8775884665792922,
+    "dual_seed_mean_auroc": 0.8601179554390563
+  },
+  {
+    "target_sequence_sha256": "D9609BC0995269D2FFD524C8D301F6BA1F878C82B54A186A580A65E46E657118",
+    "pairs": 50,
+    "positives": 42,
+    "concat_seed_mean_auroc": 0.7351190476190477,
+    "dual_seed_mean_auroc": 0.6684523809523809
+  },
+  {
+    "target_sequence_sha256": "DAA252A84DC0106763DCAB4DE1B731561B748399B3F2CD7FF6D2A5D828398623",
+    "pairs": 23,
+    "positives": 9,
+    "concat_seed_mean_auroc": 0.9682539682539684,
+    "dual_seed_mean_auroc": 0.9841269841269842
+  },
+  {
+    "target_sequence_sha256": "DBB4583267AD40A7DFD854EE3C44CE4BE38E137D0570E3EB76CF1854A74E7246",
+    "pairs": 36,
+    "positives": 13,
+    "concat_seed_mean_auroc": 0.9725752508361204,
+    "dual_seed_mean_auroc": 0.9464882943143813
+  },
+  {
+    "target_sequence_sha256": "DD25777A12F19CD9D1197FAFCA1852DABCF5ED4366E07E1BA1161C8EE591D578",
+    "pairs": 25,
+    "positives": 19,
+    "concat_seed_mean_auroc": 0.8763157894736843,
+    "dual_seed_mean_auroc": 0.5622807017543859
+  },
+  {
+    "target_sequence_sha256": "E26DB9DCFD14518127AC589D7630A4973B34F769CC189AA6B6CC252AD248393F",
+    "pairs": 219,
+    "positives": 174,
+    "concat_seed_mean_auroc": 0.763499361430396,
+    "dual_seed_mean_auroc": 0.7780842911877395
+  },
+  {
+    "target_sequence_sha256": "E43E4B530200A0B3B4878AB34DA5828A5858BA5041BD3B8E0909947F841CDAB4",
+    "pairs": 129,
+    "positives": 123,
+    "concat_seed_mean_auroc": 0.5138211382113822,
+    "dual_seed_mean_auroc": 0.4536585365853658
+  },
+  {
+    "target_sequence_sha256": "E4A9EA745635C950475641C84676EDDE20D12F8FC62FB2C5DF55EABE66448254",
+    "pairs": 54,
+    "positives": 26,
+    "concat_seed_mean_auroc": 0.8010989010989011,
+    "dual_seed_mean_auroc": 0.8436813186813186
+  },
+  {
+    "target_sequence_sha256": "E5C9170483AA99C955ADD114426F26BF4098226381DB2A81E877A4AB704B4979",
+    "pairs": 18,
+    "positives": 7,
+    "concat_seed_mean_auroc": 0.7428571428571429,
+    "dual_seed_mean_auroc": 0.7766233766233767
+  },
+  {
+    "target_sequence_sha256": "E6A24C903C1EF211037C64A6835A8A484F48B17BE1CAE50D6998913F21ACF7D4",
+    "pairs": 369,
+    "positives": 268,
+    "concat_seed_mean_auroc": 0.8172602334860353,
+    "dual_seed_mean_auroc": 0.743298359686715
+  },
+  {
+    "target_sequence_sha256": "E6A80905B838E43A89B0AD4E131B00B60220AD862701CD82A95E3CE4070FA1DB",
+    "pairs": 148,
+    "positives": 63,
+    "concat_seed_mean_auroc": 0.8339869281045751,
+    "dual_seed_mean_auroc": 0.8360784313725491
+  },
+  {
+    "target_sequence_sha256": "E789DADA59F2AB0F7F8922804E2C42C298767CDEE2E7523ABE368DFB9B0B3A69",
+    "pairs": 24,
+    "positives": 5,
+    "concat_seed_mean_auroc": 0.791578947368421,
+    "dual_seed_mean_auroc": 0.5031578947368421
+  },
+  {
+    "target_sequence_sha256": "E94BD16A771B9588C6BEA36121F3AB95279C405535DBB01504437A5AB8A580FE",
+    "pairs": 16,
+    "positives": 10,
+    "concat_seed_mean_auroc": 0.9733333333333334,
+    "dual_seed_mean_auroc": 0.9099999999999999
+  },
+  {
+    "target_sequence_sha256": "EA032885773058AC2C1ADB9E98B95AA360B089EC83A35113D9152151E5F5E995",
+    "pairs": 15,
+    "positives": 8,
+    "concat_seed_mean_auroc": 0.9,
+    "dual_seed_mean_auroc": 0.8464285714285715
+  },
+  {
+    "target_sequence_sha256": "EDBD5D8A5DEB16BFD31FF3029C7897B816B752CB26CD0DCF23D089DCDD841586",
+    "pairs": 81,
+    "positives": 64,
+    "concat_seed_mean_auroc": 0.76875,
+    "dual_seed_mean_auroc": 0.7461397058823529
+  },
+  {
+    "target_sequence_sha256": "F3A234965B33BE052FD4748F042F809D2ADD6DA3B3F556DA4C51ECA393E1FE9D",
+    "pairs": 30,
+    "positives": 10,
+    "concat_seed_mean_auroc": 0.808,
+    "dual_seed_mean_auroc": 0.884
+  },
+  {
+    "target_sequence_sha256": "F4E7E678115E7EFBDD3BD2469B333F0DE6AD28E112D08FD69F81E868C74DD727",
+    "pairs": 11,
+    "positives": 6,
+    "concat_seed_mean_auroc": 1.0,
+    "dual_seed_mean_auroc": 0.9666666666666668
+  },
+  {
+    "target_sequence_sha256": "F70D1259F715E6623D47DF37BF5B8B7588BE8A29DF97C3395DDCF28F3C3D0593",
+    "pairs": 33,
+    "positives": 9,
+    "concat_seed_mean_auroc": 0.8916666666666666,
+    "dual_seed_mean_auroc": 0.925
+  },
+  {
+    "target_sequence_sha256": "F7C20E2753A4A7F6FB362698113591C1BA2953F2E75A23AFF092D9CCE5827B7A",
+    "pairs": 17,
+    "positives": 7,
+    "concat_seed_mean_auroc": 0.8885714285714286,
+    "dual_seed_mean_auroc": 0.9028571428571428
+  },
+  {
+    "target_sequence_sha256": "F9E4438A973A786F57D02EEDC556F473ED5C6C4884D83DBA60819418C48036D5",
+    "pairs": 33,
+    "positives": 5,
+    "concat_seed_mean_auroc": 0.782857142857143,
+    "dual_seed_mean_auroc": 0.822857142857143
+  },
+  {
+    "target_sequence_sha256": "FD1D7C74A3DFED65D3084EEBD2E21E15FA9D7137233E72BFCA1515BB01AA3C34",
+    "pairs": 16,
+    "positives": 8,
+    "concat_seed_mean_auroc": 0.6125,
+    "dual_seed_mean_auroc": 0.6875
+  },
+  {
+    "target_sequence_sha256": "FD29BC54FDEFDEC210A2B526757AA3DAA4B7C700B7E01BB9F68E43ABDFE06255",
+    "pairs": 71,
+    "positives": 66,
+    "concat_seed_mean_auroc": 0.8969696969696969,
+    "dual_seed_mean_auroc": 0.9296969696969697
+  },
+  {
+    "target_sequence_sha256": "FEFAEFFFF4711A283120FD15FFC328BE87843F3DCE76B8C55B8359649ABD7339",
+    "pairs": 345,
+    "positives": 302,
+    "concat_seed_mean_auroc": 0.7289542584321577,
+    "dual_seed_mean_auroc": 0.6691205914061297
+  },
+  {
+    "target_sequence_sha256": "FFF13B41EF65181ECFD036C714D8C453D73781B4E2A5BD73A6CBE02D9829FB19",
+    "pairs": 262,
+    "positives": 256,
+    "concat_seed_mean_auroc": 0.9834635416666666,
+    "dual_seed_mean_auroc": 0.9217447916666668
+  }
+]

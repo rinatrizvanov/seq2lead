@@ -1,0 +1,26 @@
+{
+  "binding": "m11g-feature-binding-v2",
+  "sources": {
+    "ecfp4": {
+      "accepted_path": "data/features/ecfp4-compound-42351e003acb.npz",
+      "accepted_sha256": "964471e0055f9178dc76e1f5ed577a0ae7251dce7953b682ada47535b427c0be",
+      "extension_path": "data/features/ecfp4-compound-m11g-ext-8198510a392a.npz",
+      "extension_sha256": "62594be419940123fa0f5b4636730c081ce5a2f04731048003a49f78270f95a1",
+      "keyed_by": "content identity; no surrogate id is equated across schemas",
+      "reuse_map_entries": 251917,
+      "stored_dim": 256
+    },
+    "esm2": {
+      "accepted_path": "data/features/esm2-target-48cfa09487ce.npz",
+      "accepted_sha256": "1ecf4ced0d59d105df6fd1b6be7b5590e0f19a284e1871ce1fb4afc72777e5e7",
+      "extension_path": "data/features/esm2-target-m11g-ext-77469cfc5652.npz",
+      "extension_sha256": "cc7d1639a2fa16fece399fb5aaf17c2c2157372731a7cd8eaf2f53a708d5e570",
+      "keyed_by": "content identity; no surrogate id is equated across schemas",
+      "reuse_map_entries": 3812,
+      "stored_dim": 1280
+    }
+  },
+  "supersedes": "m11g-feature-binding-v1",
+  "verified_by": "seq2lead.asof.features.load_binding, called by the runner",
+  "why_v2": "v1 recorded the caches only. The runner took the reuse map as a caller parameter, so swapping two entries repointed those vectors while every storage digest, the coverage report and even the emitted dataset digest stayed identical. The map is now loaded from the resolution artifact and cross-checked against the entry count declared here."
+}

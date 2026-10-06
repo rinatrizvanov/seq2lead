@@ -1,0 +1,204 @@
+# M10 docking validation gate -- frozen BEFORE the gate cohort is docked.
+# See docs/DOCKING.md for the reasoning behind every value here.
+#
+# The question, and the only question this config answers:
+#
+#   Does this fixed structure, pocket and preparation protocol rank measured
+#   actives above measured inactives for this target?
+#
+# It is NOT a claim that docking improves M9 rankings. Model-plus-docking
+# re-ranking is a separate evaluation and is not attempted here.
+version: m10-docking-v1
+status: provisional_pooled_for_exploratory_benchmark
+milestone: M10
+
+# ---------------------------------------------------------------- the target
+target:
+  id: 223
+  uniprot: P00918
+  name: Carbonic anhydrase 2 (human)
+  sequence_sha256: e6a24c903c1ef211037c64a6835a8a484f48b17be1cae50d6998913f21acf7d4
+  length: 260
+  # Selection was made on data coverage and structural suitability alone,
+  # before any docking was run. Candidates and reasons: docs/DOCKING.md.
+  selected_because:
+    - "8,997 eligible measured pairs: 6,787 active / 2,210 inactive at pKi>=6.0"
+    - "crystallised construct equals the curated sequence exactly (260/260)"
+    - "single chain, 0.90 A structure, deep enclosed active-site cleft"
+  declared_risk: >-
+    The catalytic Zn(2+) is coordinated directly by the sulfonamide warhead that
+    most carbonic-anhydrase ligands carry. Vina's empirical scoring function
+    represents metal coordination crudely, so a failing gate on this target may
+    reflect the scoring function rather than docking as such. Declared before
+    scoring; it is a reason the gate may fail, not an excuse applied afterwards.
+
+# ------------------------------------------------------------- the structure
+structure:
+  pdb_id: 3K34
+  resolution_angstrom: 0.90
+  method: X-RAY DIFFRACTION
+  source_urls:
+    - https://files.rcsb.org/download/3k34.pdb
+    - https://files.rcsb.org/download/3k34.cif
+  sha256:
+    3k34.pdb: 3126e6ce8664a485d4d4419836f5d11d8a18e35292227e0866d07e4b2523feee
+    3k34.cif: 5d67719e94c541941bf7c0356e132ad01d7605a95d9833cce89726dc113ceeb9
+  construct_check:
+    seqres_length: 260
+    identical_to_curated_sequence: true
+    mutations: 0
+    missing_residues: [MET1, SER2]        # N-terminal, 20+ A from the Zn
+  cofactors_kept: [ZN]                     # catalytic, required
+  heteroatoms_removed:
+    SUA: "reference ligand -- removed from the receptor, used to define the box"
+    GOL: "3 glycerols (cryoprotectant); one sits 5.5 A from the Zn, inside the cleft"
+    HGB: "4-(hydroxymercury)benzoic acid, a surface adduct 19.1 A from the Zn"
+    HOH: "249 waters -- docked dry; see docs/DOCKING.md on the waters decision"
+  altloc_keep: A
+  altloc_policy: "keep altloc A, blank the flag; 27 atoms of altloc B dropped"
+
+# -------------------------------------------------------------- ground truth
+endpoint:
+  name: ki-pki6-v2
+  id: 96
+  threshold_pki: 6.0
+  source_release_id: 117
+eligibility:
+  status: ok
+  excluded_from_eval: false
+  in_benchmark_scope: true
+  labels: [active, inactive]
+  # Decisive censored records ARE negatives and keep their relation. Ambiguous
+  # or contradictory evidence is never a negative -- those rows are already
+  # excluded_from_eval upstream and are not re-admitted here.
+  censored_policy: decisive_only_relations_preserved
+
+cohort:
+  name: ca2-balanced-600
+  method: simple_random_sample_without_replacement_within_class
+  seed: 20261001
+  n_active: 300
+  n_inactive: 300
+  # Frozen before any docking score exists; the frozen file is the only cohort
+  # the gate may read, and it refuses to be silently replaced.
+  frozen_path: reports/results/m10_cohort.json
+
+# --------------------------------------------- what the frozen cohort must contain
+#
+# RETROSPECTIVE PIN. The gate cohort was frozen, and the gate was run, before this
+# field existed: the only identity checked then was `selection_sha256`, which
+# describes the selection *recipe*, and `membership_sha256`, which covers only
+# (id, label, evidence). Neither notices a rewritten SMILES. This digest covers
+# every member field that reaches ligand preparation or the gate, and it was
+# computed from the already-frozen cohort file -- it attests that the file has not
+# changed since, and is not evidence about what it contained before the pin
+# existed. Recomputing the published metrics from the saved scores shows the saved
+# scores and labels are mutually consistent; it does NOT establish that the
+# recorded SMILES were the structures actually docked, which would require the
+# preparation artifacts and their bindings. See reports/results/m10_corrections.md.
+#
+# Deliberately NOT inside the `cohort:` block: that block is hashed into
+# `selection_sha256`, and an attestation about the frozen output must not alter
+# the identity of the recipe that produced it.
+cohort_pin:
+  content_sha256: 0c18884091e2a6169ddf4aa1c745bca0bd9f301a33ec2ccd022d75b55badec94
+  n_members: 600
+  n_active: 300
+  n_inactive: 300
+  pinned_at: "2026-10-02"
+  pinned_from: reports/results/m10_cohort.json
+
+# ----------------------------------------------------------------- the engine
+engine:
+  name: AutoDock Vina
+  version: 1.2.7
+  platform: mac_aarch64
+  source_url: https://github.com/ccsb-scripps/AutoDock-Vina/releases/download/v1.2.7/vina_1.2.7_mac_aarch64
+  sha256: 823c2bbacf26d72183861322345f0a89736aca66c8e81054c66f93af5ad623f1
+  # The vina 1.1.2 binary on PATH is x86_64 from May 2011 and runs under
+  # Rosetta. It is not used. See docs/DOCKING.md.
+  rejected_binary:
+    path: ~/Downloads/autodock_vina_1_1_2_mac_catalina_64bit/bin/vina
+    version: 1.1.2
+    arch: x86_64
+    reason: "superseded release, emulated architecture"
+
+protocol:
+  scoring: vina
+  box:
+    # 20 A cube on the reference ligand's centre of mass. Contains the Zn.
+    center: [-5.560, 5.030, 13.030]
+    size: [20.0, 20.0, 20.0]
+    derived_from: "centre of mass of SUA (chain A, resi 1003) in 3K34"
+  # Vina's default. Fixed from the reference-ligand redocking QA and the runtime
+  # pilot, both of which were run before any active/inactive comparison existed:
+  # exhaustiveness 8, 16 and 32 all recovered the SUA pose at 1.5 A (1.54 / 1.54 /
+  # 1.51), so the extra search bought no pose accuracy, while the 24-ligand pilot
+  # measured a mean of 88 CPU-seconds per ligand at 16. The pilot drew only
+  # actives, so nothing about discrimination was visible when this was chosen.
+  exhaustiveness: 8
+  num_modes: 9
+  seed: 20261001
+  cpu_per_ligand: 1
+  ligand_prep:
+    protonation: "RDKit, neutral form as curated; no pH model applied"
+    stereochemistry: "as given in the curated canonical SMILES; unspecified centres left unspecified"
+    tautomers: "none enumerated -- single tautomer as curated"
+    conformer: "one ETKDGv3 conformer, MMFF-optimised, seed 20261001"
+    engine: "meeko 0.8.0 MoleculePreparation"
+  receptor_prep:
+    engine: "meeko 0.8.0 mk_prepare_receptor"
+    flexible_sidechains: none
+    waters: none
+
+# ------------------------------------------------- what counts as a pass, and
+#                                                    why, declared in advance
+gate:
+  # Vina reports a binding free energy: MORE NEGATIVE IS BETTER. The ranking
+  # score is therefore the NEGATED top-pose energy, so that a higher ranking
+  # score always means "predicted to bind more tightly".
+  score_direction: lower_vina_energy_is_better
+  ranking_score: "-1 * best_pose_affinity_kcal_per_mol"
+  primary_metric: auroc
+  uncertainty:
+    method: stratified_bootstrap_percentile
+    resamples: 10000
+    level: 0.95
+    seed: 20261001
+  effect_threshold: 0.70
+  decision_rule:
+    pass: "ci_low > 0.5 AND auroc >= 0.70"
+    fail: "ci_high < 0.70"          # covers no separation AND wrong direction
+    inconclusive: "anything else (underpowered: the CI straddles 0.70)"
+    wrong_direction_is_failure: true
+  # A two-sided Mann-Whitney U is reported as a secondary, directional check.
+  # It can never by itself make the gate pass.
+  secondary_metrics: [mannwhitney_u_two_sided, ef_1pct, ef_5pct, bedroc_alpha20]
+  minimum_usable_per_class: 50
+  attrition:
+    # A compound that fails preparation or docking is DROPPED and reported by
+    # class. It is never scored as "worst", which would manufacture separation.
+    failed_preparation: excluded_and_reported
+    failed_docking: excluded_and_reported
+
+sensitivity:
+  # Separately labelled. Run and reported AFTER the primary result and never
+  # used to choose the headline number.
+  box_size_scale: [0.75, 1.25]
+
+# ------------------------------------------------- measured before the gate ran
+pilot:
+  run: pilot-24
+  n_ligands: 24
+  note: "first 24 cohort members, all actives -- a runtime probe, not a gate"
+  exhaustiveness: 16
+  cpu_seconds_per_ligand: {median: 32.9, mean: 88.0, max: 536.4}
+  storage_mb_per_600: 30
+  workers: 8
+
+qa:
+  # Pose recovery is reported separately from active/inactive discrimination.
+  # It says the protocol can reproduce a known pose; it says nothing about
+  # whether the protocol can rank.
+  redock_reference_ligand: SUA
+  pose_rmsd_threshold_angstrom: 2.0

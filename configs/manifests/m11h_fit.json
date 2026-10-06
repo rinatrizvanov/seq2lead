@@ -1,0 +1,119 @@
+{
+ "accepted_artifacts_preserved": true,
+ "authorised_by": {
+  "bound_to": {
+   "evaluation_table_sha256": "c21ee0ab7bffe00985919e4d15394fdaa1ed189110680dae4ad09a73c6a5d8ee",
+   "predictions_sha256": "9c3f7c85deafbe1aa87fa01c96add3821c44b1e2ffdefb8e6c030859b2df0503",
+   "results_sha256": "0d380b37f1f91782ba192be12c8d54cb4d7270505bb685a51aedf666a866ee48",
+   "run_manifest_sha256": "7dd7fa5710f631b4c603245240bee5b0407d38526f2059c077df1e855ce2176e"
+  },
+  "checks_not_performed": {},
+  "passed": true,
+  "verification": "m11h/verify/v3"
+ },
+ "confirmatory_freeze": "UNSIGNED",
+ "contract": "m11f-asof-evaluation-contract-v5",
+ "derived_outputs": {
+  "data/asof/m11h/run-20261005T134842Z/results.json": "0d380b37f1f91782ba192be12c8d54cb4d7270505bb685a51aedf666a866ee48",
+  "data/asof/m11h/run-20261005T134842Z/verification.json": "06ed6408776d40ecb290524bfafcd0ef0f45237b48fff14c3c5650ed2669f6b9",
+  "reports/m11h_results.md": "54b501bb8fbd0ee0f203ffe4c91fe6fb2311c08fed823a57569d1b9ee77fa145"
+ },
+ "entry_points": {
+  "publish": "python -m seq2lead.asof.publish <run-dir>",
+  "recompute": "python -m seq2lead.asof.recompute <run-dir>",
+  "verify": "python -m seq2lead.asof.verify_results <run-dir>"
+ },
+ "evaluation_evidence_display": "STAYS DISABLED",
+ "execution_scripts": {
+  "scripts/asof/README.md": "56cb21bc8923a815c1e4e21678d16af8d66c6e2b91ffdebaa3b4bcd9e8591644",
+  "scripts/asof/m11g_bind.py": "93500e0497f1149f6e02bdf6dbb4c6466c480dd243efaa7047e978432562938d",
+  "scripts/asof/m11g_contract.py": "6544e36c44ede8fc3f23c6f08679e623b854e4543b98e5130ee394299bafd9c1",
+  "scripts/asof/m11g_recurrence_check.py": "37121f75a4684cb2a1eb91f00fe3075de0e305387f8e40fc2d005443218b2241",
+  "scripts/asof/m11g_reproduce.py": "a66d9a576e1b7eace407aef6a6039c0fa04b1827392e8ec09aaf71bac63ab356",
+  "scripts/asof/m11g_resolve_eval.py": "d153caf7703d93070bb6f1e354f154ddfa7397f5a3d8a4699dcb104e445b56ec",
+  "scripts/asof/m11g_runner_fixture.py": "a3862c27bcbd3580304dc0a8951e27c307c4d496deb6afc6acadb78328d41401",
+  "scripts/asof/m11g_window.py": "901e0b08d8208bdfd1e7ae65fb1f746612071c046ea02ea57aef9da2bdc32479",
+  "scripts/asof/m11h_eval.py": "de5318fb3282c9a82c67afefe665aad80607c845009f997ee109a5c3dcead8dc",
+  "scripts/asof/m11h_evalpairs.py": "ed3d9924b37d61d27fc3526fc772c33e277d3e8cc9a2d81da354567c2ca05d61",
+  "scripts/asof/m11h_fit.py": "38fd5ca6b819129332621cc78c4dd1d94000631ad8dbe7f671a7fa8032648360",
+  "scripts/asof/m11h_report.py": "54540ffced0fb9c1cb3ef5d623fc554a071e3117278c79759ae5ed248b335481",
+  "scripts/asof/m11h_verify.py": "677f8c36eb7ff86e3d1b3354f49201e957dd2d924a0f281db15c54ec553e66bb"
+ },
+ "expected_fit_artifacts": {
+  "digests": {
+   "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260930.pt": "0b4e22fa48b692eb8c5538c39dc4e5ad5505d3e3687e35d7c8bbd3228a10ae6e",
+   "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260931.pt": "040ed4ffebbe55a837252af7cde438d2bdea70887e1482a0f46f7f53e7ab0ffb",
+   "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260932.pt": "c97abe93a268d9e008907ad0101abad9b560c7e920e522d00d3877036ea6ddf9",
+   "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260933.pt": "0ab2fcf62135637ecd7b29c4dfe837b9857e1f8b6dd7a20fe0adae5d5047e63e",
+   "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260934.pt": "005133055c65b9dec22c8b177dccc0685589625784437b1e0d658894f6b92a9b",
+   "data/asof/m11h/run-20261005T134842Z/evaluation-pairs.jsonl": "c21ee0ab7bffe00985919e4d15394fdaa1ed189110680dae4ad09a73c6a5d8ee",
+   "data/asof/m11h/run-20261005T134842Z/predictions.npz": "9c3f7c85deafbe1aa87fa01c96add3821c44b1e2ffdefb8e6c030859b2df0503",
+   "data/asof/m11h/run-20261005T134842Z/protein-transform.npz": "40154b7228691cdddf6164adee7d130c3e139124a4ef2c6fdb9e85fec0cb1620",
+   "data/asof/m11h/run-20261005T134842Z/training-records.json": "7592521cbbc152298734dd967d3de662e789f40b1c064ad0814afd524c4b7097"
+  },
+  "source": "carried over from the fit's own manifest and compared on publication; never recomputed here",
+  "unavailable_at_publication": [],
+  "verified_on_publication": {
+   "evaluation_table": {
+    "expected": "c21ee0ab7bffe00985919e4d15394fdaa1ed189110680dae4ad09a73c6a5d8ee",
+    "matches": true,
+    "path": "data/asof/m11h/run-20261005T134842Z/evaluation-pairs.jsonl"
+   },
+   "predictions": {
+    "expected": "9c3f7c85deafbe1aa87fa01c96add3821c44b1e2ffdefb8e6c030859b2df0503",
+    "matches": true,
+    "path": "data/asof/m11h/run-20261005T134842Z/predictions.npz"
+   },
+   "training_records": {
+    "expected": "7592521cbbc152298734dd967d3de662e789f40b1c064ad0814afd524c4b7097",
+    "matches": true,
+    "path": "data/asof/m11h/run-20261005T134842Z/training-records.json"
+   },
+   "transform": {
+    "expected": "40154b7228691cdddf6164adee7d130c3e139124a4ef2c6fdb9e85fec0cb1620",
+    "matches": true,
+    "path": "data/asof/m11h/run-20261005T134842Z/protein-transform.npz"
+   }
+  }
+ },
+ "failures": [],
+ "fitting_version": "m11h/fitting/v1",
+ "label_reversal_v3": "NOT SCORED",
+ "manifest": "m11h-fit-v2",
+ "metric_version": "m8/v2",
+ "models": [
+  "B0-target-mean",
+  "B1-ligand-ecfp4-lgbm",
+  "B2-protein-esm2-lgbm",
+  "B3L-ligand-1nn",
+  "B4-concat-mlp",
+  "dual-encoder"
+ ],
+ "models_fitted_once": [
+  "B0-target-mean",
+  "B3L-ligand-1nn"
+ ],
+ "predictions_unchanged_since_the_fit": true,
+ "previous_manifest_preserved_as": null,
+ "qualifications": [
+  "EXPLORATORY. Snapshot B is our already-inspected 202609.",
+  "PROVISIONAL POOLING. Whether Ki may be pooled is M5's open question.",
+  "The confirmatory freeze is NOT signed.",
+  "Retrieval stays unbuilt; evaluation evidence display stays off.",
+  "label_reversal-v3 is NOT scored here.",
+  "Seed spread is training variation, not a confidence interval."
+ ],
+ "recompute_version": "m11h/recompute/v1",
+ "report": "reports/m11h_results.md",
+ "retrieval": "STAYS UNBUILT",
+ "run_id": "20261005T134842Z",
+ "runner_version": "m11g/runner/v2",
+ "seeds": [
+  20260930,
+  20260931,
+  20260932,
+  20260933,
+  20260934
+ ],
+ "supersedes": "m11h-fit-v1"
+}

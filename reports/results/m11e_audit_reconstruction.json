@@ -1,0 +1,19 @@
+{
+  "absence_reasons": {
+    "cross_slot_excluded": {
+      "absence_reasons": {
+        "all_additions_withheld_as_correction_candidates": 11,
+        "all_remaining_additions_excluded_by_cross_slot_sensitivity": 3627,
+        "no_additions_at_this_pair": 17457
+      }
+    },
+    "declared_increment": {
+      "absence_reasons": {
+        "all_additions_withheld_as_correction_candidates": 11,
+        "no_additions_at_this_pair": 17457
+      }
+    }
+  },
+  "audit_version": "closeout-v1",
+  "reconstructs": true
+}

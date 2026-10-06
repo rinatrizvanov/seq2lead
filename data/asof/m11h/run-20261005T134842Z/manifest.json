@@ -1,0 +1,330 @@
+{
+  "checkpoints": {
+    "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260930.pt": "0b4e22fa48b692eb8c5538c39dc4e5ad5505d3e3687e35d7c8bbd3228a10ae6e",
+    "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260931.pt": "040ed4ffebbe55a837252af7cde438d2bdea70887e1482a0f46f7f53e7ab0ffb",
+    "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260932.pt": "c97abe93a268d9e008907ad0101abad9b560c7e920e522d00d3877036ea6ddf9",
+    "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260933.pt": "0ab2fcf62135637ecd7b29c4dfe837b9857e1f8b6dd7a20fe0adae5d5047e63e",
+    "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260934.pt": "005133055c65b9dec22c8b177dccc0685589625784437b1e0d658894f6b92a9b"
+  },
+  "contract_version": "m11f-asof-evaluation-contract-v5",
+  "emitted_matches_pinned": {
+    "train": {
+      "digest": "dfe59a028fe0a1f5b33418ad668960f198ff4b3e8859347f9b3310dba7d4f6f2",
+      "distinct_compounds": 209187,
+      "distinct_sequences": 3466,
+      "pairs": 353957
+    },
+    "validation": {
+      "digest": "f2e9febdad660cfc59bf4ff9082b0666ea60016231b60dba96e5fd3e6692c652",
+      "distinct_compounds": 53870,
+      "distinct_sequences": 2394,
+      "pairs": 60981
+    }
+  },
+  "environment": {
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "python": "3.11.15"
+  },
+  "evaluation_table": {
+    "path": "data/asof/m11h/run-20261005T134842Z/evaluation-pairs.jsonl",
+    "sha256": "c21ee0ab7bffe00985919e4d15394fdaa1ed189110680dae4ad09a73c6a5d8ee"
+  },
+  "failures": [],
+  "feature_bindings": {
+    "ecfp4": {
+      "entries": 251917,
+      "path": "data/asof/m11g/reuse-compounds.json",
+      "sha256": "fe7dcbffead38c98b51560f12674ac6a9d16643734834bb21a7fddd651172ea5"
+    },
+    "esm2": {
+      "entries": 3812,
+      "path": "data/asof/m11g/reuse-targets.json",
+      "sha256": "55feecc8c44380e3c799d2c400dba1fbeb69b69f8eb8b9bf1813dbecbb836828"
+    }
+  },
+  "fitting_version": "m11h/fitting/v1",
+  "inputs_verified": {
+    "a_export": "0b67b64bef49fb7cdb765a929e51cd03d696696333bd9a993150c2d48aa55e80",
+    "a_membership": "887d40a2a3813500ed751afc857847fe91d9a9ec7bd73a0cb303745f42a4c6c2",
+    "b_export": "2b2b4ad8b920241f5a3852707f99fcfa8353744fd31bd03c86adaf8c66d02ac9",
+    "cohort_preflight": "3f98c802b2fd8d9a1be54dcf3f671a38214f560ababa96b42be055cc56dfffe6",
+    "cross_slot_exclusion_set": "2cc04affa04d231785b5571ccf13d5b9317aca061b554594e8cbfe76cf8f5cb6",
+    "evaluation_entities": "01a966b567e63cb44dd814e42fb620ef5d05f8aa929b4fb53c19b45c58035a8c",
+    "feature_binding": "e00024c0976efe0f371662547a6aff2c72d0105557e7fa5717cbd7bdd3158641",
+    "feature_coverage": "ac2a3cd4b98edc9ca4b4a5fa5c3eb18bf79897033b0ea6017125ee4219d2f831",
+    "feature_extension": "053878c49fca931050e704aad12895441c56658ed2d4e31ae4740cf0a63acc3b",
+    "feature_resolution": "4e2492a079911e2d0465b8aa76f0dc840003fb8eecaed1b441beacc02fd744d0",
+    "m9_config": "58662cd2033d81c73e0b3b90fdea0861d7d9f19fe76bff49cbb7ee37958b951f",
+    "model_facing_datasets": "c938c981ecb1654f9981b154f3389d08f89330ffa9ae1fadd0e8d53f3c8140b6",
+    "partition_summary": "d4c0be3b469655a10bdfc1ddbe16e9bfc4bde36681ae2d948ada4dd84f4eadb3",
+    "sensitivity_spec": "f83321019e166d1a69e9c5b829877c5b5d704cd35711ca4fa143bebbb6a89bc5"
+  },
+  "local_index": {
+    "compound": {
+      "digest": "ff22f4c7ebc77ddfe50193b4f7655ff258a47588371638a98c5eabcb0eddd0c8",
+      "entities": 236078,
+      "kind": "compound",
+      "scope": "this run only; these integers are not any schema's ids"
+    },
+    "sequence": {
+      "digest": "01cafb0a991ab3422566637360a2f7a83d1ff4a1eeb14f91ced380839859d9f6",
+      "entities": 3632,
+      "kind": "sequence",
+      "scope": "this run only; these integers are not any schema's ids"
+    }
+  },
+  "output_preflight": {
+    "collisions": [],
+    "note": "every path was checked before the first fit; a collision refuses rather than overwriting, and accepted artifacts live outside this tree",
+    "planned": {
+      "checkpoints": "data/asof/m11h/run-20261005T134842Z/checkpoints",
+      "evaluation_table": "data/asof/m11h/run-20261005T134842Z/evaluation-pairs.jsonl",
+      "manifest": "data/asof/m11h/run-20261005T134842Z/manifest.json",
+      "marker": "data/asof/m11h/run-20261005T134842Z/asof-run.json",
+      "predictions": "data/asof/m11h/run-20261005T134842Z/predictions.npz",
+      "results": "data/asof/m11h/run-20261005T134842Z/results.json",
+      "training_records": "data/asof/m11h/run-20261005T134842Z/training-records.json",
+      "transform": "data/asof/m11h/run-20261005T134842Z/protein-transform.npz"
+    },
+    "planned_checkpoints": [
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B0-target-mean.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B1-ligand-ecfp4-lgbm-seed20260930.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B1-ligand-ecfp4-lgbm-seed20260931.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B1-ligand-ecfp4-lgbm-seed20260932.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B1-ligand-ecfp4-lgbm-seed20260933.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B1-ligand-ecfp4-lgbm-seed20260934.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B2-protein-esm2-lgbm-seed20260930.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B2-protein-esm2-lgbm-seed20260931.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B2-protein-esm2-lgbm-seed20260932.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B2-protein-esm2-lgbm-seed20260933.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B2-protein-esm2-lgbm-seed20260934.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B3L-ligand-1nn.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B4-concat-mlp-seed20260930.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B4-concat-mlp-seed20260931.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B4-concat-mlp-seed20260932.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B4-concat-mlp-seed20260933.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/B4-concat-mlp-seed20260934.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260930.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260931.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260932.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260933.pt",
+      "data/asof/m11h/run-20261005T134842Z/checkpoints/dual-encoder-seed20260934.pt"
+    ],
+    "root": "data/asof/m11h/run-20261005T134842Z",
+    "run_id": "20261005T134842Z"
+  },
+  "pilot": false,
+  "predictions": {
+    "models": [
+      "B0-target-mean",
+      "B1-ligand-ecfp4-lgbm-seed20260930",
+      "B1-ligand-ecfp4-lgbm-seed20260931",
+      "B1-ligand-ecfp4-lgbm-seed20260932",
+      "B1-ligand-ecfp4-lgbm-seed20260933",
+      "B1-ligand-ecfp4-lgbm-seed20260934",
+      "B2-protein-esm2-lgbm-seed20260930",
+      "B2-protein-esm2-lgbm-seed20260931",
+      "B2-protein-esm2-lgbm-seed20260932",
+      "B2-protein-esm2-lgbm-seed20260933",
+      "B2-protein-esm2-lgbm-seed20260934",
+      "B3L-ligand-1nn",
+      "B4-concat-mlp-seed20260930",
+      "B4-concat-mlp-seed20260931",
+      "B4-concat-mlp-seed20260932",
+      "B4-concat-mlp-seed20260933",
+      "B4-concat-mlp-seed20260934",
+      "dual-encoder-seed20260930",
+      "dual-encoder-seed20260931",
+      "dual-encoder-seed20260932",
+      "dual-encoder-seed20260933",
+      "dual-encoder-seed20260934"
+    ],
+    "path": "data/asof/m11h/run-20261005T134842Z/predictions.npz",
+    "rows": 26444,
+    "sha256": "9c3f7c85deafbe1aa87fa01c96add3821c44b1e2ffdefb8e6c030859b2df0503"
+  },
+  "qualifications": [
+    "EXPLORATORY. Snapshot B is our already-inspected 202609.",
+    "PROVISIONAL POOLING. Whether Ki may be pooled is M5's open question.",
+    "The confirmatory freeze is NOT signed.",
+    "Retrieval stays unbuilt; evaluation evidence display stays off.",
+    "label_reversal-v3 is NOT scored here.",
+    "Seed spread is training variation, not a confidence interval."
+  ],
+  "roles_derived": {
+    "evaluation": {
+      "compounds": 17373,
+      "sequences": 1060
+    },
+    "train": {
+      "compounds": 209187,
+      "sequences": 3466
+    },
+    "validation": {
+      "compounds": 53870,
+      "sequences": 2394
+    }
+  },
+  "run": "m11h-asof-fit-v1",
+  "run_id": "20261005T134842Z",
+  "runner_version": "m11g/runner/v2",
+  "seconds": 1294.7,
+  "seeds": [
+    20260930,
+    20260931,
+    20260932,
+    20260933,
+    20260934
+  ],
+  "selection": {
+    "never_refit_on_train_plus_validation": true,
+    "restored": [
+      {
+        "best_epoch": null,
+        "best_validation_rmse": null,
+        "model": "B0-target-mean",
+        "seed": null
+      },
+      {
+        "best_epoch": null,
+        "best_validation_rmse": null,
+        "model": "B1-ligand-ecfp4-lgbm",
+        "seed": 20260930
+      },
+      {
+        "best_epoch": null,
+        "best_validation_rmse": null,
+        "model": "B1-ligand-ecfp4-lgbm",
+        "seed": 20260931
+      },
+      {
+        "best_epoch": null,
+        "best_validation_rmse": null,
+        "model": "B1-ligand-ecfp4-lgbm",
+        "seed": 20260932
+      },
+      {
+        "best_epoch": null,
+        "best_validation_rmse": null,
+        "model": "B1-ligand-ecfp4-lgbm",
+        "seed": 20260933
+      },
+      {
+        "best_epoch": null,
+        "best_validation_rmse": null,
+        "model": "B1-ligand-ecfp4-lgbm",
+        "seed": 20260934
+      },
+      {
+        "best_epoch": null,
+        "best_validation_rmse": null,
+        "model": "B2-protein-esm2-lgbm",
+        "seed": 20260930
+      },
+      {
+        "best_epoch": null,
+        "best_validation_rmse": null,
+        "model": "B2-protein-esm2-lgbm",
+        "seed": 20260931
+      },
+      {
+        "best_epoch": null,
+        "best_validation_rmse": null,
+        "model": "B2-protein-esm2-lgbm",
+        "seed": 20260932
+      },
+      {
+        "best_epoch": null,
+        "best_validation_rmse": null,
+        "model": "B2-protein-esm2-lgbm",
+        "seed": 20260933
+      },
+      {
+        "best_epoch": null,
+        "best_validation_rmse": null,
+        "model": "B2-protein-esm2-lgbm",
+        "seed": 20260934
+      },
+      {
+        "best_epoch": null,
+        "best_validation_rmse": null,
+        "model": "B3L-ligand-1nn",
+        "seed": null
+      },
+      {
+        "best_epoch": 12,
+        "best_validation_rmse": 0.8077,
+        "model": "B4-concat-mlp",
+        "seed": 20260930
+      },
+      {
+        "best_epoch": 11,
+        "best_validation_rmse": 0.827,
+        "model": "B4-concat-mlp",
+        "seed": 20260931
+      },
+      {
+        "best_epoch": 12,
+        "best_validation_rmse": 0.81,
+        "model": "B4-concat-mlp",
+        "seed": 20260932
+      },
+      {
+        "best_epoch": 11,
+        "best_validation_rmse": 0.8098,
+        "model": "B4-concat-mlp",
+        "seed": 20260933
+      },
+      {
+        "best_epoch": 12,
+        "best_validation_rmse": 0.8095,
+        "model": "B4-concat-mlp",
+        "seed": 20260934
+      },
+      {
+        "best_epoch": 17,
+        "best_validation_rmse": 0.7260452591928014,
+        "model": "dual-encoder",
+        "seed": 20260930
+      },
+      {
+        "best_epoch": 17,
+        "best_validation_rmse": 0.7237773050009098,
+        "model": "dual-encoder",
+        "seed": 20260931
+      },
+      {
+        "best_epoch": 19,
+        "best_validation_rmse": 0.7249208560209613,
+        "model": "dual-encoder",
+        "seed": 20260932
+      },
+      {
+        "best_epoch": 15,
+        "best_validation_rmse": 0.7252352972965188,
+        "model": "dual-encoder",
+        "seed": 20260933
+      },
+      {
+        "best_epoch": 14,
+        "best_validation_rmse": 0.7220810767197877,
+        "model": "dual-encoder",
+        "seed": 20260934
+      }
+    ],
+    "selection_direction": "minimise",
+    "selection_metric": "validation_rmse",
+    "validation_digest": "faedbaed702e65d6b48c5bc6c34fe00691201d0475b1a398a1ec91dd580b8904",
+    "validation_pairs": 60981
+  },
+  "training_records": {
+    "path": "data/asof/m11h/run-20261005T134842Z/training-records.json",
+    "sha256": "7592521cbbc152298734dd967d3de662e789f40b1c064ad0814afd524c4b7097"
+  },
+  "transform": {
+    "fitted_on": "a_train",
+    "n_fitted": 353957,
+    "path": "data/asof/m11h/run-20261005T134842Z/protein-transform.npz",
+    "sha256": "40154b7228691cdddf6164adee7d130c3e139124a4ef2c6fdb9e85fec0cb1620"
+  }
+}

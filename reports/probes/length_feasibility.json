@@ -1,0 +1,83 @@
+{
+  "description": "Wall time and success for a single forward pass over the real target nearest each requested length.",
+  "failures": [],
+  "measurements": [
+    {
+      "length": 1021,
+      "ok": true,
+      "requested_length": 1022,
+      "seconds": 1.223,
+      "sequence_sha256": "50e91ae23046f82a8d5f4c864add859878cc1676b68bead2eed9dcef45e0b101",
+      "target_id": 1451
+    },
+    {
+      "length": 2000,
+      "ok": true,
+      "requested_length": 2000,
+      "seconds": 1.635,
+      "sequence_sha256": "92527863dc4b011caad9cf573b20b6c8616efaf0581b30b1aea9ec850f141aa3",
+      "target_id": 3870
+    },
+    {
+      "length": 3988,
+      "ok": true,
+      "requested_length": 4000,
+      "seconds": 3.832,
+      "sequence_sha256": "dff46b86dbf190dc6ffc941a2ce6694b322f2912f96702262abb05541fbe290c",
+      "target_id": 4223
+    },
+    {
+      "length": 7388,
+      "ok": true,
+      "requested_length": 8000,
+      "seconds": 9.366,
+      "sequence_sha256": "b81f326d600c98f46efc3d3ad48931f83ab2e3ddf857ff7c4ab92af32dba9b88",
+      "target_id": 9897
+    },
+    {
+      "length": 7388,
+      "ok": true,
+      "requested_length": 20000,
+      "seconds": 9.324,
+      "sequence_sha256": "b81f326d600c98f46efc3d3ad48931f83ab2e3ddf857ff7c4ab92af32dba9b88",
+      "target_id": 9897
+    },
+    {
+      "length": 34350,
+      "ok": true,
+      "requested_length": 34350,
+      "seconds": 168.655,
+      "sequence_sha256": "9ac9f493ed92b65cc3c170bb4a20c9666f2de6cb99c223fe58d4027f1f24e8af",
+      "target_id": 10550
+    }
+  ],
+  "metadata": {
+    "device": "mps",
+    "libraries": {
+      "numpy": "2.4.6",
+      "python": "3.11.15",
+      "torch": "2.14.0",
+      "transformers": "5.17.0"
+    },
+    "model": "facebook/esm2_t33_650M_UR50D",
+    "model_revision": "08e4846e537177426273712802403f7ba8261b6c",
+    "note": "Forward passes are deterministic; the seed selects inputs, not outputs. Values are specific to this device and dtype: the same specification on another backend yields the same representation, not the same bytes.",
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "pooling": "mean_over_residues_excluding_special_tokens",
+    "processor": "arm",
+    "run_at": "2026-09-30T11:55:58+00:00"
+  },
+  "name": "length_feasibility",
+  "selection": {
+    "population": "all curated targets",
+    "requested_lengths": [
+      1022,
+      2000,
+      4000,
+      8000,
+      20000,
+      34350
+    ],
+    "rule": "for each requested length, the target minimising |len(sequence) - L|"
+  }
+}

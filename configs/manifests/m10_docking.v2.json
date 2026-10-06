@@ -1,0 +1,139 @@
+{
+  "config_path": "configs/experiments/m10-docking-v1.yaml",
+  "config_sha256": "356f69c205067545f4b45d93f5c037ea33f1dd56e27118cd582ee4e2c39f7f0e",
+  "frozen_at": "2026-10-02T06:02:11.078101+00:00",
+  "manifest_version": "m10-docking-v1",
+  "n_runs": 3,
+  "provenance": "M10 docking gate, re-frozen for the hardening pass. The three runs and every docking score are UNCHANGED -- nothing was re-docked and no model refitted. Two things moved. (1) The contract gained a top-level cohort_pin block recording a content digest over every member's structure, label, evidence and bounds, because the previous identities did not notice a rewritten SMILES; stripping that block reproduces the digest the runs were produced under (141d200eb8ee76e9) and no pre-existing key changed, so protocol, gate rule, cohort recipe and endpoint are identical. That earlier digest is declared under superseded_contracts rather than rewritten into the run records. (2) A published section binds the gate, QA and sensitivity files by digest. Previous manifest kept at configs/manifests/m10_docking.v1.json. See reports/results/m10_corrections.md.",
+  "published": {
+    "gate": [
+      {
+        "path": "reports/results/m10_gate.json",
+        "sha256": "a52ae980f8227163772e1a517525200abb092be65ec667c61ad5c8273b72c910"
+      }
+    ],
+    "qa": [
+      {
+        "path": "reports/results/m10_qa_redock.json",
+        "sha256": "8f620d44f2ee3bde6c36f9c4812b0b5a6a7e743e03dfa364d7e792923011b67a"
+      }
+    ],
+    "sensitivity": [
+      {
+        "path": "reports/results/m10_sensitivity_box-15A.json",
+        "sha256": "feb027aaa1bdd918afccf2e21d52a2a5dd094fee42e20a784251002f8975dae3"
+      },
+      {
+        "path": "reports/results/m10_sensitivity_box-25A.json",
+        "sha256": "8e88d552168d203208a812beb25e7e06c31a287f5a74f127d574b9cdf0d8fc3d"
+      }
+    ]
+  },
+  "runs": [
+    {
+      "box_size": [
+        20.0,
+        20.0,
+        20.0
+      ],
+      "cohort_membership_sha256": "f2797290bbe71f36ce21a6f692d62329a87bb1274a3a83fc3b982095b0e2bb34",
+      "cohort_path": "reports/results/m10_cohort.json",
+      "cohort_sha256": "b4888947e1ebb078bc43d9bef2b85c1f2a8460402abf8c4b48a2094a4920f54e",
+      "config_sha256": "141d200eb8ee76e96a563411ebe6223dc831b8380695f016eefc043309286113",
+      "engine_sha256": "823c2bbacf26d72183861322345f0a89736aca66c8e81054c66f93af5ad623f1",
+      "engine_version": "AutoDock Vina v1.2.7",
+      "exhaustiveness": 8,
+      "experiment": "m10-docking-v1",
+      "failures_path": "data/m10/runs/gate-600/failures.json",
+      "failures_sha256": "7268c90d8e695c5dfb6de79408d762b9dc3a137d331f5b96a513fa8c4005818a",
+      "ligand_dir": "data/m10/runs/gate-600/ligands",
+      "ligand_dir_files": 583,
+      "ligand_dir_sha256": "e48176329a36c83d17263f35b5ccc5b2f80dbc94184e38a8284b680e409c2445",
+      "n_failed": 22,
+      "n_scored": 578,
+      "pose_dir": "data/m10/runs/gate-600/poses",
+      "pose_dir_files": 579,
+      "pose_dir_sha256": "5865b4183d7b68e8391dfd54341b0fec9443a5a573e7d44962982695166fbe1d",
+      "receptor_pdbqt": "data/m10/runs/gate-600/receptor.pdbqt",
+      "receptor_sha256": "b356cdd24da4dc04a354b454503d3c3dd4e1180939da8781c26b20880d17e8ad",
+      "record_path": "data/m10/runs/gate-600/run_record.json",
+      "record_sha256": "4cd3c61900f3c027521e9a43bee3e86daaf520ecf05e37c73bf9e9547e72069f",
+      "run": "gate-600",
+      "scores_path": "data/m10/runs/gate-600/scores.json",
+      "scores_sha256": "a1a869f82deb9ca648e13d5bca019de30d54506d1be73a07f8650e982d5e75b2",
+      "wall_seconds": 2860.3
+    },
+    {
+      "box_size": [
+        15.0,
+        15.0,
+        15.0
+      ],
+      "cohort_membership_sha256": "f2797290bbe71f36ce21a6f692d62329a87bb1274a3a83fc3b982095b0e2bb34",
+      "cohort_path": "reports/results/m10_cohort.json",
+      "cohort_sha256": "b4888947e1ebb078bc43d9bef2b85c1f2a8460402abf8c4b48a2094a4920f54e",
+      "config_sha256": "141d200eb8ee76e96a563411ebe6223dc831b8380695f016eefc043309286113",
+      "engine_sha256": "823c2bbacf26d72183861322345f0a89736aca66c8e81054c66f93af5ad623f1",
+      "engine_version": "AutoDock Vina v1.2.7",
+      "exhaustiveness": 8,
+      "experiment": "m10-docking-v1",
+      "failures_path": "data/m10/runs/box-15A/failures.json",
+      "failures_sha256": "2fa6fb9c3fc1059f66a226bad42a993c8a5a1335f8649aebaff0ddc08b481fa8",
+      "ligand_dir": "data/m10/runs/box-15A/ligands",
+      "ligand_dir_files": 583,
+      "ligand_dir_sha256": "e48176329a36c83d17263f35b5ccc5b2f80dbc94184e38a8284b680e409c2445",
+      "n_failed": 22,
+      "n_scored": 578,
+      "pose_dir": "data/m10/runs/box-15A/poses",
+      "pose_dir_files": 579,
+      "pose_dir_sha256": "76aa146adbed615ba6287a80c488182094c23afd6d2e7ab362cc20a135a6dab4",
+      "receptor_pdbqt": "data/m10/runs/box-15A/receptor.pdbqt",
+      "receptor_sha256": "b356cdd24da4dc04a354b454503d3c3dd4e1180939da8781c26b20880d17e8ad",
+      "record_path": "data/m10/runs/box-15A/run_record.json",
+      "record_sha256": "b2941c8dc49b2b22b3a780f7e8ee97f27e28a1d40a51970d2dd0acb8c4d65771",
+      "run": "box-15A",
+      "scores_path": "data/m10/runs/box-15A/scores.json",
+      "scores_sha256": "c1d2aa815a80b375cafaf48062d9a2f0f63a3eeb064cab3c3a455c1449ad1f29",
+      "wall_seconds": 4139.7
+    },
+    {
+      "box_size": [
+        25.0,
+        25.0,
+        25.0
+      ],
+      "cohort_membership_sha256": "f2797290bbe71f36ce21a6f692d62329a87bb1274a3a83fc3b982095b0e2bb34",
+      "cohort_path": "reports/results/m10_cohort.json",
+      "cohort_sha256": "b4888947e1ebb078bc43d9bef2b85c1f2a8460402abf8c4b48a2094a4920f54e",
+      "config_sha256": "141d200eb8ee76e96a563411ebe6223dc831b8380695f016eefc043309286113",
+      "engine_sha256": "823c2bbacf26d72183861322345f0a89736aca66c8e81054c66f93af5ad623f1",
+      "engine_version": "AutoDock Vina v1.2.7",
+      "exhaustiveness": 8,
+      "experiment": "m10-docking-v1",
+      "failures_path": "data/m10/runs/box-25A/failures.json",
+      "failures_sha256": "dfe90fb37fe072225f50b316ee55c0021ace1b31c39dfa837ee85108723ddcbf",
+      "ligand_dir": "data/m10/runs/box-25A/ligands",
+      "ligand_dir_files": 583,
+      "ligand_dir_sha256": "e48176329a36c83d17263f35b5ccc5b2f80dbc94184e38a8284b680e409c2445",
+      "n_failed": 21,
+      "n_scored": 579,
+      "pose_dir": "data/m10/runs/box-25A/poses",
+      "pose_dir_files": 579,
+      "pose_dir_sha256": "afd36af36be42e9278d8d351a01a39df1fd505607de58713d07803e3232f39c0",
+      "receptor_pdbqt": "data/m10/runs/box-25A/receptor.pdbqt",
+      "receptor_sha256": "b356cdd24da4dc04a354b454503d3c3dd4e1180939da8781c26b20880d17e8ad",
+      "record_path": "data/m10/runs/box-25A/run_record.json",
+      "record_sha256": "671bbed2f3930dd595e6d03af010192193e24f0d8e7edcd4f9607ab54cf5cdd4",
+      "run": "box-25A",
+      "scores_path": "data/m10/runs/box-25A/scores.json",
+      "scores_sha256": "3d1eecd64ca6844f7e080a6bb7df687ba2751416996cdaf06f22d5ae6e4e5ab9",
+      "wall_seconds": 2441.5
+    }
+  ],
+  "superseded_contracts": [
+    {
+      "note": "the contract as it stood when this run was docked; the only later change is the added cohort_pin block, which leaves every protocol, gate and cohort field identical",
+      "sha256": "141d200eb8ee76e96a563411ebe6223dc831b8380695f016eefc043309286113"
+    }
+  ]
+}

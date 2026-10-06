@@ -1,0 +1,51 @@
+{
+  "description": "Named result versions. Rendering selects one explicitly; nothing is chosen by recency or filename order.",
+  "versions": {
+    "m8/v1": {
+      "config_sha256": "65345ed38dbb07b4a5f3331eba93b9103ff311cfef3478b2b148e52c2969bdd7",
+      "created_at": "2026-09-30T13:58:02+00:00",
+      "experiment_version": "baseline-v1",
+      "extra": {},
+      "filename": "baseline_summary.json",
+      "metric_version": "m8/v1",
+      "n_runs": 72,
+      "note": "original fitted run",
+      "sha256": "aa3f7faf2914a2efc95e0f20f420a94ac0304bb16afa4e43810a4de9aef329c7",
+      "source_version": null,
+      "superseded_by": "m8/v2",
+      "version": "m8/v1"
+    },
+    "m8/v2": {
+      "config_sha256": "65345ed38dbb07b4a5f3331eba93b9103ff311cfef3478b2b148e52c2969bdd7",
+      "created_at": "2026-09-30T14:59:50+00:00",
+      "experiment_version": "baseline-v1",
+      "extra": {
+        "manifest_sha256": "cf91e908627af7103b19abdf85058af24f189f46d8368414f32b7200943b09fb",
+        "manifest_version": "m8-predictions-v1",
+        "source_sha256": "aa3f7faf2914a2efc95e0f20f420a94ac0304bb16afa4e43810a4de9aef329c7"
+      },
+      "filename": "baseline_summary_v2.json",
+      "metric_version": "m8/v2",
+      "n_runs": 72,
+      "note": "recomputed from verified predictions; no model refitted",
+      "sha256": "9330e1735b03162f9ee20b3f6d54d7c99b9d749bc9520a808cb166980d2136f2",
+      "source_version": "m8/v1",
+      "superseded_by": null,
+      "version": "m8/v2"
+    },
+    "m9/v1": {
+      "config_sha256": "58662cd2033d81c73e0b3b90fdea0861d7d9f19fe76bff49cbb7ee37958b951f",
+      "created_at": "2026-09-30T17:17:16+00:00",
+      "experiment_version": "m9-dual-encoder-v1",
+      "extra": {},
+      "filename": "m9_v1_summary.json",
+      "metric_version": "m8/v2",
+      "n_runs": 20,
+      "note": "M9 dual encoder, exploratory comparison on inspected test sets",
+      "sha256": "8bb3e5955ec9a5ec0cab3d642f1eb2d92ce6a51d942c9d5d2d17561536743236",
+      "source_version": null,
+      "superseded_by": null,
+      "version": "m9/v1"
+    }
+  }
+}

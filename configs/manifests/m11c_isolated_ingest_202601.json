@@ -1,0 +1,213 @@
+{
+  "accepted_artifacts_unchanged": {
+    "202609_activity_rows": 3233963,
+    "acquisition_rows_in_accepted_schema": [
+      {
+        "id": 1203,
+        "ingested": false,
+        "rows_loaded": 0,
+        "subset": "all"
+      },
+      {
+        "id": 1204,
+        "ingested": false,
+        "rows_loaded": 0,
+        "subset": "assays"
+      },
+      {
+        "id": 1205,
+        "ingested": false,
+        "rows_loaded": 0,
+        "subset": "rsid_eaids"
+      }
+    ]
+  },
+  "acquisition_record": {
+    "acquisition_version": "m11-acquisition-202601-v1",
+    "deposit_doi": "10.6075/j0v40w61",
+    "note": "The accepted schema's three registered rows stay unparsed with zero rows. They remain the evidence that acquisition happened without parsing; the ingest was performed on copies of the same bytes in an isolated schema.",
+    "path": "configs/manifests/m11_acquisition_202601.json",
+    "unchanged_by_this_step": true
+  },
+  "bytes_reverified": {
+    "downloads_performed": 0,
+    "method": "SHA-256 recomputed from the local archives before loading",
+    "note": "The pinned SHA-256 values were re-verified, not replaced.",
+    "pins_changed": false
+  },
+  "checksums": {
+    "archive_published_algorithm": "SHA-1",
+    "legacy_md5_column": {
+      "defect_corrected": "The isolated ingest driver first wrote the placeholder 'sha1-not-md5', recording that a SHA-1 existed without recording its value, for the rows that provide provenance to 3.1M measurements. The digests were recomputed from the local archives -- SHA-256 checked against each release row and SHA-1 against the acquisition record -- before the correct values were written.",
+      "md5_verified": false,
+      "stored_form": "sha1:<40 hex>",
+      "why": "`source_release.md5` is NOT NULL and predates this source. The UCSD archive publishes SHA-1, not MD5, so the value is stored with its algorithm named and `md5_verified` stays false. The prefix is what stops a 40-character hex string being read as a 32-character MD5."
+    },
+    "per_artifact": {
+      "all": {
+        "md5_column_value": "sha1:ac9ac1c4fd2f8ffb814f34b45b9c73899741bb29",
+        "sha1_archive": "ac9ac1c4fd2f8ffb814f34b45b9c73899741bb29",
+        "sha256_pinned": "dd419291190632b6dfe883b08b55b6374a815583345e33faa64f93a04f474ef6"
+      },
+      "assays": {
+        "md5_column_value": "sha1:6959a286ae0375b90d5e6c639f1d58f683c83e7f",
+        "sha1_archive": "6959a286ae0375b90d5e6c639f1d58f683c83e7f",
+        "sha256_pinned": "67636b4417f96a8e25da9493f3902ccfb3008b9b9be0f2b6aa1c935c9dbc4c29"
+      },
+      "rsid_eaids": {
+        "md5_column_value": "sha1:1407285665d30be37cb2ba3e493e2ed1d45d80af",
+        "sha1_archive": "1407285665d30be37cb2ba3e493e2ed1d45d80af",
+        "sha256_pinned": "af4968955143a793257c6584e99e5da7be270f474cb7463400b763b980fa5aa8"
+      }
+    },
+    "pinned_algorithm": "SHA-256"
+  },
+  "curation": {
+    "accepted_snapshot_policy": "m3/v3+rdkit-2026.03.6/cleanup+fragment-parent+uncharge/v1",
+    "exclusions_by_rule": {
+      "invalid_smiles": 6575,
+      "missing_structure": 11,
+      "missing_target_sequence": 99,
+      "no_measurement_value": 2941
+    },
+    "policies_identical": true,
+    "policy": "m3/v3+rdkit-2026.03.6/cleanup+fragment-parent+uncharge/v1",
+    "policy_parity_note": "Verified by query: release 117's curation_run and all 8,910 of its curation_exclusion rows carry the same curator_version as this ingest, and missing_target_sequence is a rule in that pipeline. So the 99-vs-0 difference in that rule is a difference in the data, not in the tooling.",
+    "reconciles": true,
+    "rows_curated": 3130970,
+    "rows_excluded": 9626,
+    "rows_seen": 3140596
+  },
+  "entry_doi": {
+    "cross_release_stability": "UNMEASURED -- requires the matching step",
+    "distinct_from": "Article DOI (the publication DOI, curated into publication.doi)",
+    "grain_conclusion": "~56 observations per entry DOI on both snapshots, so it is entry-level provenance: agreement is necessary for a correction link, never sufficient.",
+    "lifted_at": "export time, from the preserved raw payload",
+    "measured_grain": {
+      "202601": {
+        "coverage": 0.997767,
+        "distinct_entry_dois": 55430,
+        "observations_per_entry_doi": 56.46,
+        "with_entry_doi": 3129830
+      },
+      "202609": {
+        "coverage": 0.999453,
+        "distinct_entry_dois": 57087,
+        "observations_per_entry_doi": 56.62,
+        "with_entry_doi": 3232193
+      }
+    },
+    "source_column": "BindingDB Entry DOI",
+    "why_not_a_column": "Adding a column to `activity` would alter the accepted September corpus's schema. Lifting at export time keeps the accepted data untouched and makes both snapshots obtain the field by the identical query, so neither side can carry provenance the other lacks."
+  },
+  "ingest_version": "m11c-isolated-ingest-202601-v1",
+  "isolation": {
+    "corpus_schema_untouched": "public",
+    "proof": "is_fully_shadowed() returned an empty list before any write: every table the migrations create resolves to the isolated schema.",
+    "schema": "seq2lead_m11c_202601"
+  },
+  "observation_exports": {
+    "202601": {
+      "assay_join_status": {
+        "matched": 3073862,
+        "no_rsid_match": 62974
+      },
+      "assay_joined": 3073862,
+      "bytes": 81918145,
+      "distinct_entry_dois": 55430,
+      "entry_doi_coverage": 0.997767,
+      "locator_coverage": 1.0,
+      "measurement_types": {
+        "EC50": 280436,
+        "IC50": 2117146,
+        "KD": 124499,
+        "KI": 614755
+      },
+      "path": "data/asof/observations-202601.jsonl.gz",
+      "rows": 3136836,
+      "schema": "seq2lead_m11c_202601",
+      "seconds": 110.4,
+      "sha256": "0b67b64bef49fb7cdb765a929e51cd03d696696333bd9a993150c2d48aa55e80",
+      "source_release": "BindingDB/202601/all",
+      "source_release_id": 3,
+      "with_entry_doi": 3129830,
+      "with_locator": 3136836,
+      "with_pmid": 1698817,
+      "with_publication_doi": 1598578
+    },
+    "202609": {
+      "assay_join_status": {
+        "matched": 3176034,
+        "no_rsid_match": 57929
+      },
+      "assay_joined": 3176034,
+      "bytes": 84540685,
+      "distinct_entry_dois": 57087,
+      "entry_doi_coverage": 0.999453,
+      "locator_coverage": 1.0,
+      "measurement_types": {
+        "EC50": 270299,
+        "IC50": 2212313,
+        "KD": 131420,
+        "KI": 619931
+      },
+      "path": "data/asof/observations-202609.jsonl.gz",
+      "rows": 3233963,
+      "schema": "public",
+      "seconds": 96.1,
+      "sha256": "2b2b4ad8b920241f5a3852707f99fcfa8353744fd31bd03c86adaf8c66d02ac9",
+      "source_release": "BindingDB/202609/all",
+      "source_release_id": 117,
+      "with_entry_doi": 3232193,
+      "with_locator": 3233963,
+      "with_pmid": 1742995,
+      "with_publication_doi": 1575229
+    }
+  },
+  "recorded_at": "2026-10-03T01:47:29.309681+00:00",
+  "release_identity_map": [
+    {
+      "acquisition_release_id": 1203,
+      "acquisition_schema": "public",
+      "acquisition_state": "registered, unparsed -- unchanged by this step",
+      "artifact_identity": "BindingDB/202601/all",
+      "column_count": 640,
+      "isolated_release_id": 3,
+      "isolated_schema": "seq2lead_m11c_202601",
+      "isolated_state": "ingested",
+      "rows_loaded": 3140596,
+      "sha256": "dd419291190632b6dfe883b08b55b6374a815583345e33faa64f93a04f474ef6",
+      "sha256_matches_acquisition_record": true,
+      "subset": "all"
+    },
+    {
+      "acquisition_release_id": 1204,
+      "acquisition_schema": "public",
+      "acquisition_state": "registered, unparsed -- unchanged by this step",
+      "artifact_identity": "BindingDB/202601/assays",
+      "column_count": 4,
+      "isolated_release_id": 1,
+      "isolated_schema": "seq2lead_m11c_202601",
+      "isolated_state": "ingested",
+      "rows_loaded": 218973,
+      "sha256": "67636b4417f96a8e25da9493f3902ccfb3008b9b9be0f2b6aa1c935c9dbc4c29",
+      "sha256_matches_acquisition_record": true,
+      "subset": "assays"
+    },
+    {
+      "acquisition_release_id": 1205,
+      "acquisition_schema": "public",
+      "acquisition_state": "registered, unparsed -- unchanged by this step",
+      "artifact_identity": "BindingDB/202601/rsid_eaids",
+      "column_count": 2,
+      "isolated_release_id": 2,
+      "isolated_schema": "seq2lead_m11c_202601",
+      "isolated_state": "ingested",
+      "rows_loaded": 3107915,
+      "sha256": "af4968955143a793257c6584e99e5da7be270f474cb7463400b763b980fa5aa8",
+      "sha256_matches_acquisition_record": true,
+      "subset": "rsid_eaids"
+    }
+  ],
+  "scope": "Isolated ingestion and curation of the already-acquired January 2026 artifacts, plus observation exports for both snapshots. No snapshot matching, no model fitting, no evaluation scores, no docking. The confirmatory freeze is not signed and the study remains exploratory."
+}

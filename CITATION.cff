@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "If you use this software, cite this project. This record is software metadata, not a peer-reviewed publication."
+title: "Seq2Lead: auditable protein–ligand ranking and historical BindingDB evaluation"
+type: software
+authors:
+  - family-names: Rizvanov
+    given-names: Timur

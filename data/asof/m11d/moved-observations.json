@@ -1,0 +1,25 @@
+{
+  "by_measurement_type": {
+    "EC50": 1756,
+    "IC50": 21851,
+    "KD": 1875,
+    "KI": 5217
+  },
+  "entry_doi": {
+    "agreed": 29749,
+    "agreement_rate": 0.969054,
+    "both_present": 30699
+  },
+  "interpretation": "Evidence of identifier stability WITHIN this population, not proof of global stability. The population is selected by value equality, the case where stability is easiest to observe.",
+  "moved_observations": 30699,
+  "population": "observations removed from A and added to B at a DIFFERENT slot, with the same compound, target, measurement type and canonical value. Paired without reference to either identifier.",
+  "publication_ref": {
+    "gained_an_attribution": 30215,
+    "lost_an_attribution": 0
+  },
+  "reactant_set_id": {
+    "agreed": 29244,
+    "agreement_rate": 0.952604,
+    "both_present": 30699
+  }
+}

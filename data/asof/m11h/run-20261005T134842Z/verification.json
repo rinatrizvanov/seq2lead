@@ -1,0 +1,29 @@
+{
+  "binding_note": "This record vouches ONLY for inputs and results with exactly these digests. Publication must re-derive them and refuse if any differs: a verification performed before a file changed says nothing about the file afterwards.",
+  "bound_to": {
+    "evaluation_table_sha256": "c21ee0ab7bffe00985919e4d15394fdaa1ed189110680dae4ad09a73c6a5d8ee",
+    "predictions_sha256": "9c3f7c85deafbe1aa87fa01c96add3821c44b1e2ffdefb8e6c030859b2df0503",
+    "results_sha256": "0d380b37f1f91782ba192be12c8d54cb4d7270505bb685a51aedf666a866ee48",
+    "run_manifest_sha256": "7dd7fa5710f631b4c603245240bee5b0407d38526f2059c077df1e855ce2176e"
+  },
+  "checks": {
+    "artifact_digests_checked": 9,
+    "artifact_digests_stale": 0,
+    "artifact_digests_unavailable": 0,
+    "checkpoints_are_best_epoch": true,
+    "evaluation_table_matches_the_manifest": true,
+    "independent_auroc_model_tags": 22,
+    "non_recurrent_pairs_in_train": 0,
+    "prediction_to_pair_alignment": "checked on load; a mismatch refuses",
+    "predictions_match_the_manifest": true,
+    "published_results_reproduce_from_saved_predictions": true,
+    "recurrent_pairs_in_train": 4184,
+    "scoring_is_deterministic": true
+  },
+  "checks_not_performed": {},
+  "failures": [],
+  "nothing_was_fitted": true,
+  "passed": true,
+  "run_id": "20261005T134842Z",
+  "verification": "m11h/verify/v3"
+}

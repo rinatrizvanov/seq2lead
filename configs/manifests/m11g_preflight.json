@@ -1,0 +1,107 @@
+{
+ "accepted_caches_preserved_byte_for_byte": true,
+ "artifacts": {
+  "configs/experiments/m9-dual-encoder-v1.yaml": {
+   "bytes": 4714,
+   "sha256": "58662cd2033d81c73e0b3b90fdea0861d7d9f19fe76bff49cbb7ee37958b951f"
+  },
+  "configs/m11e_cross_slot_sensitivity.json": {
+   "bytes": 3441,
+   "sha256": "f83321019e166d1a69e9c5b829877c5b5d704cd35711ca4fa143bebbb6a89bc5"
+  },
+  "data/asof/m11e/excluded-locators-ki.json": {
+   "bytes": 145282,
+   "sha256": "2cc04affa04d231785b5571ccf13d5b9317aca061b554594e8cbfe76cf8f5cb6"
+  },
+  "data/asof/m11f/a-membership.jsonl": {
+   "bytes": 433552003,
+   "sha256": "887d40a2a3813500ed751afc857847fe91d9a9ec7bd73a0cb303745f42a4c6c2"
+  },
+  "data/asof/m11f/partition-summary.json": {
+   "bytes": 3074,
+   "sha256": "d4c0be3b469655a10bdfc1ddbe16e9bfc4bde36681ae2d948ada4dd84f4eadb3"
+  },
+  "data/asof/m11g/binding-defects.json": {
+   "bytes": 5063,
+   "sha256": "fd3807a5f4063094794ca5a0470318ead8506b7eed6d6298c59fa161aff0f1d9"
+  },
+  "data/asof/m11g/cohort-preflight.json": {
+   "bytes": 14797,
+   "sha256": "3f98c802b2fd8d9a1be54dcf3f671a38214f560ababa96b42be055cc56dfffe6"
+  },
+  "data/asof/m11g/evaluation-entities.json": {
+   "bytes": 685066,
+   "sha256": "01a966b567e63cb44dd814e42fb620ef5d05f8aa929b4fb53c19b45c58035a8c"
+  },
+  "data/asof/m11g/feature-binding.json": {
+   "bytes": 1536,
+   "sha256": "e00024c0976efe0f371662547a6aff2c72d0105557e7fa5717cbd7bdd3158641"
+  },
+  "data/asof/m11g/feature-coverage.json": {
+   "bytes": 3188,
+   "sha256": "ac2a3cd4b98edc9ca4b4a5fa5c3eb18bf79897033b0ea6017125ee4219d2f831"
+  },
+  "data/asof/m11g/feature-extension.json": {
+   "bytes": 3335,
+   "sha256": "053878c49fca931050e704aad12895441c56658ed2d4e31ae4740cf0a63acc3b"
+  },
+  "data/asof/m11g/length-window.json": {
+   "bytes": 748,
+   "sha256": "9f3ac4f0c8aa419418c18abb9f7a6085c5cab36bf1572bbca92962b9694ea25e"
+  },
+  "data/asof/m11g/model-facing-datasets.json": {
+   "bytes": 1053,
+   "sha256": "c938c981ecb1654f9981b154f3389d08f89330ffa9ae1fadd0e8d53f3c8140b6"
+  },
+  "data/asof/m11g/recompute-compounds.json": {
+   "bytes": 433018,
+   "sha256": "8642f6638dd11d3bbfcdca55816ee67812f00eecd02a0fdc8f419db990135bca"
+  },
+  "data/asof/m11g/recompute-targets.json": {
+   "bytes": 6677,
+   "sha256": "eac6af0973530b78f87fab8e8c39629fd6390c20ecc54cda0a12b3b999532980"
+  },
+  "data/asof/m11g/recurrence-agreement.json": {
+   "bytes": 1254,
+   "sha256": "b5e699f973a4fdcbd32c2c3c65edf7ad60b20087b0e388af629033154c2a5782"
+  },
+  "data/asof/m11g/resolution.json": {
+   "bytes": 2847,
+   "sha256": "4e2492a079911e2d0465b8aa76f0dc840003fb8eecaed1b441beacc02fd744d0"
+  },
+  "data/asof/m11g/reuse-compounds.json": {
+   "bytes": 10076682,
+   "sha256": "fe7dcbffead38c98b51560f12674ac6a9d16643734834bb21a7fddd651172ea5"
+  },
+  "data/asof/m11g/reuse-targets.json": {
+   "bytes": 281316,
+   "sha256": "55feecc8c44380e3c799d2c400dba1fbeb69b69f8eb8b9bf1813dbecbb836828"
+  },
+  "data/asof/m11g/runner-record.json": {
+   "bytes": 6978,
+   "sha256": "65cbbe0c9468096ec680c556b91f9849549b0be515f5c21fb490f3d7873c93f6"
+  },
+  "data/asof/observations-202601.jsonl.gz": {
+   "bytes": 81918145,
+   "sha256": "0b67b64bef49fb7cdb765a929e51cd03d696696333bd9a993150c2d48aa55e80"
+  },
+  "data/asof/observations-202609.jsonl.gz": {
+   "bytes": 84540685,
+   "sha256": "2b2b4ad8b920241f5a3852707f99fcfa8353744fd31bd03c86adaf8c66d02ac9"
+  }
+ },
+ "confirmatory_freeze": "UNSIGNED",
+ "contract": "m11f-asof-evaluation-contract-v5",
+ "contract_sha256": "3600854abdd09a21090122098aed989d4893a206f477191a2e1c8a1d611f9ef2",
+ "evaluation_evidence_display": "STAYS DISABLED",
+ "manifest": "m11g-preflight-v1",
+ "nothing_fitted": true,
+ "qualifications_carried_forward": [
+  "EXPLORATORY. Snapshot B is our already-inspected 202609 and the M8/M9 results were produced from it, so any score obtained under this contract is exploratory whatever it shows.",
+  "PROVISIONAL POOLING. Whether Ki may be pooled across assay contexts at all is M5's open question; every count here assumes the current pooling rule.",
+  "The confirmatory \u00a77(A) attestation is NOT signed and this contract does not sign it."
+ ],
+ "recorded_at": "2026-10-05T13:16:38.738626+00:00",
+ "retrieval": "STAYS UNBUILT",
+ "runner_version": "m11g/runner/v2"
+}

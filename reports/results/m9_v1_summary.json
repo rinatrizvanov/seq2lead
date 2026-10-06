@@ -1,0 +1,4832 @@
+[
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__random_pair-v3__seed20260930.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 19,
+   "best_validation_rmse": 0.7455026870096217,
+   "device": "mps",
+   "epochs_run": 20,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": false
+  },
+  "fit_seconds": 102.1209452499752,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 286404,
+  "predict_seconds": 1.0577079999493435,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.8612270645829656,
+    "median": 0.8823529411764706,
+    "n_targets": 583
+   },
+   "average_precision": {
+    "mean": 0.891784411255943,
+    "median": 0.9366650384890123,
+    "n_targets": 583
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.7063818756752778,
+    "median": 1.5,
+    "n_targets": 583
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.6829829231669553,
+    "median": 1.5,
+    "n_targets": 583
+   },
+   "n_pairs_skipped": 13279,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 583,
+   "n_targets_skipped": 2162,
+   "prevalence": {
+    "mean": 0.6199697772240855,
+    "median": 0.64,
+    "n_targets": 583
+   },
+   "recall_at_10": {
+    "mean": 0.371458939490098,
+    "median": 0.26666666666666666,
+    "n_targets": 583
+   },
+   "recall_at_50": {
+    "mean": 0.7509135340444091,
+    "median": 1.0,
+    "n_targets": 583
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 2162
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.7357739595630336,
+    "median": 0.7665715191880749,
+    "n_targets": 1241
+   },
+   "mae": {
+    "mean": 0.7220978943122404,
+    "median": 0.5982150327323407,
+    "n_targets": 2606
+   },
+   "n_targets": 2606,
+   "n_targets_without_rank_metrics": 1365,
+   "rmse": {
+    "mean": 0.8363469290868601,
+    "median": 0.7450536189523689,
+    "n_targets": 2606
+   },
+   "spearman": {
+    "mean": 0.6017312655484112,
+    "median": 0.700360144057623,
+    "n_targets": 1241
+   }
+  },
+  "seed": 20260930,
+  "split": "random_pair-v3",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.8441867668169709,
+     "median": 0.8823529411764706,
+     "n_targets": 55
+    },
+    "average_precision": {
+     "mean": 0.8659840132533843,
+     "median": 0.9366650384890123,
+     "n_targets": 55
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.802203617309552,
+     "median": 1.3837209302325582,
+     "n_targets": 55
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.6349995962252448,
+     "median": 1.380952380952381,
+     "n_targets": 55
+    },
+    "n_pairs": 6720,
+    "n_pairs_skipped": 1608,
+    "n_targets": 233,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 55,
+    "n_targets_skipped": 178,
+    "prevalence": {
+     "mean": 0.6338446432278844,
+     "median": 0.6944444444444444,
+     "n_targets": 55
+    },
+    "recall_at_10": {
+     "mean": 0.3951193592234933,
+     "median": 0.32,
+     "n_targets": 55
+    },
+    "recall_at_50": {
+     "mean": 0.8134101598941792,
+     "median": 1.0,
+     "n_targets": 55
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 178
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.8630020956002566,
+     "median": 0.8821424813216878,
+     "n_targets": 528
+    },
+    "average_precision": {
+     "mean": 0.8944719527145429,
+     "median": 0.9364995190246509,
+     "n_targets": 528
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.696400444255041,
+     "median": 1.51944099378882,
+     "n_targets": 528
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.6879811863900505,
+     "median": 1.5,
+     "n_targets": 528
+    },
+    "n_pairs": 87056,
+    "n_pairs_skipped": 11671,
+    "n_targets": 2512,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 528,
+    "n_targets_skipped": 1984,
+    "prevalence": {
+     "mean": 0.6185244786820232,
+     "median": 0.6349607892739692,
+     "n_targets": 528
+    },
+    "recall_at_10": {
+     "mean": 0.368994312434536,
+     "median": 0.2649122807017544,
+     "n_targets": 528
+    },
+    "recall_at_50": {
+     "mean": 0.7444034688517247,
+     "median": 0.9893617021276595,
+     "n_targets": 528
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 1984
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__random_pair-v3__seed20260931.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 20,
+   "best_validation_rmse": 0.7462037695247573,
+   "device": "mps",
+   "epochs_run": 20,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": false
+  },
+  "fit_seconds": 100.16172683396144,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 286404,
+  "predict_seconds": 1.0069975419901311,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.8555693993535258,
+    "median": 0.8775510204081632,
+    "n_targets": 583
+   },
+   "average_precision": {
+    "mean": 0.8866411390382761,
+    "median": 0.9304008758484612,
+    "n_targets": 583
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.7268797443091353,
+    "median": 1.5,
+    "n_targets": 583
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.6780311382860833,
+    "median": 1.4891774891774892,
+    "n_targets": 583
+   },
+   "n_pairs_skipped": 13279,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 583,
+   "n_targets_skipped": 2162,
+   "prevalence": {
+    "mean": 0.6199697772240855,
+    "median": 0.64,
+    "n_targets": 583
+   },
+   "recall_at_10": {
+    "mean": 0.36958677716811905,
+    "median": 0.2631578947368421,
+    "n_targets": 583
+   },
+   "recall_at_50": {
+    "mean": 0.7497247661044844,
+    "median": 1.0,
+    "n_targets": 583
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 2162
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.7379916949065131,
+    "median": 0.7689900426742532,
+    "n_targets": 1241
+   },
+   "mae": {
+    "mean": 0.7081786774312299,
+    "median": 0.5898547531850178,
+    "n_targets": 2606
+   },
+   "n_targets": 2606,
+   "n_targets_without_rank_metrics": 1365,
+   "rmse": {
+    "mean": 0.8196466404635384,
+    "median": 0.7309573235483235,
+    "n_targets": 2606
+   },
+   "spearman": {
+    "mean": 0.6036433373776777,
+    "median": 0.7,
+    "n_targets": 1241
+   }
+  },
+  "seed": 20260931,
+  "split": "random_pair-v3",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.8336173754403979,
+     "median": 0.8542969318016577,
+     "n_targets": 55
+    },
+    "average_precision": {
+     "mean": 0.8545113764817287,
+     "median": 0.9393896793136439,
+     "n_targets": 55
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.7016220028455846,
+     "median": 1.3333333333333333,
+     "n_targets": 55
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.537259045541451,
+     "median": 1.3253012048192772,
+     "n_targets": 55
+    },
+    "n_pairs": 6720,
+    "n_pairs_skipped": 1608,
+    "n_targets": 233,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 55,
+    "n_targets_skipped": 178,
+    "prevalence": {
+     "mean": 0.6338446432278844,
+     "median": 0.6944444444444444,
+     "n_targets": 55
+    },
+    "recall_at_10": {
+     "mean": 0.38573898911536136,
+     "median": 0.2916666666666667,
+     "n_targets": 55
+    },
+    "recall_at_50": {
+     "mean": 0.8094203176476673,
+     "median": 1.0,
+     "n_targets": 55
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 178
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.8578560685111433,
+     "median": 0.88007057552512,
+     "n_targets": 528
+    },
+    "average_precision": {
+     "mean": 0.8899879893045831,
+     "median": 0.9300833718695816,
+     "n_targets": 528
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.7295107590449217,
+     "median": 1.5238095238095237,
+     "n_targets": 528
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.6926948979469827,
+     "median": 1.5,
+     "n_targets": 528
+    },
+    "n_pairs": 87056,
+    "n_pairs_skipped": 11671,
+    "n_targets": 2512,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 528,
+    "n_targets_skipped": 1984,
+    "prevalence": {
+     "mean": 0.6185244786820232,
+     "median": 0.6349607892739692,
+     "n_targets": 528
+    },
+    "recall_at_10": {
+     "mean": 0.36790425509028135,
+     "median": 0.2631578947368421,
+     "n_targets": 528
+    },
+    "recall_at_50": {
+     "mean": 0.7435064794854027,
+     "median": 0.9893617021276595,
+     "n_targets": 528
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 1984
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__random_pair-v3__seed20260932.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 18,
+   "best_validation_rmse": 0.7469705860270971,
+   "device": "mps",
+   "epochs_run": 20,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": false
+  },
+  "fit_seconds": 102.14982862496981,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 286404,
+  "predict_seconds": 1.1836367499781772,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.8611344546914113,
+    "median": 0.8833333333333333,
+    "n_targets": 583
+   },
+   "average_precision": {
+    "mean": 0.8908431500209427,
+    "median": 0.9297395039482804,
+    "n_targets": 583
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.6864998751968412,
+    "median": 1.5,
+    "n_targets": 583
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.6930169817710805,
+    "median": 1.5,
+    "n_targets": 583
+   },
+   "n_pairs_skipped": 13279,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 583,
+   "n_targets_skipped": 2162,
+   "prevalence": {
+    "mean": 0.6199697772240855,
+    "median": 0.64,
+    "n_targets": 583
+   },
+   "recall_at_10": {
+    "mean": 0.37200904389336437,
+    "median": 0.2631578947368421,
+    "n_targets": 583
+   },
+   "recall_at_50": {
+    "mean": 0.7506004655195131,
+    "median": 1.0,
+    "n_targets": 583
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 2162
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.7387813494688131,
+    "median": 0.7702841492639507,
+    "n_targets": 1241
+   },
+   "mae": {
+    "mean": 0.7158424108652983,
+    "median": 0.5856621873921685,
+    "n_targets": 2606
+   },
+   "n_targets": 2606,
+   "n_targets_without_rank_metrics": 1365,
+   "rmse": {
+    "mean": 0.8265662353853984,
+    "median": 0.7233754074820558,
+    "n_targets": 2606
+   },
+   "spearman": {
+    "mean": 0.6066672968694558,
+    "median": 0.7059430713334186,
+    "n_targets": 1241
+   }
+  },
+  "seed": 20260932,
+  "split": "random_pair-v3",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.8449269396756499,
+     "median": 0.8571428571428571,
+     "n_targets": 55
+    },
+    "average_precision": {
+     "mean": 0.8584414633565884,
+     "median": 0.9409042463139102,
+     "n_targets": 55
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.72838543549137,
+     "median": 1.380952380952381,
+     "n_targets": 55
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.5308529679589025,
+     "median": 1.3725490196078431,
+     "n_targets": 55
+    },
+    "n_pairs": 6720,
+    "n_pairs_skipped": 1608,
+    "n_targets": 233,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 55,
+    "n_targets_skipped": 178,
+    "prevalence": {
+     "mean": 0.6338446432278844,
+     "median": 0.6944444444444444,
+     "n_targets": 55
+    },
+    "recall_at_10": {
+     "mean": 0.38040976326389736,
+     "median": 0.2564102564102564,
+     "n_targets": 55
+    },
+    "recall_at_50": {
+     "mean": 0.8107670932578407,
+     "median": 1.0,
+     "n_targets": 55
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 178
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.862822737505553,
+     "median": 0.8843366778149386,
+     "n_targets": 528
+    },
+    "average_precision": {
+     "mean": 0.894218325715146,
+     "median": 0.9290278611456161,
+     "n_targets": 528
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.6821367959994944,
+     "median": 1.5045454545454544,
+     "n_targets": 528
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.7099090665431826,
+     "median": 1.5224080267558529,
+     "n_targets": 528
+    },
+    "n_pairs": 87056,
+    "n_pairs_skipped": 11671,
+    "n_targets": 2512,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 528,
+    "n_targets_skipped": 1984,
+    "prevalence": {
+     "mean": 0.6185244786820232,
+     "median": 0.6349607892739692,
+     "n_targets": 528
+    },
+    "recall_at_10": {
+     "mean": 0.3711339689589339,
+     "median": 0.2649122807017544,
+     "n_targets": 528
+    },
+    "recall_at_50": {
+     "mean": 0.7443331084634373,
+     "median": 1.0,
+     "n_targets": 528
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 1984
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__random_pair-v3__seed20260933.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 18,
+   "best_validation_rmse": 0.7459922077423651,
+   "device": "mps",
+   "epochs_run": 20,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": false
+  },
+  "fit_seconds": 101.31012791598914,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 286404,
+  "predict_seconds": 1.310617209004704,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.8581479367228131,
+    "median": 0.8769230769230769,
+    "n_targets": 583
+   },
+   "average_precision": {
+    "mean": 0.8877276497306543,
+    "median": 0.9293708309395298,
+    "n_targets": 583
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.6808237682246714,
+    "median": 1.486725663716814,
+    "n_targets": 583
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.6914051038620028,
+    "median": 1.5,
+    "n_targets": 583
+   },
+   "n_pairs_skipped": 13279,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 583,
+   "n_targets_skipped": 2162,
+   "prevalence": {
+    "mean": 0.6199697772240855,
+    "median": 0.64,
+    "n_targets": 583
+   },
+   "recall_at_10": {
+    "mean": 0.371726434529525,
+    "median": 0.2631578947368421,
+    "n_targets": 583
+   },
+   "recall_at_50": {
+    "mean": 0.7503176841803237,
+    "median": 1.0,
+    "n_targets": 583
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 2162
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.7383140730144051,
+    "median": 0.7700650759219089,
+    "n_targets": 1241
+   },
+   "mae": {
+    "mean": 0.7141416107037519,
+    "median": 0.5873471323631345,
+    "n_targets": 2606
+   },
+   "n_targets": 2606,
+   "n_targets_without_rank_metrics": 1365,
+   "rmse": {
+    "mean": 0.8253829552172802,
+    "median": 0.7302072760037037,
+    "n_targets": 2606
+   },
+   "spearman": {
+    "mean": 0.6044328866775169,
+    "median": 0.7075415186414629,
+    "n_targets": 1241
+   }
+  },
+  "seed": 20260933,
+  "split": "random_pair-v3",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.8435003312585333,
+     "median": 0.8615384615384616,
+     "n_targets": 55
+    },
+    "average_precision": {
+     "mean": 0.8665597439581703,
+     "median": 0.936876902490446,
+     "n_targets": 55
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.7233249787067753,
+     "median": 1.3837209302325582,
+     "n_targets": 55
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.6234498510172461,
+     "median": 1.4225352112676055,
+     "n_targets": 55
+    },
+    "n_pairs": 6720,
+    "n_pairs_skipped": 1608,
+    "n_targets": 233,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 55,
+    "n_targets_skipped": 178,
+    "prevalence": {
+     "mean": 0.6338446432278844,
+     "median": 0.6944444444444444,
+     "n_targets": 55
+    },
+    "recall_at_10": {
+     "mean": 0.3907186661081208,
+     "median": 0.3103448275862069,
+     "n_targets": 55
+    },
+    "recall_at_50": {
+     "mean": 0.807216033912052,
+     "median": 1.0,
+     "n_targets": 55
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 178
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.8596737289586756,
+     "median": 0.8775252525252526,
+     "n_targets": 528
+    },
+    "average_precision": {
+     "mean": 0.8899326399152879,
+     "median": 0.9286470002746243,
+     "n_targets": 528
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.6763965587994523,
+     "median": 1.5,
+     "n_targets": 528
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.6984837760333316,
+     "median": 1.5,
+     "n_targets": 528
+    },
+    "n_pairs": 87056,
+    "n_pairs_skipped": 11671,
+    "n_targets": 2512,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 528,
+    "n_targets_skipped": 1984,
+    "prevalence": {
+     "mean": 0.6185244786820232,
+     "median": 0.6349607892739692,
+     "n_targets": 528
+    },
+    "recall_at_10": {
+     "mean": 0.3697480770734212,
+     "median": 0.2631578947368421,
+     "n_targets": 528
+    },
+    "recall_at_50": {
+     "mean": 0.7443907727499354,
+     "median": 1.0,
+     "n_targets": 528
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 1984
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__random_pair-v3__seed20260934.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 20,
+   "best_validation_rmse": 0.7459688254839063,
+   "device": "mps",
+   "epochs_run": 20,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": false
+  },
+  "fit_seconds": 106.44021483295364,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 286404,
+  "predict_seconds": 1.0745893329731189,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.8619287394060352,
+    "median": 0.8814470566794241,
+    "n_targets": 583
+   },
+   "average_precision": {
+    "mean": 0.8921031143648126,
+    "median": 0.9370787816530933,
+    "n_targets": 583
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.7249705022214932,
+    "median": 1.509090909090909,
+    "n_targets": 583
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.7065194874158098,
+    "median": 1.5,
+    "n_targets": 583
+   },
+   "n_pairs_skipped": 13279,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 583,
+   "n_targets_skipped": 2162,
+   "prevalence": {
+    "mean": 0.6199697772240855,
+    "median": 0.64,
+    "n_targets": 583
+   },
+   "recall_at_10": {
+    "mean": 0.37462951810643386,
+    "median": 0.2564102564102564,
+    "n_targets": 583
+   },
+   "recall_at_50": {
+    "mean": 0.751410403135604,
+    "median": 1.0,
+    "n_targets": 583
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 2162
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.7390590408065262,
+    "median": 0.7689969604863222,
+    "n_targets": 1241
+   },
+   "mae": {
+    "mean": 0.7150336935617047,
+    "median": 0.5902654021838841,
+    "n_targets": 2606
+   },
+   "n_targets": 2606,
+   "n_targets_without_rank_metrics": 1365,
+   "rmse": {
+    "mean": 0.826564194023848,
+    "median": 0.7375465356366677,
+    "n_targets": 2606
+   },
+   "spearman": {
+    "mean": 0.6067803490577321,
+    "median": 0.7027551066492734,
+    "n_targets": 1241
+   }
+  },
+  "seed": 20260934,
+  "split": "random_pair-v3",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.8441092021868104,
+     "median": 0.8721804511278195,
+     "n_targets": 55
+    },
+    "average_precision": {
+     "mean": 0.8704523633754294,
+     "median": 0.9462040891179754,
+     "n_targets": 55
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.8495975567034912,
+     "median": 1.4225352112676057,
+     "n_targets": 55
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.615362347468282,
+     "median": 1.3837209302325582,
+     "n_targets": 55
+    },
+    "n_pairs": 6720,
+    "n_pairs_skipped": 1608,
+    "n_targets": 233,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 55,
+    "n_targets_skipped": 178,
+    "prevalence": {
+     "mean": 0.6338446432278844,
+     "median": 0.6944444444444444,
+     "n_targets": 55
+    },
+    "recall_at_10": {
+     "mean": 0.38991435623190496,
+     "median": 0.2564102564102564,
+     "n_targets": 55
+    },
+    "recall_at_50": {
+     "mean": 0.8100105120400066,
+     "median": 1.0,
+     "n_targets": 55
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 178
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.8637849411997045,
+     "median": 0.8827252747252747,
+     "n_targets": 528
+    },
+    "average_precision": {
+     "mean": 0.8943584009262067,
+     "median": 0.9359996808536639,
+     "n_targets": 528
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.7119885173796188,
+     "median": 1.526610644257703,
+     "n_targets": 528
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.7160150228270108,
+     "median": 1.5045454545454544,
+     "n_targets": 528
+    },
+    "n_pairs": 87056,
+    "n_pairs_skipped": 11671,
+    "n_targets": 2512,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 528,
+    "n_targets_skipped": 1984,
+    "prevalence": {
+     "mean": 0.6185244786820232,
+     "median": 0.6349607892739692,
+     "n_targets": 528
+    },
+    "recall_at_10": {
+     "mean": 0.373037347468364,
+     "median": 0.2564102564102564,
+     "n_targets": 528
+    },
+    "recall_at_50": {
+     "mean": 0.7453062251247288,
+     "median": 1.0,
+     "n_targets": 528
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 1984
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__cold_protein-v3__seed20260930.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 1,
+   "best_validation_rmse": 1.553582276594823,
+   "device": "mps",
+   "epochs_run": 6,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 31.345059750019573,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 286664,
+  "predict_seconds": 1.1324356669792905,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.6002429208445051,
+    "median": 0.6001840987477844,
+    "n_targets": 332
+   },
+   "average_precision": {
+    "mean": 0.6940678993751335,
+    "median": 0.7462331559311697,
+    "n_targets": 332
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.1707973501137816,
+    "median": 1.1393736255940978,
+    "n_targets": 332
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.1581748043041356,
+    "median": 1.0748997521317194,
+    "n_targets": 332
+   },
+   "n_pairs_skipped": 8705,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 332,
+   "n_targets_skipped": 792,
+   "prevalence": {
+    "mean": 0.6184270551660417,
+    "median": 0.6736354960113806,
+    "n_targets": 332
+   },
+   "recall_at_10": {
+    "mean": 0.18952351688320052,
+    "median": 0.09615384615384616,
+    "n_targets": 332
+   },
+   "recall_at_50": {
+    "mean": 0.5629945309010436,
+    "median": 0.5148128198222461,
+    "n_targets": 332
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 792
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.5529850697949742,
+    "median": 0.552467220960432,
+    "n_targets": 672
+   },
+   "mae": {
+    "mean": 1.2848282635860584,
+    "median": 1.1598544884088067,
+    "n_targets": 1051
+   },
+   "n_targets": 1051,
+   "n_targets_without_rank_metrics": 378,
+   "rmse": {
+    "mean": 1.4370041625264733,
+    "median": 1.349695059399703,
+    "n_targets": 1051
+   },
+   "spearman": {
+    "mean": 0.14633958631044378,
+    "median": 0.15020246051934727,
+    "n_targets": 673
+   }
+  },
+  "seed": 20260930,
+  "split": "cold_protein-v3",
+  "strata": {
+   "near_homolog": {
+    "auroc": {
+     "mean": 0.7499676459309235,
+     "median": 0.7590413059163059,
+     "n_targets": 8
+    },
+    "average_precision": {
+     "mean": 0.7458563535608309,
+     "median": 0.9143296810488171,
+     "n_targets": 8
+    },
+    "enrichment_at_1pct": {
+     "mean": 0.9247234820679584,
+     "median": 1.0940585111687275,
+     "n_targets": 8
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.0218935637990632,
+     "median": 1.1947044041710533,
+     "n_targets": 8
+    },
+    "n_pairs": 3838,
+    "n_pairs_skipped": 161,
+    "n_targets": 20,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 8,
+    "n_targets_skipped": 12,
+    "prevalence": {
+     "mean": 0.6392996779690916,
+     "median": 0.7787694388100068,
+     "n_targets": 8
+    },
+    "recall_at_10": {
+     "mean": 0.056019776252456285,
+     "median": 0.044076733954451344,
+     "n_targets": 8
+    },
+    "recall_at_50": {
+     "mean": 0.28073605351935355,
+     "median": 0.23040520556048508,
+     "n_targets": 8
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 12
+    }
+   },
+   "not_near_homolog": {
+    "auroc": {
+     "mean": 0.5965460140522478,
+     "median": 0.5973090113026303,
+     "n_targets": 324
+    },
+    "average_precision": {
+     "mean": 0.6927891721112891,
+     "median": 0.7460909810872054,
+     "n_targets": 324
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.1768732480902218,
+     "median": 1.1393736255940978,
+     "n_targets": 324
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.1615397732054953,
+     "median": 1.0735609397944201,
+     "n_targets": 324
+    },
+    "n_pairs": 89939,
+    "n_pairs_skipped": 8544,
+    "n_targets": 1104,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 324,
+    "n_targets_skipped": 780,
+    "prevalence": {
+     "mean": 0.6179116817634972,
+     "median": 0.6726554946825652,
+     "n_targets": 324
+    },
+    "recall_at_10": {
+     "mean": 0.19281990554074974,
+     "median": 0.09900990099009901,
+     "n_targets": 324
+    },
+    "recall_at_50": {
+     "mean": 0.569963876021579,
+     "median": 0.5320080862533693,
+     "n_targets": 324
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 780
+    }
+   },
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.6125574611823917,
+     "median": 0.6063505281722169,
+     "n_targets": 26
+    },
+    "average_precision": {
+     "mean": 0.643921696358113,
+     "median": 0.7308008916523125,
+     "n_targets": 26
+    },
+    "enrichment_at_1pct": {
+     "mean": 0.9627985814996585,
+     "median": 0.8801361681796465,
+     "n_targets": 26
+    },
+    "enrichment_at_5pct": {
+     "mean": 0.8470193568466092,
+     "median": 0.9266988702302192,
+     "n_targets": 26
+    },
+    "n_pairs": 11799,
+    "n_pairs_skipped": 862,
+    "n_targets": 87,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 26,
+    "n_targets_skipped": 61,
+    "prevalence": {
+     "mean": 0.5995840447013788,
+     "median": 0.653307804681547,
+     "n_targets": 26
+    },
+    "recall_at_10": {
+     "mean": 0.09127995491230749,
+     "median": 0.0339080459770115,
+     "n_targets": 26
+    },
+    "recall_at_50": {
+     "mean": 0.40972105150141086,
+     "median": 0.2440097285611338,
+     "n_targets": 26
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 61
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.5991965873517435,
+     "median": 0.5987527584345543,
+     "n_targets": 306
+    },
+    "average_precision": {
+     "mean": 0.6983286878667757,
+     "median": 0.7462331559311697,
+     "n_targets": 306
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.1884704481006025,
+     "median": 1.145791160593792,
+     "n_targets": 306
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.1846128488593501,
+     "median": 1.0949414950430734,
+     "n_targets": 306
+    },
+    "n_pairs": 81978,
+    "n_pairs_skipped": 7843,
+    "n_targets": 1037,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 306,
+    "n_targets_skipped": 731,
+    "prevalence": {
+     "mean": 0.6200280952708822,
+     "median": 0.6736579004564225,
+     "n_targets": 306
+    },
+    "recall_at_10": {
+     "mean": 0.1978710090768058,
+     "median": 0.10178710178710179,
+     "n_targets": 306
+    },
+    "recall_at_50": {
+     "mean": 0.576017767712777,
+     "median": 0.5320080862533693,
+     "n_targets": 306
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 731
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__cold_protein-v3__seed20260931.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 1,
+   "best_validation_rmse": 1.5616594752694792,
+   "device": "mps",
+   "epochs_run": 6,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 31.889473290997557,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 286664,
+  "predict_seconds": 1.067015583976172,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.5972613367432066,
+    "median": 0.6067103966494211,
+    "n_targets": 332
+   },
+   "average_precision": {
+    "mean": 0.6931007335757366,
+    "median": 0.7588078359275983,
+    "n_targets": 332
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.1509211612881063,
+    "median": 1.1208108108108108,
+    "n_targets": 332
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.14587767994236,
+    "median": 1.1195238095238096,
+    "n_targets": 332
+   },
+   "n_pairs_skipped": 8705,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 332,
+   "n_targets_skipped": 792,
+   "prevalence": {
+    "mean": 0.6184270551660417,
+    "median": 0.6736354960113806,
+    "n_targets": 332
+   },
+   "recall_at_10": {
+    "mean": 0.18932889824580962,
+    "median": 0.10001000100010002,
+    "n_targets": 332
+   },
+   "recall_at_50": {
+    "mean": 0.5639273558192189,
+    "median": 0.5219047619047619,
+    "n_targets": 332
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 792
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.5546015918572247,
+    "median": 0.5568778596216225,
+    "n_targets": 672
+   },
+   "mae": {
+    "mean": 1.2801407567458203,
+    "median": 1.1324363580223438,
+    "n_targets": 1051
+   },
+   "n_targets": 1051,
+   "n_targets_without_rank_metrics": 378,
+   "rmse": {
+    "mean": 1.4327170915079892,
+    "median": 1.3365335505063463,
+    "n_targets": 1051
+   },
+   "spearman": {
+    "mean": 0.14587376258758566,
+    "median": 0.15489789617658978,
+    "n_targets": 673
+   }
+  },
+  "seed": 20260931,
+  "split": "cold_protein-v3",
+  "strata": {
+   "near_homolog": {
+    "auroc": {
+     "mean": 0.753485846865541,
+     "median": 0.724743716931217,
+     "n_targets": 8
+    },
+    "average_precision": {
+     "mean": 0.7543358461470817,
+     "median": 0.8888703362349191,
+     "n_targets": 8
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.0251907717875846,
+     "median": 1.1870734790946007,
+     "n_targets": 8
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.2634962770114808,
+     "median": 1.236182669789227,
+     "n_targets": 8
+    },
+    "n_pairs": 3838,
+    "n_pairs_skipped": 161,
+    "n_targets": 20,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 8,
+    "n_targets_skipped": 12,
+    "prevalence": {
+     "mean": 0.6392996779690916,
+     "median": 0.7787694388100068,
+     "n_targets": 8
+    },
+    "recall_at_10": {
+     "mean": 0.06841109778149661,
+     "median": 0.05208393800429558,
+     "n_targets": 8
+    },
+    "recall_at_50": {
+     "mean": 0.28215946048890495,
+     "median": 0.24796830556684274,
+     "n_targets": 8
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 12
+    }
+   },
+   "not_near_homolog": {
+    "auroc": {
+     "mean": 0.5934039414315441,
+     "median": 0.596799986727887,
+     "n_targets": 324
+    },
+    "average_precision": {
+     "mean": 0.6915887554875552,
+     "median": 0.7522930937267278,
+     "n_targets": 324
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.1540256153498476,
+     "median": 1.1195238095238094,
+     "n_targets": 324
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.1429735170517643,
+     "median": 1.1180987999413343,
+     "n_targets": 324
+    },
+    "n_pairs": 89939,
+    "n_pairs_skipped": 8544,
+    "n_targets": 1104,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 324,
+    "n_targets_skipped": 780,
+    "prevalence": {
+     "mean": 0.6179116817634972,
+     "median": 0.6726554946825652,
+     "n_targets": 324
+    },
+    "recall_at_10": {
+     "mean": 0.1923145229486322,
+     "median": 0.10396294390118374,
+     "n_targets": 324
+    },
+    "recall_at_50": {
+     "mean": 0.5708845878026836,
+     "median": 0.5442307692307693,
+     "n_targets": 324
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 780
+    }
+   },
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.6290690442717118,
+     "median": 0.646241356519915,
+     "n_targets": 26
+    },
+    "average_precision": {
+     "mean": 0.6603416397863477,
+     "median": 0.7552226798702755,
+     "n_targets": 26
+    },
+    "enrichment_at_1pct": {
+     "mean": 0.8483892257729753,
+     "median": 0.8596739914674698,
+     "n_targets": 26
+    },
+    "enrichment_at_5pct": {
+     "mean": 0.9856068474782428,
+     "median": 1.0647364310759302,
+     "n_targets": 26
+    },
+    "n_pairs": 11799,
+    "n_pairs_skipped": 862,
+    "n_targets": 87,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 26,
+    "n_targets_skipped": 61,
+    "prevalence": {
+     "mean": 0.5995840447013788,
+     "median": 0.653307804681547,
+     "n_targets": 26
+    },
+    "recall_at_10": {
+     "mean": 0.10253494347096638,
+     "median": 0.043344068706387545,
+     "n_targets": 26
+    },
+    "recall_at_50": {
+     "mean": 0.4139786579357229,
+     "median": 0.23229216435738176,
+     "n_targets": 26
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 61
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.59455872107085,
+     "median": 0.5981787167825867,
+     "n_targets": 306
+    },
+    "average_precision": {
+     "mean": 0.6958841859892141,
+     "median": 0.7588078359275983,
+     "n_targets": 306
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.1766264891423333,
+     "median": 1.1437479521625162,
+     "n_targets": 306
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.159495463092906,
+     "median": 1.1231887423898606,
+     "n_targets": 306
+    },
+    "n_pairs": 81978,
+    "n_pairs_skipped": 7843,
+    "n_targets": 1037,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 306,
+    "n_targets_skipped": 731,
+    "prevalence": {
+     "mean": 0.6200280952708822,
+     "median": 0.6736579004564225,
+     "n_targets": 306
+    },
+    "recall_at_10": {
+     "mean": 0.1967035479979205,
+     "median": 0.10526315789473684,
+     "n_targets": 306
+    },
+    "recall_at_50": {
+     "mean": 0.5766680948550716,
+     "median": 0.5534810126582279,
+     "n_targets": 306
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 731
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__cold_protein-v3__seed20260932.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 3,
+   "best_validation_rmse": 1.5587065584493063,
+   "device": "mps",
+   "epochs_run": 8,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 42.35060062503908,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 286664,
+  "predict_seconds": 1.1234652500133961,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.6015454192864891,
+    "median": 0.6091142054769532,
+    "n_targets": 332
+   },
+   "average_precision": {
+    "mean": 0.6994990334591226,
+    "median": 0.7560729385326701,
+    "n_targets": 332
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.237689143898683,
+    "median": 1.1605079365079365,
+    "n_targets": 332
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.2142248770523483,
+    "median": 1.1195238095238096,
+    "n_targets": 332
+   },
+   "n_pairs_skipped": 8705,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 332,
+   "n_targets_skipped": 792,
+   "prevalence": {
+    "mean": 0.6184270551660417,
+    "median": 0.6736354960113806,
+    "n_targets": 332
+   },
+   "recall_at_10": {
+    "mean": 0.19226895610012798,
+    "median": 0.09715480043149946,
+    "n_targets": 332
+   },
+   "recall_at_50": {
+    "mean": 0.5621917391510008,
+    "median": 0.5026315789473684,
+    "n_targets": 332
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 792
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.5532961780939484,
+    "median": 0.5559904990645028,
+    "n_targets": 672
+   },
+   "mae": {
+    "mean": 1.3108574828093829,
+    "median": 1.1697733068419436,
+    "n_targets": 1051
+   },
+   "n_targets": 1051,
+   "n_targets_without_rank_metrics": 378,
+   "rmse": {
+    "mean": 1.4708243649986183,
+    "median": 1.3885277836660617,
+    "n_targets": 1051
+   },
+   "spearman": {
+    "mean": 0.14668283544320299,
+    "median": 0.17500000000466875,
+    "n_targets": 673
+   }
+  },
+  "seed": 20260932,
+  "split": "cold_protein-v3",
+  "strata": {
+   "near_homolog": {
+    "auroc": {
+     "mean": 0.7509213762607425,
+     "median": 0.7586752582977636,
+     "n_targets": 8
+    },
+    "average_precision": {
+     "mean": 0.7579231401575346,
+     "median": 0.9107226253221244,
+     "n_targets": 8
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.2019979432543022,
+     "median": 1.2175578366784128,
+     "n_targets": 8
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.2477120161800155,
+     "median": 1.236182669789227,
+     "n_targets": 8
+    },
+    "n_pairs": 3838,
+    "n_pairs_skipped": 161,
+    "n_targets": 20,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 8,
+    "n_targets_skipped": 12,
+    "prevalence": {
+     "mean": 0.6392996779690916,
+     "median": 0.7787694388100068,
+     "n_targets": 8
+    },
+    "recall_at_10": {
+     "mean": 0.05915490881015226,
+     "median": 0.04806270334220645,
+     "n_targets": 8
+    },
+    "recall_at_50": {
+     "mean": 0.29076668783593684,
+     "median": 0.24371487725524993,
+     "n_targets": 8
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 12
+    }
+   },
+   "not_near_homolog": {
+    "auroc": {
+     "mean": 0.597857124052557,
+     "median": 0.59875147056352,
+     "n_targets": 324
+    },
+    "average_precision": {
+     "mean": 0.6980564629233593,
+     "median": 0.7532453243665642,
+     "n_targets": 324
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.2385704081121243,
+     "median": 1.158068783068783,
+     "n_targets": 324
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.2133980341109243,
+     "median": 1.1163609116327722,
+     "n_targets": 324
+    },
+    "n_pairs": 89939,
+    "n_pairs_skipped": 8544,
+    "n_targets": 1104,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 324,
+    "n_targets_skipped": 780,
+    "prevalence": {
+     "mean": 0.6179116817634972,
+     "median": 0.6726554946825652,
+     "n_targets": 324
+    },
+    "recall_at_10": {
+     "mean": 0.19555572269988045,
+     "median": 0.10050505050505051,
+     "n_targets": 324
+    },
+    "recall_at_50": {
+     "mean": 0.5688935922698913,
+     "median": 0.5187009388948746,
+     "n_targets": 324
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 780
+    }
+   },
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.6532458625620878,
+     "median": 0.6603216717112499,
+     "n_targets": 26
+    },
+    "average_precision": {
+     "mean": 0.6663924846605956,
+     "median": 0.7103634079563296,
+     "n_targets": 26
+    },
+    "enrichment_at_1pct": {
+     "mean": 0.849698366863014,
+     "median": 0.7816941391941391,
+     "n_targets": 26
+    },
+    "enrichment_at_5pct": {
+     "mean": 0.914923269259911,
+     "median": 0.9383940367523421,
+     "n_targets": 26
+    },
+    "n_pairs": 11799,
+    "n_pairs_skipped": 862,
+    "n_targets": 87,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 26,
+    "n_targets_skipped": 61,
+    "prevalence": {
+     "mean": 0.5995840447013788,
+     "median": 0.653307804681547,
+     "n_targets": 26
+    },
+    "recall_at_10": {
+     "mean": 0.121989725810489,
+     "median": 0.038980509745127435,
+     "n_targets": 26
+    },
+    "recall_at_50": {
+     "mean": 0.41192280241279905,
+     "median": 0.25216190247417725,
+     "n_targets": 26
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 61
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.597152571165033,
+     "median": 0.5968274624400368,
+     "n_targets": 306
+    },
+    "average_precision": {
+     "mean": 0.702312008193638,
+     "median": 0.7586811001424097,
+     "n_targets": 306
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.2706556805095566,
+     "median": 1.1751511819681144,
+     "n_targets": 306
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.2396557326164115,
+     "median": 1.1331094451759443,
+     "n_targets": 306
+    },
+    "n_pairs": 81978,
+    "n_pairs_skipped": 7843,
+    "n_targets": 1037,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 306,
+    "n_targets_skipped": 731,
+    "prevalence": {
+     "mean": 0.6200280952708822,
+     "median": 0.6736579004564225,
+     "n_targets": 306
+    },
+    "recall_at_10": {
+     "mean": 0.19824039396787507,
+     "median": 0.10471491228070176,
+     "n_targets": 306
+    },
+    "recall_at_50": {
+     "mean": 0.5749596880241813,
+     "median": 0.5187009388948746,
+     "n_targets": 306
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 731
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__cold_protein-v3__seed20260933.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 3,
+   "best_validation_rmse": 1.5821097671229443,
+   "device": "mps",
+   "epochs_run": 8,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 42.068939250020776,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 286664,
+  "predict_seconds": 1.0226344169932418,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.6050679800872568,
+    "median": 0.596875,
+    "n_targets": 332
+   },
+   "average_precision": {
+    "mean": 0.7001201813534074,
+    "median": 0.7637433363812323,
+    "n_targets": 332
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.2559552015746192,
+    "median": 1.1715023540158809,
+    "n_targets": 332
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.1978675244726866,
+    "median": 1.1549748901443817,
+    "n_targets": 332
+   },
+   "n_pairs_skipped": 8705,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 332,
+   "n_targets_skipped": 792,
+   "prevalence": {
+    "mean": 0.6184270551660417,
+    "median": 0.6736354960113806,
+    "n_targets": 332
+   },
+   "recall_at_10": {
+    "mean": 0.1875155499539737,
+    "median": 0.10147058823529412,
+    "n_targets": 332
+   },
+   "recall_at_50": {
+    "mean": 0.5654126154769217,
+    "median": 0.5454011741682974,
+    "n_targets": 332
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 792
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.5584020287560614,
+    "median": 0.5570110887550639,
+    "n_targets": 672
+   },
+   "mae": {
+    "mean": 1.3132272154260207,
+    "median": 1.177270060236015,
+    "n_targets": 1051
+   },
+   "n_targets": 1051,
+   "n_targets_without_rank_metrics": 378,
+   "rmse": {
+    "mean": 1.4683217164912923,
+    "median": 1.371064692288527,
+    "n_targets": 1051
+   },
+   "spearman": {
+    "mean": 0.1588836479890345,
+    "median": 0.16285401672040486,
+    "n_targets": 673
+   }
+  },
+  "seed": 20260933,
+  "split": "cold_protein-v3",
+  "strata": {
+   "near_homolog": {
+    "auroc": {
+     "mean": 0.7813891724151205,
+     "median": 0.7635936101051172,
+     "n_targets": 8
+    },
+    "average_precision": {
+     "mean": 0.7630208300549414,
+     "median": 0.9138527977010791,
+     "n_targets": 8
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.0347294281331503,
+     "median": 1.2252281044768636,
+     "n_targets": 8
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.3389240049776854,
+     "median": 1.2854910714285714,
+     "n_targets": 8
+    },
+    "n_pairs": 3838,
+    "n_pairs_skipped": 161,
+    "n_targets": 20,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 8,
+    "n_targets_skipped": 12,
+    "prevalence": {
+     "mean": 0.6392996779690916,
+     "median": 0.7787694388100068,
+     "n_targets": 8
+    },
+    "recall_at_10": {
+     "mean": 0.049374010469507595,
+     "median": 0.05208393800429558,
+     "n_targets": 8
+    },
+    "recall_at_50": {
+     "mean": 0.2891616832464842,
+     "median": 0.25808324142334704,
+     "n_targets": 8
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 12
+    }
+   },
+   "not_near_homolog": {
+    "auroc": {
+     "mean": 0.6007143704001491,
+     "median": 0.5919578357658852,
+     "n_targets": 324
+    },
+    "average_precision": {
+     "mean": 0.6985670789163323,
+     "median": 0.761914197008488,
+     "n_targets": 324
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.2614175663509515,
+     "median": 1.16832237598828,
+     "n_targets": 324
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.1943846484108347,
+     "median": 1.1505607253638748,
+     "n_targets": 324
+    },
+    "n_pairs": 89939,
+    "n_pairs_skipped": 8544,
+    "n_targets": 1104,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 324,
+    "n_targets_skipped": 780,
+    "prevalence": {
+     "mean": 0.6179116817634972,
+     "median": 0.6726554946825652,
+     "n_targets": 324
+    },
+    "recall_at_10": {
+     "mean": 0.19092645216346668,
+     "median": 0.10527482269503546,
+     "n_targets": 324
+    },
+    "recall_at_50": {
+     "mean": 0.5722336261492781,
+     "median": 0.5579259034315214,
+     "n_targets": 324
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 780
+    }
+   },
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.6487058608529763,
+     "median": 0.6541857810514526,
+     "n_targets": 26
+    },
+    "average_precision": {
+     "mean": 0.6722902619654906,
+     "median": 0.7362602169164101,
+     "n_targets": 26
+    },
+    "enrichment_at_1pct": {
+     "mean": 0.9102320985182035,
+     "median": 0.9488889327309434,
+     "n_targets": 26
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.0475706930164197,
+     "median": 1.1466688530734634,
+     "n_targets": 26
+    },
+    "n_pairs": 11799,
+    "n_pairs_skipped": 862,
+    "n_targets": 87,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 26,
+    "n_targets_skipped": 61,
+    "prevalence": {
+     "mean": 0.5995840447013788,
+     "median": 0.653307804681547,
+     "n_targets": 26
+    },
+    "recall_at_10": {
+     "mean": 0.10741638590464012,
+     "median": 0.05231566741695655,
+     "n_targets": 26
+    },
+    "recall_at_50": {
+     "mean": 0.42777739938605186,
+     "median": 0.2549243334134038,
+     "n_targets": 26
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 61
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.6013601862967054,
+     "median": 0.5908782372598163,
+     "n_targets": 306
+    },
+    "average_precision": {
+     "mean": 0.7024848150268903,
+     "median": 0.7688011169655207,
+     "n_targets": 306
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.2853303671937915,
+     "median": 1.17907642519293,
+     "n_targets": 306
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.2106378434853104,
+     "median": 1.1549748901443817,
+     "n_targets": 306
+    },
+    "n_pairs": 81978,
+    "n_pairs_skipped": 7843,
+    "n_targets": 1037,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 306,
+    "n_targets_skipped": 731,
+    "prevalence": {
+     "mean": 0.6200280952708822,
+     "median": 0.6736579004564225,
+     "n_targets": 306
+    },
+    "recall_at_10": {
+     "mean": 0.1943213612784269,
+     "median": 0.10813654430675707,
+     "n_targets": 306
+    },
+    "recall_at_50": {
+     "mean": 0.5771071109617668,
+     "median": 0.5579259034315214,
+     "n_targets": 306
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 731
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__cold_protein-v3__seed20260934.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 4,
+   "best_validation_rmse": 1.5826452284686376,
+   "device": "mps",
+   "epochs_run": 9,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 46.17813933303114,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 286664,
+  "predict_seconds": 1.1835613339790143,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.5985805397701303,
+    "median": 0.6017693867998127,
+    "n_targets": 332
+   },
+   "average_precision": {
+    "mean": 0.6980577783949696,
+    "median": 0.7561576190813755,
+    "n_targets": 332
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.2688778321200556,
+    "median": 1.1822815533980582,
+    "n_targets": 332
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.2190979507294886,
+    "median": 1.147719816272966,
+    "n_targets": 332
+   },
+   "n_pairs_skipped": 8705,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 332,
+   "n_targets_skipped": 792,
+   "prevalence": {
+    "mean": 0.6184270551660417,
+    "median": 0.6736354960113806,
+    "n_targets": 332
+   },
+   "recall_at_10": {
+    "mean": 0.1883376260662805,
+    "median": 0.08941897654584222,
+    "n_targets": 332
+   },
+   "recall_at_50": {
+    "mean": 0.5637726399626152,
+    "median": 0.5308176100628931,
+    "n_targets": 332
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 792
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.5520183261388374,
+    "median": 0.5555555555555556,
+    "n_targets": 672
+   },
+   "mae": {
+    "mean": 1.3037499112718391,
+    "median": 1.1666741418938888,
+    "n_targets": 1051
+   },
+   "n_targets": 1051,
+   "n_targets_without_rank_metrics": 378,
+   "rmse": {
+    "mean": 1.46814138553942,
+    "median": 1.358824454723746,
+    "n_targets": 1051
+   },
+   "spearman": {
+    "mean": 0.1424799365727163,
+    "median": 0.1568171475707428,
+    "n_targets": 673
+   }
+  },
+  "seed": 20260934,
+  "split": "cold_protein-v3",
+  "strata": {
+   "near_homolog": {
+    "auroc": {
+     "mean": 0.7817644453912309,
+     "median": 0.767732335455694,
+     "n_targets": 8
+    },
+    "average_precision": {
+     "mean": 0.7576159517226607,
+     "median": 0.9158409454771312,
+     "n_targets": 8
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.110409700241994,
+     "median": 1.2252281044768636,
+     "n_targets": 8
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.0974650353286228,
+     "median": 1.236182669789227,
+     "n_targets": 8
+    },
+    "n_pairs": 3838,
+    "n_pairs_skipped": 161,
+    "n_targets": 20,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 8,
+    "n_targets_skipped": 12,
+    "prevalence": {
+     "mean": 0.6392996779690916,
+     "median": 0.7787694388100068,
+     "n_targets": 8
+    },
+    "recall_at_10": {
+     "mean": 0.047939558183920455,
+     "median": 0.04974748940616474,
+     "n_targets": 8
+    },
+    "recall_at_50": {
+     "mean": 0.2916206982056473,
+     "median": 0.25107389562895455,
+     "n_targets": 8
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 12
+    }
+   },
+   "not_near_homolog": {
+    "auroc": {
+     "mean": 0.5940574803720783,
+     "median": 0.5991202965806118,
+     "n_targets": 324
+    },
+    "average_precision": {
+     "mean": 0.696587206214039,
+     "median": 0.7532309494289273,
+     "n_targets": 324
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.272790625499761,
+     "median": 1.1751511819681144,
+     "n_targets": 324
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.2221012325912384,
+     "median": 1.1408730158730158,
+     "n_targets": 324
+    },
+    "n_pairs": 89939,
+    "n_pairs_skipped": 8544,
+    "n_targets": 1104,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 324,
+    "n_targets_skipped": 780,
+    "prevalence": {
+     "mean": 0.6179116817634972,
+     "median": 0.6726554946825652,
+     "n_targets": 324
+    },
+    "recall_at_10": {
+     "mean": 0.19180424502633878,
+     "median": 0.09353146853146854,
+     "n_targets": 324
+    },
+    "recall_at_50": {
+     "mean": 0.5704924409936516,
+     "median": 0.5447860962566844,
+     "n_targets": 324
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 780
+    }
+   },
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.6088403852544487,
+     "median": 0.6382898221664677,
+     "n_targets": 26
+    },
+    "average_precision": {
+     "mean": 0.6517189242138562,
+     "median": 0.7578809465598146,
+     "n_targets": 26
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.0214571002226538,
+     "median": 1.1098046548291642,
+     "n_targets": 26
+    },
+    "enrichment_at_5pct": {
+     "mean": 0.9379704590869774,
+     "median": 1.0610219267183925,
+     "n_targets": 26
+    },
+    "n_pairs": 11799,
+    "n_pairs_skipped": 862,
+    "n_targets": 87,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 26,
+    "n_targets_skipped": 61,
+    "prevalence": {
+     "mean": 0.5995840447013788,
+     "median": 0.653307804681547,
+     "n_targets": 26
+    },
+    "recall_at_10": {
+     "mean": 0.07787387328806224,
+     "median": 0.03721010730356525,
+     "n_targets": 26
+    },
+    "recall_at_50": {
+     "mean": 0.41232703527353337,
+     "median": 0.22945532728141424,
+     "n_targets": 26
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 61
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.5977087881930313,
+     "median": 0.600302315011732,
+     "n_targets": 306
+    },
+    "average_precision": {
+     "mean": 0.7019950666587244,
+     "median": 0.7561576190813755,
+     "n_targets": 306
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.2899005086865014,
+     "median": 1.1837719298245615,
+     "n_targets": 306
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.2429846003461724,
+     "median": 1.154396186440678,
+     "n_targets": 306
+    },
+    "n_pairs": 81978,
+    "n_pairs_skipped": 7843,
+    "n_targets": 1037,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 306,
+    "n_targets_skipped": 731,
+    "prevalence": {
+     "mean": 0.6200280952708822,
+     "median": 0.6736579004564225,
+     "n_targets": 306
+    },
+    "recall_at_10": {
+     "mean": 0.19772343512586768,
+     "median": 0.09715480043149946,
+     "n_targets": 306
+    },
+    "recall_at_50": {
+     "mean": 0.5766405671584196,
+     "median": 0.5521390374331551,
+     "n_targets": 306
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 731
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__chemistry_disjoint-v3__seed20260930.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 6,
+   "best_validation_rmse": 0.9372912523616745,
+   "device": "mps",
+   "epochs_run": 11,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 58.37446329102386,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 285028,
+  "predict_seconds": 1.1428898749873042,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.7950052024076326,
+    "median": 0.8236654056326187,
+    "n_targets": 539
+   },
+   "average_precision": {
+    "mean": 0.8504331286897826,
+    "median": 0.9080534432691596,
+    "n_targets": 539
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.5887045554671544,
+    "median": 1.3866666666666667,
+    "n_targets": 539
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.5515079054604786,
+    "median": 1.3846153846153846,
+    "n_targets": 539
+   },
+   "n_pairs_skipped": 14765,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 539,
+   "n_targets_skipped": 1954,
+   "prevalence": {
+    "mean": 0.6360312380566427,
+    "median": 0.660377358490566,
+    "n_targets": 539
+   },
+   "recall_at_10": {
+    "mean": 0.31375595286506763,
+    "median": 0.21052631578947367,
+    "n_targets": 539
+   },
+   "recall_at_50": {
+    "mean": 0.7146576385083925,
+    "median": 0.9,
+    "n_targets": 539
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 1954
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.6619220293311023,
+    "median": 0.6911764705882353,
+    "n_targets": 1255
+   },
+   "mae": {
+    "mean": 0.925108325000753,
+    "median": 0.7675401689282311,
+    "n_targets": 2437
+   },
+   "n_targets": 2437,
+   "n_targets_without_rank_metrics": 1182,
+   "rmse": {
+    "mean": 1.0524396382685937,
+    "median": 0.9325653718545006,
+    "n_targets": 2437
+   },
+   "spearman": {
+    "mean": 0.4301541356821447,
+    "median": 0.5220588235294118,
+    "n_targets": 1255
+   }
+  },
+  "seed": 20260930,
+  "split": "chemistry_disjoint-v3",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.7657307398506416,
+     "median": 0.777070707070707,
+     "n_targets": 52
+    },
+    "average_precision": {
+     "mean": 0.8315477951294681,
+     "median": 0.9084627728504941,
+     "n_targets": 52
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.6124100216177175,
+     "median": 1.2661943319838058,
+     "n_targets": 52
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.525781200707449,
+     "median": 1.2661943319838058,
+     "n_targets": 52
+    },
+    "n_pairs": 7744,
+    "n_pairs_skipped": 1511,
+    "n_targets": 235,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 52,
+    "n_targets_skipped": 183,
+    "prevalence": {
+     "mean": 0.6651564704922192,
+     "median": 0.7621664050235479,
+     "n_targets": 52
+    },
+    "recall_at_10": {
+     "mean": 0.2831792307756263,
+     "median": 0.18813131313131315,
+     "n_targets": 52
+    },
+    "recall_at_50": {
+     "mean": 0.7147566170436966,
+     "median": 0.8502673796791445,
+     "n_targets": 52
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 183
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.7981310177114591,
+     "median": 0.8269841269841269,
+     "n_targets": 487
+    },
+    "average_precision": {
+     "mean": 0.8524496324785636,
+     "median": 0.9080534432691596,
+     "n_targets": 487
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.586173376329928,
+     "median": 1.414772727272727,
+     "n_targets": 487
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.5542549047359562,
+     "median": 1.4,
+     "n_targets": 487
+    },
+    "n_pairs": 86042,
+    "n_pairs_skipped": 13254,
+    "n_targets": 2258,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 487,
+    "n_targets_skipped": 1771,
+    "prevalence": {
+     "mean": 0.6329213569752259,
+     "median": 0.6526315789473685,
+     "n_targets": 487
+    },
+    "recall_at_10": {
+     "mean": 0.3170208184680471,
+     "median": 0.21212121212121213,
+     "n_targets": 487
+    },
+    "recall_at_50": {
+     "mean": 0.7146470699584216,
+     "median": 0.9,
+     "n_targets": 487
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 1771
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__chemistry_disjoint-v3__seed20260931.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 4,
+   "best_validation_rmse": 0.9333604475411258,
+   "device": "mps",
+   "epochs_run": 9,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 46.27202104096068,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 285028,
+  "predict_seconds": 1.2393695000209846,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.7886952930043749,
+    "median": 0.8142857142857143,
+    "n_targets": 539
+   },
+   "average_precision": {
+    "mean": 0.8465184593778449,
+    "median": 0.9018727182784961,
+    "n_targets": 539
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.6384124654963348,
+    "median": 1.4143338323353294,
+    "n_targets": 539
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.5708013749855971,
+    "median": 1.380952380952381,
+    "n_targets": 539
+   },
+   "n_pairs_skipped": 14765,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 539,
+   "n_targets_skipped": 1954,
+   "prevalence": {
+    "mean": 0.6360312380566427,
+    "median": 0.660377358490566,
+    "n_targets": 539
+   },
+   "recall_at_10": {
+    "mean": 0.30944316884303846,
+    "median": 0.20833333333333334,
+    "n_targets": 539
+   },
+   "recall_at_50": {
+    "mean": 0.7141830379258832,
+    "median": 0.8918918918918919,
+    "n_targets": 539
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 1954
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.6609322009714308,
+    "median": 0.6916221033868093,
+    "n_targets": 1255
+   },
+   "mae": {
+    "mean": 0.929753336082148,
+    "median": 0.7755013768706434,
+    "n_targets": 2437
+   },
+   "n_targets": 2437,
+   "n_targets_without_rank_metrics": 1182,
+   "rmse": {
+    "mean": 1.0566529507699973,
+    "median": 0.933367125824311,
+    "n_targets": 2437
+   },
+   "spearman": {
+    "mean": 0.42750942967872435,
+    "median": 0.5269230769230769,
+    "n_targets": 1255
+   }
+  },
+  "seed": 20260931,
+  "split": "chemistry_disjoint-v3",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.7460159042509039,
+     "median": 0.7707320159281963,
+     "n_targets": 52
+    },
+    "average_precision": {
+     "mean": 0.8280059082927019,
+     "median": 0.8983589859806635,
+     "n_targets": 52
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.5511290891263778,
+     "median": 1.2631578947368423,
+     "n_targets": 52
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.453712287681622,
+     "median": 1.2701294033069734,
+     "n_targets": 52
+    },
+    "n_pairs": 7744,
+    "n_pairs_skipped": 1511,
+    "n_targets": 235,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 52,
+    "n_targets_skipped": 183,
+    "prevalence": {
+     "mean": 0.6651564704922192,
+     "median": 0.7621664050235479,
+     "n_targets": 52
+    },
+    "recall_at_10": {
+     "mean": 0.2900134919546099,
+     "median": 0.1747737556561086,
+     "n_targets": 52
+    },
+    "recall_at_50": {
+     "mean": 0.7055129652603417,
+     "median": 0.7722650231124808,
+     "n_targets": 52
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 183
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.7932524351300023,
+     "median": 0.8175122749590835,
+     "n_targets": 487
+    },
+    "average_precision": {
+     "mean": 0.8484951588776957,
+     "median": 0.9018727182784961,
+     "n_targets": 487
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.647732251063558,
+     "median": 1.4354838709677418,
+     "n_targets": 487
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.5833037005293482,
+     "median": 1.391304347826087,
+     "n_targets": 487
+    },
+    "n_pairs": 86042,
+    "n_pairs_skipped": 13254,
+    "n_targets": 2258,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 487,
+    "n_targets_skipped": 1771,
+    "prevalence": {
+     "mean": 0.6329213569752259,
+     "median": 0.6526315789473685,
+     "n_targets": 487
+    },
+    "recall_at_10": {
+     "mean": 0.31151779553338405,
+     "median": 0.21428571428571427,
+     "n_targets": 487
+    },
+    "recall_at_50": {
+     "mean": 0.7151087951714852,
+     "median": 0.8958333333333334,
+     "n_targets": 487
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 1771
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__chemistry_disjoint-v3__seed20260932.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 6,
+   "best_validation_rmse": 0.9371626335275669,
+   "device": "mps",
+   "epochs_run": 11,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 58.46915800002171,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 285028,
+  "predict_seconds": 1.0405039580073208,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.7927254178904076,
+    "median": 0.8222016949152542,
+    "n_targets": 539
+   },
+   "average_precision": {
+    "mean": 0.8479665794302691,
+    "median": 0.9049829887502852,
+    "n_targets": 539
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.626754788752037,
+    "median": 1.4164251207729468,
+    "n_targets": 539
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.5680858916472522,
+    "median": 1.3846153846153848,
+    "n_targets": 539
+   },
+   "n_pairs_skipped": 14765,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 539,
+   "n_targets_skipped": 1954,
+   "prevalence": {
+    "mean": 0.6360312380566427,
+    "median": 0.660377358490566,
+    "n_targets": 539
+   },
+   "recall_at_10": {
+    "mean": 0.317649657040429,
+    "median": 0.20833333333333334,
+    "n_targets": 539
+   },
+   "recall_at_50": {
+    "mean": 0.7127327840436251,
+    "median": 0.88,
+    "n_targets": 539
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 1954
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.6543226308358336,
+    "median": 0.6895770392749244,
+    "n_targets": 1255
+   },
+   "mae": {
+    "mean": 0.9325785591735027,
+    "median": 0.7703109066174686,
+    "n_targets": 2437
+   },
+   "n_targets": 2437,
+   "n_targets_without_rank_metrics": 1182,
+   "rmse": {
+    "mean": 1.06189950443952,
+    "median": 0.940000864073066,
+    "n_targets": 2437
+   },
+   "spearman": {
+    "mean": 0.4128000847094133,
+    "median": 0.5210526315789473,
+    "n_targets": 1255
+   }
+  },
+  "seed": 20260932,
+  "split": "chemistry_disjoint-v3",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.7424298833709202,
+     "median": 0.7622612481857765,
+     "n_targets": 52
+    },
+    "average_precision": {
+     "mean": 0.810877491272998,
+     "median": 0.9040665265403269,
+     "n_targets": 52
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.4239975199594315,
+     "median": 1.253849798625918,
+     "n_targets": 52
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.3633833027016387,
+     "median": 1.2585630743525482,
+     "n_targets": 52
+    },
+    "n_pairs": 7744,
+    "n_pairs_skipped": 1511,
+    "n_targets": 235,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 52,
+    "n_targets_skipped": 183,
+    "prevalence": {
+     "mean": 0.6651564704922192,
+     "median": 0.7621664050235479,
+     "n_targets": 52
+    },
+    "recall_at_10": {
+     "mean": 0.28887990985499956,
+     "median": 0.17914438502673796,
+     "n_targets": 52
+    },
+    "recall_at_50": {
+     "mean": 0.7061165335627003,
+     "median": 0.8086286594761171,
+     "n_targets": 52
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 183
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.7980957829725707,
+     "median": 0.8252525252525252,
+     "n_targets": 487
+    },
+    "average_precision": {
+     "mean": 0.8519268106092797,
+     "median": 0.9049829887502852,
+     "n_targets": 487
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.6484044355225003,
+     "median": 1.4464285714285716,
+     "n_targets": 487
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.5899432522738883,
+     "median": 1.409090909090909,
+     "n_targets": 487
+    },
+    "n_pairs": 86042,
+    "n_pairs_skipped": 13254,
+    "n_targets": 2258,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 487,
+    "n_targets_skipped": 1771,
+    "prevalence": {
+     "mean": 0.6329213569752259,
+     "median": 0.6526315789473685,
+     "n_targets": 487
+    },
+    "recall_at_10": {
+     "mean": 0.3207215807645407,
+     "median": 0.2127659574468085,
+     "n_targets": 487
+    },
+    "recall_at_50": {
+     "mean": 0.7134392420005206,
+     "median": 0.8958333333333334,
+     "n_targets": 487
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 1771
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__chemistry_disjoint-v3__seed20260933.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 4,
+   "best_validation_rmse": 0.9358379736367587,
+   "device": "mps",
+   "epochs_run": 9,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 46.164304250036366,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 285028,
+  "predict_seconds": 1.0450075000408106,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.7885730738224878,
+    "median": 0.8125,
+    "n_targets": 539
+   },
+   "average_precision": {
+    "mean": 0.8468917546812865,
+    "median": 0.9072576929859831,
+    "n_targets": 539
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.6249687952734289,
+    "median": 1.3905325443786982,
+    "n_targets": 539
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.574726475573064,
+    "median": 1.3846153846153846,
+    "n_targets": 539
+   },
+   "n_pairs_skipped": 14765,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 539,
+   "n_targets_skipped": 1954,
+   "prevalence": {
+    "mean": 0.6360312380566427,
+    "median": 0.660377358490566,
+    "n_targets": 539
+   },
+   "recall_at_10": {
+    "mean": 0.31274563137201633,
+    "median": 0.20833333333333334,
+    "n_targets": 539
+   },
+   "recall_at_50": {
+    "mean": 0.7132684542561735,
+    "median": 0.875,
+    "n_targets": 539
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 1954
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.6603615340855076,
+    "median": 0.6920289855072463,
+    "n_targets": 1255
+   },
+   "mae": {
+    "mean": 0.9239398707295846,
+    "median": 0.7645663325519161,
+    "n_targets": 2437
+   },
+   "n_targets": 2437,
+   "n_targets_without_rank_metrics": 1182,
+   "rmse": {
+    "mean": 1.0523100612622973,
+    "median": 0.9355789791105502,
+    "n_targets": 2437
+   },
+   "spearman": {
+    "mean": 0.4248464305610602,
+    "median": 0.5201885178716353,
+    "n_targets": 1255
+   }
+  },
+  "seed": 20260933,
+  "split": "chemistry_disjoint-v3",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.7582117391125549,
+     "median": 0.7521294572039451,
+     "n_targets": 52
+    },
+    "average_precision": {
+     "mean": 0.8338506847017297,
+     "median": 0.9150226897469838,
+     "n_targets": 52
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.6319695403113146,
+     "median": 1.2661943319838058,
+     "n_targets": 52
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.5707518093507522,
+     "median": 1.2701294033069734,
+     "n_targets": 52
+    },
+    "n_pairs": 7744,
+    "n_pairs_skipped": 1511,
+    "n_targets": 235,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 52,
+    "n_targets_skipped": 183,
+    "prevalence": {
+     "mean": 0.6651564704922192,
+     "median": 0.7621664050235479,
+     "n_targets": 52
+    },
+    "recall_at_10": {
+     "mean": 0.29710004928693395,
+     "median": 0.17914438502673796,
+     "n_targets": 52
+    },
+    "recall_at_50": {
+     "mean": 0.7099100719548026,
+     "median": 0.8026737967914439,
+     "n_targets": 52
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 183
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.7918149411837127,
+     "median": 0.8179009768723386,
+     "n_targets": 487
+    },
+    "average_precision": {
+     "mean": 0.8482842303259209,
+     "median": 0.9051058752570923,
+     "n_targets": 487
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.6242212824562419,
+     "median": 1.414772727272727,
+     "n_targets": 487
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.5751508752518326,
+     "median": 1.391304347826087,
+     "n_targets": 487
+    },
+    "n_pairs": 86042,
+    "n_pairs_skipped": 13254,
+    "n_targets": 2258,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 487,
+    "n_targets_skipped": 1771,
+    "prevalence": {
+     "mean": 0.6329213569752259,
+     "median": 0.6526315789473685,
+     "n_targets": 487
+    },
+    "recall_at_10": {
+     "mean": 0.3144162068718608,
+     "median": 0.2127659574468085,
+     "n_targets": 487
+    },
+    "recall_at_50": {
+     "mean": 0.713627049491638,
+     "median": 0.8888888888888888,
+     "n_targets": 487
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 1771
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__chemistry_disjoint-v3__seed20260934.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 5,
+   "best_validation_rmse": 0.9357844699399009,
+   "device": "mps",
+   "epochs_run": 10,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 50.81952116597677,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 285028,
+  "predict_seconds": 1.028165458003059,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.7890296228097163,
+    "median": 0.817877712882906,
+    "n_targets": 539
+   },
+   "average_precision": {
+    "mean": 0.8471605772952603,
+    "median": 0.9084972183862804,
+    "n_targets": 539
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.5474626492730847,
+    "median": 1.391304347826087,
+    "n_targets": 539
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.5432865054356875,
+    "median": 1.3803550295857987,
+    "n_targets": 539
+   },
+   "n_pairs_skipped": 14765,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 539,
+   "n_targets_skipped": 1954,
+   "prevalence": {
+    "mean": 0.6360312380566427,
+    "median": 0.660377358490566,
+    "n_targets": 539
+   },
+   "recall_at_10": {
+    "mean": 0.31364263200630316,
+    "median": 0.20833333333333334,
+    "n_targets": 539
+   },
+   "recall_at_50": {
+    "mean": 0.7147746785759401,
+    "median": 0.8918918918918919,
+    "n_targets": 539
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 1954
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.6601530574919677,
+    "median": 0.6925465838509317,
+    "n_targets": 1255
+   },
+   "mae": {
+    "mean": 0.9313224543673059,
+    "median": 0.7785226432428084,
+    "n_targets": 2437
+   },
+   "n_targets": 2437,
+   "n_targets_without_rank_metrics": 1182,
+   "rmse": {
+    "mean": 1.0613551610321075,
+    "median": 0.9373468620823614,
+    "n_targets": 2437
+   },
+   "spearman": {
+    "mean": 0.4247212469588796,
+    "median": 0.5338989165715808,
+    "n_targets": 1255
+   }
+  },
+  "seed": 20260934,
+  "split": "chemistry_disjoint-v3",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.7538857168624337,
+     "median": 0.7857272256728778,
+     "n_targets": 52
+    },
+    "average_precision": {
+     "mean": 0.8162059011942187,
+     "median": 0.9158386400431622,
+     "n_targets": 52
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.3231415625552239,
+     "median": 1.2071428571428573,
+     "n_targets": 52
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.336317610789578,
+     "median": 1.2585630743525482,
+     "n_targets": 52
+    },
+    "n_pairs": 7744,
+    "n_pairs_skipped": 1511,
+    "n_targets": 235,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 52,
+    "n_targets_skipped": 183,
+    "prevalence": {
+     "mean": 0.6651564704922192,
+     "median": 0.7621664050235479,
+     "n_targets": 52
+    },
+    "recall_at_10": {
+     "mean": 0.28457724894633246,
+     "median": 0.17128422425032594,
+     "n_targets": 52
+    },
+    "recall_at_50": {
+     "mean": 0.7134653104098556,
+     "median": 0.820855614973262,
+     "n_targets": 52
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 183
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.7927821548615822,
+     "median": 0.8213923416853517,
+     "n_targets": 487
+    },
+    "average_precision": {
+     "mean": 0.850465799384078,
+     "median": 0.9076101384810584,
+     "n_targets": 487
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.571414798162877,
+     "median": 1.4262137257598682,
+     "n_targets": 487
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.5653858535293175,
+     "median": 1.3897058823529413,
+     "n_targets": 487
+    },
+    "n_pairs": 86042,
+    "n_pairs_skipped": 13254,
+    "n_targets": 2258,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 487,
+    "n_targets_skipped": 1771,
+    "prevalence": {
+     "mean": 0.6329213569752259,
+     "median": 0.6526315789473685,
+     "n_targets": 487
+    },
+    "recall_at_10": {
+     "mean": 0.31674612259997553,
+     "median": 0.2127659574468085,
+     "n_targets": 487
+    },
+    "recall_at_50": {
+     "mean": 0.7149144879078424,
+     "median": 0.9,
+     "n_targets": 487
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 1771
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__temporal_proxy-v4__seed20260930.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 2,
+   "best_validation_rmse": 1.11163663019892,
+   "device": "mps",
+   "epochs_run": 7,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 38.69974266696954,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 305374,
+  "predict_seconds": 1.0635868339450099,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.6574100478114567,
+    "median": 0.6835664263040201,
+    "n_targets": 328
+   },
+   "average_precision": {
+    "mean": 0.751302644224583,
+    "median": 0.8322651114317782,
+    "n_targets": 328
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.5099281351258576,
+    "median": 1.2523148148148149,
+    "n_targets": 328
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.436721423783079,
+    "median": 1.2289865689865689,
+    "n_targets": 328
+   },
+   "n_pairs_skipped": 17808,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 328,
+   "n_targets_skipped": 992,
+   "prevalence": {
+    "mean": 0.6195096923583954,
+    "median": 0.6564189816246984,
+    "n_targets": 328
+   },
+   "recall_at_10": {
+    "mean": 0.23364966938725812,
+    "median": 0.14087301587301587,
+    "n_targets": 328
+   },
+   "recall_at_50": {
+    "mean": 0.6230001644207822,
+    "median": 0.6644144144144144,
+    "n_targets": 328
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 992
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.579501944300086,
+    "median": 0.5842592592592593,
+    "n_targets": 722
+   },
+   "mae": {
+    "mean": 1.1133970071890302,
+    "median": 0.9555060733126598,
+    "n_targets": 1294
+   },
+   "n_targets": 1294,
+   "n_targets_without_rank_metrics": 569,
+   "rmse": {
+    "mean": 1.241037529227029,
+    "median": 1.1135012350943014,
+    "n_targets": 1294
+   },
+   "spearman": {
+    "mean": 0.21594543050584025,
+    "median": 0.237928007023705,
+    "n_targets": 725
+   }
+  },
+  "seed": 20260930,
+  "split": "temporal_proxy-v4",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.6122095983279311,
+     "median": 0.6306060606060606,
+     "n_targets": 38
+    },
+    "average_precision": {
+     "mean": 0.7413335861394494,
+     "median": 0.8048318633239062,
+     "n_targets": 38
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.7693510429069055,
+     "median": 1.173237753882915,
+     "n_targets": 38
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.644338134609933,
+     "median": 1.173237753882915,
+     "n_targets": 38
+    },
+    "n_pairs": 11877,
+    "n_pairs_skipped": 4489,
+    "n_targets": 162,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 38,
+    "n_targets_skipped": 124,
+    "prevalence": {
+     "mean": 0.6208999455446845,
+     "median": 0.7605277933745087,
+     "n_targets": 38
+    },
+    "recall_at_10": {
+     "mean": 0.2523002297541752,
+     "median": 0.12908061292471684,
+     "n_targets": 38
+    },
+    "recall_at_50": {
+     "mean": 0.6321614375273952,
+     "median": 0.6207326428845417,
+     "n_targets": 38
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 124
+    }
+   },
+   "temporal:new": {
+    "auroc": {
+     "mean": 0.6396944469431036,
+     "median": 0.6708754208754208,
+     "n_targets": 307
+    },
+    "average_precision": {
+     "mean": 0.7378617504475806,
+     "median": 0.8128134491770855,
+     "n_targets": 307
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.3458570109734567,
+     "median": 1.2272727272727273,
+     "n_targets": 307
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.3081717107883792,
+     "median": 1.2121212121212122,
+     "n_targets": 307
+    },
+    "n_pairs": 90299,
+    "n_pairs_skipped": 17559,
+    "n_targets": 1266,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 307,
+    "n_targets_skipped": 959,
+    "prevalence": {
+     "mean": 0.6204921139154411,
+     "median": 0.658867571361722,
+     "n_targets": 307
+    },
+    "recall_at_10": {
+     "mean": 0.224093937565092,
+     "median": 0.13725490196078433,
+     "n_targets": 307
+    },
+    "recall_at_50": {
+     "mean": 0.624552032433231,
+     "median": 0.6666666666666666,
+     "n_targets": 307
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 959
+    }
+   },
+   "temporal:recurrent": {
+    "auroc": {
+     "mean": 0.8751252503238288,
+     "median": 0.8788571428571429,
+     "n_targets": 39
+    },
+    "average_precision": {
+     "mean": 0.9389037726456536,
+     "median": 0.9722711569040948,
+     "n_targets": 39
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.3783301773843388,
+     "median": 1.2337662337662338,
+     "n_targets": 39
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.3740229776971353,
+     "median": 1.2272727272727273,
+     "n_targets": 39
+    },
+    "n_pairs": 6365,
+    "n_pairs_skipped": 2534,
+    "n_targets": 462,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 39,
+    "n_targets_skipped": 423,
+    "prevalence": {
+     "mean": 0.7317218305203362,
+     "median": 0.7655860349127181,
+     "n_targets": 39
+    },
+    "recall_at_10": {
+     "mean": 0.3204229026293908,
+     "median": 0.20833333333333334,
+     "n_targets": 39
+    },
+    "recall_at_50": {
+     "mean": 0.7754749584084579,
+     "median": 1.0,
+     "n_targets": 39
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 423
+    }
+   },
+   "temporal_regression:new": {
+    "concordance_index": {
+     "mean": 0.564596807880452,
+     "median": 0.5680916703393566,
+     "n_targets": 685
+    },
+    "mae": {
+     "mean": 1.1414120859862238,
+     "median": 0.9753062798557911,
+     "n_targets": 1237
+    },
+    "n_pairs": 76954,
+    "n_targets": 1237,
+    "n_targets_without_rank_metrics": 549,
+    "rmse": {
+     "mean": 1.2668593239895352,
+     "median": 1.1349628568918466,
+     "n_targets": 1237
+    },
+    "spearman": {
+     "mean": 0.1767645615680461,
+     "median": 0.19792276690708774,
+     "n_targets": 688
+    }
+   },
+   "temporal_regression:recurrent": {
+    "concordance_index": {
+     "mean": 0.7395196962625082,
+     "median": 0.744491943439658,
+     "n_targets": 161
+    },
+    "mae": {
+     "mean": 0.7979444411680006,
+     "median": 0.6713346908681699,
+     "n_targets": 452
+    },
+    "n_pairs": 5741,
+    "n_targets": 452,
+    "n_targets_without_rank_metrics": 291,
+    "rmse": {
+     "mean": 0.8975665647229435,
+     "median": 0.759770793254816,
+     "n_targets": 452
+    },
+    "spearman": {
+     "mean": 0.5961909748600023,
+     "median": 0.6571428571428571,
+     "n_targets": 161
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.6633328653299876,
+     "median": 0.6952945276318345,
+     "n_targets": 290
+    },
+    "average_precision": {
+     "mean": 0.7526089345943592,
+     "median": 0.8358414382061738,
+     "n_targets": 290
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.4759347885890304,
+     "median": 1.2698714897667776,
+     "n_targets": 290
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.409516475467836,
+     "median": 1.2344322344322345,
+     "n_targets": 290
+    },
+    "n_pairs": 84787,
+    "n_pairs_skipped": 13319,
+    "n_targets": 1158,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 290,
+    "n_targets_skipped": 868,
+    "prevalence": {
+     "mean": 0.6193275212512264,
+     "median": 0.6449579831932774,
+     "n_targets": 290
+    },
+    "recall_at_10": {
+     "mean": 0.23120580285642073,
+     "median": 0.14285714285714285,
+     "n_targets": 290
+    },
+    "recall_at_50": {
+     "mean": 0.6217997217378469,
+     "median": 0.6666666666666666,
+     "n_targets": 290
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 868
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__temporal_proxy-v4__seed20260931.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 3,
+   "best_validation_rmse": 1.1231784401406588,
+   "device": "mps",
+   "epochs_run": 8,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 46.35593095899094,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 305374,
+  "predict_seconds": 1.1516232080175541,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.6396546990667473,
+    "median": 0.6636240585728455,
+    "n_targets": 328
+   },
+   "average_precision": {
+    "mean": 0.7383567186123743,
+    "median": 0.8174812675965774,
+    "n_targets": 328
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.5381450734809983,
+    "median": 1.2523148148148149,
+    "n_targets": 328
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.4004827107040363,
+    "median": 1.2196859415484913,
+    "n_targets": 328
+   },
+   "n_pairs_skipped": 17808,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 328,
+   "n_targets_skipped": 992,
+   "prevalence": {
+    "mean": 0.6195096923583954,
+    "median": 0.6564189816246984,
+    "n_targets": 328
+   },
+   "recall_at_10": {
+    "mean": 0.21914529673801816,
+    "median": 0.125,
+    "n_targets": 328
+   },
+   "recall_at_50": {
+    "mean": 0.6168928209324538,
+    "median": 0.634508348794063,
+    "n_targets": 328
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 992
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.5819451504125871,
+    "median": 0.5940474491563699,
+    "n_targets": 722
+   },
+   "mae": {
+    "mean": 1.109939438444341,
+    "median": 0.9560648037218584,
+    "n_targets": 1294
+   },
+   "n_targets": 1294,
+   "n_targets_without_rank_metrics": 569,
+   "rmse": {
+    "mean": 1.2404564318862359,
+    "median": 1.126456268084186,
+    "n_targets": 1294
+   },
+   "spearman": {
+    "mean": 0.22572810524235162,
+    "median": 0.26525622998151105,
+    "n_targets": 725
+   }
+  },
+  "seed": 20260931,
+  "split": "temporal_proxy-v4",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.5800082342170894,
+     "median": 0.5583283102270444,
+     "n_targets": 38
+    },
+    "average_precision": {
+     "mean": 0.6981312242011443,
+     "median": 0.7986616268967572,
+     "n_targets": 38
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.5053082013185917,
+     "median": 1.150375939849624,
+     "n_targets": 38
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.3172434461132898,
+     "median": 1.111820955781539,
+     "n_targets": 38
+    },
+    "n_pairs": 11877,
+    "n_pairs_skipped": 4489,
+    "n_targets": 162,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 38,
+    "n_targets_skipped": 124,
+    "prevalence": {
+     "mean": 0.6208999455446845,
+     "median": 0.7605277933745087,
+     "n_targets": 38
+    },
+    "recall_at_10": {
+     "mean": 0.21568446296047744,
+     "median": 0.12012987012987013,
+     "n_targets": 38
+    },
+    "recall_at_50": {
+     "mean": 0.6205344369159204,
+     "median": 0.6131568853087841,
+     "n_targets": 38
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 124
+    }
+   },
+   "temporal:new": {
+    "auroc": {
+     "mean": 0.6176665945410929,
+     "median": 0.64,
+     "n_targets": 307
+    },
+    "average_precision": {
+     "mean": 0.7252513917621942,
+     "median": 0.8076190334226054,
+     "n_targets": 307
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.4090640116180766,
+     "median": 1.2224409448818898,
+     "n_targets": 307
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.3144417920601148,
+     "median": 1.2000000000000002,
+     "n_targets": 307
+    },
+    "n_pairs": 90299,
+    "n_pairs_skipped": 17559,
+    "n_targets": 1266,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 307,
+    "n_targets_skipped": 959,
+    "prevalence": {
+     "mean": 0.6204921139154411,
+     "median": 0.658867571361722,
+     "n_targets": 307
+    },
+    "recall_at_10": {
+     "mean": 0.2125999508986427,
+     "median": 0.1282051282051282,
+     "n_targets": 307
+    },
+    "recall_at_50": {
+     "mean": 0.6160713373161582,
+     "median": 0.631578947368421,
+     "n_targets": 307
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 959
+    }
+   },
+   "temporal:recurrent": {
+    "auroc": {
+     "mean": 0.8983884605679168,
+     "median": 0.8952380952380953,
+     "n_targets": 39
+    },
+    "average_precision": {
+     "mean": 0.9430696291386164,
+     "median": 0.9717433339965175,
+     "n_targets": 39
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.3783301773843388,
+     "median": 1.2337662337662338,
+     "n_targets": 39
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.3597737040840452,
+     "median": 1.2272727272727273,
+     "n_targets": 39
+    },
+    "n_pairs": 6365,
+    "n_pairs_skipped": 2534,
+    "n_targets": 462,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 39,
+    "n_targets_skipped": 423,
+    "prevalence": {
+     "mean": 0.7317218305203362,
+     "median": 0.7655860349127181,
+     "n_targets": 39
+    },
+    "recall_at_10": {
+     "mean": 0.32041146987241054,
+     "median": 0.20833333333333334,
+     "n_targets": 39
+    },
+    "recall_at_50": {
+     "mean": 0.7753227475214598,
+     "median": 0.9714285714285714,
+     "n_targets": 39
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 423
+    }
+   },
+   "temporal_regression:new": {
+    "concordance_index": {
+     "mean": 0.5673359703302416,
+     "median": 0.5706307173808377,
+     "n_targets": 685
+    },
+    "mae": {
+     "mean": 1.1479464707884781,
+     "median": 0.9894998104914702,
+     "n_targets": 1237
+    },
+    "n_pairs": 76954,
+    "n_targets": 1237,
+    "n_targets_without_rank_metrics": 549,
+    "rmse": {
+     "mean": 1.274904161172508,
+     "median": 1.1550217799306426,
+     "n_targets": 1237
+    },
+    "spearman": {
+     "mean": 0.18726984718203543,
+     "median": 0.21125357162313874,
+     "n_targets": 688
+    }
+   },
+   "temporal_regression:recurrent": {
+    "concordance_index": {
+     "mean": 0.7678247866265641,
+     "median": 0.7886984467059454,
+     "n_targets": 161
+    },
+    "mae": {
+     "mean": 0.7625568816343021,
+     "median": 0.5929362949926853,
+     "n_targets": 452
+    },
+    "n_pairs": 5741,
+    "n_targets": 452,
+    "n_targets_without_rank_metrics": 291,
+    "rmse": {
+     "mean": 0.8590280445129328,
+     "median": 0.6828010271412863,
+     "n_targets": 452
+    },
+    "spearman": {
+     "mean": 0.6539188171563047,
+     "median": 0.7242551117730563,
+     "n_targets": 161
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.6474704427367026,
+     "median": 0.6666666666666666,
+     "n_targets": 290
+    },
+    "average_precision": {
+     "mean": 0.7436276454662597,
+     "median": 0.8174812675965774,
+     "n_targets": 290
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.5424478360402103,
+     "median": 1.2906609195402299,
+     "n_targets": 290
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.4113899246848929,
+     "median": 1.2363138060979786,
+     "n_targets": 290
+    },
+    "n_pairs": 84787,
+    "n_pairs_skipped": 13319,
+    "n_targets": 1158,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 290,
+    "n_targets_skipped": 868,
+    "prevalence": {
+     "mean": 0.6193275212512264,
+     "median": 0.6449579831932774,
+     "n_targets": 290
+    },
+    "recall_at_10": {
+     "mean": 0.21959878530197177,
+     "median": 0.125,
+     "n_targets": 290
+    },
+    "recall_at_50": {
+     "mean": 0.6164156436656548,
+     "median": 0.6363636363636364,
+     "n_targets": 290
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 868
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__temporal_proxy-v4__seed20260932.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 6,
+   "best_validation_rmse": 1.1397619118656945,
+   "device": "mps",
+   "epochs_run": 11,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 60.67647000000579,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 305374,
+  "predict_seconds": 1.087664999999106,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.6460471102124974,
+    "median": 0.6696350073796322,
+    "n_targets": 328
+   },
+   "average_precision": {
+    "mean": 0.7441179060391708,
+    "median": 0.8310541230282429,
+    "n_targets": 328
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.49417624025644,
+    "median": 1.2372294372294372,
+    "n_targets": 328
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.4034963190049323,
+    "median": 1.2126821913218295,
+    "n_targets": 328
+   },
+   "n_pairs_skipped": 17808,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 328,
+   "n_targets_skipped": 992,
+   "prevalence": {
+    "mean": 0.6195096923583954,
+    "median": 0.6564189816246984,
+    "n_targets": 328
+   },
+   "recall_at_10": {
+    "mean": 0.23072698605241843,
+    "median": 0.13680926916221034,
+    "n_targets": 328
+   },
+   "recall_at_50": {
+    "mean": 0.6212388149110388,
+    "median": 0.6568181818181817,
+    "n_targets": 328
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 992
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.5808949102944131,
+    "median": 0.5883500372591703,
+    "n_targets": 722
+   },
+   "mae": {
+    "mean": 1.1270958756535918,
+    "median": 0.9488815995488751,
+    "n_targets": 1294
+   },
+   "n_targets": 1294,
+   "n_targets_without_rank_metrics": 569,
+   "rmse": {
+    "mean": 1.2658804249462376,
+    "median": 1.1367876146178872,
+    "n_targets": 1294
+   },
+   "spearman": {
+    "mean": 0.21800191548171424,
+    "median": 0.24385964912280703,
+    "n_targets": 725
+   }
+  },
+  "seed": 20260932,
+  "split": "temporal_proxy-v4",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.5880711390791888,
+     "median": 0.6241035616035616,
+     "n_targets": 38
+    },
+    "average_precision": {
+     "mean": 0.7268636707807599,
+     "median": 0.7833693829663806,
+     "n_targets": 38
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.399073893661082,
+     "median": 1.1030638665132337,
+     "n_targets": 38
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.5384773128323137,
+     "median": 1.1030638665132337,
+     "n_targets": 38
+    },
+    "n_pairs": 11877,
+    "n_pairs_skipped": 4489,
+    "n_targets": 162,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 38,
+    "n_targets_skipped": 124,
+    "prevalence": {
+     "mean": 0.6208999455446845,
+     "median": 0.7605277933745087,
+     "n_targets": 38
+    },
+    "recall_at_10": {
+     "mean": 0.24018325927105375,
+     "median": 0.12143067412422726,
+     "n_targets": 38
+    },
+    "recall_at_50": {
+     "mean": 0.6223248978039417,
+     "median": 0.6004986574606828,
+     "n_targets": 38
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 124
+    }
+   },
+   "temporal:new": {
+    "auroc": {
+     "mean": 0.6210353411504336,
+     "median": 0.638095238095238,
+     "n_targets": 307
+    },
+    "average_precision": {
+     "mean": 0.7252486596998784,
+     "median": 0.8116749797492607,
+     "n_targets": 307
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.304266207161556,
+     "median": 1.2155555555555557,
+     "n_targets": 307
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.2532713591241489,
+     "median": 1.168141592920354,
+     "n_targets": 307
+    },
+    "n_pairs": 90299,
+    "n_pairs_skipped": 17559,
+    "n_targets": 1266,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 307,
+    "n_targets_skipped": 959,
+    "prevalence": {
+     "mean": 0.6204921139154411,
+     "median": 0.658867571361722,
+     "n_targets": 307
+    },
+    "recall_at_10": {
+     "mean": 0.22180062078309967,
+     "median": 0.14285714285714285,
+     "n_targets": 307
+    },
+    "recall_at_50": {
+     "mean": 0.6206814726415739,
+     "median": 0.6818181818181818,
+     "n_targets": 307
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 959
+    }
+   },
+   "temporal:recurrent": {
+    "auroc": {
+     "mean": 0.9006776538155941,
+     "median": 0.9253968253968254,
+     "n_targets": 39
+    },
+    "average_precision": {
+     "mean": 0.9479806092197103,
+     "median": 0.9811764705882353,
+     "n_targets": 39
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.4279241620902556,
+     "median": 1.2941176470588236,
+     "n_targets": 39
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.438292087742616,
+     "median": 1.2337662337662338,
+     "n_targets": 39
+    },
+    "n_pairs": 6365,
+    "n_pairs_skipped": 2534,
+    "n_targets": 462,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 39,
+    "n_targets_skipped": 423,
+    "prevalence": {
+     "mean": 0.7317218305203362,
+     "median": 0.7655860349127181,
+     "n_targets": 39
+    },
+    "recall_at_10": {
+     "mean": 0.3225615605385847,
+     "median": 0.20833333333333334,
+     "n_targets": 39
+    },
+    "recall_at_50": {
+     "mean": 0.7747058565622664,
+     "median": 1.0,
+     "n_targets": 39
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 423
+    }
+   },
+   "temporal_regression:new": {
+    "concordance_index": {
+     "mean": 0.5633906977909663,
+     "median": 0.5714285714285714,
+     "n_targets": 685
+    },
+    "mae": {
+     "mean": 1.1768115984037044,
+     "median": 1.0118759291934962,
+     "n_targets": 1237
+    },
+    "n_pairs": 76954,
+    "n_targets": 1237,
+    "n_targets_without_rank_metrics": 549,
+    "rmse": {
+     "mean": 1.3111265541287593,
+     "median": 1.1786855736737738,
+     "n_targets": 1237
+    },
+    "spearman": {
+     "mean": 0.17406487715122124,
+     "median": 0.2,
+     "n_targets": 688
+    }
+   },
+   "temporal_regression:recurrent": {
+    "concordance_index": {
+     "mean": 0.7879436165519299,
+     "median": 0.8095238095238095,
+     "n_targets": 161
+    },
+    "mae": {
+     "mean": 0.687843179830151,
+     "median": 0.5007910846286058,
+     "n_targets": 452
+    },
+    "n_pairs": 5741,
+    "n_targets": 452,
+    "n_targets_without_rank_metrics": 291,
+    "rmse": {
+     "mean": 0.7817576441245686,
+     "median": 0.608351957388147,
+     "n_targets": 452
+    },
+    "spearman": {
+     "mean": 0.6975767745381143,
+     "median": 0.7782494901428224,
+     "n_targets": 161
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.6536439616023793,
+     "median": 0.6710084033613445,
+     "n_targets": 290
+    },
+    "average_precision": {
+     "mean": 0.7463788058316525,
+     "median": 0.8363133256256416,
+     "n_targets": 290
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.5066379270516939,
+     "median": 1.273513847195464,
+     "n_targets": 290
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.3858091542965172,
+     "median": 1.2249429712004563,
+     "n_targets": 290
+    },
+    "n_pairs": 84787,
+    "n_pairs_skipped": 13319,
+    "n_targets": 1158,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 290,
+    "n_targets_skipped": 868,
+    "prevalence": {
+     "mean": 0.6193275212512264,
+     "median": 0.6449579831932774,
+     "n_targets": 290
+    },
+    "recall_at_10": {
+     "mean": 0.22948788818239038,
+     "median": 0.1400560224089636,
+     "n_targets": 290
+    },
+    "recall_at_50": {
+     "mean": 0.6210965006009345,
+     "median": 0.6628787878787878,
+     "n_targets": 290
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 868
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__temporal_proxy-v4__seed20260933.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 3,
+   "best_validation_rmse": 1.1189151362208811,
+   "device": "mps",
+   "epochs_run": 8,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 44.351191041991115,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 305374,
+  "predict_seconds": 1.1707450419780798,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.6570660583604744,
+    "median": 0.6854606722459231,
+    "n_targets": 328
+   },
+   "average_precision": {
+    "mean": 0.7493678432638473,
+    "median": 0.8328136714998011,
+    "n_targets": 328
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.599867389883002,
+    "median": 1.273513847195464,
+    "n_targets": 328
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.4272075466151977,
+    "median": 1.221688034188034,
+    "n_targets": 328
+   },
+   "n_pairs_skipped": 17808,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 328,
+   "n_targets_skipped": 992,
+   "prevalence": {
+    "mean": 0.6195096923583954,
+    "median": 0.6564189816246984,
+    "n_targets": 328
+   },
+   "recall_at_10": {
+    "mean": 0.2286198377379142,
+    "median": 0.14119601328903653,
+    "n_targets": 328
+   },
+   "recall_at_50": {
+    "mean": 0.6215814306877634,
+    "median": 0.6606265356265356,
+    "n_targets": 328
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 992
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.5867373154302836,
+    "median": 0.5980509462651384,
+    "n_targets": 722
+   },
+   "mae": {
+    "mean": 1.1187486178209312,
+    "median": 0.9367590035474662,
+    "n_targets": 1294
+   },
+   "n_targets": 1294,
+   "n_targets_without_rank_metrics": 569,
+   "rmse": {
+    "mean": 1.251883267806793,
+    "median": 1.1173030792021206,
+    "n_targets": 1294
+   },
+   "spearman": {
+    "mean": 0.23251434820724087,
+    "median": 0.2818181818181818,
+    "n_targets": 725
+   }
+  },
+  "seed": 20260933,
+  "split": "temporal_proxy-v4",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.6134622983357779,
+     "median": 0.6071625344352617,
+     "n_targets": 38
+    },
+    "average_precision": {
+     "mean": 0.7300097154955472,
+     "median": 0.8224174506946103,
+     "n_targets": 38
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.702662152884069,
+     "median": 1.1611536358665937,
+     "n_targets": 38
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.5182457747846125,
+     "median": 1.132852564102564,
+     "n_targets": 38
+    },
+    "n_pairs": 11877,
+    "n_pairs_skipped": 4489,
+    "n_targets": 162,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 38,
+    "n_targets_skipped": 124,
+    "prevalence": {
+     "mean": 0.6208999455446845,
+     "median": 0.7605277933745087,
+     "n_targets": 38
+    },
+    "recall_at_10": {
+     "mean": 0.24704620360748059,
+     "median": 0.1314729574223245,
+     "n_targets": 38
+    },
+    "recall_at_50": {
+     "mean": 0.6293730089256894,
+     "median": 0.6194859992328348,
+     "n_targets": 38
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 124
+    }
+   },
+   "temporal:new": {
+    "auroc": {
+     "mean": 0.6339254334712966,
+     "median": 0.6666666666666666,
+     "n_targets": 307
+    },
+    "average_precision": {
+     "mean": 0.7329726018823749,
+     "median": 0.816756892340246,
+     "n_targets": 307
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.4210952645932362,
+     "median": 1.2307692307692308,
+     "n_targets": 307
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.3175501464052561,
+     "median": 1.1981132075471697,
+     "n_targets": 307
+    },
+    "n_pairs": 90299,
+    "n_pairs_skipped": 17559,
+    "n_targets": 1266,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 307,
+    "n_targets_skipped": 959,
+    "prevalence": {
+     "mean": 0.6204921139154411,
+     "median": 0.658867571361722,
+     "n_targets": 307
+    },
+    "recall_at_10": {
+     "mean": 0.2181027143965403,
+     "median": 0.14035087719298245,
+     "n_targets": 307
+    },
+    "recall_at_50": {
+     "mean": 0.618715111859846,
+     "median": 0.6551724137931034,
+     "n_targets": 307
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 959
+    }
+   },
+   "temporal:recurrent": {
+    "auroc": {
+     "mean": 0.896356793969056,
+     "median": 0.9,
+     "n_targets": 39
+    },
+    "average_precision": {
+     "mean": 0.9472739281958679,
+     "median": 0.9791686866785682,
+     "n_targets": 39
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.4603814594356208,
+     "median": 1.2941176470588236,
+     "n_targets": 39
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.438855853155011,
+     "median": 1.2337662337662338,
+     "n_targets": 39
+    },
+    "n_pairs": 6365,
+    "n_pairs_skipped": 2534,
+    "n_targets": 462,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 39,
+    "n_targets_skipped": 423,
+    "prevalence": {
+     "mean": 0.7317218305203362,
+     "median": 0.7655860349127181,
+     "n_targets": 39
+    },
+    "recall_at_10": {
+     "mean": 0.3242690564755447,
+     "median": 0.20833333333333334,
+     "n_targets": 39
+    },
+    "recall_at_50": {
+     "mean": 0.7745231055458969,
+     "median": 0.9791666666666666,
+     "n_targets": 39
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 423
+    }
+   },
+   "temporal_regression:new": {
+    "concordance_index": {
+     "mean": 0.569882358496911,
+     "median": 0.573025856044724,
+     "n_targets": 685
+    },
+    "mae": {
+     "mean": 1.152881811643721,
+     "median": 0.9937070897497363,
+     "n_targets": 1237
+    },
+    "n_pairs": 76954,
+    "n_targets": 1237,
+    "n_targets_without_rank_metrics": 549,
+    "rmse": {
+     "mean": 1.2824397159611418,
+     "median": 1.1440602751906908,
+     "n_targets": 1237
+    },
+    "spearman": {
+     "mean": 0.18928752534691023,
+     "median": 0.21352902784996952,
+     "n_targets": 688
+    }
+   },
+   "temporal_regression:recurrent": {
+    "concordance_index": {
+     "mean": 0.7604267046074994,
+     "median": 0.7757785467128028,
+     "n_targets": 161
+    },
+    "mae": {
+     "mean": 0.7769913654207786,
+     "median": 0.6137621024816902,
+     "n_targets": 452
+    },
+    "n_pairs": 5741,
+    "n_targets": 452,
+    "n_targets_without_rank_metrics": 291,
+    "rmse": {
+     "mean": 0.8732309794783336,
+     "median": 0.7237840606265977,
+     "n_targets": 452
+    },
+    "spearman": {
+     "mean": 0.6389727009955062,
+     "median": 0.7062468674777049,
+     "n_targets": 161
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.6627796545016416,
+     "median": 0.6988971214443876,
+     "n_targets": 290
+    },
+    "average_precision": {
+     "mean": 0.7519044255231419,
+     "median": 0.8375173423717682,
+     "n_targets": 290
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.5863977312828623,
+     "median": 1.2972390593268948,
+     "n_targets": 290
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.4152783994757572,
+     "median": 1.2344322344322345,
+     "n_targets": 290
+    },
+    "n_pairs": 84787,
+    "n_pairs_skipped": 13319,
+    "n_targets": 1158,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 290,
+    "n_targets_skipped": 868,
+    "prevalence": {
+     "mean": 0.6193275212512264,
+     "median": 0.6449579831932774,
+     "n_targets": 290
+    },
+    "recall_at_10": {
+     "mean": 0.22620534841707446,
+     "median": 0.14285714285714285,
+     "n_targets": 290
+    },
+    "recall_at_50": {
+     "mean": 0.6205604652634835,
+     "median": 0.6644144144144144,
+     "n_targets": 290
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 868
+    }
+   }
+  }
+ },
+ {
+  "checkpoint": "data/m9/final/M9-dual-encoder__temporal_proxy-v4__seed20260934.pt",
+  "deterministic": false,
+  "fit_notes": {
+   "best_epoch": 4,
+   "best_validation_rmse": 1.1381685107151451,
+   "device": "mps",
+   "epochs_run": 9,
+   "head": "affine on cosine, output in pKi units",
+   "selected_on": "validation RMSE, frozen before test scoring",
+   "stopped_early": true
+  },
+  "fit_seconds": 61.86035762500251,
+  "model": "M9-dual-encoder",
+  "n_parameters": 2230274,
+  "n_train": 305374,
+  "predict_seconds": 1.1062598749995232,
+  "projection_dim": 512,
+  "ranking": {
+   "auroc": {
+    "mean": 0.6500047200383438,
+    "median": 0.6789536915683705,
+    "n_targets": 328
+   },
+   "average_precision": {
+    "mean": 0.7467631673534488,
+    "median": 0.8238775326432028,
+    "n_targets": 328
+   },
+   "enrichment_at_1pct": {
+    "mean": 1.5544386909257564,
+    "median": 1.242577030812325,
+    "n_targets": 328
+   },
+   "enrichment_at_5pct": {
+    "mean": 1.4171284793935608,
+    "median": 1.2167141964650958,
+    "n_targets": 328
+   },
+   "n_pairs_skipped": 17808,
+   "n_targets_all_tied": 0,
+   "n_targets_scored": 328,
+   "n_targets_skipped": 992,
+   "prevalence": {
+    "mean": 0.6195096923583954,
+    "median": 0.6564189816246984,
+    "n_targets": 328
+   },
+   "recall_at_10": {
+    "mean": 0.22833959448912627,
+    "median": 0.13095238095238093,
+    "n_targets": 328
+   },
+   "recall_at_50": {
+    "mean": 0.618562628005969,
+    "median": 0.6558441558441559,
+    "n_targets": 328
+   },
+   "skip_reasons": {
+    "needs >=5 positives and >=5 negatives": 992
+   }
+  },
+  "regression": {
+   "concordance_index": {
+    "mean": 0.5790372784005818,
+    "median": 0.5883528866934239,
+    "n_targets": 722
+   },
+   "mae": {
+    "mean": 1.136405222496923,
+    "median": 0.9526171833889343,
+    "n_targets": 1294
+   },
+   "n_targets": 1294,
+   "n_targets_without_rank_metrics": 569,
+   "rmse": {
+    "mean": 1.2691852051088715,
+    "median": 1.132571208546063,
+    "n_targets": 1294
+   },
+   "spearman": {
+    "mean": 0.21559614422679907,
+    "median": 0.24751398092039187,
+    "n_targets": 725
+   }
+  },
+  "seed": 20260934,
+  "split": "temporal_proxy-v4",
+  "strata": {
+   "over_training_window": {
+    "auroc": {
+     "mean": 0.594192612342645,
+     "median": 0.6349210625093029,
+     "n_targets": 38
+    },
+    "average_precision": {
+     "mean": 0.7357758418417711,
+     "median": 0.7928124526246991,
+     "n_targets": 38
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.7276723469254116,
+     "median": 1.173237753882915,
+     "n_targets": 38
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.6753380034971337,
+     "median": 1.1611536358665937,
+     "n_targets": 38
+    },
+    "n_pairs": 11877,
+    "n_pairs_skipped": 4489,
+    "n_targets": 162,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 38,
+    "n_targets_skipped": 124,
+    "prevalence": {
+     "mean": 0.6208999455446845,
+     "median": 0.7605277933745087,
+     "n_targets": 38
+    },
+    "recall_at_10": {
+     "mean": 0.2634829646216166,
+     "median": 0.1314729574223245,
+     "n_targets": 38
+    },
+    "recall_at_50": {
+     "mean": 0.6177072368980691,
+     "median": 0.5714422708093594,
+     "n_targets": 38
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 124
+    }
+   },
+   "temporal:new": {
+    "auroc": {
+     "mean": 0.627077783136061,
+     "median": 0.6538461538461539,
+     "n_targets": 307
+    },
+    "average_precision": {
+     "mean": 0.729678865088343,
+     "median": 0.8133176001140349,
+     "n_targets": 307
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.3648927131932391,
+     "median": 1.2195540308747854,
+     "n_targets": 307
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.2790287997943746,
+     "median": 1.175033692722372,
+     "n_targets": 307
+    },
+    "n_pairs": 90299,
+    "n_pairs_skipped": 17559,
+    "n_targets": 1266,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 307,
+    "n_targets_skipped": 959,
+    "prevalence": {
+     "mean": 0.6204921139154411,
+     "median": 0.658867571361722,
+     "n_targets": 307
+    },
+    "recall_at_10": {
+     "mean": 0.21806711568374076,
+     "median": 0.12903225806451613,
+     "n_targets": 307
+    },
+    "recall_at_50": {
+     "mean": 0.6181388757602049,
+     "median": 0.64,
+     "n_targets": 307
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 959
+    }
+   },
+   "temporal:recurrent": {
+    "auroc": {
+     "mean": 0.8938063704077851,
+     "median": 0.9012850467289719,
+     "n_targets": 39
+    },
+    "average_precision": {
+     "mean": 0.9436655211732833,
+     "median": 0.980909090909091,
+     "n_targets": 39
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.3947109928305745,
+     "median": 1.2337662337662338,
+     "n_targets": 39
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.3556431013907733,
+     "median": 1.2272727272727273,
+     "n_targets": 39
+    },
+    "n_pairs": 6365,
+    "n_pairs_skipped": 2534,
+    "n_targets": 462,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 39,
+    "n_targets_skipped": 423,
+    "prevalence": {
+     "mean": 0.7317218305203362,
+     "median": 0.7655860349127181,
+     "n_targets": 39
+    },
+    "recall_at_10": {
+     "mean": 0.3203793757982604,
+     "median": 0.20833333333333334,
+     "n_targets": 39
+    },
+    "recall_at_50": {
+     "mean": 0.7773884916098014,
+     "median": 1.0,
+     "n_targets": 39
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 423
+    }
+   },
+   "temporal_regression:new": {
+    "concordance_index": {
+     "mean": 0.5608938311931566,
+     "median": 0.5670553935860059,
+     "n_targets": 685
+    },
+    "mae": {
+     "mean": 1.1791298861350727,
+     "median": 0.9986711617443803,
+     "n_targets": 1237
+    },
+    "n_pairs": 76954,
+    "n_targets": 1237,
+    "n_targets_without_rank_metrics": 549,
+    "rmse": {
+     "mean": 1.3089842091485,
+     "median": 1.1767036083269373,
+     "n_targets": 1237
+    },
+    "spearman": {
+     "mean": 0.16764982038003795,
+     "median": 0.1894721172864572,
+     "n_targets": 688
+    }
+   },
+   "temporal_regression:recurrent": {
+    "concordance_index": {
+     "mean": 0.7841587691874184,
+     "median": 0.8027823240589198,
+     "n_targets": 161
+    },
+    "mae": {
+     "mean": 0.7339119479740042,
+     "median": 0.5721434510890429,
+     "n_targets": 452
+    },
+    "n_pairs": 5741,
+    "n_targets": 452,
+    "n_targets_without_rank_metrics": 291,
+    "rmse": {
+     "mean": 0.8271219169348838,
+     "median": 0.6836964462781776,
+     "n_targets": 452
+    },
+    "spearman": {
+     "mean": 0.6895282293641191,
+     "median": 0.7573995311313845,
+     "n_targets": 161
+    }
+   },
+   "within_training_window": {
+    "auroc": {
+     "mean": 0.657318030701918,
+     "median": 0.6837268406121754,
+     "n_targets": 290
+    },
+    "average_precision": {
+     "mean": 0.7482028858687721,
+     "median": 0.8303129075995372,
+     "n_targets": 290
+    },
+    "enrichment_at_1pct": {
+     "mean": 1.5317391084154566,
+     "median": 1.2523148148148149,
+     "n_targets": 290
+    },
+    "enrichment_at_5pct": {
+     "mean": 1.3832941279592996,
+     "median": 1.221688034188034,
+     "n_targets": 290
+    },
+    "n_pairs": 84787,
+    "n_pairs_skipped": 13319,
+    "n_targets": 1158,
+    "n_targets_all_tied": 0,
+    "n_targets_scored": 290,
+    "n_targets_skipped": 868,
+    "prevalence": {
+     "mean": 0.6193275212512264,
+     "median": 0.6449579831932774,
+     "n_targets": 290
+    },
+    "recall_at_10": {
+     "mean": 0.22373460116142066,
+     "median": 0.13095238095238093,
+     "n_targets": 290
+    },
+    "recall_at_50": {
+     "mean": 0.6186747137373491,
+     "median": 0.6818181818181818,
+     "n_targets": 290
+    },
+    "skip_reasons": {
+     "needs >=5 positives and >=5 negatives": 868
+    }
+   }
+  }
+ }
+]

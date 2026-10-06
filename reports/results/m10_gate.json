@@ -1,0 +1,110 @@
+{
+  "analysis_note": "The gate decision fields are exactly as the run produced them. Added afterwards, from the recorded per-ligand files and without re-docking: the per-class attrition table (one failure relabelled from the ambiguous stage name 'parse' to 'engine_output'; its reason string is unchanged), the chemical cause of each drop, and bounds on how far the dropped compounds could have moved AUROC.",
+  "attrition": {
+    "active": {
+      "failed": 14,
+      "failed_docking": 2,
+      "failed_embed": 1,
+      "failed_engine_output": 1,
+      "failed_pdbqt": 10,
+      "scored": 286
+    },
+    "inactive": {
+      "failed": 8,
+      "failed_docking": 2,
+      "failed_parse": 1,
+      "failed_pdbqt": 5,
+      "scored": 292
+    }
+  },
+  "attrition_bounds": {
+    "best_case_auroc": 0.6511611111111111,
+    "fraction_unknown": 0.07208888888888888,
+    "observed_auroc": 0.6240600153271386,
+    "total_pairs": 90000.0,
+    "unknown_pairs": 6488.0,
+    "worst_case_auroc": 0.5790722222222222
+  },
+  "attrition_chemistry": {
+    "B": 4,
+    "Se": 11,
+    "Se,Te": 2,
+    "Te": 2,
+    "no exotic element (embed)": 1,
+    "no exotic element (engine_output)": 1,
+    "unparseable SMILES": 1
+  },
+  "gate": {
+    "auroc": 0.6240600153271386,
+    "ci_high": 0.670240953395919,
+    "ci_low": 0.578107936583964,
+    "decision": "fail",
+    "effect_threshold": 0.7,
+    "n_active": 286,
+    "n_inactive": 292,
+    "reason": "AUROC 0.624 with 95% CI [0.578, 0.670]: the whole interval lies below the pre-registered threshold 0.7, so the practical effect is ruled out on this cohort.",
+    "rule": {
+      "fail": "ci_high < effect_threshold",
+      "inconclusive": "otherwise (the interval straddles the threshold)",
+      "pass": "ci_low > 0.5 AND auroc >= effect_threshold",
+      "wrong_direction": "auroc < 0.5 is a failure, never a pass"
+    },
+    "secondary": {
+      "bedroc_alpha20": 0.6289353729094106,
+      "ef_1pct": 1.3473193473193472,
+      "ef_5pct": 1.3240897034000483,
+      "mannwhitney_p_two_sided": 2.455855441121857e-07,
+      "mannwhitney_u": 52116.5,
+      "median_ranking_score_active": 8.145,
+      "median_ranking_score_inactive": 7.7395
+    }
+  },
+  "receptor": {
+    "clean_report": {
+      "altloc_atoms_dropped": 27,
+      "altloc_kept": "A",
+      "atoms_kept": 2060,
+      "dropped": {
+        "GOL": 18,
+        "HGB": 12,
+        "HOH": 249,
+        "SUA": 21
+      },
+      "kept_heteroatoms": {
+        "ZN": 1
+      }
+    },
+    "receptor_pdbqt": "data/m10/runs/gate-600/receptor.pdbqt"
+  },
+  "record": {
+    "box_center": [
+      -5.56,
+      5.03,
+      13.03
+    ],
+    "box_size": [
+      20.0,
+      20.0,
+      20.0
+    ],
+    "cohort_path": "reports/results/m10_cohort.json",
+    "cohort_sha256": "f2797290bbe71f36ce21a6f692d62329a87bb1274a3a83fc3b982095b0e2bb34",
+    "config_sha256": "141d200eb8ee76e96a563411ebe6223dc831b8380695f016eefc043309286113",
+    "created_at": "2026-10-01T16:17:43.923200+00:00",
+    "engine_sha256": "823c2bbacf26d72183861322345f0a89736aca66c8e81054c66f93af5ad623f1",
+    "engine_version": "AutoDock Vina v1.2.7",
+    "exhaustiveness": 8,
+    "experiment": "m10-docking-v1",
+    "failures_sha256": "9dd18fa93a53da0407842aae114fbe32ad3ff1fd7de10431ee1f21611384377c",
+    "n_failed": 22,
+    "n_requested": 600,
+    "n_scored": 578,
+    "num_modes": 9,
+    "provenance": "Docked with the engine and box named in configs/experiments/m10-docking-v1.yaml (141d200eb8ee76e9\u2026). The cohort was frozen before any docking score existed; this run read it and did not modify it.",
+    "receptor_sha256": "b356cdd24da4dc04a354b454503d3c3dd4e1180939da8781c26b20880d17e8ad",
+    "run": "gate-600",
+    "scores_sha256": "a1a869f82deb9ca648e13d5bca019de30d54506d1be73a07f8650e982d5e75b2",
+    "seed": 20261001,
+    "wall_seconds": 2860.3
+  }
+}

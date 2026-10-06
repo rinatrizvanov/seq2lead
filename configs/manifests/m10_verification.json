@@ -1,0 +1,21 @@
+{
+  "verification_contract_version": "m10-verification-v1",
+  "describes": "configs/manifests/m10_docking.json",
+  "why": "Expectations must come from somewhere other than the artifact being checked. Deriving the expected run set or publication list from the manifest means a manifest with two runs deleted and n_runs lowered to match verifies clean -- which it did.",
+  "expected_runs": {
+    "primary": ["gate-600"],
+    "sensitivity": ["box-15A", "box-25A"]
+  },
+  "required_publications": {
+    "gate": {"count": 1, "paths": ["reports/results/m10_gate.json"]},
+    "qa": {"count": 1, "paths": ["reports/results/m10_qa_redock.json"]},
+    "sensitivity": {"count": 2, "paths": [
+      "reports/results/m10_sensitivity_box-15A.json",
+      "reports/results/m10_sensitivity_box-25A.json"
+    ]}
+  },
+  "large_directories_may_be_absent_in_review_archive": [
+    "ligand_dir",
+    "pose_dir"
+  ]
+}

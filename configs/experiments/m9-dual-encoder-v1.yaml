@@ -1,0 +1,146 @@
+# M9 dual encoder -- frozen before fitting. See docs/M9.md.
+#
+# Inputs are pinned by digest and identical to M8, so the comparison is
+# like-for-like. Nothing resolves by recency.
+version: m9-dual-encoder-v1
+status: provisional_pooled_for_exploratory_benchmark
+
+# The M8 test partitions have already been inspected, so M9 comparisons on them
+# are EXPLORATORY. Selection uses validation only; configurations are frozen
+# before any test scoring.
+comparison_mode: exploratory
+confirmatory_evaluation_deferred_to: "M11 true as-of temporal split"
+
+endpoint:
+  name: ki-pki6-v2
+  id: 96
+  threshold_pki: 6.0
+
+features:
+  ecfp4:
+    name: ecfp4-compound-42351e003acb
+    manifest_sha256: cba42fd66563d2360ad05b77c48df87f8ce0fe6a75cc4fb31341da07c5ee9620
+    storage_sha256: 964471e0055f9178dc76e1f5ed577a0ae7251dce7953b682ada47535b427c0be
+  esm2:
+    name: esm2-target-48cfa09487ce
+    manifest_sha256: f18f2742dc1783e97fd2906747f2b26f01831769af28ec1cc661cbb8094afde9
+    storage_sha256: 1ecf4ced0d59d105df6fd1b6be7b5590e0f19a284e1871ce1fb4afc72777e5e7
+
+baseline_comparison:
+  result_version: m8/v2
+  metric_version: m8/v2
+  sha256: 9330e1735b03162f9ee20b3f6d54d7c99b9d749bc9520a808cb166980d2136f2
+  models: [B0-target-mean, B1-ligand-ecfp4-lgbm, B3L-ligand-1nn, B4-concat-mlp]
+
+splits:
+  - name: random_pair-v3
+    id: 9
+  - name: cold_protein-v3
+    id: 10
+  - name: chemistry_disjoint-v3
+    id: 11
+  - name: temporal_proxy-v4
+    id: 16
+    protocol: train_only
+    partition_endpoints:
+      train: 294
+      validation: 295
+      test: 296
+
+deferred_splits:
+  - name: label_reversal-v3
+    reason: >-
+      diagnostic_frozen, and it stays unscored through M9. Scoring it now --
+      including to justify deferring an ablation -- would spend the one
+      diagnostic that has to come last.
+
+cohort:
+  exclude_unusable_fingerprints: true
+  require_exact_regression_label: true
+  respect_endpoint_exclusions: true
+
+model:
+  kind: dual_encoder
+  compound_tower: [2048, h, h]
+  protein_tower: [1280, h, h]
+  activation: relu
+  # Cosine is bounded and cannot represent pKi; sigmoid(cosine) is neither pKi
+  # nor a calibrated probability. The head is an explicit affine map on cosine.
+  head: affine_on_cosine        # score = a * cos(zc, zp) + b
+  head_units: pKi
+  head_trainable: [a, b]
+  frozen_encoders: true
+
+objective:
+  kind: regression
+  loss: mse
+  target: pair_regression.p_median
+  censored_as_regression_target: false
+  censored_used_for_ranking: true
+
+search:
+  projection_dim: [256, 512]
+  learning_rate: 0.001
+  batch_size: 512
+  max_epochs: 20
+  early_stopping_patience: 5
+  optimizer: adam
+  note: >-
+    Two configurations, not a Cartesian sweep. The original plan's full grid is
+    96 fits per split before seeds and is not attempted.
+
+selection:
+  metric: validation_rmse
+  direction: minimise
+  evaluated: once per epoch
+  restore: best-validation checkpoint
+  test_scored: once, after configurations are frozen
+  insufficient_validation_coverage:
+    min_pairs: 1000
+    min_targets: 20
+    fallback: carry over the configuration selected on random_pair-v3, and say so
+
+preprocessing:
+  protein: standardise on training inputs only, frozen transform reused everywhere
+  compound: none (bits are already 0/1)
+
+seeds: [20260930, 20260931, 20260932, 20260933, 20260934]
+
+candidate_library:
+  name: curated-ki-25k-v1
+  rule: >-
+    compounds with at least one eligible exact-relation Ki measurement in the
+    pinned release, ordered by compound.id, capped at 25000. A stable surrogate
+    key prefix is arbitrary with respect to predicted affinity, which is the
+    point.
+  cap: 25000
+
+ablations:
+  implemented: []
+  deferred:
+    - name: contrastive_training
+      reason: outside the bounded core; negatives would come only from eligible
+        measured training evidence, never from unmeasured pairs
+    - name: cross_attention_variant
+      reason: a different architecture; deferred rather than rushed
+    - name: protbert_plm_sweep
+      reason: requires a second embedding cache
+    - name: retrieval_as_a_feature
+      reason: ships as an interpretability layer first, per the v1 plan's own Risk 2
+
+artifacts:
+  run_dir: data/m9
+  predictions: data/predictions_m9
+  selection_record: reports/results/m9_selection.json
+  result_version: m9/v1
+  report: reports/m9_dual_encoder.md
+
+acceptance:
+  better_scores_required: false
+  criteria:
+    - pre-flight fixtures pass
+    - configurations selected on validation and frozen before test scoring
+    - evaluated on four splits under M8 metrics and cohorts
+    - temporal new/recurrent, near-homolog and long-sequence breakouts preserved
+    - every number reproducible from saved artifacts
+    - losses and undefined metrics reported plainly

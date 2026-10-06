@@ -1,0 +1,29 @@
+{
+  "a_rows": 98450,
+  "b_rows": 101610,
+  "budget_observations_per_pair": 400000,
+  "bytes_per_observation_at_peak": 4674,
+  "largest_pair_fraction_of_budget": 0.5001,
+  "peak_rss_bytes": 955187200,
+  "peak_rss_gb": 0.89,
+  "physical_memory_bytes": 17179869184,
+  "pilot_observations": 200060,
+  "pilot_shard": 26,
+  "seconds": 2.9,
+  "shard_count": 32,
+  "shard_summary": {
+    "added_observations": 7532,
+    "ambiguous_slots": 1,
+    "correction_candidates": 3,
+    "identifier_conflicts": 0,
+    "is_single_snapshot_proxy": false,
+    "new_slots": 6696,
+    "normalisation_version": "m11-normalise-v2",
+    "proxy_note": "",
+    "removed_observations": 4372,
+    "removed_slots": 3762,
+    "unchanged_observations": 94078,
+    "unresolved_additions": 7529,
+    "unresolved_removals": 4369
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "by_role": {
+    "evaluation/ecfp4": {
+      "complete": true,
+      "from_accepted_cache": 17345,
+      "from_extension": 28,
+      "kind": "ecfp4",
+      "missing": 0,
+      "nothing_imputed": true,
+      "requested": 17373,
+      "role": "evaluation",
+      "unusable": 0,
+      "unusable_reasons": {},
+      "usable": 17373
+    },
+    "evaluation/esm2": {
+      "complete": true,
+      "from_accepted_cache": 1060,
+      "from_extension": 0,
+      "kind": "esm2",
+      "missing": 0,
+      "nothing_imputed": true,
+      "requested": 1060,
+      "role": "evaluation",
+      "unusable": 0,
+      "unusable_reasons": {},
+      "usable": 1060
+    },
+    "train/ecfp4": {
+      "complete": true,
+      "from_accepted_cache": 206143,
+      "from_extension": 3044,
+      "kind": "ecfp4",
+      "missing": 0,
+      "nothing_imputed": true,
+      "requested": 209187,
+      "role": "train",
+      "unusable": 0,
+      "unusable_reasons": {},
+      "usable": 209187
+    },
+    "train/esm2": {
+      "complete": true,
+      "from_accepted_cache": 3453,
+      "from_extension": 13,
+      "kind": "esm2",
+      "missing": 0,
+      "nothing_imputed": true,
+      "requested": 3466,
+      "role": "train",
+      "unusable": 0,
+      "unusable_reasons": {},
+      "usable": 3466
+    },
+    "validation/ecfp4": {
+      "complete": true,
+      "from_accepted_cache": 53016,
+      "from_extension": 854,
+      "kind": "ecfp4",
+      "missing": 0,
+      "nothing_imputed": true,
+      "requested": 53870,
+      "role": "validation",
+      "unusable": 0,
+      "unusable_reasons": {},
+      "usable": 53870
+    },
+    "validation/esm2": {
+      "complete": true,
+      "from_accepted_cache": 2387,
+      "from_extension": 7,
+      "kind": "esm2",
+      "missing": 0,
+      "nothing_imputed": true,
+      "requested": 2394,
+      "role": "validation",
+      "unusable": 0,
+      "unusable_reasons": {},
+      "usable": 2394
+    }
+  },
+  "coverage": "m11g-feature-coverage-v2",
+  "measured_by": "the production runner, which derives every role from the pinned artifacts and refuses any role whose coverage is incomplete.",
+  "nothing_imputed": true,
+  "reuse_maps_verified": {
+    "ecfp4": {
+      "entries": 251917,
+      "path": "data/asof/m11g/reuse-compounds.json",
+      "sha256": "fe7dcbffead38c98b51560f12674ac6a9d16643734834bb21a7fddd651172ea5"
+    },
+    "esm2": {
+      "entries": 3812,
+      "path": "data/asof/m11g/reuse-targets.json",
+      "sha256": "55feecc8c44380e3c799d2c400dba1fbeb69b69f8eb8b9bf1813dbecbb836828"
+    }
+  },
+  "roles_derived": {
+    "evaluation": {
+      "compounds": 17373,
+      "sequences": 1060
+    },
+    "train": {
+      "compounds": 209187,
+      "sequences": 3466
+    },
+    "validation": {
+      "compounds": 53870,
+      "sequences": 2394
+    }
+  },
+  "stored_dims_verified": {
+    "ecfp4": 256,
+    "esm2": 1280
+  },
+  "supersedes": "m11g-feature-coverage-v1",
+  "why_the_requested_counts_changed": "v1 declared role entities over EVERY membership pair in the partition; the runner now derives them over the rows the loader keeps, so the requested counts equal the emitted datasets' distinct entities exactly. No vector was rebuilt and no cache changed."
+}

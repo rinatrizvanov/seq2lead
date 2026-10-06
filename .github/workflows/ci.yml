@@ -1,0 +1,73 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: seq2lead
+          POSTGRES_USER: seq2lead
+          POSTGRES_PASSWORD: seq2lead
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U seq2lead -d seq2lead"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+
+    env:
+      SEQ2LEAD_DB_HOST: localhost
+      # 5432 here, not the 5433 the README uses locally: the service container
+      # above owns the runner's port map, so there is nothing to collide with.
+      # Setting it explicitly also exercises the env-override path in DbConfig.
+      SEQ2LEAD_DB_PORT: "5432"
+      SEQ2LEAD_DB_NAME: seq2lead
+      SEQ2LEAD_DB_USER: seq2lead
+      SEQ2LEAD_DB_PASSWORD: seq2lead
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install Python
+        run: uv python install 3.11
+
+      - name: Sync dependencies
+        run: uv sync --all-groups
+
+      - name: Lint
+        run: uv run ruff check .
+
+      - name: Format check
+        run: uv run ruff format --check .
+
+      - name: Apply migrations
+        run: uv run seq2lead db migrate
+
+      - name: Test
+        run: uv run pytest -v
+
+      # The README offers this as the no-database workflow, so CI has to prove
+      # it still works rather than leaving it to rot.
+      - name: Test without a database
+        run: uv run pytest
+        env:
+          SEQ2LEAD_SKIP_DB_TESTS: "1"
+
+      - name: Smoke-check the CLI
+        run: |
+          uv run seq2lead version
+          uv run seq2lead env check
+          uv run seq2lead db ping

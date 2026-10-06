@@ -1,0 +1,72 @@
+{
+  "a_role_entities": {
+    "compounds": 249323,
+    "targets": 3766
+  },
+  "compounds": {
+    "canonical_smiles_disagreements": 269,
+    "reasons": {
+      "absent_from_the_202609_cache": 3153,
+      "canonical_smiles_disagrees_between_schemas": 269
+    },
+    "recompute": 3422,
+    "reuse_from_accepted_cache": 245901
+  },
+  "evaluation_role": {
+    "compound": {
+      "already_in_the_a_role_reuse_map": 11329,
+      "evaluation_role_entities": 17373,
+      "newly_resolved_against_202609": 6016,
+      "no_202609_id": 0,
+      "per_arm_entity_counts": {
+        "cross_slot_excluded": 16000,
+        "declared_increment": 17373
+      },
+      "resolved_but_absent_from_the_accepted_cache": 0,
+      "still_unresolvable": [],
+      "supplied_by_the_a_role_extension": 28
+    },
+    "entity_set_rule": "the union over both increment arms of pairs with `has_increment`, a superset of either arm, so coverage covers every cell that could be reported.",
+    "target": {
+      "already_in_the_a_role_reuse_map": 1001,
+      "evaluation_role_entities": 1060,
+      "newly_resolved_against_202609": 59,
+      "no_202609_id": 0,
+      "per_arm_entity_counts": {
+        "cross_slot_excluded": 1035,
+        "declared_increment": 1060
+      },
+      "resolved_but_absent_from_the_accepted_cache": 0,
+      "still_unresolvable": [],
+      "supplied_by_the_a_role_extension": 0
+    },
+    "why": "the A-role pass resolved only what the fitting roles need, and the runner refused when the evaluation cohort's vectors could not be bound. These identities come from snapshot B, which IS 202609, so each is resolved in the accepted cache's own schema. No surrogate id is equated across schemas."
+  },
+  "identity_rule": "reuse is decided by what the vector is a function of -- canonical SMILES for a fingerprint, sequence for an embedding -- and verified. A surrogate id is never equated across schemas.",
+  "reuse_map_sizes_after_the_evaluation_pass": {
+    "compounds": 251917,
+    "targets": 3812
+  },
+  "reuse_maps": {
+    "ecfp4": {
+      "entries": 251917,
+      "keyed_by": "inchikey",
+      "path": "data/asof/m11g/reuse-compounds.json",
+      "sha256": "fe7dcbffead38c98b51560f12674ac6a9d16643734834bb21a7fddd651172ea5"
+    },
+    "esm2": {
+      "entries": 3812,
+      "keyed_by": "sequence_sha256",
+      "path": "data/asof/m11g/reuse-targets.json",
+      "sha256": "55feecc8c44380e3c799d2c400dba1fbeb69b69f8eb8b9bf1813dbecbb836828"
+    }
+  },
+  "reuse_maps_note": "the mapping from content identity to the accepted cache's surrogate id. Pinned here because it decides which cached row each key receives: a caller-supplied map could repoint every vector without changing any digest the run reports.",
+  "targets": {
+    "reasons": {
+      "absent_from_the_202609_cache": 13
+    },
+    "recompute": 13,
+    "reuse_from_accepted_cache": 3753
+  }
+}

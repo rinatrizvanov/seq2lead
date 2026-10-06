@@ -1,0 +1,595 @@
+{
+  "cross_checked_against": [
+    "reports/results/artifacts.md"
+  ],
+  "experiment": {
+    "endpoint": "ki-pki6-v2",
+    "feature_caches": {
+      "ecfp4": "964471e0055f9178dc76e1f5ed577a0ae7251dce7953b682ada47535b427c0be",
+      "esm2": "1ecf4ced0d59d105df6fd1b6be7b5590e0f19a284e1871ce1fb4afc72777e5e7"
+    },
+    "version": "baseline-v1"
+  },
+  "frozen_at": "2026-09-30T15:18:04+00:00",
+  "manifest_version": "m8-predictions-v1",
+  "n_runs": 72,
+  "provenance": "Expected digests recovered from reports/results/correction_v2.json, written by the m8/v2 recomputation run, and independently cross-checked against the per-file table in reports/results/artifacts.md. Both records predate this manifest and were produced before the verification code that now consumes it. Digests were NOT regenerated from the prediction files being verified: that would make verification vacuous. The expected run set is taken from reports/results/baseline_summary.json, the v1 fitting record, which names every (model, split, seed) actually fitted.",
+  "runs": [
+    {
+      "deterministic": true,
+      "filename": "B0-target-mean__chemistry_disjoint-v3__seeddet.npz",
+      "model": "B0-target-mean",
+      "seed": null,
+      "sha256": "578dfbfd2b564971b08a39adbde27a28479ba0a70881f079a771416226a06ebf",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__chemistry_disjoint-v3__seed20260930.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260930,
+      "sha256": "1dd2deaac315a539ca122322fa094c8d069484fedc2cbdc766945394f6d62212",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__chemistry_disjoint-v3__seed20260931.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260931,
+      "sha256": "df18fee81ae900b95b58b14cae684d74bb9bacc808023feb721a4406d8197b32",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__chemistry_disjoint-v3__seed20260932.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260932,
+      "sha256": "1dd2deaac315a539ca122322fa094c8d069484fedc2cbdc766945394f6d62212",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__chemistry_disjoint-v3__seed20260933.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260933,
+      "sha256": "1dd2deaac315a539ca122322fa094c8d069484fedc2cbdc766945394f6d62212",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__chemistry_disjoint-v3__seed20260934.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260934,
+      "sha256": "1dd2deaac315a539ca122322fa094c8d069484fedc2cbdc766945394f6d62212",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__chemistry_disjoint-v3__seed20260930.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260930,
+      "sha256": "197d59c4908178aa055b2a89db0e2123132b4acb1440cf27fbd6c18d8e4fa4f9",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__chemistry_disjoint-v3__seed20260931.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260931,
+      "sha256": "e53a63e916501528156b02534d23c341f95d9fdd4880c101685ffeff4c6993a4",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__chemistry_disjoint-v3__seed20260932.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260932,
+      "sha256": "925da83860ced26257f0529dd30196db4b29e09b496fb7001fb2386258a97642",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__chemistry_disjoint-v3__seed20260933.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260933,
+      "sha256": "7fb932012c8d82c68464f96328a9e9bee5c7d6bc5fe8b2fb102b111e30ef5341",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__chemistry_disjoint-v3__seed20260934.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260934,
+      "sha256": "250ec9bb76c819c86e5ed52393ef5d250984227796d6f910a93649d6b7c7ccfd",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": true,
+      "filename": "B3L-ligand-1nn__chemistry_disjoint-v3__seeddet.npz",
+      "model": "B3L-ligand-1nn",
+      "seed": null,
+      "sha256": "e7820abde1e8a14a81ad8856fb57a85d5a8067977a643906c7f1bae304418fc0",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": true,
+      "filename": "B3P-protein-1nn__chemistry_disjoint-v3__seeddet.npz",
+      "model": "B3P-protein-1nn",
+      "seed": null,
+      "sha256": "323ec8b06ee4eaf1bcc666d3b0d92e84b9ae4277d45c3a687a5ac0056047824a",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__chemistry_disjoint-v3__seed20260930.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260930,
+      "sha256": "233b9ff6aa86531c3dbd446db853352ba62862f8de3bd0887166481b38b76866",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__chemistry_disjoint-v3__seed20260931.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260931,
+      "sha256": "89439ca32479c3de8d404797d932f3f5b1c36583d6effc9310db6e0f6ce09c56",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__chemistry_disjoint-v3__seed20260932.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260932,
+      "sha256": "e2f63f7a89ce8ba08eeb73480b4eb119535b8e94e1ee1557db5b5a6d63102ec8",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__chemistry_disjoint-v3__seed20260933.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260933,
+      "sha256": "3c0d7b0bea6a24e7cea1fb0b7620155c06d61dbb347b0fb2b113bae8765ce4f9",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__chemistry_disjoint-v3__seed20260934.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260934,
+      "sha256": "9ef04ddc8859ba513b739aeef2453e470417a1b3efe81bee9748f5a4024220ed",
+      "split": "chemistry_disjoint-v3"
+    },
+    {
+      "deterministic": true,
+      "filename": "B0-target-mean__cold_protein-v3__seeddet.npz",
+      "model": "B0-target-mean",
+      "seed": null,
+      "sha256": "056690f8dc616e9d6e45a8c674a0aa28997974f3878e6a3f255de9db50908b69",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__cold_protein-v3__seed20260930.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260930,
+      "sha256": "67fbe2a7941c3fc8c2cba64d5c1ac86d8850ced4d537fce2a8e0f270372f8fec",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__cold_protein-v3__seed20260931.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260931,
+      "sha256": "67fbe2a7941c3fc8c2cba64d5c1ac86d8850ced4d537fce2a8e0f270372f8fec",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__cold_protein-v3__seed20260932.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260932,
+      "sha256": "67fbe2a7941c3fc8c2cba64d5c1ac86d8850ced4d537fce2a8e0f270372f8fec",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__cold_protein-v3__seed20260933.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260933,
+      "sha256": "67fbe2a7941c3fc8c2cba64d5c1ac86d8850ced4d537fce2a8e0f270372f8fec",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__cold_protein-v3__seed20260934.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260934,
+      "sha256": "67fbe2a7941c3fc8c2cba64d5c1ac86d8850ced4d537fce2a8e0f270372f8fec",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__cold_protein-v3__seed20260930.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260930,
+      "sha256": "0c40f0d9d2d00647663156461b21b0648ec48680333050b76033bf58aa04f08c",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__cold_protein-v3__seed20260931.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260931,
+      "sha256": "b86dd6c137e847de5836ead39a166a890a81da547800faa6c78ac49fc06ee08a",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__cold_protein-v3__seed20260932.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260932,
+      "sha256": "0091f123945334b72a246aa0b5a8d3ac13f28da6fc284acec218b2d1feec7121",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__cold_protein-v3__seed20260933.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260933,
+      "sha256": "795f88f36b03c74054182595dbe4b59082c7f4e70d299c8d0402f5cfdb406a0e",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__cold_protein-v3__seed20260934.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260934,
+      "sha256": "3102b2a9199892a41242401dc0553f56ee35b0c25443bd6beb21ff5bb4a68e48",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": true,
+      "filename": "B3L-ligand-1nn__cold_protein-v3__seeddet.npz",
+      "model": "B3L-ligand-1nn",
+      "seed": null,
+      "sha256": "056690f8dc616e9d6e45a8c674a0aa28997974f3878e6a3f255de9db50908b69",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": true,
+      "filename": "B3P-protein-1nn__cold_protein-v3__seeddet.npz",
+      "model": "B3P-protein-1nn",
+      "seed": null,
+      "sha256": "f3fd753f2d5c10b3fbde5b8825dad052827849a943459d62404a3b4f9e2885c8",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__cold_protein-v3__seed20260930.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260930,
+      "sha256": "5ab144f90e5ed870f2483f99d134bd3a11a95506d7a424d0eb3895d7e1aecd7e",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__cold_protein-v3__seed20260931.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260931,
+      "sha256": "6c2369f6492d119ad3fa4b5c2368bf9ecf6fb83dc285d892dea567f24c2d50d8",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__cold_protein-v3__seed20260932.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260932,
+      "sha256": "3f47f006d18a695781da04c028273c5bfa08f4d421a666a8c307a98885ffae1e",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__cold_protein-v3__seed20260933.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260933,
+      "sha256": "ae9d1acb533f9ebf5b3e4ad2437a836423ccbd1016cb1d9ccb8df5d1ebc467c5",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__cold_protein-v3__seed20260934.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260934,
+      "sha256": "05ab326201afd2d0fb021eebd664c9888d015566e18581f1f8b6728bbedf99a5",
+      "split": "cold_protein-v3"
+    },
+    {
+      "deterministic": true,
+      "filename": "B0-target-mean__random_pair-v3__seeddet.npz",
+      "model": "B0-target-mean",
+      "seed": null,
+      "sha256": "0ad438b7d3843bebb15e0dbc69de6be66589a4e046a029dd2c2b597085536119",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__random_pair-v3__seed20260930.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260930,
+      "sha256": "5114c804166be97c70cee6acec575d548b9c43829c78cfeeeb4481cde9d87701",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__random_pair-v3__seed20260931.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260931,
+      "sha256": "5114c804166be97c70cee6acec575d548b9c43829c78cfeeeb4481cde9d87701",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__random_pair-v3__seed20260932.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260932,
+      "sha256": "821cab1f40ba799f7c1c9c0a0d622c9befa7665ffe7400d18bc91aabd67131f1",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__random_pair-v3__seed20260933.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260933,
+      "sha256": "5114c804166be97c70cee6acec575d548b9c43829c78cfeeeb4481cde9d87701",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__random_pair-v3__seed20260934.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260934,
+      "sha256": "5114c804166be97c70cee6acec575d548b9c43829c78cfeeeb4481cde9d87701",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__random_pair-v3__seed20260930.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260930,
+      "sha256": "5b2f84794386426b0c948ec8b7f0c7df987596fde2633060fca5f0217926d398",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__random_pair-v3__seed20260931.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260931,
+      "sha256": "6bca27d9c1c7df8ab6af6dd19f253f5ddc28db46411a9cfe0ea80723bbfe2882",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__random_pair-v3__seed20260932.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260932,
+      "sha256": "209eb1c1cb89dfeab6f84ab5160ce0d83ca4171834e2a0d74a593960cde71b53",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__random_pair-v3__seed20260933.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260933,
+      "sha256": "a6b6f47948e980bde20f8a7a1cc9ea161c71edfec411faf30ae8cd50c904fd82",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__random_pair-v3__seed20260934.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260934,
+      "sha256": "0f1cdd3ebf6e4694970cb93f31dca6e0990c536c2d9a756bbed6301f64f13631",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": true,
+      "filename": "B3L-ligand-1nn__random_pair-v3__seeddet.npz",
+      "model": "B3L-ligand-1nn",
+      "seed": null,
+      "sha256": "a054fd47140fda5030e1162f651df5ebeb4bbf1d935b98ec71d423564c11598d",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": true,
+      "filename": "B3P-protein-1nn__random_pair-v3__seeddet.npz",
+      "model": "B3P-protein-1nn",
+      "seed": null,
+      "sha256": "a30bb20b29b1458991a22971366c1e5c4e696f1e5bb716e88e0c2f7ba5f3c08d",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__random_pair-v3__seed20260930.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260930,
+      "sha256": "aff9f2329df17b0b4b16ec3b81a110f2b0d39a039c94afd098b4b1c7e242df31",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__random_pair-v3__seed20260931.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260931,
+      "sha256": "e23dad3e5dd017ad94fb4d1240c18cd2ec60220f9d38487ba7ca8c0a90458350",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__random_pair-v3__seed20260932.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260932,
+      "sha256": "135e19fad875be329fc3c736e97e8d21d0b3412cf6676894d5def460f6a5160c",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__random_pair-v3__seed20260933.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260933,
+      "sha256": "026d7c435ff7c6b984ba2b969dbf83d098a558591b87bedce4bc108642366903",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__random_pair-v3__seed20260934.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260934,
+      "sha256": "50e0eb06a7750281abf7a7fe2d5ad2be1e8fe3202beb741c5607950be8cc516c",
+      "split": "random_pair-v3"
+    },
+    {
+      "deterministic": true,
+      "filename": "B0-target-mean__temporal_proxy-v4__seeddet.npz",
+      "model": "B0-target-mean",
+      "seed": null,
+      "sha256": "9f58b2319582524a66e5a6bd99aa77e69da3c4aa469052d67de13489ee21fe73",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__temporal_proxy-v4__seed20260930.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260930,
+      "sha256": "2c458abc191a32449a188ff4ec28a2d0d6d110d3cc2707ef4ff60818a993a884",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__temporal_proxy-v4__seed20260931.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260931,
+      "sha256": "7665d040be482b31c35cca627c1c9f1c040dc8666aec474bfbe407ebded1c483",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__temporal_proxy-v4__seed20260932.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260932,
+      "sha256": "7665d040be482b31c35cca627c1c9f1c040dc8666aec474bfbe407ebded1c483",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__temporal_proxy-v4__seed20260933.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260933,
+      "sha256": "7665d040be482b31c35cca627c1c9f1c040dc8666aec474bfbe407ebded1c483",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B1-ligand-ecfp4-lgbm__temporal_proxy-v4__seed20260934.npz",
+      "model": "B1-ligand-ecfp4-lgbm",
+      "seed": 20260934,
+      "sha256": "7665d040be482b31c35cca627c1c9f1c040dc8666aec474bfbe407ebded1c483",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__temporal_proxy-v4__seed20260930.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260930,
+      "sha256": "008ab7b73a3982d61fcbc7ac618edd09fe6640c95b75c8fa5f40cfb48d320df8",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__temporal_proxy-v4__seed20260931.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260931,
+      "sha256": "9b89c54476b73bddf5082472bf64cd9587b3f2bc626a1074a8c0cb7f6b1b2652",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__temporal_proxy-v4__seed20260932.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260932,
+      "sha256": "2a40d146c361b970dece580fe3f7ed4e745743fd0f29d0e84f6361cc8482e2b7",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__temporal_proxy-v4__seed20260933.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260933,
+      "sha256": "9456f00979ffb477db028f75c5a2d4a44000ce9fc0435db04a7859f28acd4b76",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B2-protein-esm2-lgbm__temporal_proxy-v4__seed20260934.npz",
+      "model": "B2-protein-esm2-lgbm",
+      "seed": 20260934,
+      "sha256": "e7e711a16846d3a089fefc318dc0f17ad9a0a8287aeb8bcbde8ff88b3aa5da1b",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": true,
+      "filename": "B3L-ligand-1nn__temporal_proxy-v4__seeddet.npz",
+      "model": "B3L-ligand-1nn",
+      "seed": null,
+      "sha256": "d2eaa097e42f27bef94b447de0a6254601a5e5542bb62af58a22be29ea9243ee",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": true,
+      "filename": "B3P-protein-1nn__temporal_proxy-v4__seeddet.npz",
+      "model": "B3P-protein-1nn",
+      "seed": null,
+      "sha256": "06bb612deeb2c8ff5b594a9616ab2200c94aa45ed53da73ed7948e269093bc2c",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__temporal_proxy-v4__seed20260930.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260930,
+      "sha256": "4e7f2eb04a9eaadb2a408fd8f2f27801bd5811a8e35d0b0a78d6ff8106ecb978",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__temporal_proxy-v4__seed20260931.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260931,
+      "sha256": "c5253f1c1da4b33147220adad0fd7465e357e046e6becf76cda3a7c549cc5d4b",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__temporal_proxy-v4__seed20260932.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260932,
+      "sha256": "7a684fe7798a1164eb8f90a0d7799e994d59e7f7bf8af5e876ca2fdfa34721cd",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__temporal_proxy-v4__seed20260933.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260933,
+      "sha256": "a91f11f131a173f2189457e7744bbec111d071d61a8bcd82530ff7bd504a91ce",
+      "split": "temporal_proxy-v4"
+    },
+    {
+      "deterministic": false,
+      "filename": "B4-concat-mlp__temporal_proxy-v4__seed20260934.npz",
+      "model": "B4-concat-mlp",
+      "seed": 20260934,
+      "sha256": "ce9adeaa18679447ddabebd2d3b240f03beb0e2c49494cb3868651ee73c72ae9",
+      "split": "temporal_proxy-v4"
+    }
+  ]
+}

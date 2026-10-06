@@ -1,0 +1,423 @@
+{
+  "examples": {
+    "additions_and_removals": {
+      "branch_membership": {
+        "screened_primary": true,
+        "unscreened_sensitivity": true
+      },
+      "compound_inchikey": "CJQSPTVVVTWBQK-IYARVYRRSA-N",
+      "cross_slot_sensitivity": {
+        "increment_locators_excluded": [],
+        "increment_locators_kept": [
+          "BindingDB/202609/all#1460595",
+          "BindingDB/202609/all#1460599",
+          "BindingDB/202609/all#1482759",
+          "BindingDB/202609/all#1482755"
+        ],
+        "still_has_increment_in_sensitivity_arm": true
+      },
+      "eligibility": {
+        "branch": "unscreened_primary",
+        "is_scoreable": true,
+        "reason_if_not": null,
+        "screened_because": null,
+        "stratum": "recurrent"
+      },
+      "entered_an_increment_arm": true,
+      "full_b_audit": {
+        "label": "active",
+        "status": "ok"
+      },
+      "increment_reading": {
+        "exact": {
+          "max_pki": 8.931814138253838,
+          "median_pki": 8.915721796568137,
+          "min_pki": 8.899629454882437,
+          "n_exact": 4,
+          "spread_pki": 0.032184683371401235
+        },
+        "label": "active",
+        "status": "ok"
+      },
+      "note_if_no_increment": null,
+      "pair": "CJQSPTVVVTWBQK-IYARVYRRSA-N|8C2B6E1477FF21093D6BDEE1A4482A36B1024AAEBBD4E968C54262742CEFD3E0",
+      "provenance": {
+        "increment_locators": [
+          "BindingDB/202609/all#1460595",
+          "BindingDB/202609/all#1460599",
+          "BindingDB/202609/all#1482759",
+          "BindingDB/202609/all#1482755"
+        ],
+        "n_correction_candidates_withheld": 0,
+        "n_identifier_conflicts": 0,
+        "n_unparseable_dropped": 0,
+        "removed_locators": [
+          "BindingDB/202601/all#1459269",
+          "BindingDB/202601/all#1459273",
+          "BindingDB/202601/all#1481229",
+          "BindingDB/202601/all#1481225"
+        ],
+        "slots_touched": [
+          "CJQSPTVVVTWBQK-IYARVYRRSA-N\t8C2B6E1477FF21093D6BDEE1A4482A36B1024AAEBBD4E968C54262742CEFD3E0\tpatent:US12168007\traw:\traw:\tUS PATENT",
+          "CJQSPTVVVTWBQK-IYARVYRRSA-N\t8C2B6E1477FF21093D6BDEE1A4482A36B1024AAEBBD4E968C54262742CEFD3E0\tpatent:US20250049786\traw:\traw:\tUS PATENT",
+          "CJQSPTVVVTWBQK-IYARVYRRSA-N\t8C2B6E1477FF21093D6BDEE1A4482A36B1024AAEBBD4E968C54262742CEFD3E0\tunattributed\traw:\traw:\tCURATED FROM THE LITERATURE BY BINDINGDB"
+        ],
+        "withheld_locators": []
+      },
+      "representations": {
+        "in_a_observations": 4,
+        "in_b_observations": 4,
+        "increment_observations": 4,
+        "removal_observations": 4
+      },
+      "target_sequence_sha256": "8C2B6E1477FF21093D6BDEE1A4482A36B1024AAEBBD4E968C54262742CEFD3E0",
+      "training_from_a_only": {
+        "label": "active",
+        "status": "ok"
+      }
+    },
+    "fully_excluded_in_sensitivity": {
+      "branch_membership": {
+        "screened_primary": true,
+        "unscreened_sensitivity": true
+      },
+      "compound_inchikey": "AVWCNIWJTKXURC-PSWAGMNNSA-N",
+      "cross_slot_sensitivity": {
+        "increment_locators_excluded": [
+          "BindingDB/202609/all#1457757"
+        ],
+        "increment_locators_kept": [],
+        "still_has_increment_in_sensitivity_arm": false
+      },
+      "eligibility": {
+        "branch": "unscreened_primary",
+        "is_scoreable": true,
+        "reason_if_not": null,
+        "screened_because": null,
+        "stratum": "recurrent"
+      },
+      "entered_an_increment_arm": true,
+      "full_b_audit": {
+        "label": "active",
+        "status": "ok"
+      },
+      "increment_reading": {
+        "exact": {
+          "max_pki": 8.040958607678906,
+          "median_pki": 8.040958607678906,
+          "min_pki": 8.040958607678906,
+          "n_exact": 1,
+          "spread_pki": 0.0
+        },
+        "label": "active",
+        "status": "ok"
+      },
+      "note_if_no_increment": null,
+      "pair": "AVWCNIWJTKXURC-PSWAGMNNSA-N|34C69B7A4BE8168C8ACBA2ED65E2EFE153B9EA6487D2FC9BED8B34E4D9FBE7CF",
+      "provenance": {
+        "increment_locators": [
+          "BindingDB/202609/all#1457757"
+        ],
+        "n_correction_candidates_withheld": 0,
+        "n_identifier_conflicts": 0,
+        "n_unparseable_dropped": 0,
+        "removed_locators": [
+          "BindingDB/202601/all#1456431"
+        ],
+        "slots_touched": [
+          "AVWCNIWJTKXURC-PSWAGMNNSA-N\t34C69B7A4BE8168C8ACBA2ED65E2EFE153B9EA6487D2FC9BED8B34E4D9FBE7CF\tpatent:US20240400537\traw:\traw:\tUS PATENT",
+          "AVWCNIWJTKXURC-PSWAGMNNSA-N\t34C69B7A4BE8168C8ACBA2ED65E2EFE153B9EA6487D2FC9BED8B34E4D9FBE7CF\tunattributed\traw:\traw:\tCURATED FROM THE LITERATURE BY BINDINGDB"
+        ],
+        "withheld_locators": []
+      },
+      "representations": {
+        "in_a_observations": 1,
+        "in_b_observations": 1,
+        "increment_observations": 1,
+        "removal_observations": 1
+      },
+      "target_sequence_sha256": "34C69B7A4BE8168C8ACBA2ED65E2EFE153B9EA6487D2FC9BED8B34E4D9FBE7CF",
+      "training_from_a_only": {
+        "label": "active",
+        "status": "ok"
+      }
+    },
+    "pair_absent_from_a": {
+      "branch_membership": {
+        "screened_primary": false,
+        "unscreened_sensitivity": false
+      },
+      "compound_inchikey": "BKZXNAHNNDDZNZ-AZUAARDMSA-N",
+      "cross_slot_sensitivity": {
+        "increment_locators_excluded": [],
+        "increment_locators_kept": [
+          "BindingDB/202609/all#2140990",
+          "BindingDB/202609/all#2145714"
+        ],
+        "still_has_increment_in_sensitivity_arm": true
+      },
+      "eligibility": {
+        "branch": "screened",
+        "is_scoreable": false,
+        "reason_if_not": "discordant",
+        "screened_because": null,
+        "stratum": "new_pair"
+      },
+      "entered_an_increment_arm": true,
+      "full_b_audit": {
+        "label": "active",
+        "status": "ok"
+      },
+      "increment_reading": {
+        "exact": {
+          "max_pki": 9.008773924307505,
+          "median_pki": 7.552841968657781,
+          "min_pki": 6.096910013008056,
+          "n_exact": 2,
+          "spread_pki": 2.9118639112994487
+        },
+        "label": "active",
+        "status": "ok"
+      },
+      "note_if_no_increment": null,
+      "pair": "BKZXNAHNNDDZNZ-AZUAARDMSA-N|DBB4583267AD40A7DFD854EE3C44CE4BE38E137D0570E3EB76CF1854A74E7246",
+      "provenance": {
+        "increment_locators": [
+          "BindingDB/202609/all#2140990",
+          "BindingDB/202609/all#2145714"
+        ],
+        "n_correction_candidates_withheld": 0,
+        "n_identifier_conflicts": 0,
+        "n_unparseable_dropped": 0,
+        "removed_locators": [],
+        "slots_touched": [
+          "BKZXNAHNNDDZNZ-AZUAARDMSA-N\tDBB4583267AD40A7DFD854EE3C44CE4BE38E137D0570E3EB76CF1854A74E7246\tpmid:39666597\traw:\traw:\tCHEMBL"
+        ],
+        "withheld_locators": []
+      },
+      "representations": {
+        "in_a_observations": 0,
+        "in_b_observations": 2,
+        "increment_observations": 2,
+        "removal_observations": 0
+      },
+      "target_sequence_sha256": "DBB4583267AD40A7DFD854EE3C44CE4BE38E137D0570E3EB76CF1854A74E7246",
+      "training_from_a_only": {
+        "label": "ambiguous",
+        "status": "no_usable_evidence"
+      }
+    },
+    "partial_cross_slot_exclusion": {
+      "branch_membership": {
+        "screened_primary": true,
+        "unscreened_sensitivity": true
+      },
+      "compound_inchikey": "DVHYEEAUBDYJIX-PZJWPPBQSA-N",
+      "cross_slot_sensitivity": {
+        "increment_locators_excluded": [
+          "BindingDB/202609/all#1470472"
+        ],
+        "increment_locators_kept": [
+          "BindingDB/202609/all#1547848"
+        ],
+        "still_has_increment_in_sensitivity_arm": true
+      },
+      "eligibility": {
+        "branch": "unscreened_primary",
+        "is_scoreable": true,
+        "reason_if_not": null,
+        "screened_because": null,
+        "stratum": "recurrent"
+      },
+      "entered_an_increment_arm": true,
+      "full_b_audit": {
+        "label": "inactive",
+        "status": "ok"
+      },
+      "increment_reading": {
+        "exact": {
+          "max_pki": 5.823908740944319,
+          "median_pki": 5.823908740944319,
+          "min_pki": 5.823908740944319,
+          "n_exact": 1,
+          "spread_pki": 0.0
+        },
+        "label": "inactive",
+        "status": "ok"
+      },
+      "note_if_no_increment": null,
+      "pair": "DVHYEEAUBDYJIX-PZJWPPBQSA-N|FEFAEFFFF4711A283120FD15FFC328BE87843F3DCE76B8C55B8359649ABD7339",
+      "provenance": {
+        "increment_locators": [
+          "BindingDB/202609/all#1470472",
+          "BindingDB/202609/all#1547848"
+        ],
+        "n_correction_candidates_withheld": 0,
+        "n_identifier_conflicts": 0,
+        "n_unparseable_dropped": 0,
+        "removed_locators": [
+          "BindingDB/202601/all#1468942"
+        ],
+        "slots_touched": [
+          "DVHYEEAUBDYJIX-PZJWPPBQSA-N\tFEFAEFFFF4711A283120FD15FFC328BE87843F3DCE76B8C55B8359649ABD7339\tpatent:US11584714\traw:\traw:\tUS PATENT",
+          "DVHYEEAUBDYJIX-PZJWPPBQSA-N\tFEFAEFFFF4711A283120FD15FFC328BE87843F3DCE76B8C55B8359649ABD7339\tpatent:US12195427\traw:\traw:\tUS PATENT",
+          "DVHYEEAUBDYJIX-PZJWPPBQSA-N\tFEFAEFFFF4711A283120FD15FFC328BE87843F3DCE76B8C55B8359649ABD7339\tpatent:US12351648\traw:\traw:\tUS PATENT",
+          "DVHYEEAUBDYJIX-PZJWPPBQSA-N\tFEFAEFFFF4711A283120FD15FFC328BE87843F3DCE76B8C55B8359649ABD7339\tunattributed\traw:\traw:\tCURATED FROM THE LITERATURE BY BINDINGDB"
+        ],
+        "withheld_locators": []
+      },
+      "representations": {
+        "in_a_observations": 2,
+        "in_b_observations": 3,
+        "increment_observations": 2,
+        "removal_observations": 1
+      },
+      "target_sequence_sha256": "FEFAEFFFF4711A283120FD15FFC328BE87843F3DCE76B8C55B8359649ABD7339",
+      "training_from_a_only": {
+        "label": "inactive",
+        "status": "ok"
+      }
+    },
+    "screened_out_of_primary": {
+      "branch_membership": {
+        "screened_primary": false,
+        "unscreened_sensitivity": true
+      },
+      "compound_inchikey": "RTHCYVBBDHJXIQ-MRXNPFEDSA-N",
+      "cross_slot_sensitivity": {
+        "increment_locators_excluded": [],
+        "increment_locators_kept": [
+          "BindingDB/202609/all#2196804"
+        ],
+        "still_has_increment_in_sensitivity_arm": true
+      },
+      "eligibility": {
+        "branch": "screened",
+        "is_scoreable": true,
+        "reason_if_not": null,
+        "screened_because": "exact_bound_conflict",
+        "stratum": "recurrent"
+      },
+      "entered_an_increment_arm": true,
+      "full_b_audit": {
+        "label": "ambiguous",
+        "status": "exact_bound_conflict"
+      },
+      "increment_reading": {
+        "exact": {
+          "max_pki": null,
+          "median_pki": null,
+          "min_pki": null,
+          "n_exact": 0,
+          "spread_pki": null
+        },
+        "label": "inactive",
+        "status": "ok"
+      },
+      "note_if_no_increment": null,
+      "pair": "RTHCYVBBDHJXIQ-MRXNPFEDSA-N|86062261249DCEC9F9E1ABBFACDAC36EB941BE044AD45FD7250073DD12D500FE",
+      "provenance": {
+        "increment_locators": [
+          "BindingDB/202609/all#2196804"
+        ],
+        "n_correction_candidates_withheld": 0,
+        "n_identifier_conflicts": 0,
+        "n_unparseable_dropped": 0,
+        "removed_locators": [],
+        "slots_touched": [
+          "RTHCYVBBDHJXIQ-MRXNPFEDSA-N\t86062261249DCEC9F9E1ABBFACDAC36EB941BE044AD45FD7250073DD12D500FE\tpmid:10379421\traw:\traw:\tPDSP KI",
+          "RTHCYVBBDHJXIQ-MRXNPFEDSA-N\t86062261249DCEC9F9E1ABBFACDAC36EB941BE044AD45FD7250073DD12D500FE\tpmid:11104741\traw:\traw:\tPDSP KI",
+          "RTHCYVBBDHJXIQ-MRXNPFEDSA-N\t86062261249DCEC9F9E1ABBFACDAC36EB941BE044AD45FD7250073DD12D500FE\tpmid:1930610\traw:\traw:\tPDSP KI",
+          "RTHCYVBBDHJXIQ-MRXNPFEDSA-N\t86062261249DCEC9F9E1ABBFACDAC36EB941BE044AD45FD7250073DD12D500FE\tpmid:2905001\traw:\traw:\tPDSP KI",
+          "RTHCYVBBDHJXIQ-MRXNPFEDSA-N\t86062261249DCEC9F9E1ABBFACDAC36EB941BE044AD45FD7250073DD12D500FE\tpmid:3039136\traw:\traw:\tCHEMBL",
+          "RTHCYVBBDHJXIQ-MRXNPFEDSA-N\t86062261249DCEC9F9E1ABBFACDAC36EB941BE044AD45FD7250073DD12D500FE\tpmid:8876023\traw:\traw:\tPDSP KI",
+          "RTHCYVBBDHJXIQ-MRXNPFEDSA-N\t86062261249DCEC9F9E1ABBFACDAC36EB941BE044AD45FD7250073DD12D500FE\tpmid:9225287\traw:\traw:\tPDSP KI",
+          "RTHCYVBBDHJXIQ-MRXNPFEDSA-N\t86062261249DCEC9F9E1ABBFACDAC36EB941BE044AD45FD7250073DD12D500FE\tpmid:9400006\traw:\traw:\tPDSP KI"
+        ],
+        "withheld_locators": []
+      },
+      "representations": {
+        "in_a_observations": 9,
+        "in_b_observations": 10,
+        "increment_observations": 1,
+        "removal_observations": 0
+      },
+      "target_sequence_sha256": "86062261249DCEC9F9E1ABBFACDAC36EB941BE044AD45FD7250073DD12D500FE",
+      "training_from_a_only": {
+        "label": "active",
+        "status": "ok"
+      }
+    },
+    "withheld_correction": {
+      "branch_membership": {
+        "screened_primary": false,
+        "unscreened_sensitivity": false
+      },
+      "compound_inchikey": "HQBQICQJRCNUBJ-PHZGNYQRSA-N",
+      "cross_slot_sensitivity": {
+        "increment_locators_excluded": [],
+        "increment_locators_kept": [],
+        "still_has_increment_in_sensitivity_arm": false
+      },
+      "eligibility": {
+        "branch": "screened",
+        "is_scoreable": false,
+        "reason_if_not": "no_usable_evidence",
+        "screened_because": null,
+        "stratum": "recurrent"
+      },
+      "entered_an_increment_arm": false,
+      "full_b_audit": {
+        "label": "active",
+        "status": "ok"
+      },
+      "increment_reading": {
+        "exact": {
+          "max_pki": null,
+          "median_pki": null,
+          "min_pki": null,
+          "n_exact": 0,
+          "spread_pki": null
+        },
+        "label": "ambiguous",
+        "status": "no_usable_evidence"
+      },
+      "note_if_no_increment": "this pair has no increment, so the aggregation admits it to no arm; the outcome below is what the endpoint rules return for empty increment evidence and is shown for the audit, not as a cohort membership",
+      "pair": "HQBQICQJRCNUBJ-PHZGNYQRSA-N|1C6644344A12E467BAC221D095A23FC2DA3D2EB868D6085259979D4B76029CBA",
+      "provenance": {
+        "increment_locators": [],
+        "n_correction_candidates_withheld": 1,
+        "n_identifier_conflicts": 0,
+        "n_unparseable_dropped": 0,
+        "removed_locators": [
+          "BindingDB/202601/all#1010755",
+          "BindingDB/202601/all#397710",
+          "BindingDB/202601/all#525937",
+          "BindingDB/202601/all#1323533"
+        ],
+        "slots_touched": [
+          "HQBQICQJRCNUBJ-PHZGNYQRSA-N\t1C6644344A12E467BAC221D095A23FC2DA3D2EB868D6085259979D4B76029CBA\tpatent:US10072026\t7.5\traw:\tUS PATENT",
+          "HQBQICQJRCNUBJ-PHZGNYQRSA-N\t1C6644344A12E467BAC221D095A23FC2DA3D2EB868D6085259979D4B76029CBA\tpatent:US10947254\traw:\traw:\tUS PATENT",
+          "HQBQICQJRCNUBJ-PHZGNYQRSA-N\t1C6644344A12E467BAC221D095A23FC2DA3D2EB868D6085259979D4B76029CBA\tpatent:US11780852\traw:\traw:\tUS PATENT",
+          "HQBQICQJRCNUBJ-PHZGNYQRSA-N\t1C6644344A12E467BAC221D095A23FC2DA3D2EB868D6085259979D4B76029CBA\tpatent:US12358931\traw:\traw:\tUS PATENT"
+        ],
+        "withheld_locators": [
+          "BindingDB/202609/all#396242"
+        ]
+      },
+      "representations": {
+        "in_a_observations": 4,
+        "in_b_observations": 1,
+        "increment_observations": 0,
+        "removal_observations": 4
+      },
+      "target_sequence_sha256": "1C6644344A12E467BAC221D095A23FC2DA3D2EB868D6085259979D4B76029CBA",
+      "training_from_a_only": {
+        "label": "active",
+        "status": "ok"
+      }
+    }
+  },
+  "scope": "One traceable KI pair per category, re-derived from its pair-shard so every figure below can be checked against the archived bytes via its source locators.",
+  "threshold_pki": 6.0
+}

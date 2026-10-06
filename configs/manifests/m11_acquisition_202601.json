@@ -1,0 +1,102 @@
+{
+  "acquisition_version": "m11-acquisition-202601-v1",
+  "artifacts": [
+    {
+      "actual_bytes": 571717360,
+      "actual_sha1": "ac9ac1c4fd2f8ffb814f34b45b9c73899741bb29",
+      "archive_integrity_ok": true,
+      "bytes_match": true,
+      "deposit_component": 3,
+      "expected_bytes_from_inventory": 571717360,
+      "expected_sha1_from_inventory": "ac9ac1c4fd2f8ffb814f34b45b9c73899741bb29",
+      "file_name": "BindingDB_All_202601_tsv.zip",
+      "local_path": "data/raw/bindingdb-202601/BindingDB_All_202601_tsv.zip",
+      "members": [
+        {
+          "compressed_bytes": 571717192,
+          "crc32": "56070a8a",
+          "name": "BindingDB_All.tsv",
+          "uncompressed_bytes": 8685561734
+        }
+      ],
+      "sha1_verified": true,
+      "sha256": "dd419291190632b6dfe883b08b55b6374a815583345e33faa64f93a04f474ef6",
+      "source_url": "https://library.ucsd.edu/dc/object/bb6055793n/_3_1.zip",
+      "subset": "all"
+    },
+    {
+      "actual_bytes": 10384151,
+      "actual_sha1": "6959a286ae0375b90d5e6c639f1d58f683c83e7f",
+      "archive_integrity_ok": true,
+      "bytes_match": true,
+      "deposit_component": 6,
+      "expected_bytes_from_inventory": 10384151,
+      "expected_sha1_from_inventory": "6959a286ae0375b90d5e6c639f1d58f683c83e7f",
+      "file_name": "BindingDB_Assays_202601_tsv.zip",
+      "local_path": "data/raw/bindingdb-202601/BindingDB_Assays_202601_tsv.zip",
+      "members": [
+        {
+          "compressed_bytes": 10383997,
+          "crc32": "1d2c7094",
+          "name": "BindingDB_Assays.tsv",
+          "uncompressed_bytes": 46210205
+        }
+      ],
+      "sha1_verified": true,
+      "sha256": "67636b4417f96a8e25da9493f3902ccfb3008b9b9be0f2b6aa1c935c9dbc4c29",
+      "source_url": "https://library.ucsd.edu/dc/object/bb6055793n/_6_1.zip",
+      "subset": "assays"
+    },
+    {
+      "actual_bytes": 7377798,
+      "actual_sha1": "1407285665d30be37cb2ba3e493e2ed1d45d80af",
+      "archive_integrity_ok": true,
+      "bytes_match": true,
+      "deposit_component": 7,
+      "expected_bytes_from_inventory": 7377798,
+      "expected_sha1_from_inventory": "1407285665d30be37cb2ba3e493e2ed1d45d80af",
+      "file_name": "BindingDB_rsid_eaids_202601_tsv.zip",
+      "local_path": "data/raw/bindingdb-202601/BindingDB_rsid_eaids_202601_tsv.zip",
+      "members": [
+        {
+          "compressed_bytes": 7377636,
+          "crc32": "9906de7f",
+          "name": "BindingDB_rsid_eaids.tsv",
+          "uncompressed_bytes": 54275527
+        }
+      ],
+      "sha1_verified": true,
+      "sha256": "af4968955143a793257c6584e99e5da7be270f474cb7463400b763b980fa5aa8",
+      "source_url": "https://library.ucsd.edu/dc/object/bb6055793n/_7_1.zip",
+      "subset": "rsid_eaids"
+    }
+  ],
+  "deposit": {
+    "dams_object_id": "bb6055793n",
+    "doi": "10.6075/j0v40w61",
+    "landing_url": "https://library.ucsd.edu/dc/object/bb6055793n",
+    "license_declared_at_deposit_level": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "release_version_label": "202601",
+    "version_date": "2026-01-01"
+  },
+  "recorded_at": "2026-10-03T00:06:18.314221+00:00",
+  "release_structure": {
+    "artifact_key": "subset in ('all', 'assays', 'rsid_eaids')",
+    "deposit_key": "source_name='BindingDB', version='202601'",
+    "digest_column_note": "The archive publishes SHA-1; our pipeline pins SHA-256. Both are recorded. The `md5` column is NOT NULL and holds the SHA-1 prefixed `sha1:` so the algorithm is explicit and the value cannot be misread as an MD5.",
+    "registered_ids": {
+      "all": 1203,
+      "assays": 1204,
+      "rsid_eaids": 1205
+    },
+    "relationship": "The three artifacts are ONE dated deposit with THREE artifact identities. The existing schema already models this: `source_release` is unique on (source_name, version, subset), so the deposit is the shared `version` ('202601') and each artifact is its own row with its own `subset`, `url`, `archive_member`, `sha256`, `archive_bytes` and `member_bytes`. This is the same shape the accepted 202609 release already uses across five subsets.",
+    "unparsed_marker": "`ingested_at IS NULL` with `rows_loaded = 0` and `column_names = []`. A row in this state is registered provenance, not a successful ingest."
+  },
+  "scope": "Acquisition, archive inspection and provenance registration only. Nothing was parsed, curated, matched, fitted or scored, and the confirmatory freeze is not signed.",
+  "totals": {
+    "downloaded_bytes": 589479309,
+    "uncompressed_bytes": 8786047466
+  }
+}

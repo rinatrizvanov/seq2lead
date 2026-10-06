@@ -1,0 +1,64 @@
+[project]
+name = "seq2lead"
+version = "0.1.0"
+description = "Sequence-to-lead ranking over a reproducible bioactivity database with a leakage-controlled benchmark."
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+license = { text = "MIT" }
+dependencies = [
+    "psycopg[binary]>=3.2",
+    "typer>=0.12",
+    "rdkit>=2024.3.1",
+    "torch>=2.4",
+    "transformers>=4.44",
+    "lightgbm>=4.7.0",
+    "scikit-learn>=1.9.1",
+    "scipy>=1.17.1",
+    "meeko>=0.8.0",
+    "gemmi>=0.7.5",
+]
+
+[project.scripts]
+seq2lead = "seq2lead.cli:app"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.2",
+    "ruff>=0.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/seq2lead"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+markers = [
+    "requires_db: needs a reachable PostgreSQL (docker compose -f docker/compose.yml up -d)",
+]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+# `paper/` is documentation tooling supplied by the closeout pack: it regenerates
+# the manuscript and figures, is imported by nothing under `src/`, and fits
+# nothing. It is excluded rather than reformatted so the artifact stays exactly
+# as supplied, which is what its provenance record describes.
+extend-exclude = ["paper"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+# CI runs on Linux, where the default PyPI torch wheel drags in the CUDA stack.
+# Pin Linux to the CPU wheel; macOS keeps the default wheel, which carries MPS.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

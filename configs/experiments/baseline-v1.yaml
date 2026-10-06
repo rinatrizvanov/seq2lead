@@ -1,0 +1,89 @@
+# M8 baseline suite -- shared experiment inputs.
+#
+# Every identity here is pinned. Nothing resolves by recency: a "latest cache"
+# lookup would silently change what a leaderboard row means the next time a
+# cache is built. The loader re-reads each digest from the database and re-hashes
+# each vector file before any model is fitted, and fails hard on a mismatch.
+version: baseline-v1
+status: provisional_pooled_for_exploratory_benchmark
+
+endpoint:
+  name: ki-pki6-v2
+  id: 96
+  threshold_pki: 6.0
+
+features:
+  ecfp4:
+    name: ecfp4-compound-42351e003acb
+    manifest_sha256: cba42fd66563d2360ad05b77c48df87f8ce0fe6a75cc4fb31341da07c5ee9620
+    storage_sha256: 964471e0055f9178dc76e1f5ed577a0ae7251dce7953b682ada47535b427c0be
+  esm2:
+    name: esm2-target-48cfa09487ce
+    manifest_sha256: f18f2742dc1783e97fd2906747f2b26f01831769af28ec1cc661cbb8094afde9
+    storage_sha256: 1ecf4ced0d59d105df6fd1b6be7b5590e0f19a284e1871ce1fb4afc72777e5e7
+
+# Splits scored in M8. `label_reversal-v3` is deliberately absent: it is
+# diagnostic_frozen and must not be scored until model choices are frozen.
+splits:
+  - name: random_pair-v3
+    id: 9
+  - name: cold_protein-v3
+    id: 10
+  - name: chemistry_disjoint-v3
+    id: 11
+  - name: temporal_proxy-v4
+    id: 16
+    protocol: train_only
+    partition_endpoints:
+      train: 294
+      validation: 295
+      test: 296
+
+deferred_splits:
+  - name: label_reversal-v3
+    reason: >-
+      diagnostic_frozen. Evaluated once, after every model choice is frozen; its
+      result may not guide architecture or feature decisions. The M8 leaderboard
+      therefore covers four splits, not five.
+
+cohort:
+  # A versioned eligibility rule, not a data change. Database rows and split
+  # assignments are untouched.
+  exclude_unusable_fingerprints: true
+  require_exact_regression_label: true
+  respect_endpoint_exclusions: true
+
+objective:
+  kind: regression
+  target: pair_regression.p_median
+  units: pKi
+  censored_as_regression_target: false   # an interval is not a point
+  censored_used_for_ranking: true        # a decisive bound is a real class label
+
+selection:
+  rule: lowest validation RMSE
+  early_stopping_rounds: 50
+  test_scored: once, after configs are frozen
+  tuning_budget:
+    trials: 6
+    note: bounded and declared; not an open-ended search
+
+seeds: [20260930, 20260931, 20260932, 20260933, 20260934]
+
+metrics:
+  ranking:
+    min_positives: 5
+    min_negatives: 5
+    recall_at_k: [10, 50]
+    enrichment_fractions: [0.01, 0.05]
+    cutoff_rounding: "max(1, ceil(fraction * n))"
+    average_precision: step-wise, no interpolation
+    tie_handling: mid-ranks; threshold metrics average over the tied block
+  regression:
+    min_pairs_for_rank_correlation: 5
+  aggregation: macro-average over eligible targets, reported with target counts
+
+strata:
+  temporal: [new, recurrent]
+  cold_protein: [near_homolog, rest]
+  long_sequence: over_training_window

@@ -1,0 +1,60 @@
+{
+  "ec50_reattribution_case": {
+    "added_to_b": {
+      "count": 1,
+      "entry_doi": "10.7270/Q2ZG6XSW",
+      "measurement_type": "EC50",
+      "ph_original": "",
+      "reactant_set_id": "391580",
+      "shard": 29,
+      "slot": "ACEHBQPPDDGCGZ-UHFFFAOYSA-N\t2B9B5928CCA6AC49D4004D64FC2F2598FD08812DD42E720993169A86769075F5\tpmid:20126400\traw:\traw:\tCURATED FROM THE LITERATURE BY BINDINGDB",
+      "source_locators": [
+        "BindingDB/202609/all#390114"
+      ],
+      "temp_c_original": "",
+      "value": "EC50\t=\t183",
+      "value_note": null,
+      "value_original": "183"
+    },
+    "entry_doi_identical": true,
+    "group_classification": "UNAMBIGUOUS: the (compound, target, measurement type, value) group holds exactly one removal record and one addition record, at different slots, so the correspondence is forced rather than chosen. This example is unaffected by the v2 pairing correction.",
+    "locator_verification": {
+      "a": {
+        "ec50_nm": " 183",
+        "entry_doi": "10.7270/Q2ZG6XSW",
+        "locator": "BindingDB/202601/all#391578",
+        "patent": null,
+        "pmid": null,
+        "rsid": "391580"
+      },
+      "b": {
+        "ec50_nm": " 183",
+        "entry_doi": "10.7270/Q2ZG6XSW",
+        "locator": "BindingDB/202609/all#390114",
+        "patent": null,
+        "pmid": "20126400",
+        "rsid": "391580"
+      }
+    },
+    "note": "One EC50 occurrence present in both snapshots at DIFFERENT slots, because publication_ref is part of the slot and the row gained a PMID. It appears as one removal and one addition and is NOT a correction candidate: the matcher infers corrections only within a single slot. This individual case is source-verified on both sides. It is NOT a basis for a population-wide claim -- see the counted population figures, reported separately.",
+    "relation_to_the_net_ec50_decline": "None. A re-attribution contributes one removal AND one addition, so it is net-neutral by construction and cannot move a net count in either direction. Of the 22,823 EC50 removals, 1,663 are matched in unambiguous cross-slot groups (7.3%) and at most 87 more sit in ambiguous groups, so the ceiling is about 1,750 (7.7%) -- and even those do not reduce the net, because each is paired with an addition that is also counted.",
+    "removed_from_a": {
+      "count": 1,
+      "entry_doi": "10.7270/Q2ZG6XSW",
+      "measurement_type": "EC50",
+      "ph_original": "",
+      "reactant_set_id": "391580",
+      "shard": 0,
+      "slot": "ACEHBQPPDDGCGZ-UHFFFAOYSA-N\t2B9B5928CCA6AC49D4004D64FC2F2598FD08812DD42E720993169A86769075F5\tunattributed\traw:\traw:\tCURATED FROM THE LITERATURE BY BINDINGDB",
+      "source_locators": [
+        "BindingDB/202601/all#391578"
+      ],
+      "temp_c_original": "",
+      "value": "EC50\t=\t183",
+      "value_note": null,
+      "value_original": "183"
+    }
+  },
+  "population_figures_are_separate": "This file holds one source-verified individual case. Population-wide counts are in moved-observations-v2.json and must not be inferred from this example.",
+  "scope": "Representative traceable examples from the m11d descriptive diff."
+}

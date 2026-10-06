@@ -1,0 +1,29 @@
+{
+  "by_role": {
+    "evaluation": {
+      "lengths_resolved": 1060,
+      "max_length": 7096,
+      "over_the_training_window": 107,
+      "targets": 1060
+    },
+    "train": {
+      "lengths_resolved": 3663,
+      "max_length": 7182,
+      "over_the_training_window": 319,
+      "targets": 3663
+    },
+    "validation": {
+      "lengths_resolved": 2533,
+      "max_length": 7096,
+      "over_the_training_window": 222,
+      "targets": 2533
+    }
+  },
+  "check": "m11g-length-window",
+  "distinct_over_the_window_across_all_roles": 335,
+  "distinct_targets_across_all_roles": 3825,
+  "length_policy": "full -- no truncation; flagged, not excluded",
+  "lengths_from_the_local_sequence": 11,
+  "training_window": 1022,
+  "unresolved_lengths": []
+}

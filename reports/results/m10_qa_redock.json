@@ -1,0 +1,13 @@
+{
+  "affinity_kcal_per_mol": -7.216,
+  "best_pose_rank": 6,
+  "best_pose_rmsd": 1.493,
+  "ligand": "SUA",
+  "metal_contact_crystal": 1.939,
+  "metal_contact_docked": 2.185,
+  "n_poses": 9,
+  "note": "Pose recovery only. It does not license the ranking the gate measures.",
+  "passed": true,
+  "threshold": 2.0,
+  "top_pose_rmsd": 1.514
+}

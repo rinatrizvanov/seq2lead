@@ -1,0 +1,229 @@
+{
+  "checkpoint_selected_on": "validation",
+  "contract_version": "m11f-asof-evaluation-contract-v5",
+  "derived_from": {
+    "emitted_datasets": "model_facing_datasets",
+    "evaluation_entities": "evaluation_entities",
+    "feature_caches": "feature_binding",
+    "membership": "a_membership",
+    "reuse_maps": "feature_resolution"
+  },
+  "emitted_matches_pinned": {
+    "train": {
+      "digest": "dfe59a028fe0a1f5b33418ad668960f198ff4b3e8859347f9b3310dba7d4f6f2",
+      "distinct_compounds": 209187,
+      "distinct_sequences": 3466,
+      "pairs": 353957
+    },
+    "validation": {
+      "digest": "f2e9febdad660cfc59bf4ff9082b0666ea60016231b60dba96e5fd3e6692c652",
+      "distinct_compounds": 53870,
+      "distinct_sequences": 2394,
+      "pairs": 60981
+    }
+  },
+  "features": {
+    "coverage": {
+      "evaluation/ecfp4": {
+        "complete": true,
+        "from_accepted_cache": 17345,
+        "from_extension": 28,
+        "kind": "ecfp4",
+        "missing": 0,
+        "nothing_imputed": true,
+        "requested": 17373,
+        "role": "evaluation",
+        "unusable": 0,
+        "unusable_reasons": {},
+        "usable": 17373
+      },
+      "evaluation/esm2": {
+        "complete": true,
+        "from_accepted_cache": 1060,
+        "from_extension": 0,
+        "kind": "esm2",
+        "missing": 0,
+        "nothing_imputed": true,
+        "requested": 1060,
+        "role": "evaluation",
+        "unusable": 0,
+        "unusable_reasons": {},
+        "usable": 1060
+      },
+      "train/ecfp4": {
+        "complete": true,
+        "from_accepted_cache": 206143,
+        "from_extension": 3044,
+        "kind": "ecfp4",
+        "missing": 0,
+        "nothing_imputed": true,
+        "requested": 209187,
+        "role": "train",
+        "unusable": 0,
+        "unusable_reasons": {},
+        "usable": 209187
+      },
+      "train/esm2": {
+        "complete": true,
+        "from_accepted_cache": 3453,
+        "from_extension": 13,
+        "kind": "esm2",
+        "missing": 0,
+        "nothing_imputed": true,
+        "requested": 3466,
+        "role": "train",
+        "unusable": 0,
+        "unusable_reasons": {},
+        "usable": 3466
+      },
+      "validation/ecfp4": {
+        "complete": true,
+        "from_accepted_cache": 53016,
+        "from_extension": 854,
+        "kind": "ecfp4",
+        "missing": 0,
+        "nothing_imputed": true,
+        "requested": 53870,
+        "role": "validation",
+        "unusable": 0,
+        "unusable_reasons": {},
+        "usable": 53870
+      },
+      "validation/esm2": {
+        "complete": true,
+        "from_accepted_cache": 2387,
+        "from_extension": 7,
+        "kind": "esm2",
+        "missing": 0,
+        "nothing_imputed": true,
+        "requested": 2394,
+        "role": "validation",
+        "unusable": 0,
+        "unusable_reasons": {},
+        "usable": 2394
+      }
+    },
+    "nothing_imputed": true,
+    "reuse_maps_verified": {
+      "ecfp4": {
+        "entries": 251917,
+        "path": "data/asof/m11g/reuse-compounds.json",
+        "sha256": "fe7dcbffead38c98b51560f12674ac6a9d16643734834bb21a7fddd651172ea5"
+      },
+      "esm2": {
+        "entries": 3812,
+        "path": "data/asof/m11g/reuse-targets.json",
+        "sha256": "55feecc8c44380e3c799d2c400dba1fbeb69b69f8eb8b9bf1813dbecbb836828"
+      }
+    },
+    "stored_dims_verified": {
+      "ecfp4": 256,
+      "esm2": 1280
+    }
+  },
+  "inputs_required": [
+    "a_export",
+    "a_membership",
+    "b_export",
+    "cohort_preflight",
+    "cross_slot_exclusion_set",
+    "evaluation_entities",
+    "feature_binding",
+    "feature_coverage",
+    "feature_extension",
+    "feature_resolution",
+    "m9_config",
+    "model_facing_datasets",
+    "partition_summary",
+    "sensitivity_spec"
+  ],
+  "inputs_verified": {
+    "a_export": "0b67b64bef49fb7cdb765a929e51cd03d696696333bd9a993150c2d48aa55e80",
+    "a_membership": "887d40a2a3813500ed751afc857847fe91d9a9ec7bd73a0cb303745f42a4c6c2",
+    "b_export": "2b2b4ad8b920241f5a3852707f99fcfa8353744fd31bd03c86adaf8c66d02ac9",
+    "cohort_preflight": "3f98c802b2fd8d9a1be54dcf3f671a38214f560ababa96b42be055cc56dfffe6",
+    "cross_slot_exclusion_set": "2cc04affa04d231785b5571ccf13d5b9317aca061b554594e8cbfe76cf8f5cb6",
+    "evaluation_entities": "01a966b567e63cb44dd814e42fb620ef5d05f8aa929b4fb53c19b45c58035a8c",
+    "feature_binding": "e00024c0976efe0f371662547a6aff2c72d0105557e7fa5717cbd7bdd3158641",
+    "feature_coverage": "ac2a3cd4b98edc9ca4b4a5fa5c3eb18bf79897033b0ea6017125ee4219d2f831",
+    "feature_extension": "053878c49fca931050e704aad12895441c56658ed2d4e31ae4740cf0a63acc3b",
+    "feature_resolution": "4e2492a079911e2d0465b8aa76f0dc840003fb8eecaed1b441beacc02fd744d0",
+    "m9_config": "58662cd2033d81c73e0b3b90fdea0861d7d9f19fe76bff49cbb7ee37958b951f",
+    "model_facing_datasets": "c938c981ecb1654f9981b154f3389d08f89330ffa9ae1fadd0e8d53f3c8140b6",
+    "partition_summary": "d4c0be3b469655a10bdfc1ddbe16e9bfc4bde36681ae2d948ada4dd84f4eadb3",
+    "sensitivity_spec": "f83321019e166d1a69e9c5b829877c5b5d704cd35711ca4fa143bebbb6a89bc5"
+  },
+  "model_fitted_on": "train",
+  "pass_1_bound_the_superseded_artifacts": [
+    "cohort_preflight",
+    "feature_coverage",
+    "model_facing_datasets"
+  ],
+  "pass_2_emitted_identical_datasets": true,
+  "roles_derived": {
+    "evaluation": {
+      "compounds": 17373,
+      "sequences": 1060
+    },
+    "train": {
+      "compounds": 209187,
+      "sequences": 3466
+    },
+    "validation": {
+      "compounds": 53870,
+      "sequences": 2394
+    }
+  },
+  "runner_version": "m11g/runner/v2",
+  "settings_validated": [
+    "batch_size",
+    "censored_as_regression_target",
+    "checkpoint_selection_direction",
+    "checkpoint_selection_metric",
+    "discordance_pki",
+    "early_stopping_patience",
+    "evaluation_evidence_display_enabled",
+    "feature_stored_dims",
+    "learning_rate",
+    "max_epochs",
+    "metric_version",
+    "objective_loss",
+    "objective_target",
+    "optimizer",
+    "partition_seed",
+    "primary_consistency_branch",
+    "primary_increment_arm",
+    "projection_dim",
+    "retrieval_built",
+    "run_seeds",
+    "threshold_pki",
+    "validation_fraction"
+  ],
+  "train": {
+    "dataset_version": "m11f/datasets/v1",
+    "digest": "dfe59a028fe0a1f5b33418ad668960f198ff4b3e8859347f9b3310dba7d4f6f2",
+    "distinct_compounds": 209187,
+    "distinct_sequences": 3466,
+    "excluded": {
+      "missing_or_unusable_feature": 0,
+      "no_regression_target": 55653,
+      "not_validation_rmse_eligible": 0
+    },
+    "pairs": 353957,
+    "role": "train"
+  },
+  "transform_fitted_on": "train",
+  "validation": {
+    "dataset_version": "m11f/datasets/v1",
+    "digest": "f2e9febdad660cfc59bf4ff9082b0666ea60016231b60dba96e5fd3e6692c652",
+    "distinct_compounds": 53870,
+    "distinct_sequences": 2394,
+    "excluded": {
+      "missing_or_unusable_feature": 0,
+      "no_regression_target": 9883,
+      "not_validation_rmse_eligible": 1722
+    },
+    "pairs": 60981,
+    "role": "validation"
+  }
+}

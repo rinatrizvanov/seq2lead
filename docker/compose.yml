@@ -1,0 +1,32 @@
+# Postgres 16 for the raw + curated layers.
+# Up:   docker compose --env-file .env -f docker/compose.yml up -d
+# Down: docker compose --env-file .env -f docker/compose.yml down          (keeps the volume)
+# Nuke: docker compose --env-file .env -f docker/compose.yml down -v       (drops all data)
+services:
+  postgres:
+    image: postgres:16
+    container_name: seq2lead-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${SEQ2LEAD_DB_NAME:-seq2lead}
+      POSTGRES_USER: ${SEQ2LEAD_DB_USER:-seq2lead}
+      POSTGRES_PASSWORD: ${SEQ2LEAD_DB_PASSWORD:-seq2lead}
+    ports:
+      # Loopback-only. These are development credentials; publishing them on
+      # 0.0.0.0 would expose the database to anything that can reach this host.
+      - "127.0.0.1:${SEQ2LEAD_DB_PORT:-5433}:5432"
+    # Docker's default /dev/shm is 64 MB. PostgreSQL allocates parallel-query
+    # workspace there, and an aggregate over the ~540k-row M5 observation set
+    # fails with "could not resize shared memory segment / No space left on
+    # device" -- which reads like a disk problem and is not one.
+    shm_size: 1gb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${SEQ2LEAD_DB_USER:-seq2lead} -d ${SEQ2LEAD_DB_NAME:-seq2lead}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  pgdata:

@@ -1,0 +1,119 @@
+{
+  "caches": {
+    "ecfp4": {
+      "path": "data/features/ecfp4-compound-42351e003acb.npz",
+      "storage_sha256": "964471e0055f9178dc76e1f5ed577a0ae7251dce7953b682ada47535b427c0be"
+    },
+    "esm2": {
+      "path": "data/features/esm2-target-48cfa09487ce.npz",
+      "storage_sha256": "1ecf4ced0d59d105df6fd1b6be7b5590e0f19a284e1871ce1fb4afc72777e5e7"
+    }
+  },
+  "roles": {
+    "a_train": {
+      "compounds_in_cohort": 227550,
+      "compounds_without_a_202609_id": 2942,
+      "ecfp4": {
+        "cache": "ecfp4-compound-42351e003acb.npz",
+        "cache_dim": 256,
+        "cache_entities": 1423920,
+        "expected_dim": 256,
+        "finiteness_checked": false,
+        "finiteness_note": "a packed uint8 fingerprint cannot hold a non-finite value",
+        "logical_dim": 2048,
+        "missing_from_cache": 0,
+        "resolved_ids": 224608,
+        "storage": "bit-packed uint8; 2048 bits in 256 bytes",
+        "unusable": 0,
+        "unusable_reasons": {},
+        "usable": 224608
+      },
+      "esm2": {
+        "cache": "esm2-target-48cfa09487ce.npz",
+        "cache_dim": 1280,
+        "cache_entities": 11003,
+        "expected_dim": 1280,
+        "finiteness_checked": true,
+        "logical_dim": 1280,
+        "missing_from_cache": 2,
+        "resolved_ids": 3652,
+        "storage": "float32",
+        "unusable": 0,
+        "unusable_reasons": {},
+        "usable": 3650
+      },
+      "targets_in_cohort": 3663,
+      "targets_without_a_202609_id": 11
+    },
+    "a_validation": {
+      "compounds_in_cohort": 62217,
+      "compounds_without_a_202609_id": 875,
+      "ecfp4": {
+        "cache": "ecfp4-compound-42351e003acb.npz",
+        "cache_dim": 256,
+        "cache_entities": 1423920,
+        "expected_dim": 256,
+        "finiteness_checked": false,
+        "finiteness_note": "a packed uint8 fingerprint cannot hold a non-finite value",
+        "logical_dim": 2048,
+        "missing_from_cache": 0,
+        "resolved_ids": 61342,
+        "storage": "bit-packed uint8; 2048 bits in 256 bytes",
+        "unusable": 0,
+        "unusable_reasons": {},
+        "usable": 61342
+      },
+      "esm2": {
+        "cache": "esm2-target-48cfa09487ce.npz",
+        "cache_dim": 1280,
+        "cache_entities": 11003,
+        "expected_dim": 1280,
+        "finiteness_checked": true,
+        "logical_dim": 1280,
+        "missing_from_cache": 1,
+        "resolved_ids": 2527,
+        "storage": "float32",
+        "unusable": 0,
+        "unusable_reasons": {},
+        "usable": 2526
+      },
+      "targets_in_cohort": 2533,
+      "targets_without_a_202609_id": 6
+    },
+    "evaluation": {
+      "compounds_in_cohort": 17373,
+      "compounds_without_a_202609_id": 0,
+      "ecfp4": {
+        "cache": "ecfp4-compound-42351e003acb.npz",
+        "cache_dim": 256,
+        "cache_entities": 1423920,
+        "expected_dim": 256,
+        "finiteness_checked": false,
+        "finiteness_note": "a packed uint8 fingerprint cannot hold a non-finite value",
+        "logical_dim": 2048,
+        "missing_from_cache": 0,
+        "resolved_ids": 17373,
+        "storage": "bit-packed uint8; 2048 bits in 256 bytes",
+        "unusable": 0,
+        "unusable_reasons": {},
+        "usable": 17373
+      },
+      "esm2": {
+        "cache": "esm2-target-48cfa09487ce.npz",
+        "cache_dim": 1280,
+        "cache_entities": 11003,
+        "expected_dim": 1280,
+        "finiteness_checked": true,
+        "logical_dim": 1280,
+        "missing_from_cache": 0,
+        "resolved_ids": 1060,
+        "storage": "float32",
+        "unusable": 0,
+        "unusable_reasons": {},
+        "usable": 1060
+      },
+      "targets_in_cohort": 1060,
+      "targets_without_a_202609_id": 0
+    }
+  }
+}

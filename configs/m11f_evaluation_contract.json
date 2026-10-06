@@ -1,0 +1,994 @@
+{
+ "cells": {
+  "note": "The primary cell is declared_increment x screened_primary. The other three are retained as sensitivities and every reported number names its cell.",
+  "primary": {
+   "consistency_branch": "screened_primary",
+   "increment_arm": "declared_increment"
+  },
+  "sensitivities": [
+   {
+    "consistency_branch": "unscreened_sensitivity",
+    "increment_arm": "declared_increment"
+   },
+   {
+    "consistency_branch": "screened_primary",
+    "increment_arm": "cross_slot_excluded"
+   },
+   {
+    "consistency_branch": "unscreened_sensitivity",
+    "increment_arm": "cross_slot_excluded"
+   }
+  ]
+ },
+ "checkpoint_selection": {
+  "direction": "minimise",
+  "evaluated": "once per epoch",
+  "forbidden": "selecting a model, threshold or metric variant after seeing increment results",
+  "insufficient_validation_coverage": {
+   "fallback": "declare the shortfall and stop; do not substitute another selection set",
+   "min_pairs": 1000,
+   "min_targets": 20
+  },
+  "metric": "validation_rmse",
+  "restore": "best-validation checkpoint",
+  "selection_data": "the reserved validation split within A, and nothing else"
+ },
+ "contract": "m11f-asof-evaluation-contract-v5",
+ "corrections": {
+  "carried_forward": [
+   {
+    "defect": "the partition counted decisive censored-only pairs as supplied to fitting, while the contract declares exact-only pKi regression with MSE. Those pairs have a class label and no regression target, so nothing could have been fitted on them.",
+    "effect": {
+     "overcount": 47861,
+     "pairs_supplied_to_model_fitting_after": 353957,
+     "pairs_supplied_to_model_fitting_before": 401818
+    },
+    "fix": "three eligibilities are now kept apart: classification (decisive label, exact or censored), regression (exact-only median pKi, the established `pair_regression` rule), and validation-RMSE (regression-eligible AND status ok AND not discordant -- the endpoint's own eval rule, NOT reused from training eligibility).",
+    "id": "E1"
+   },
+   {
+    "default_config_membership_verified_unchanged": {
+     "assignment": "UNCHANGED",
+     "membership_digest_changed": true,
+     "pairs_compared": 482196,
+     "pairs_whose_partition_changed": 0,
+     "why_the_digest_changed": "the recorded fields changed -- two eligibility flags per pair instead of one -- not because any pair moved. Verified by comparing assignments pair by pair rather than assuming."
+    },
+    "defect": "build_partition accepted `fraction` and `seed` and then let iter_a_pairs use the module defaults, so a caller asking for a different split got the default one -- honoured in the record and ignored in the assignment.",
+    "fix": "the configuration is threaded through every assignment path and validated.",
+    "id": "E2"
+   },
+   {
+    "defect": "recurrence was defined against classification eligibility.",
+    "effect": {
+     "a_present_not_fitted_after": 2734,
+     "a_present_not_fitted_before": 1107,
+     "recurrent_after": 4170,
+     "recurrent_before": 5797
+    },
+    "fix": "recurrence is defined against the exact pair set the model-facing TRAINING loader emits, after eligibility and feature exclusions.",
+    "id": "E3"
+   },
+   {
+    "defect": "feature coverage was checked once over the whole cohort and against the LOGICAL fingerprint width, which called every packed vector unusable.",
+    "fix": "coverage is checked per entity role, against the STORED width, with missing and unusable counted apart and non-finite values rejected only where the dtype can hold one.",
+    "id": "E4"
+   },
+   {
+    "defect": "prepare_fitting's preconditions were keyword arguments defaulting to None and were skipped when omitted, so a caller could reach the fit callbacks without a single input or setting having been checked.",
+    "fix": "they are required arguments, and a production entry point (seq2lead.asof.runner.run) now owns the complete gate set. tests/test_m11f_datasets.py asserts the parameters have no defaults.",
+    "id": "E5"
+   },
+   {
+    "defect": "verify_preconditions accepted an EMPTY digest set: the loop had nothing to iterate, so 'nothing was checked' read as 'all verified'. The previous test suite asserted this as intended behaviour.",
+    "fix": "an empty set is refused, the complete pinned set is required, and an unrecognised bound input is refused rather than ignored.",
+    "id": "E6"
+   },
+   {
+    "defect": "projection_dim and metric_version were required to EXIST and never compared, so a run at dim 256 under metric version m8/v1 passed the gate and would have produced numbers incomparable with M8/M9.",
+    "fix": "every declared setting is compared to the frozen value, from one shared module that a test holds against this contract file.",
+    "id": "E7"
+   },
+   {
+    "defect": "the feature-completion pass resolved A-role entities only. The runner then refused: 5,786 evaluation-cohort compounds and 59 targets had no binding. The gate caught what the completion pass missed.",
+    "fix": "the evaluation role's entities are resolved in 202609 -- the accepted cache's own schema, since snapshot B IS 202609 -- so no surrogate id is equated across schemas. All 17,373 compounds and 1,060 targets now bind, 6,016 and 59 of them newly mapped, none unresolvable.",
+    "id": "E8"
+   },
+   {
+    "defect": "M11f reported missing_or_unusable_feature: 0 for both fitting roles, but no allow-list was ever passed to the loader, so the figure meant 'no filter was applied' rather than 'nothing was missing'.",
+    "fix": "the runner passes the allow-list, PER ROLE rather than as a union. The resulting zero is a consequence rather than independent evidence -- the allow-list IS the verified entity set, and incomplete coverage refuses the run before the loader is reached -- so the guarantee is stated as what it is: every emitted pair has a verified vector for both its compound and its target, or there is no run at all. What the extension bought is measured separately, by running the same loader with the pre-extension allow-list: 6,869 train and 1,205 validation pairs.",
+    "id": "E9"
+   }
+  ],
+  "items": [
+   {
+    "after": {
+     "fix": "membership_path is gone; the membership is derived from the verified artifact and its bytes are RE-verified at the moment of consumption, because a gate that fires before a read does not protect the read. The emitted datasets are then checked against the pinned record.",
+     "tests": [
+      "test_there_is_no_membership_path_to_substitute",
+      "test_the_membership_is_re_verified_at_the_moment_of_consumption",
+      "test_a_substituted_membership_with_a_refreshed_digest_still_refuses",
+      "test_a_changed_regression_target_refuses"
+     ]
+    },
+    "before": {
+     "coverage_reported_complete": true,
+     "detail": "run() verified artifacts['a_membership'] and loaded an independently supplied membership_path. A substituted file emitted 1 train pair instead of 2 and moved a regression target from pKi 7.0 to 9.0.",
+     "reached_fitting": true,
+     "train_digest_baseline": "fe5911e694ca580c",
+     "train_digest_substituted": "5548394a2714ed2c"
+    },
+    "id": "E10",
+    "title": "membership substitution"
+   },
+   {
+    "after": {
+     "fix": "feature_sources is gone. The caches come from the verified feature_binding and the reuse maps from the verified feature_resolution, whose recorded digest for each map is checked against the map's own bytes; the two artifacts are then cross-checked on entry count and stored dimension.",
+     "tests": [
+      "test_there_is_no_reuse_map_parameter_to_substitute",
+      "test_a_swapped_reuse_map_refuses",
+      "test_a_swapped_map_with_its_resolution_record_refreshed_still_refuses",
+      "test_a_swap_really_does_change_the_bound_vectors",
+      "test_a_reuse_map_whose_size_disagrees_with_the_binding_refuses",
+      "test_a_reuse_map_whose_size_disagrees_with_the_resolution_refuses"
+     ]
+    },
+    "before": {
+     "bound_vectors_actually_changed": true,
+     "coverage_reported_complete": true,
+     "detail": "FeatureSource took a caller-supplied reuse_map. Swapping two entries repointed those keys at each other's cached rows.",
+     "reached_fitting": true,
+     "storage_digests_still_valid": true,
+     "train_digest_baseline": "fe5911e694ca580c",
+     "train_digest_changed": false,
+     "train_digest_swapped": "fe5911e694ca580c",
+     "why_this_is_the_worst_case": "nothing in the published record changes at all -- not the storage digests, not the coverage report, not even the emitted dataset digest, because a dataset records pairs and targets rather than vectors."
+    },
+    "id": "E11",
+    "title": "feature-map substitution"
+   },
+   {
+    "after": {
+     "fix": "roles is gone. The fitting roles are derived from the verified membership over exactly the rows the loader keeps, so a role cannot under-declare; the evaluation role is derived from a new pinned input, evaluation_entities; and coverage must be checked for exactly the three roles.",
+     "tests": [
+      "test_there_is_no_roles_parameter_to_under_declare",
+      "test_the_derived_role_is_exactly_the_emitted_population",
+      "test_pinned_evaluation_entities_missing_a_key_refuse",
+      "test_an_empty_evaluation_entity_list_refuses",
+      "test_an_evaluation_entity_with_no_vector_refuses",
+      "test_a_membership_entity_outside_the_reuse_map_refuses"
+     ]
+    },
+    "before": {
+     "coverage_reported_complete": true,
+     "detail": "roles was a caller parameter and only train and validation were required. Dropping the evaluation role skipped its coverage check entirely; declaring 1 of 2 train compounds emitted 1 pair instead of 2, the rest counted as excluded_missing_feature rather than refused.",
+     "reached_fitting": true,
+     "train_digest_shrunk_role": "3889c21dc02a7ef0"
+    },
+    "id": "E12",
+    "title": "incomplete role declarations"
+   }
+  ],
+  "supersedes": "m11g-correction-v1",
+  "version": "m11g-correction-v2"
+ },
+ "discordance_pki": 1.0,
+ "discordance_treatment": {
+  "discordant_regression_eligible_by_partition": {
+   "train": 7972,
+   "validation": 1402
+  },
+  "training": "discordant pairs REMAIN available for training. M4 leaves them available and denies them only scoring standing (docs/M11.md \u00a77a (h)); excluding them here would be a different rule than the endpoint declares.",
+  "validation_rmse": "discordant pairs are EXCLUDED from checkpoint selection, because selection is an evaluation and the endpoint's own eval rule refuses them. Replicate exacts four logs apart cannot arbitrate which checkpoint is better."
+ },
+ "eligibility": {
+  "censored_evidence_retained_for": "ranking eligibility and audit",
+  "censored_only_decisive_by_partition": {
+   "train": 50007,
+   "validation": 8901
+  },
+  "classification_by_partition": {
+   "train": 401818,
+   "validation": 71224
+  },
+  "classification_rule": "A-only status `ok` and label in {active, inactive}",
+  "note": "three different questions, kept apart. An earlier revision used the classification figure as 'supplied to fitting', which overcounted: the declared objective is exact-only pKi regression with MSE, so a decisive censored-only pair has a class label and no regression target.",
+  "regression_by_partition": {
+   "train": 353957,
+   "validation": 62703
+  },
+  "regression_rule": "median of the pair's exact pKi values, the established `pair_regression` rule. Exact, positive, finite `=` records only; a censoring boundary is never substituted for a point.",
+  "validation_rmse_by_partition": {
+   "train": 344131,
+   "validation": 60981
+  },
+  "validation_rmse_rule": "regression-eligible AND label status `ok` AND not discordant -- the endpoint's own `eval_excluded` rule. NOT derived from training eligibility: selecting checkpoints on pairs the endpoint refuses to score would pick a checkpoint on evidence that disagrees with itself."
+ },
+ "entry_point": {
+  "callable": "seq2lead.asof.runner.run",
+  "demonstrated_refusals": [
+   "a membership substituted, changed mid-run, or changed with its digest refreshed -- the last caught by the pinned-dataset check",
+   "a reuse map swapped, with or without its resolution record refreshed",
+   "an under-declared or missing role -- structurally impossible, since roles are derived",
+   "an emitted dataset that is not the pinned one, by count or by digest",
+   "missing features, per role, including the evaluation cohort",
+   "any one of the pinned inputs altered after binding",
+   "an incomplete or empty bound input set",
+   "incompatible bindings: wrong stored dimension, wrong digest, a key in both the accepted cache and the extension, an extension with no digest",
+   "any declared setting changed or dropped"
+  ],
+  "demonstrated_success_path": "transforms and model fitted from A-train only; A-validation reaches checkpoint selection and no fit; B has no parameter to arrive through",
+  "exercised_with_fitting_mocked": "tests/test_m11g_runner.py",
+  "gate_order": [
+   "validate every declared execution setting against the frozen value",
+   "verify the complete pinned input set, rehashed from disk",
+   "derive the feature sources from the verified binding and resolution, verifying each reuse map's digest and cross-checking the two artifacts",
+   "derive every role: the fitting roles from the verified membership over the rows the loader keeps, the evaluation role from the pinned entity artifact",
+   "require complete coverage for exactly the three roles, missing and unusable counted apart",
+   "re-verify the membership's bytes at the moment of consumption, then load both datasets from that artifact",
+   "check the emitted datasets against the pinned model-facing record, by count and by digest",
+   "refuse any train/validation overlap",
+   "fit transforms on A-train, then the model on A-train",
+   "select the checkpoint on A-validation, and nothing else"
+  ],
+  "nothing_consumed_is_a_parameter": {
+   "derived_from": "see the derived_from map; the runner records it in its output",
+   "evidence": "data/asof/m11g/binding-defects.json",
+   "rule": "a value the run consumes may not arrive as a caller parameter beside a digest that does not govern it. Three did, and all three were exploitable with every gate reporting success."
+  },
+  "nothing_fitted": true,
+  "refusals_precede_dataset_reads": "each refusal test points the membership path at a file that does not exist, so a skipped gate would surface as FileNotFoundError instead of PreflightError",
+  "runner_version": "m11g/runner/v2",
+  "why_not_prepare_fitting": "prepare_fitting is an orchestration primitive whose fit callables are parameters, which is what lets a test inspect them. Its preconditions were optional, so a production caller could reach the fit with nothing checked."
+ },
+ "execution_path_verified_without_training": {
+  "entry_point": "seq2lead.asof.runner.run",
+  "how": "the production entry point on the real artifacts, with the fit and selection callables replaced by mocks",
+  "proved": [
+   "only A-training evidence supplies regression targets and fitted transforms",
+   "A-validation supplies checkpoint-selection targets only and reaches no fit",
+   "B evidence cannot enter either path -- the runner has no parameter for it",
+   "missing features, altered inputs, incompatible bindings and changed configuration each refuse BEFORE any fit or artifact publication",
+   "each refusal precedes even reading the datasets: the refusal tests point the membership path at a file that does not exist, so a skipped gate would raise FileNotFoundError instead"
+  ],
+  "superseded_claim": "v3 cited tests/test_m11f_datasets.py alone, whose precondition tests then asserted an empty digest set as verified.",
+  "tests": [
+   "tests/test_m11g_runner.py",
+   "tests/test_m11f_datasets.py",
+   "tests/test_m11g_contract.py"
+  ]
+ },
+ "execution_settings": {
+  "declared": {
+   "batch_size": 512,
+   "censored_as_regression_target": false,
+   "checkpoint_selection_direction": "minimise",
+   "checkpoint_selection_metric": "validation_rmse",
+   "discordance_pki": 1.0,
+   "early_stopping_patience": 5,
+   "evaluation_evidence_display_enabled": false,
+   "feature_stored_dims": {
+    "ecfp4": 256,
+    "esm2": 1280
+   },
+   "learning_rate": 0.001,
+   "max_epochs": 20,
+   "metric_version": "m8/v2",
+   "objective_loss": "mse",
+   "objective_target": "pair_regression.p_median",
+   "optimizer": "adam",
+   "partition_seed": "m11f-partition-v1",
+   "primary_consistency_branch": "screened_primary",
+   "primary_increment_arm": "declared_increment",
+   "projection_dim": 512,
+   "retrieval_built": false,
+   "run_seeds": [
+    20260930,
+    20260931,
+    20260932,
+    20260933,
+    20260934
+   ],
+   "threshold_pki": 6.0,
+   "validation_fraction": 0.15
+  },
+  "rule": "every key must be present AND equal. An earlier revision required `projection_dim` and `metric_version` to exist without comparing them, so a run at dim 256 under metric version m8/v1 passed the gate.",
+  "source": "tests/test_m11g_contract.py asserts these against this file, both ways",
+  "validated_by": "seq2lead.asof.contract.check_settings, called from the runner"
+ },
+ "feasibility_after_partitioning_and_feature_exclusion": {
+  "c1_to_c5": {
+   "C1_at_least_50_rankable_targets": {
+    "measured": 123,
+    "met": true
+   },
+   "C2_at_least_2000_pairs": {
+    "measured": 22221,
+    "met": true
+   },
+   "C3_positive_rate_in_0.20_0.80": {
+    "measured": 0.697493,
+    "met": true
+   },
+   "C4_all_four_cells_reported": {
+    "met": true
+   },
+   "C5_not_argued_from_observation_fraction": {
+    "met": true
+   }
+  },
+  "c1_to_c5_strictest": {
+   "C1_at_least_50_rankable_targets": {
+    "measured": 98,
+    "met": true
+   },
+   "C2_at_least_2000_pairs": {
+    "measured": 19517,
+    "met": true
+   },
+   "C3_positive_rate_in_0.20_0.80": {
+    "measured": 0.728647,
+    "met": true
+   },
+   "C4_all_four_cells_reported": {
+    "met": true
+   },
+   "C5_not_argued_from_observation_fraction": {
+    "met": true
+   }
+  },
+  "changes_from_v4": {
+   "headline_pairs": {
+    "v4": 22221,
+    "v5": 22221
+   },
+   "headline_positive_rate": {
+    "v4": 0.697493,
+    "v5": 0.697493
+   },
+   "headline_rankable_at_5": {
+    "v4": 123,
+    "v5": 123
+   },
+   "note": "recomputed from the datasets the production runner emitted, with every input it consumes now DERIVED from the pinned artifact set rather than supplied beside it. No feature vector was rebuilt."
+  },
+  "feature_exclusions": {
+   "counterfactual_without_the_extension": {
+    "train": {
+     "pairs_excluded_for_missing_or_unusable_feature": 6869,
+     "pairs_that_would_remain": 347088
+    },
+    "validation": {
+     "pairs_excluded_for_missing_or_unusable_feature": 1205,
+     "pairs_that_would_remain": 59776
+    }
+   },
+   "evaluation_cohort_pairs_excluded_per_arm": {},
+   "fitting_roles": {
+    "train": {
+     "pairs_emitted": 353957,
+     "pairs_excluded_for_missing_or_unusable_feature": 0
+    },
+    "validation": {
+     "pairs_emitted": 60981,
+     "pairs_excluded_for_missing_or_unusable_feature": 0
+    }
+   },
+   "note": "the fitting-role zeros are a CONSEQUENCE, not independent evidence: the allow-list is derived from the rows the loader keeps, so it cannot exclude one. The guarantee is that incomplete coverage refuses the run."
+  },
+  "headline_cohort": {
+   "class_balance": {
+    "active": 15499,
+    "decided": 22221,
+    "inactive": 6722,
+    "minority_count": 6722,
+    "positive_rate": 0.697493
+   },
+   "compounds": 15048,
+   "definition": "declared_increment x screened_primary, new to fitting (all three subgroups)",
+   "labels": {
+    "active": 15499,
+    "inactive": 6722
+   },
+   "pairs": 22221,
+   "rankable_at": {
+    "1": 321,
+    "10": 72,
+    "2": 210,
+    "20": 39,
+    "5": 123
+   },
+   "single_class_targets": 671,
+   "targets": 992
+  },
+  "no_floor_was_changed_to_obtain_a_pass": true,
+  "status": "PLANNED fitting inputs until fitting occurs",
+  "strictest_subgroup": {
+   "class_balance": {
+    "active": 14221,
+    "decided": 19517,
+    "inactive": 5296,
+    "minority_count": 5296,
+    "positive_rate": 0.728647
+   },
+   "compounds": 13928,
+   "definition": "declared_increment x screened_primary, absent from A entirely",
+   "labels": {
+    "active": 14221,
+    "inactive": 5296
+   },
+   "pairs": 19517,
+   "rankable_at": {
+    "1": 301,
+    "10": 59,
+    "2": 191,
+    "20": 32,
+    "5": 98
+   },
+   "single_class_targets": 640,
+   "targets": 941,
+   "why": "the only subgroup with no exposure to fitting OR selection"
+  }
+ },
+ "feature_bindings": {
+  "cache_identity_rule": "A cache is identified by its spec AND its population. An extension cannot inherit the accepted cache's identity merely because the recipe is unchanged -- the store's own contract says a spec 'does not say which entities went in, so it cannot identify a cache on its own'. Any extension is registered under its own manifest and storage digests, and the experiment binds the artifacts actually loaded.",
+  "ecfp4": {
+   "accepted": {
+    "path": "data/features/ecfp4-compound-42351e003acb.npz",
+    "preserved_byte_for_byte": true,
+    "storage_sha256": "964471e0055f9178dc76e1f5ed577a0ae7251dce7953b682ada47535b427c0be"
+   },
+   "extension": {
+    "keyed_by": "inchikey (content identity)",
+    "name": "ecfp4-compound-m11g-ext-8198510a392a",
+    "path": "data/features/ecfp4-compound-m11g-ext-8198510a392a.npz",
+    "requested": 3422,
+    "storage_sha256": "62594be419940123fa0f5b4636730c081ce5a2f04731048003a49f78270f95a1",
+    "unusable": 0,
+    "written": 3422
+   },
+   "stored_dim": 256
+  },
+  "esm2": {
+   "accepted": {
+    "path": "data/features/esm2-target-48cfa09487ce.npz",
+    "preserved_byte_for_byte": true,
+    "storage_sha256": "1ecf4ced0d59d105df6fd1b6be7b5590e0f19a284e1871ce1fb4afc72777e5e7"
+   },
+   "extension": {
+    "keyed_by": "sequence_sha256 (content identity)",
+    "name": "esm2-target-m11g-ext-77469cfc5652",
+    "path": "data/features/esm2-target-m11g-ext-77469cfc5652.npz",
+    "requested": 13,
+    "storage_sha256": "cc7d1639a2fa16fece399fb5aaf17c2c2157372731a7cd8eaf2f53a708d5e570",
+    "unusable": 0,
+    "written": 13
+   },
+   "stored_dim": 1280
+  },
+  "identity_rule": "reuse is decided by what the vector is a function of -- canonical SMILES for a fingerprint, sequence for an embedding -- and verified. A surrogate id is never equated across schemas.",
+  "nothing_imputed": "a vector that could not be computed is recorded as absent. No zero vector and no mean substitute is written for any entity."
+ },
+ "feature_coverage_measured": {
+  "by_role": {
+   "evaluation/ecfp4": {
+    "complete": true,
+    "from_accepted_cache": 17345,
+    "from_extension": 28,
+    "kind": "ecfp4",
+    "missing": 0,
+    "nothing_imputed": true,
+    "requested": 17373,
+    "role": "evaluation",
+    "unusable": 0,
+    "unusable_reasons": {},
+    "usable": 17373
+   },
+   "evaluation/esm2": {
+    "complete": true,
+    "from_accepted_cache": 1060,
+    "from_extension": 0,
+    "kind": "esm2",
+    "missing": 0,
+    "nothing_imputed": true,
+    "requested": 1060,
+    "role": "evaluation",
+    "unusable": 0,
+    "unusable_reasons": {},
+    "usable": 1060
+   },
+   "train/ecfp4": {
+    "complete": true,
+    "from_accepted_cache": 206143,
+    "from_extension": 3044,
+    "kind": "ecfp4",
+    "missing": 0,
+    "nothing_imputed": true,
+    "requested": 209187,
+    "role": "train",
+    "unusable": 0,
+    "unusable_reasons": {},
+    "usable": 209187
+   },
+   "train/esm2": {
+    "complete": true,
+    "from_accepted_cache": 3453,
+    "from_extension": 13,
+    "kind": "esm2",
+    "missing": 0,
+    "nothing_imputed": true,
+    "requested": 3466,
+    "role": "train",
+    "unusable": 0,
+    "unusable_reasons": {},
+    "usable": 3466
+   },
+   "validation/ecfp4": {
+    "complete": true,
+    "from_accepted_cache": 53016,
+    "from_extension": 854,
+    "kind": "ecfp4",
+    "missing": 0,
+    "nothing_imputed": true,
+    "requested": 53870,
+    "role": "validation",
+    "unusable": 0,
+    "unusable_reasons": {},
+    "usable": 53870
+   },
+   "validation/esm2": {
+    "complete": true,
+    "from_accepted_cache": 2387,
+    "from_extension": 7,
+    "kind": "esm2",
+    "missing": 0,
+    "nothing_imputed": true,
+    "requested": 2394,
+    "role": "validation",
+    "unusable": 0,
+    "unusable_reasons": {},
+    "usable": 2394
+   }
+  },
+  "measured_by": "the production runner, which refuses an incomplete role",
+  "nothing_imputed": true,
+  "stored_dims_verified": {
+   "ecfp4": 256,
+   "esm2": 1280
+  }
+ },
+ "feature_resolution": {
+  "a_role_entities": {
+   "compounds": 249323,
+   "targets": 3766
+  },
+  "compounds": {
+   "canonical_smiles_disagreements": 269,
+   "reasons": {
+    "absent_from_the_202609_cache": 3153,
+    "canonical_smiles_disagrees_between_schemas": 269
+   },
+   "recompute": 3422,
+   "reuse_from_accepted_cache": 245901
+  },
+  "evaluation_role": {
+   "compound": {
+    "already_in_the_a_role_reuse_map": 11329,
+    "evaluation_role_entities": 17373,
+    "newly_resolved_against_202609": 6016,
+    "no_202609_id": 0,
+    "per_arm_entity_counts": {
+     "cross_slot_excluded": 16000,
+     "declared_increment": 17373
+    },
+    "resolved_but_absent_from_the_accepted_cache": 0,
+    "still_unresolvable": [],
+    "supplied_by_the_a_role_extension": 28
+   },
+   "entity_set_rule": "the union over both increment arms of pairs with `has_increment`, a superset of either arm, so coverage covers every cell that could be reported.",
+   "target": {
+    "already_in_the_a_role_reuse_map": 1001,
+    "evaluation_role_entities": 1060,
+    "newly_resolved_against_202609": 59,
+    "no_202609_id": 0,
+    "per_arm_entity_counts": {
+     "cross_slot_excluded": 1035,
+     "declared_increment": 1060
+    },
+    "resolved_but_absent_from_the_accepted_cache": 0,
+    "still_unresolvable": [],
+    "supplied_by_the_a_role_extension": 0
+   },
+   "why": "the A-role pass resolved only what the fitting roles need, and the runner refused when the evaluation cohort's vectors could not be bound. These identities come from snapshot B, which IS 202609, so each is resolved in the accepted cache's own schema. No surrogate id is equated across schemas."
+  },
+  "identity_rule": "reuse is decided by what the vector is a function of -- canonical SMILES for a fingerprint, sequence for an embedding -- and verified. A surrogate id is never equated across schemas.",
+  "reuse_map_sizes_after_the_evaluation_pass": {
+   "compounds": 251917,
+   "targets": 3812
+  },
+  "reuse_maps": {
+   "ecfp4": {
+    "entries": 251917,
+    "keyed_by": "inchikey",
+    "path": "data/asof/m11g/reuse-compounds.json",
+    "sha256": "fe7dcbffead38c98b51560f12674ac6a9d16643734834bb21a7fddd651172ea5"
+   },
+   "esm2": {
+    "entries": 3812,
+    "keyed_by": "sequence_sha256",
+    "path": "data/asof/m11g/reuse-targets.json",
+    "sha256": "55feecc8c44380e3c799d2c400dba1fbeb69b69f8eb8b9bf1813dbecbb836828"
+   }
+  },
+  "reuse_maps_note": "the mapping from content identity to the accepted cache's surrogate id. Pinned here because it decides which cached row each key receives: a caller-supplied map could repoint every vector without changing any digest the run reports.",
+  "targets": {
+   "reasons": {
+    "absent_from_the_202609_cache": 13
+   },
+   "recompute": 13,
+   "reuse_from_accepted_cache": 3753
+  }
+ },
+ "feature_visibility": {
+  "accepted_caches_preserved": {
+   "ecfp4": {
+    "path": "data/features/ecfp4-compound-42351e003acb.npz",
+    "storage_sha256": "964471e0055f9178dc76e1f5ed577a0ae7251dce7953b682ada47535b427c0be"
+   },
+   "esm2": {
+    "path": "data/features/esm2-target-48cfa09487ce.npz",
+    "storage_sha256": "1ecf4ced0d59d105df6fd1b6be7b5590e0f19a284e1871ce1fb4afc72777e5e7"
+   },
+   "modified": false
+  },
+  "cache_identity_rule": "A cache is identified by its spec AND its population. An extension cannot inherit the accepted cache's identity merely because the recipe is unchanged -- the store's own contract says a spec 'does not say which entities went in, so it cannot identify a cache on its own'. Any extension is registered under its own manifest and storage digests, and the experiment binds the artifacts actually loaded.",
+  "correction": "An earlier draft declared ALL features train_only. That was wrong: a fixed fingerprint and a frozen embedding are deterministic functions of a structure or a sequence and carry no label information, so computing them for an evaluation entity leaks nothing.",
+  "coverage_by_role": {
+   "a_train": {
+    "compounds_in_cohort": 227550,
+    "compounds_without_a_202609_id": 2942,
+    "ecfp4": {
+     "cache": "ecfp4-compound-42351e003acb.npz",
+     "cache_dim": 256,
+     "cache_entities": 1423920,
+     "expected_dim": 256,
+     "finiteness_checked": false,
+     "finiteness_note": "a packed uint8 fingerprint cannot hold a non-finite value",
+     "logical_dim": 2048,
+     "missing_from_cache": 0,
+     "resolved_ids": 224608,
+     "storage": "bit-packed uint8; 2048 bits in 256 bytes",
+     "unusable": 0,
+     "unusable_reasons": {},
+     "usable": 224608
+    },
+    "esm2": {
+     "cache": "esm2-target-48cfa09487ce.npz",
+     "cache_dim": 1280,
+     "cache_entities": 11003,
+     "expected_dim": 1280,
+     "finiteness_checked": true,
+     "logical_dim": 1280,
+     "missing_from_cache": 2,
+     "resolved_ids": 3652,
+     "storage": "float32",
+     "unusable": 0,
+     "unusable_reasons": {},
+     "usable": 3650
+    },
+    "targets_in_cohort": 3663,
+    "targets_without_a_202609_id": 11
+   },
+   "a_validation": {
+    "compounds_in_cohort": 62217,
+    "compounds_without_a_202609_id": 875,
+    "ecfp4": {
+     "cache": "ecfp4-compound-42351e003acb.npz",
+     "cache_dim": 256,
+     "cache_entities": 1423920,
+     "expected_dim": 256,
+     "finiteness_checked": false,
+     "finiteness_note": "a packed uint8 fingerprint cannot hold a non-finite value",
+     "logical_dim": 2048,
+     "missing_from_cache": 0,
+     "resolved_ids": 61342,
+     "storage": "bit-packed uint8; 2048 bits in 256 bytes",
+     "unusable": 0,
+     "unusable_reasons": {},
+     "usable": 61342
+    },
+    "esm2": {
+     "cache": "esm2-target-48cfa09487ce.npz",
+     "cache_dim": 1280,
+     "cache_entities": 11003,
+     "expected_dim": 1280,
+     "finiteness_checked": true,
+     "logical_dim": 1280,
+     "missing_from_cache": 1,
+     "resolved_ids": 2527,
+     "storage": "float32",
+     "unusable": 0,
+     "unusable_reasons": {},
+     "usable": 2526
+    },
+    "targets_in_cohort": 2533,
+    "targets_without_a_202609_id": 6
+   },
+   "evaluation": {
+    "compounds_in_cohort": 17373,
+    "compounds_without_a_202609_id": 0,
+    "ecfp4": {
+     "cache": "ecfp4-compound-42351e003acb.npz",
+     "cache_dim": 256,
+     "cache_entities": 1423920,
+     "expected_dim": 256,
+     "finiteness_checked": false,
+     "finiteness_note": "a packed uint8 fingerprint cannot hold a non-finite value",
+     "logical_dim": 2048,
+     "missing_from_cache": 0,
+     "resolved_ids": 17373,
+     "storage": "bit-packed uint8; 2048 bits in 256 bytes",
+     "unusable": 0,
+     "unusable_reasons": {},
+     "usable": 17373
+    },
+    "esm2": {
+     "cache": "esm2-target-48cfa09487ce.npz",
+     "cache_dim": 1280,
+     "cache_entities": 11003,
+     "expected_dim": 1280,
+     "finiteness_checked": true,
+     "logical_dim": 1280,
+     "missing_from_cache": 0,
+     "resolved_ids": 1060,
+     "storage": "float32",
+     "unusable": 0,
+     "unusable_reasons": {},
+     "usable": 1060
+    },
+    "targets_in_cohort": 1060,
+    "targets_without_a_202609_id": 0
+   }
+  },
+  "evaluation_evidence_display": "STAYS DISABLED (item 11e: there is no partition-filtered evidence API, so evaluation mode shows no evidence at all)",
+  "may_be_computed_for_training_validation_and_evaluation_entities": {
+   "condition": "the entity's ACTIVITY LABEL is never read while computing a representation",
+   "ecfp4": {
+    "include_chirality": true,
+    "n_bits": 2048,
+    "note": "chirality is ON. The curator's fragment-parent step can leave two stereoisomers differing only in configuration; an achiral fingerprint would give them byte-identical vectors.",
+    "radius": 2
+   },
+   "esm2": {
+    "length_policy": "full",
+    "max_length": 40000,
+    "model": "facebook/esm2_t33_650M_UR50D",
+    "note": "frozen; no fine-tuning, so the representation carries no label information",
+    "pooling": "mean_over_residues_excluding_special_tokens",
+    "revision": "08e4846e537177426273712802403f7ba8261b6c"
+   }
+  },
+  "must_be_fitted_on_training_evidence_only": [
+   "feature scalers and centring/whitening transforms",
+   "activity-derived features",
+   "calibrators",
+   "model parameters"
+  ],
+  "preserved": {
+   "chiral_fingerprints": true,
+   "pinned_protein_representation": "08e4846e537177426273712802403f7ba8261b6c"
+  },
+  "retrieval": "STAYS UNBUILT (checklist item 11d: the guard has no production caller)",
+  "validation_may": "select checkpoints under the declared rule below, and nothing else"
+ },
+ "input_digests": {
+  "a_export_sha256": "0b67b64bef49fb7cdb765a929e51cd03d696696333bd9a993150c2d48aa55e80",
+  "a_membership_sha256": "887d40a2a3813500ed751afc857847fe91d9a9ec7bd73a0cb303745f42a4c6c2",
+  "b_export_sha256": "2b2b4ad8b920241f5a3852707f99fcfa8353744fd31bd03c86adaf8c66d02ac9",
+  "cohort_preflight_sha256": "3f98c802b2fd8d9a1be54dcf3f671a38214f560ababa96b42be055cc56dfffe6",
+  "cross_slot_exclusion_set_sha256": "2cc04affa04d231785b5571ccf13d5b9317aca061b554594e8cbfe76cf8f5cb6",
+  "evaluation_entities_sha256": "01a966b567e63cb44dd814e42fb620ef5d05f8aa929b4fb53c19b45c58035a8c",
+  "feature_binding_sha256": "e00024c0976efe0f371662547a6aff2c72d0105557e7fa5717cbd7bdd3158641",
+  "feature_coverage_sha256": "ac2a3cd4b98edc9ca4b4a5fa5c3eb18bf79897033b0ea6017125ee4219d2f831",
+  "feature_extension_sha256": "053878c49fca931050e704aad12895441c56658ed2d4e31ae4740cf0a63acc3b",
+  "feature_resolution_sha256": "4e2492a079911e2d0465b8aa76f0dc840003fb8eecaed1b441beacc02fd744d0",
+  "m9_config_sha256": "58662cd2033d81c73e0b3b90fdea0861d7d9f19fe76bff49cbb7ee37958b951f",
+  "model_facing_datasets_sha256": "c938c981ecb1654f9981b154f3389d08f89330ffa9ae1fadd0e8d53f3c8140b6",
+  "partition_summary_sha256": "d4c0be3b469655a10bdfc1ddbe16e9bfc4bde36681ae2d948ada4dd84f4eadb3",
+  "sensitivity_spec_sha256": "f83321019e166d1a69e9c5b829877c5b5d704cd35711ca4fa143bebbb6a89bc5"
+ },
+ "input_set": {
+  "paths": {
+   "a_export": "data/asof/observations-202601.jsonl.gz",
+   "a_membership": "data/asof/m11f/a-membership.jsonl",
+   "b_export": "data/asof/observations-202609.jsonl.gz",
+   "cohort_preflight": "data/asof/m11g/cohort-preflight.json",
+   "cross_slot_exclusion_set": "data/asof/m11e/excluded-locators-ki.json",
+   "evaluation_entities": "data/asof/m11g/evaluation-entities.json",
+   "feature_binding": "data/asof/m11g/feature-binding.json",
+   "feature_coverage": "data/asof/m11g/feature-coverage.json",
+   "feature_extension": "data/asof/m11g/feature-extension.json",
+   "feature_resolution": "data/asof/m11g/resolution.json",
+   "m9_config": "configs/experiments/m9-dual-encoder-v1.yaml",
+   "model_facing_datasets": "data/asof/m11g/model-facing-datasets.json",
+   "partition_summary": "data/asof/m11f/partition-summary.json",
+   "sensitivity_spec": "configs/m11e_cross_slot_sensitivity.json"
+  },
+  "required": [
+   "a_export",
+   "a_membership",
+   "b_export",
+   "cohort_preflight",
+   "cross_slot_exclusion_set",
+   "evaluation_entities",
+   "feature_binding",
+   "feature_coverage",
+   "feature_extension",
+   "feature_resolution",
+   "m9_config",
+   "model_facing_datasets",
+   "partition_summary",
+   "sensitivity_spec"
+  ],
+  "rule": "the complete set is required and an empty set is refused. The runner recomputes each digest from the bytes on disk before any fit callback runs."
+ },
+ "metric_version": "m8/v2",
+ "metrics": "per-target ranking statistics macro-averaged over rankable targets, as M8/M9 define them; AUPRC always beside its positive rate",
+ "model": {
+  "baselines": [
+   "B0-target-mean",
+   "B1-ligand-ecfp4-lgbm",
+   "B2-protein-esm2-lgbm",
+   "B3L-ligand-1nn",
+   "B4-concat-mlp"
+  ],
+  "batch_size": 512,
+  "config_carried_from": "configs/experiments/m9-dual-encoder-v1.yaml",
+  "early_stopping_patience": 5,
+  "learning_rate": 0.001,
+  "main": "dual_encoder, frozen encoders, affine_on_cosine head in pKi units",
+  "max_epochs": 20,
+  "objective": {
+   "censored_as_regression_target": false,
+   "censored_used_for_ranking": true,
+   "kind": "regression",
+   "loss": "mse",
+   "target": "pair_regression.p_median"
+  },
+  "optimizer": "adam",
+  "preprocessing": {
+   "compound": "none (bits are already 0/1)",
+   "protein": "standardise on TRAINING inputs only, frozen transform reused everywhere"
+  },
+  "projection_dim": 512,
+  "projection_dim_source": "carried over from M9's validation selection, which chose 512 on all four splits (reports/results/m9_selection.json). Not re-swept."
+ },
+ "model_facing_datasets": {
+  "loader": "seq2lead.asof.datasets.load_dataset, called by the runner",
+  "status": "PLANNED fitting inputs. Emitted to mocked fit callables by the production entry point; no fit has consumed them.",
+  "train": {
+   "dataset_version": "m11f/datasets/v1",
+   "digest": "dfe59a028fe0a1f5b33418ad668960f198ff4b3e8859347f9b3310dba7d4f6f2",
+   "distinct_compounds": 209187,
+   "distinct_sequences": 3466,
+   "emitted_by": "seq2lead.asof.runner.run, fitting mocked",
+   "excluded": {
+    "missing_or_unusable_feature": 0,
+    "no_regression_target": 55653,
+    "not_validation_rmse_eligible": 0
+   },
+   "feature_allow_list": "derived from the verified membership",
+   "pairs": 353957,
+   "role": "train"
+  },
+  "validation": {
+   "dataset_version": "m11f/datasets/v1",
+   "digest": "f2e9febdad660cfc59bf4ff9082b0666ea60016231b60dba96e5fd3e6692c652",
+   "distinct_compounds": 53870,
+   "distinct_sequences": 2394,
+   "emitted_by": "seq2lead.asof.runner.run, fitting mocked",
+   "excluded": {
+    "missing_or_unusable_feature": 0,
+    "no_regression_target": 9883,
+    "not_validation_rmse_eligible": 1722
+   },
+   "feature_allow_list": "derived from the verified membership",
+   "pairs": 60981,
+   "role": "validation"
+  }
+ },
+ "no_hyperparameter_sweep": "A single configuration is pinned, carried over from M9's validation selection. No grid, no re-sweep.",
+ "partition": {
+  "assignment_hash": "blake2b-64",
+  "assignment_method": "blake2b-64 of (seed, inchikey, sequence_sha256), uniform in [0,1), validation if the draw is below the fraction",
+  "b_unavailable_on_this_path": true,
+  "configuration_threaded_through_every_assignment": true,
+  "evidence_support_digests": {
+   "train": "5c77500b2fb527ae840d7e349263c3b4b6570582e4f136dd81f05fd862b23695",
+   "validation": "cd8ed66b371bbd7139fc6c4f70d0f96cbac39bb598436beeee1ba96e01765b56"
+  },
+  "membership_digests": {
+   "train": "5b64c1c4d0be36501e50bdab52c5fb9da014fef842b7c6e62da9fc259ef2cc88",
+   "validation": "eb39b2de5c31052fd67f40395467a6b80869f4a68dddde5653345c6f3e1e34fd"
+  },
+  "pairs_by_partition": {
+   "train": 409610,
+   "validation": 72586
+  },
+  "pairs_with_ki_evidence_in_a": 482196,
+  "scope": "train and validation are both carved out of snapshot A",
+  "seed": "m11f-partition-v1",
+  "validation_fraction_declared": 0.15,
+  "validation_fraction_realised": 0.150532,
+  "whole_pairs_together": "by construction -- the key IS the pair, so no grouping step can be got wrong",
+  "why_not_random_or_hash": "`random` is stateful so the assignment would depend on call order; `hash()` is per-process randomised so the partition would not be reproducible from (fraction, seed) alone"
+ },
+ "qualifications_carried_forward": [
+  "EXPLORATORY. Snapshot B is our already-inspected 202609 and the M8/M9 results were produced from it, so any score obtained under this contract is exploratory whatever it shows.",
+  "PROVISIONAL POOLING. Whether Ki may be pooled across assay contexts at all is M5's open question; every count here assumes the current pooling rule.",
+  "The confirmatory \u00a77(A) attestation is NOT signed and this contract does not sign it."
+ ],
+ "run_seeds": [
+  20260930,
+  20260931,
+  20260932,
+  20260933,
+  20260934
+ ],
+ "seeds_note": "five seeds, as M8/M9; every leaderboard row carries mean +/- SD over them",
+ "status": "EXECUTABLE SPECIFICATION, EXERCISED WITH FITTING MOCKED. Nothing fitted, no prediction metric computed, no downloads, no docking, retrieval unbuilt, evaluation evidence display disabled, confirmatory freeze unsigned.",
+ "strata": {
+  "cells_note": "all four cells are reported in data/asof/m11g/cohort-preflight.json",
+  "headline": "new-to-fitting results in the primary cell",
+  "measured_difference": {
+   "a_present_but_not_fitted": 2734,
+   "declared_arm_eligible_a_present": 6904,
+   "declared_arm_eligible_fitted": 4170,
+   "note": "the contract forbids assuming this difference is zero, so it is measured."
+  },
+  "new_to_fitting_subgroups": {
+   "new_a_present_excluded_from_fitting": "A evidence exists, the pair is in the train partition, and its A reading gives no usable label",
+   "new_absent_from_a": "no KI evidence in snapshot A at all",
+   "new_reserved_for_validation": "A evidence exists and the pair was reserved for validation"
+  },
+  "recurrence_defined_against": "the exact pair set the production runner handed to the model-fitting callback: train-partition pairs with an exact-only regression target, after eligibility AND the derived feature allow-list. NOT historical presence in A.",
+  "recurrent_reported": "separately, never pooled into the headline",
+  "status": "PLANNED fitting inputs. Nothing has been fitted, so these are the pairs the model-facing loaders WOULD emit, not pairs any model has seen.",
+  "validation_exposure": "A pair reserved for validation is NOT untouched by model selection. Its A evidence is what the declared checkpoint-selection rule reads, so the selected checkpoint is a function of it. The pair is new to *fitting* and exposed to *selection*, and a result on it is weaker evidence than a result on a pair absent from A entirely."
+ },
+ "supersedes": "m11f-asof-evaluation-contract-v4",
+ "threshold": {
+  "note": "unchanged from the pre-registration; pKi 7.0 is better conditioned on the measured class balance and is deliberately not promoted",
+  "primary_pki": 6.0,
+  "retained_sensitivities_pki": [
+   7.0,
+   8.0
+  ]
+ },
+ "training_eligibility": {
+  "censored_evidence_retained_for": "ranking eligibility and audit",
+  "classification_rule": "A-only status `ok` and label in {active, inactive}",
+  "derived_from": "snapshot A alone; the builder reads the A shards and nothing else",
+  "pairs_supplied_to_model_fitting": 353957,
+  "pairs_supplied_to_model_fitting_definition": "train-partition pairs with a regression target",
+  "regression_rule": "median of the pair's exact pKi values, the established `pair_regression` rule. Exact, positive, finite `=` records only; a censoring boundary is never substituted for a point.",
+  "validation_rmse_rule": "regression-eligible AND label status `ok` AND not discordant -- the endpoint's own `eval_excluded` rule. NOT derived from training eligibility: selecting checkpoints on pairs the endpoint refuses to score would pick a checkpoint on evidence that disagrees with itself."
+ },
+ "unmet_preconditions": [
+  {
+   "detail": "the A roles' gap is closed by a registered extension: 3,422 distinct compounds and 13 targets computed under the pinned settings, 0 unusable. The evaluation role's entities were resolved in 202609, the accepted cache's own schema. The runner measures coverage per role and refuses an incomplete one; all six role/kind pairs are complete with 0 missing and 0 unusable.",
+   "how_it_was_met": "resolution by verified content identity, never by equating surrogate ids across schemas; the accepted caches are preserved byte for byte and each extension is registered under its own name, manifest and storage digest.",
+   "id": "P1",
+   "precondition": "every entity in every role has a usable vector",
+   "status": "MET"
+  }
+ ],
+ "what_remains_unresolved": [
+  "no post-freeze snapshot exists, so this contract cannot be confirmatory (item 7)",
+  "M5's pooling question is open, so the endpoint's comparability is assumed rather than established",
+  "retrieval index construction is unimplemented (item 11d); it stays unbuilt here",
+  "a partition-filtered evaluation-mode evidence API is unimplemented (item 11e); evidence display stays off",
+  "the five existing M5/M7 DB-backed leakage assertions remain written for the M5 splits; the as-of three-way partition has its own assertions rather than a re-pointing of those (item 14)",
+  "which cross-slot increment arm is correct; candidacy is not identity"
+ ]
+}

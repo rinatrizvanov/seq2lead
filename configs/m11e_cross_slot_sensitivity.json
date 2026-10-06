@@ -1,0 +1,50 @@
+{
+  "spec": "m11e-cross-slot-sensitivity-v1",
+  "declared_before_any_eligibility_figure_was_computed": true,
+  "why_declared_first": "A sensitivity chosen after seeing the primary result is not a sensitivity, it is a selection. This file is written and digested before the aggregation is run, so the comparison it defines cannot have been shaped by its outcome.",
+  "primary": {
+    "name": "declared_increment_semantics",
+    "definition": "The increment as docs/M11.md §5.2a0 already declares it: the matcher's counted addition occurrences for the pair, with one occurrence withheld per linked correction candidate. Nothing is excluded on cross-slot grounds.",
+    "rationale": "A cross-slot candidate addition is a genuine addition AT ITS SLOT. The matcher classified it as such, and the declared semantics do not look across slots. Changing that here would be re-specifying the increment after the fact."
+  },
+  "sensitivity": {
+    "name": "exclude_unambiguous_cross_slot_candidate_additions",
+    "definition": "The primary increment, minus every counted addition occurrence whose source locator belongs to an unambiguous cross-slot candidate correspondence (exactly one removal record and one addition record in the (compound, target, operator, canonical value) group, at different slots).",
+    "exclusion_is_occurrence_level": true,
+    "provenance_retained": "Every excluded occurrence is identified by its source locator (release#line_no) and the locator list is published, so each exclusion is individually checkable against the archived bytes.",
+    "rationale": "If such a pair of rows is one measurement re-recorded under a new attribution, the addition is not new evidence and counting it would inflate the increment. Whether it is remains unestablished, which is exactly why this is a sensitivity and not the primary."
+  },
+  "ambiguous_candidates": {
+    "treatment": "Reported separately, never resolved. Their occurrence counts and an upper bound on how many pairs could form are given, and the upper bound is NOT presented as an observed count and is NOT subtracted in either arm.",
+    "no_greedy_resolution": true,
+    "reason": "All ambiguous groups measured so far contain candidates whose identifiers disagree, so any greedy pairing would assert a correspondence the data does not support."
+  },
+  "what_the_comparison_can_and_cannot_show": {
+    "can": "How much of the eligible increment rests on observations that have a cross-slot candidate correspondence. A large gap means eligibility is sensitive to an unresolved question; a small gap means it is not.",
+    "cannot": "Which arm is correct. Value equality at different slots establishes a candidate correspondence, not experimental identity."
+  },
+  "reporting_requirements": {
+    "report_observations_and_pairs_separately": true,
+    "report_both_arms_for": [
+      "eligible pair count",
+      "excluded pair count by reason",
+      "screened and unscreened branches",
+      "distinct target count",
+      "class balance"
+    ],
+    "feasibility_must_not_rest_on": "the fraction of added observations alone"
+  },
+  "thresholds": {
+    "primary_pki": 6.0,
+    "pre_registered_sensitivities_pki": [7.0, 8.0],
+    "source": "docs/M11.md and the project plan; not chosen here"
+  },
+  "discordance_pki": 1.0,
+  "scope_exclusions": [
+    "no model fitting",
+    "no prediction metrics",
+    "no docking",
+    "no new downloads",
+    "no freeze signing"
+  ]
+}

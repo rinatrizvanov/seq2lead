@@ -1,0 +1,526 @@
+{
+  "c1_to_c5_on_the_headline_cohort": {
+    "C1_at_least_50_rankable_targets": {
+      "measured": 123,
+      "met": true
+    },
+    "C2_at_least_2000_pairs": {
+      "measured": 22221,
+      "met": true
+    },
+    "C3_positive_rate_in_0.20_0.80": {
+      "measured": 0.697493,
+      "met": true
+    },
+    "C4_all_four_cells_reported": {
+      "met": true
+    },
+    "C5_not_argued_from_observation_fraction": {
+      "met": true
+    }
+  },
+  "c1_to_c5_on_the_strictest_subgroup": {
+    "C1_at_least_50_rankable_targets": {
+      "measured": 98,
+      "met": true
+    },
+    "C2_at_least_2000_pairs": {
+      "measured": 19517,
+      "met": true
+    },
+    "C3_positive_rate_in_0.20_0.80": {
+      "measured": 0.728647,
+      "met": true
+    },
+    "C4_all_four_cells_reported": {
+      "met": true
+    },
+    "C5_not_argued_from_observation_fraction": {
+      "met": true
+    }
+  },
+  "cells": {
+    "cross_slot_excluded/screened_primary": {
+      "new_a_present_excluded_from_fitting": {
+        "class_balance": {
+          "active": 509,
+          "decided": 627,
+          "inactive": 118,
+          "minority_count": 118,
+          "positive_rate": 0.811802
+        },
+        "compounds": 387,
+        "labels": {
+          "active": 509,
+          "inactive": 118
+        },
+        "pairs": 627,
+        "rankable_at": {
+          "1": 4,
+          "10": 1,
+          "2": 2,
+          "20": 0,
+          "5": 2
+        },
+        "single_class_targets": 57,
+        "targets": 61
+      },
+      "new_absent_from_a": {
+        "class_balance": {
+          "active": 14221,
+          "decided": 19517,
+          "inactive": 5296,
+          "minority_count": 5296,
+          "positive_rate": 0.728647
+        },
+        "compounds": 13928,
+        "labels": {
+          "active": 14221,
+          "inactive": 5296
+        },
+        "pairs": 19517,
+        "rankable_at": {
+          "1": 301,
+          "10": 59,
+          "2": 191,
+          "20": 32,
+          "5": 98
+        },
+        "single_class_targets": 640,
+        "targets": 941
+      },
+      "new_reserved_for_validation": {
+        "class_balance": {
+          "active": 386,
+          "decided": 522,
+          "inactive": 136,
+          "minority_count": 136,
+          "positive_rate": 0.739464
+        },
+        "compounds": 468,
+        "labels": {
+          "active": 386,
+          "inactive": 136
+        },
+        "pairs": 522,
+        "rankable_at": {
+          "1": 24,
+          "10": 3,
+          "2": 10,
+          "20": 1,
+          "5": 5
+        },
+        "single_class_targets": 139,
+        "targets": 163
+      },
+      "recurrent": {
+        "class_balance": {
+          "active": 1580,
+          "decided": 2168,
+          "inactive": 588,
+          "minority_count": 588,
+          "positive_rate": 0.728782
+        },
+        "compounds": 1443,
+        "labels": {
+          "active": 1580,
+          "inactive": 588
+        },
+        "pairs": 2168,
+        "rankable_at": {
+          "1": 75,
+          "10": 5,
+          "2": 28,
+          "20": 2,
+          "5": 10
+        },
+        "single_class_targets": 260,
+        "targets": 335
+      }
+    },
+    "cross_slot_excluded/unscreened_sensitivity": {
+      "new_a_present_excluded_from_fitting": {
+        "class_balance": {
+          "active": 525,
+          "decided": 648,
+          "inactive": 123,
+          "minority_count": 123,
+          "positive_rate": 0.810185
+        },
+        "compounds": 405,
+        "labels": {
+          "active": 525,
+          "inactive": 123
+        },
+        "pairs": 648,
+        "rankable_at": {
+          "1": 11,
+          "10": 1,
+          "2": 2,
+          "20": 0,
+          "5": 2
+        },
+        "single_class_targets": 54,
+        "targets": 65
+      },
+      "new_absent_from_a": {
+        "class_balance": {
+          "active": 14221,
+          "decided": 19517,
+          "inactive": 5296,
+          "minority_count": 5296,
+          "positive_rate": 0.728647
+        },
+        "compounds": 13928,
+        "labels": {
+          "active": 14221,
+          "inactive": 5296
+        },
+        "pairs": 19517,
+        "rankable_at": {
+          "1": 301,
+          "10": 59,
+          "2": 191,
+          "20": 32,
+          "5": 98
+        },
+        "single_class_targets": 640,
+        "targets": 941
+      },
+      "new_reserved_for_validation": {
+        "class_balance": {
+          "active": 393,
+          "decided": 537,
+          "inactive": 144,
+          "minority_count": 144,
+          "positive_rate": 0.731844
+        },
+        "compounds": 481,
+        "labels": {
+          "active": 393,
+          "inactive": 144
+        },
+        "pairs": 537,
+        "rankable_at": {
+          "1": 24,
+          "10": 3,
+          "2": 13,
+          "20": 1,
+          "5": 5
+        },
+        "single_class_targets": 141,
+        "targets": 165
+      },
+      "recurrent": {
+        "class_balance": {
+          "active": 1617,
+          "decided": 2237,
+          "inactive": 620,
+          "minority_count": 620,
+          "positive_rate": 0.722843
+        },
+        "compounds": 1471,
+        "labels": {
+          "active": 1617,
+          "inactive": 620
+        },
+        "pairs": 2237,
+        "rankable_at": {
+          "1": 87,
+          "10": 5,
+          "2": 30,
+          "20": 2,
+          "5": 11
+        },
+        "single_class_targets": 253,
+        "targets": 340
+      }
+    },
+    "declared_increment/screened_primary": {
+      "new_a_present_excluded_from_fitting": {
+        "class_balance": {
+          "active": 605,
+          "decided": 1686,
+          "inactive": 1081,
+          "minority_count": 605,
+          "positive_rate": 0.358837
+        },
+        "compounds": 602,
+        "labels": {
+          "active": 605,
+          "inactive": 1081
+        },
+        "pairs": 1686,
+        "rankable_at": {
+          "1": 6,
+          "10": 2,
+          "2": 4,
+          "20": 2,
+          "5": 3
+        },
+        "single_class_targets": 100,
+        "targets": 106
+      },
+      "new_absent_from_a": {
+        "class_balance": {
+          "active": 14221,
+          "decided": 19517,
+          "inactive": 5296,
+          "minority_count": 5296,
+          "positive_rate": 0.728647
+        },
+        "compounds": 13928,
+        "labels": {
+          "active": 14221,
+          "inactive": 5296
+        },
+        "pairs": 19517,
+        "rankable_at": {
+          "1": 301,
+          "10": 59,
+          "2": 191,
+          "20": 32,
+          "5": 98
+        },
+        "single_class_targets": 640,
+        "targets": 941
+      },
+      "new_reserved_for_validation": {
+        "class_balance": {
+          "active": 673,
+          "decided": 1018,
+          "inactive": 345,
+          "minority_count": 345,
+          "positive_rate": 0.6611
+        },
+        "compounds": 775,
+        "labels": {
+          "active": 673,
+          "inactive": 345
+        },
+        "pairs": 1018,
+        "rankable_at": {
+          "1": 55,
+          "10": 4,
+          "2": 29,
+          "20": 2,
+          "5": 6
+        },
+        "single_class_targets": 162,
+        "targets": 217
+      },
+      "recurrent": {
+        "class_balance": {
+          "active": 3199,
+          "decided": 4099,
+          "inactive": 900,
+          "minority_count": 900,
+          "positive_rate": 0.780434
+        },
+        "compounds": 2579,
+        "labels": {
+          "active": 3199,
+          "inactive": 900
+        },
+        "pairs": 4099,
+        "rankable_at": {
+          "1": 101,
+          "10": 12,
+          "2": 55,
+          "20": 2,
+          "5": 29
+        },
+        "single_class_targets": 265,
+        "targets": 366
+      }
+    },
+    "declared_increment/unscreened_sensitivity": {
+      "new_a_present_excluded_from_fitting": {
+        "class_balance": {
+          "active": 620,
+          "decided": 1704,
+          "inactive": 1084,
+          "minority_count": 620,
+          "positive_rate": 0.36385
+        },
+        "compounds": 618,
+        "labels": {
+          "active": 620,
+          "inactive": 1084
+        },
+        "pairs": 1704,
+        "rankable_at": {
+          "1": 13,
+          "10": 2,
+          "2": 6,
+          "20": 2,
+          "5": 3
+        },
+        "single_class_targets": 96,
+        "targets": 109
+      },
+      "new_absent_from_a": {
+        "class_balance": {
+          "active": 14221,
+          "decided": 19517,
+          "inactive": 5296,
+          "minority_count": 5296,
+          "positive_rate": 0.728647
+        },
+        "compounds": 13928,
+        "labels": {
+          "active": 14221,
+          "inactive": 5296
+        },
+        "pairs": 19517,
+        "rankable_at": {
+          "1": 301,
+          "10": 59,
+          "2": 191,
+          "20": 32,
+          "5": 98
+        },
+        "single_class_targets": 640,
+        "targets": 941
+      },
+      "new_reserved_for_validation": {
+        "class_balance": {
+          "active": 678,
+          "decided": 1030,
+          "inactive": 352,
+          "minority_count": 352,
+          "positive_rate": 0.658252
+        },
+        "compounds": 784,
+        "labels": {
+          "active": 678,
+          "inactive": 352
+        },
+        "pairs": 1030,
+        "rankable_at": {
+          "1": 55,
+          "10": 4,
+          "2": 30,
+          "20": 2,
+          "5": 6
+        },
+        "single_class_targets": 163,
+        "targets": 218
+      },
+      "recurrent": {
+        "class_balance": {
+          "active": 3232,
+          "decided": 4170,
+          "inactive": 938,
+          "minority_count": 938,
+          "positive_rate": 0.77506
+        },
+        "compounds": 2604,
+        "labels": {
+          "active": 3232,
+          "inactive": 938
+        },
+        "pairs": 4170,
+        "rankable_at": {
+          "1": 109,
+          "10": 12,
+          "2": 57,
+          "20": 2,
+          "5": 31
+        },
+        "single_class_targets": 261,
+        "targets": 370
+      }
+    }
+  },
+  "feature_exclusions": {
+    "note": "a pair whose compound or target has no representation cannot be scored",
+    "pairs_excluded_per_arm": {}
+  },
+  "headline_cohort": {
+    "class_balance": {
+      "active": 15499,
+      "decided": 22221,
+      "inactive": 6722,
+      "minority_count": 6722,
+      "positive_rate": 0.697493
+    },
+    "compounds": 15048,
+    "definition": "declared_increment x screened_primary, new to fitting (all three subgroups)",
+    "labels": {
+      "active": 15499,
+      "inactive": 6722
+    },
+    "pairs": 22221,
+    "rankable_at": {
+      "1": 321,
+      "10": 72,
+      "2": 210,
+      "20": 39,
+      "5": 123
+    },
+    "single_class_targets": 671,
+    "targets": 992
+  },
+  "historical_presence_versus_fitted": {
+    "a_present_but_not_fitted": 2734,
+    "declared_arm_eligible_a_present": 6904,
+    "declared_arm_eligible_fitted": 4170,
+    "note": "the contract forbids assuming this difference is zero, so it is measured. A-present means the pair has KI evidence in snapshot A; fitted means it was supplied to model fitting."
+  },
+  "preflight": "m11f-cohort-v1",
+  "primary_cell": {
+    "consistency_branch": "screened_primary",
+    "increment_arm": "declared_increment"
+  },
+  "recurrence_defined_against": "the exact pair set the model-facing TRAINING loader emits: train-partition pairs with an exact-only regression target, after eligibility and feature exclusions. NOT historical presence in A, and NOT classification eligibility -- a decisive censored-only pair has a class label and no regression target, so it is not something the declared MSE objective can be fitted on.",
+  "status": "PLANNED fitting inputs. Nothing has been fitted, so these are the pairs the model-facing loaders WOULD emit, not pairs any model has seen.",
+  "strata_eligible_by_arm": {
+    "cross_slot_excluded": {
+      "new_a_present_excluded_from_fitting": 648,
+      "new_absent_from_a": 19517,
+      "new_reserved_for_validation": 537,
+      "recurrent": 2237
+    },
+    "declared_increment": {
+      "new_a_present_excluded_from_fitting": 1704,
+      "new_absent_from_a": 19517,
+      "new_reserved_for_validation": 1030,
+      "recurrent": 4170
+    }
+  },
+  "strata_eligible_union_over_arms": {
+    "new_a_present_excluded_from_fitting": 1707,
+    "new_absent_from_a": 19517,
+    "new_reserved_for_validation": 1036,
+    "recurrent": 4184
+  },
+  "strictest_subgroup": {
+    "class_balance": {
+      "active": 14221,
+      "decided": 19517,
+      "inactive": 5296,
+      "minority_count": 5296,
+      "positive_rate": 0.728647
+    },
+    "compounds": 13928,
+    "definition": "declared_increment x screened_primary, absent from A entirely",
+    "labels": {
+      "active": 14221,
+      "inactive": 5296
+    },
+    "pairs": 19517,
+    "rankable_at": {
+      "1": 301,
+      "10": 59,
+      "2": 191,
+      "20": 32,
+      "5": 98
+    },
+    "single_class_targets": 640,
+    "targets": 941,
+    "why": "the only subgroup with no exposure to fitting OR selection"
+  },
+  "threshold_pki": 6.0,
+  "validation_exposure_note": "A pair reserved for validation is NOT untouched by model selection. Its A evidence is what the declared checkpoint-selection rule reads, so the selected checkpoint is a function of it. The pair is new to *fitting* and exposed to *selection*, and a result on it is weaker evidence than a result on a pair absent from A entirely."
+}

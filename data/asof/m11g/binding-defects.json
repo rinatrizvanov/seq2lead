@@ -1,0 +1,77 @@
+{
+  "common_cause": "all three are the same shape: a value the run consumed arrived as a caller parameter beside a digest that did not govern it, so the verification was decorative. The fix is derivation rather than more checks -- nothing the run consumes is a parameter any more.",
+  "defects": [
+    {
+      "after": {
+        "fix": "membership_path is gone; the membership is derived from the verified artifact and its bytes are RE-verified at the moment of consumption, because a gate that fires before a read does not protect the read. The emitted datasets are then checked against the pinned record.",
+        "tests": [
+          "test_there_is_no_membership_path_to_substitute",
+          "test_the_membership_is_re_verified_at_the_moment_of_consumption",
+          "test_a_substituted_membership_with_a_refreshed_digest_still_refuses",
+          "test_a_changed_regression_target_refuses"
+        ]
+      },
+      "before": {
+        "coverage_reported_complete": true,
+        "detail": "run() verified artifacts['a_membership'] and loaded an independently supplied membership_path. A substituted file emitted 1 train pair instead of 2 and moved a regression target from pKi 7.0 to 9.0.",
+        "reached_fitting": true,
+        "train_digest_baseline": "fe5911e694ca580c",
+        "train_digest_substituted": "5548394a2714ed2c"
+      },
+      "id": "E10",
+      "title": "membership substitution"
+    },
+    {
+      "after": {
+        "fix": "feature_sources is gone. The caches come from the verified feature_binding and the reuse maps from the verified feature_resolution, whose recorded digest for each map is checked against the map's own bytes; the two artifacts are then cross-checked on entry count and stored dimension.",
+        "tests": [
+          "test_there_is_no_reuse_map_parameter_to_substitute",
+          "test_a_swapped_reuse_map_refuses",
+          "test_a_swapped_map_with_its_resolution_record_refreshed_still_refuses",
+          "test_a_swap_really_does_change_the_bound_vectors",
+          "test_a_reuse_map_whose_size_disagrees_with_the_binding_refuses",
+          "test_a_reuse_map_whose_size_disagrees_with_the_resolution_refuses"
+        ]
+      },
+      "before": {
+        "bound_vectors_actually_changed": true,
+        "coverage_reported_complete": true,
+        "detail": "FeatureSource took a caller-supplied reuse_map. Swapping two entries repointed those keys at each other's cached rows.",
+        "reached_fitting": true,
+        "storage_digests_still_valid": true,
+        "train_digest_baseline": "fe5911e694ca580c",
+        "train_digest_changed": false,
+        "train_digest_swapped": "fe5911e694ca580c",
+        "why_this_is_the_worst_case": "nothing in the published record changes at all -- not the storage digests, not the coverage report, not even the emitted dataset digest, because a dataset records pairs and targets rather than vectors."
+      },
+      "id": "E11",
+      "title": "feature-map substitution"
+    },
+    {
+      "after": {
+        "fix": "roles is gone. The fitting roles are derived from the verified membership over exactly the rows the loader keeps, so a role cannot under-declare; the evaluation role is derived from a new pinned input, evaluation_entities; and coverage must be checked for exactly the three roles.",
+        "tests": [
+          "test_there_is_no_roles_parameter_to_under_declare",
+          "test_the_derived_role_is_exactly_the_emitted_population",
+          "test_pinned_evaluation_entities_missing_a_key_refuse",
+          "test_an_empty_evaluation_entity_list_refuses",
+          "test_an_evaluation_entity_with_no_vector_refuses",
+          "test_a_membership_entity_outside_the_reuse_map_refuses"
+        ]
+      },
+      "before": {
+        "coverage_reported_complete": true,
+        "detail": "roles was a caller parameter and only train and validation were required. Dropping the evaluation role skipped its coverage check entirely; declaring 1 of 2 train compounds emitted 1 pair instead of 2, the rest counted as excluded_missing_feature rather than refused.",
+        "reached_fitting": true,
+        "train_digest_shrunk_role": "3889c21dc02a7ef0"
+      },
+      "id": "E12",
+      "title": "incomplete role declarations"
+    }
+  ],
+  "method": "each case was reproduced through seq2lead.asof.runner.run with fitting mocked and a bound input set whose every digest matched, then the runner was changed to derive what it consumes from that set. Pre-fix outcomes are measured, not inferred.",
+  "nothing_rebuilt": "no feature vector was recomputed and no .npz cache or extension changed. This was a wiring correction.",
+  "question": "does verifying an artifact's digest protect a run that consumes something else?",
+  "record": "m11g-binding-defects-v1",
+  "where_the_chain_terminates": "expected_digests is the pinned set the published contract records. A caller who may rewrite both an artifact and its pinned digest controls the run by definition; the guarantee is that no mutation leaving the pinned set unchanged can alter what is fitted."
+}

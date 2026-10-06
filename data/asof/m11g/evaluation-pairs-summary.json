@@ -1,0 +1,40 @@
+{
+  "artifact": "m11h-evaluation-pairs-v1",
+  "cells": [
+    "declared_increment/screened_primary",
+    "declared_increment/unscreened_sensitivity",
+    "cross_slot_excluded/screened_primary",
+    "cross_slot_excluded/unscreened_sensitivity"
+  ],
+  "counts": {
+    "cross_slot_excluded/active": 16756,
+    "cross_slot_excluded/inactive": 6183,
+    "cross_slot_excluded/refined/new_pair->new_absent_from_a": 19517,
+    "cross_slot_excluded/refined/recurrent->new_a_present_excluded_from_fitting": 648,
+    "cross_slot_excluded/refined/recurrent->new_reserved_for_validation": 537,
+    "cross_slot_excluded/refined/recurrent->recurrent": 2237,
+    "cross_slot_excluded/scoreable": 22939,
+    "declared_increment/active": 18751,
+    "declared_increment/inactive": 7670,
+    "declared_increment/refined/new_pair->new_absent_from_a": 19517,
+    "declared_increment/refined/recurrent->new_a_present_excluded_from_fitting": 1704,
+    "declared_increment/refined/recurrent->new_reserved_for_validation": 1030,
+    "declared_increment/refined/recurrent->recurrent": 4170,
+    "declared_increment/scoreable": 26421,
+    "stratum/new_a_present_excluded_from_fitting": 1707,
+    "stratum/new_absent_from_a": 19517,
+    "stratum/new_reserved_for_validation": 1036,
+    "stratum/recurrent": 4184
+  },
+  "how_m11e_strata_refine": {
+    "new_pair->new_absent_from_a": 19517,
+    "recurrent->new_a_present_excluded_from_fitting": 1704,
+    "recurrent->new_reserved_for_validation": 1030,
+    "recurrent->recurrent": 4170
+  },
+  "note": "the four cells are slices of this one table, so every cell is scored from the same fitted models. `participated_in_model_selection` marks the validation-reserved pairs, which are reported but never folded into the new-to-fitting headline.",
+  "pairs": 26444,
+  "recurrent_pairs": 4184,
+  "sha256": "c21ee0ab7bffe00985919e4d15394fdaa1ed189110680dae4ad09a73c6a5d8ee",
+  "stratum_conflicts": "none. Under the M11e->M11f mapping every scoreable pair's audit stratum agrees with the membership-derived one. The strata used here are the CORRECTED ones; M11e's `recurrent` is a superset that E3 split in three."
+}

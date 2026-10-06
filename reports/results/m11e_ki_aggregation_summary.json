@@ -1,0 +1,1390 @@
+{
+  "artifacts": {
+    "excluded-locators-ki.json": {
+      "bytes": 145282,
+      "records": 4038,
+      "sha256": "2cc04affa04d231785b5571ccf13d5b9317aca061b554594e8cbfe76cf8f5cb6"
+    },
+    "pairs-pki6.jsonl": {
+      "bytes": 80123291,
+      "records": 44966,
+      "sha256": "83a6ef5627b42673221b081353d6b98c2f0996e0c3bc9c5e8b84d00edef1b06b"
+    }
+  },
+  "endpoint": "KI",
+  "excluded_locators_ki": 4031,
+  "inputs": {
+    "202601": {
+      "path": "data/asof/observations-202601.jsonl.gz",
+      "rows": 3136836,
+      "sha256": "0b67b64bef49fb7cdb765a929e51cd03d696696333bd9a993150c2d48aa55e80"
+    },
+    "202609": {
+      "path": "data/asof/observations-202609.jsonl.gz",
+      "rows": 3233963,
+      "sha256": "2b2b4ad8b920241f5a3852707f99fcfa8353744fd31bd03c86adaf8c66d02ac9"
+    }
+  },
+  "m11d_ki_column_for_comparison": {
+    "a_observations": 614755,
+    "additions": 33953,
+    "b_observations": 619931,
+    "removals": 28777,
+    "unchanged": 585978
+  },
+  "recorded_at": "2026-10-04T01:02:21.919781+00:00",
+  "run": "m11e-ki-aggregation-v1",
+  "runs": {
+    "pki6": {
+      "aggregation_version": "m11e/ki-aggregation/v1",
+      "arms": {
+        "axes": {
+          "consistency_branch": [
+            "unscreened_sensitivity",
+            "screened_primary"
+          ],
+          "increment_arm": [
+            "declared_increment",
+            "cross_slot_excluded"
+          ],
+          "note": "Two independent axes. The increment arm says which evidence counts; the consistency branch says whether snapshot B's own evidence contradicts itself. Every cohort figure below is qualified by both, because the first revision pooled them and published pre-screen figures as the cohort."
+        },
+        "cross_slot_excluded": {
+          "branches": {
+            "effect_of_the_screen": {
+              "pairs_removed": 105,
+              "rankable_at_5_after": 117,
+              "rankable_at_5_before": 118,
+              "targets_lost": 0
+            },
+            "screened_because": {
+              "empty_intersection": 3,
+              "exact_bound_conflict": 102
+            },
+            "screened_out_of_primary": 105,
+            "screened_primary": {
+              "admitted_pairs": 22834,
+              "branch": "screened_primary",
+              "class_balance": {
+                "active": 16696,
+                "decided": 22834,
+                "inactive": 6138,
+                "minority_count": 6138,
+                "positive_rate": 0.73119
+              },
+              "coverage": {
+                "distinct_compounds": 15468,
+                "distinct_targets": 1016
+              },
+              "label_counts": {
+                "active": 16696,
+                "inactive": 6138
+              },
+              "rankability": {
+                "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+                "rankable_at": {
+                  "1": 348,
+                  "10": 66,
+                  "2": 225,
+                  "20": 36,
+                  "5": 117
+                },
+                "targets_single_class_only": 668,
+                "targets_with_any_admitted_pair": 1016
+              }
+            },
+            "unscreened_sensitivity": {
+              "admitted_pairs": 22939,
+              "branch": "unscreened_sensitivity",
+              "class_balance": {
+                "active": 16756,
+                "decided": 22939,
+                "inactive": 6183,
+                "minority_count": 6183,
+                "positive_rate": 0.730459
+              },
+              "coverage": {
+                "distinct_compounds": 15493,
+                "distinct_targets": 1016
+              },
+              "label_counts": {
+                "active": 16756,
+                "inactive": 6183
+              },
+              "rankability": {
+                "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+                "rankable_at": {
+                  "1": 351,
+                  "10": 69,
+                  "2": 227,
+                  "20": 36,
+                  "5": 118
+                },
+                "targets_single_class_only": 665,
+                "targets_with_any_admitted_pair": 1016
+              }
+            }
+          },
+          "eligibility_is_branch_independent": "discordance, ambiguous labels and endpoint status failures are decided before the consistency screen, so these counts are the same in both branches",
+          "excluded_pairs_by_reason": {
+            "ambiguous_label": 315,
+            "discordant": 463,
+            "empty_intersection": 2,
+            "exact_bound_conflict": 151,
+            "no_usable_evidence": 1
+          },
+          "excluded_pairs_total": 932,
+          "increment_arm": "cross_slot_sensitivity",
+          "increment_label_counts_all_pairs": {
+            "active": 17179,
+            "ambiguous": 469,
+            "inactive": 6223
+          },
+          "observations": {
+            "eligible_increment": 29910,
+            "excluded_as_cross_slot_candidates": 4031,
+            "increment_before_withholding": 30103,
+            "unparseable_dropped": 2,
+            "withheld_for_corrections": 1
+          },
+          "pairs_with_any_increment": 23871,
+          "pairs_with_no_increment_after_filtering": 3627,
+          "pre_screen_pool": {
+            "note": "every pair passing eligibility, which is exactly the unscreened sensitivity branch. The first revision published these figures as the cohort; they are the pool the cohort is drawn FROM.",
+            "scoreable_pairs": 22939
+          },
+          "strata": {
+            "new_pair": 20331,
+            "recurrent": 3540
+          }
+        },
+        "declared_increment": {
+          "branches": {
+            "effect_of_the_screen": {
+              "pairs_removed": 101,
+              "rankable_at_5_after": 142,
+              "rankable_at_5_before": 142,
+              "targets_lost": 0
+            },
+            "screened_because": {
+              "empty_intersection": 4,
+              "exact_bound_conflict": 97
+            },
+            "screened_out_of_primary": 101,
+            "screened_primary": {
+              "admitted_pairs": 26320,
+              "branch": "screened_primary",
+              "class_balance": {
+                "active": 18698,
+                "decided": 26320,
+                "inactive": 7622,
+                "minority_count": 7622,
+                "positive_rate": 0.71041
+              },
+              "coverage": {
+                "distinct_compounds": 16770,
+                "distinct_targets": 1041
+              },
+              "label_counts": {
+                "active": 18698,
+                "inactive": 7622
+              },
+              "rankability": {
+                "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+                "rankable_at": {
+                  "1": 360,
+                  "10": 86,
+                  "2": 241,
+                  "20": 46,
+                  "5": 142
+                },
+                "targets_single_class_only": 681,
+                "targets_with_any_admitted_pair": 1041
+              }
+            },
+            "unscreened_sensitivity": {
+              "admitted_pairs": 26421,
+              "branch": "unscreened_sensitivity",
+              "class_balance": {
+                "active": 18751,
+                "decided": 26421,
+                "inactive": 7670,
+                "minority_count": 7670,
+                "positive_rate": 0.709701
+              },
+              "coverage": {
+                "distinct_compounds": 16792,
+                "distinct_targets": 1041
+              },
+              "label_counts": {
+                "active": 18751,
+                "inactive": 7670
+              },
+              "rankability": {
+                "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+                "rankable_at": {
+                  "1": 363,
+                  "10": 89,
+                  "2": 242,
+                  "20": 47,
+                  "5": 142
+                },
+                "targets_single_class_only": 678,
+                "targets_with_any_admitted_pair": 1041
+              }
+            }
+          },
+          "eligibility_is_branch_independent": "discordance, ambiguous labels and endpoint status failures are decided before the consistency screen, so these counts are the same in both branches",
+          "excluded_pairs_by_reason": {
+            "ambiguous_label": 375,
+            "discordant": 522,
+            "empty_intersection": 2,
+            "exact_bound_conflict": 177,
+            "no_usable_evidence": 1
+          },
+          "excluded_pairs_total": 1077,
+          "increment_arm": "primary",
+          "increment_label_counts_all_pairs": {
+            "active": 19231,
+            "ambiguous": 555,
+            "inactive": 7712
+          },
+          "observations": {
+            "eligible_increment": 33941,
+            "excluded_as_cross_slot_candidates": 0,
+            "increment_before_withholding": 33941,
+            "unparseable_dropped": 2,
+            "withheld_for_corrections": 1
+          },
+          "pairs_with_any_increment": 27498,
+          "pairs_with_no_increment_after_filtering": 0,
+          "pre_screen_pool": {
+            "note": "every pair passing eligibility, which is exactly the unscreened sensitivity branch. The first revision published these figures as the cohort; they are the pool the cohort is drawn FROM.",
+            "scoreable_pairs": 26421
+          },
+          "strata": {
+            "new_pair": 20331,
+            "recurrent": 7167
+          }
+        }
+      },
+      "cohort_cells": {
+        "cross_slot_excluded/screened_primary": {
+          "admitted_pairs": 22834,
+          "branch": "screened_primary",
+          "class_balance": {
+            "active": 16696,
+            "decided": 22834,
+            "inactive": 6138,
+            "minority_count": 6138,
+            "positive_rate": 0.73119
+          },
+          "coverage": {
+            "distinct_compounds": 15468,
+            "distinct_targets": 1016
+          },
+          "increment_arm": "cross_slot_excluded",
+          "label_counts": {
+            "active": 16696,
+            "inactive": 6138
+          },
+          "rankability": {
+            "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+            "rankable_at": {
+              "1": 348,
+              "10": 66,
+              "2": 225,
+              "20": 36,
+              "5": 117
+            },
+            "targets_single_class_only": 668,
+            "targets_with_any_admitted_pair": 1016
+          }
+        },
+        "cross_slot_excluded/unscreened_sensitivity": {
+          "admitted_pairs": 22939,
+          "branch": "unscreened_sensitivity",
+          "class_balance": {
+            "active": 16756,
+            "decided": 22939,
+            "inactive": 6183,
+            "minority_count": 6183,
+            "positive_rate": 0.730459
+          },
+          "coverage": {
+            "distinct_compounds": 15493,
+            "distinct_targets": 1016
+          },
+          "increment_arm": "cross_slot_excluded",
+          "label_counts": {
+            "active": 16756,
+            "inactive": 6183
+          },
+          "rankability": {
+            "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+            "rankable_at": {
+              "1": 351,
+              "10": 69,
+              "2": 227,
+              "20": 36,
+              "5": 118
+            },
+            "targets_single_class_only": 665,
+            "targets_with_any_admitted_pair": 1016
+          }
+        },
+        "declared_increment/screened_primary": {
+          "admitted_pairs": 26320,
+          "branch": "screened_primary",
+          "class_balance": {
+            "active": 18698,
+            "decided": 26320,
+            "inactive": 7622,
+            "minority_count": 7622,
+            "positive_rate": 0.71041
+          },
+          "coverage": {
+            "distinct_compounds": 16770,
+            "distinct_targets": 1041
+          },
+          "increment_arm": "declared_increment",
+          "label_counts": {
+            "active": 18698,
+            "inactive": 7622
+          },
+          "rankability": {
+            "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+            "rankable_at": {
+              "1": 360,
+              "10": 86,
+              "2": 241,
+              "20": 46,
+              "5": 142
+            },
+            "targets_single_class_only": 681,
+            "targets_with_any_admitted_pair": 1041
+          }
+        },
+        "declared_increment/unscreened_sensitivity": {
+          "admitted_pairs": 26421,
+          "branch": "unscreened_sensitivity",
+          "class_balance": {
+            "active": 18751,
+            "decided": 26421,
+            "inactive": 7670,
+            "minority_count": 7670,
+            "positive_rate": 0.709701
+          },
+          "coverage": {
+            "distinct_compounds": 16792,
+            "distinct_targets": 1041
+          },
+          "increment_arm": "declared_increment",
+          "label_counts": {
+            "active": 18751,
+            "inactive": 7670
+          },
+          "rankability": {
+            "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+            "rankable_at": {
+              "1": 363,
+              "10": 89,
+              "2": 242,
+              "20": 47,
+              "5": 142
+            },
+            "targets_single_class_only": 678,
+            "targets_with_any_admitted_pair": 1041
+          }
+        }
+      },
+      "discordance_pki": 1.0,
+      "endpoint": "KI",
+      "increment_observation_accounting": {
+        "increment_measurements_all_pairs": 33941,
+        "ki_additions_from_the_matcher": 33953,
+        "note": "Every KI addition the matcher counted is either a measurement in some pair's increment, withheld against a correction candidate, or an addition row whose value would not normalise. Counted over ALL bridged pairs, including those whose whole increment was withheld and which therefore never appear in an arm -- which is why the arm-level figures are smaller.",
+        "reconciles": true,
+        "sum": 33953,
+        "unparseable_addition_rows": 0,
+        "withheld_for_corrections_all_pairs": 12
+      },
+      "ki_classifications_from_the_restricted_report": {
+        "a_equals_unchanged_plus_removals": 614755,
+        "additions": 33953,
+        "b_equals_unchanged_plus_additions": 619931,
+        "correction_candidates": 12,
+        "note": "These must equal the KI column of the slot-sharded M11d run. Pair-sharding is a coarsening of slot-sharding, so the classifications cannot differ -- and the equality is checked rather than assumed.",
+        "removals": 28777,
+        "unchanged": 585978
+      },
+      "normalisation_version": "m11-normalise-v2",
+      "observations": {
+        "a_all_types": 3136836,
+        "a_ki": 614755,
+        "b_all_types": 3233963,
+        "b_ki": 619931,
+        "ki_removals": 28776
+      },
+      "pairs": {
+        "absent_from_a": 20331,
+        "note": "'present_in_a' is historical presence in snapshot A. It is NOT recurrence relative to an eventual fitted training set: which pairs a model is actually trained on depends on split construction that has not been run, so recurrence against a fitted set cannot be reported here.",
+        "present_in_a": 482196,
+        "with_ki_evidence_in_either_snapshot": 502527,
+        "with_ki_removals": 22247
+      },
+      "primary_cohort_feasibility_is_judged_on": "the screened_primary branch -- pairs whose own B evidence is self-consistent. Reported for both increment arms; the cross_slot_excluded arm is the conservative one.",
+      "qualifications": [
+        "Exploratory. Snapshot B is our already-inspected 202609 and the M8/M9 results were produced from it, so this validates machinery and measures rates; it is not a confirmatory evaluation.",
+        "Provisional pooling: whether Ki may be pooled across assay contexts at all is M5's open question. These counts assume the current pooling rule and would change if it were narrowed.",
+        "No model was fitted, no prediction metric was computed, nothing was docked."
+      ],
+      "resources": {
+        "budget_enforced_before_materialising": true,
+        "budget_observations_per_shard_pair": 400000,
+        "largest_shard_pair_observations": 102469,
+        "peak_rss_bytes": 526008320,
+        "peak_rss_gb": 0.49,
+        "seconds": 112.7
+      },
+      "sensitivity_effect": {
+        "axis": "increment arm, holding the consistency branch fixed",
+        "observations_excluded": 4031,
+        "screened_primary": {
+          "admitted_cross_slot_excluded": 22834,
+          "admitted_declared": 26320,
+          "rankable_at_5_cross_slot_excluded": 117,
+          "rankable_at_5_declared": 142,
+          "targets_cross_slot_excluded": 1016,
+          "targets_declared": 1041
+        },
+        "unscreened_sensitivity": {
+          "admitted_cross_slot_excluded": 22939,
+          "admitted_declared": 26421
+        }
+      },
+      "shard_count": 64,
+      "sharded_on": "compound-target pair, so every pair is complete in one shard",
+      "shards_processed": 64,
+      "threshold_pki": 6.0,
+      "training_evidence_from_a": {
+        "how_checked": "per shard, the (pair, status, label, n) digest from the two-snapshot run is compared against the same digest computed on a path that never receives B. Restricted to pairs that HAVE A evidence: a pair appearing first in B has an empty in_a and no training evidence, and the A-only path correctly never enumerates it.",
+        "label_counts": {
+          "active": 328549,
+          "ambiguous": 9154,
+          "inactive": 144493
+        },
+        "pairs_first_seen_in_b_excluded_from_the_digest": 20331,
+        "shards_compared": 64,
+        "unchanged_by_b": true
+      }
+    },
+    "pki7": {
+      "aggregation_version": "m11e/ki-aggregation/v1",
+      "arms": {
+        "axes": {
+          "consistency_branch": [
+            "unscreened_sensitivity",
+            "screened_primary"
+          ],
+          "increment_arm": [
+            "declared_increment",
+            "cross_slot_excluded"
+          ],
+          "note": "Two independent axes. The increment arm says which evidence counts; the consistency branch says whether snapshot B's own evidence contradicts itself. Every cohort figure below is qualified by both, because the first revision pooled them and published pre-screen figures as the cohort."
+        },
+        "cross_slot_excluded": {
+          "branches": {
+            "effect_of_the_screen": {
+              "pairs_removed": 102,
+              "rankable_at_5_after": 134,
+              "rankable_at_5_before": 135,
+              "targets_lost": 0
+            },
+            "screened_because": {
+              "empty_intersection": 4,
+              "exact_bound_conflict": 98
+            },
+            "screened_out_of_primary": 102,
+            "screened_primary": {
+              "admitted_pairs": 22438,
+              "branch": "screened_primary",
+              "class_balance": {
+                "active": 11831,
+                "decided": 22438,
+                "inactive": 10607,
+                "minority_count": 10607,
+                "positive_rate": 0.527275
+              },
+              "coverage": {
+                "distinct_compounds": 15472,
+                "distinct_targets": 1016
+              },
+              "label_counts": {
+                "active": 11831,
+                "inactive": 10607
+              },
+              "rankability": {
+                "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+                "rankable_at": {
+                  "1": 397,
+                  "10": 85,
+                  "2": 243,
+                  "20": 49,
+                  "5": 134
+                },
+                "targets_single_class_only": 619,
+                "targets_with_any_admitted_pair": 1016
+              }
+            },
+            "unscreened_sensitivity": {
+              "admitted_pairs": 22540,
+              "branch": "unscreened_sensitivity",
+              "class_balance": {
+                "active": 11869,
+                "decided": 22540,
+                "inactive": 10671,
+                "minority_count": 10671,
+                "positive_rate": 0.526575
+              },
+              "coverage": {
+                "distinct_compounds": 15502,
+                "distinct_targets": 1016
+              },
+              "label_counts": {
+                "active": 11869,
+                "inactive": 10671
+              },
+              "rankability": {
+                "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+                "rankable_at": {
+                  "1": 398,
+                  "10": 86,
+                  "2": 244,
+                  "20": 51,
+                  "5": 135
+                },
+                "targets_single_class_only": 618,
+                "targets_with_any_admitted_pair": 1016
+              }
+            }
+          },
+          "eligibility_is_branch_independent": "discordance, ambiguous labels and endpoint status failures are decided before the consistency screen, so these counts are the same in both branches",
+          "excluded_pairs_by_reason": {
+            "ambiguous_label": 714,
+            "discordant": 463,
+            "empty_intersection": 2,
+            "exact_bound_conflict": 151,
+            "no_usable_evidence": 1
+          },
+          "excluded_pairs_total": 1331,
+          "increment_arm": "cross_slot_sensitivity",
+          "increment_label_counts_all_pairs": {
+            "active": 12220,
+            "ambiguous": 868,
+            "inactive": 10783
+          },
+          "observations": {
+            "eligible_increment": 29910,
+            "excluded_as_cross_slot_candidates": 4031,
+            "increment_before_withholding": 30103,
+            "unparseable_dropped": 2,
+            "withheld_for_corrections": 1
+          },
+          "pairs_with_any_increment": 23871,
+          "pairs_with_no_increment_after_filtering": 3627,
+          "pre_screen_pool": {
+            "note": "every pair passing eligibility, which is exactly the unscreened sensitivity branch. The first revision published these figures as the cohort; they are the pool the cohort is drawn FROM.",
+            "scoreable_pairs": 22540
+          },
+          "strata": {
+            "new_pair": 20331,
+            "recurrent": 3540
+          }
+        },
+        "declared_increment": {
+          "branches": {
+            "effect_of_the_screen": {
+              "pairs_removed": 104,
+              "rankable_at_5_after": 152,
+              "rankable_at_5_before": 152,
+              "targets_lost": 0
+            },
+            "screened_because": {
+              "empty_intersection": 5,
+              "exact_bound_conflict": 99
+            },
+            "screened_out_of_primary": 104,
+            "screened_primary": {
+              "admitted_pairs": 25910,
+              "branch": "screened_primary",
+              "class_balance": {
+                "active": 13332,
+                "decided": 25910,
+                "inactive": 12578,
+                "minority_count": 12578,
+                "positive_rate": 0.51455
+              },
+              "coverage": {
+                "distinct_compounds": 16809,
+                "distinct_targets": 1041
+              },
+              "label_counts": {
+                "active": 13332,
+                "inactive": 12578
+              },
+              "rankability": {
+                "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+                "rankable_at": {
+                  "1": 410,
+                  "10": 96,
+                  "2": 258,
+                  "20": 58,
+                  "5": 152
+                },
+                "targets_single_class_only": 631,
+                "targets_with_any_admitted_pair": 1041
+              }
+            },
+            "unscreened_sensitivity": {
+              "admitted_pairs": 26014,
+              "branch": "unscreened_sensitivity",
+              "class_balance": {
+                "active": 13368,
+                "decided": 26014,
+                "inactive": 12646,
+                "minority_count": 12646,
+                "positive_rate": 0.513877
+              },
+              "coverage": {
+                "distinct_compounds": 16838,
+                "distinct_targets": 1041
+              },
+              "label_counts": {
+                "active": 13368,
+                "inactive": 12646
+              },
+              "rankability": {
+                "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+                "rankable_at": {
+                  "1": 411,
+                  "10": 97,
+                  "2": 259,
+                  "20": 60,
+                  "5": 152
+                },
+                "targets_single_class_only": 630,
+                "targets_with_any_admitted_pair": 1041
+              }
+            }
+          },
+          "eligibility_is_branch_independent": "discordance, ambiguous labels and endpoint status failures are decided before the consistency screen, so these counts are the same in both branches",
+          "excluded_pairs_by_reason": {
+            "ambiguous_label": 782,
+            "discordant": 522,
+            "empty_intersection": 2,
+            "exact_bound_conflict": 177,
+            "no_usable_evidence": 1
+          },
+          "excluded_pairs_total": 1484,
+          "increment_arm": "primary",
+          "increment_label_counts_all_pairs": {
+            "active": 13769,
+            "ambiguous": 962,
+            "inactive": 12767
+          },
+          "observations": {
+            "eligible_increment": 33941,
+            "excluded_as_cross_slot_candidates": 0,
+            "increment_before_withholding": 33941,
+            "unparseable_dropped": 2,
+            "withheld_for_corrections": 1
+          },
+          "pairs_with_any_increment": 27498,
+          "pairs_with_no_increment_after_filtering": 0,
+          "pre_screen_pool": {
+            "note": "every pair passing eligibility, which is exactly the unscreened sensitivity branch. The first revision published these figures as the cohort; they are the pool the cohort is drawn FROM.",
+            "scoreable_pairs": 26014
+          },
+          "strata": {
+            "new_pair": 20331,
+            "recurrent": 7167
+          }
+        }
+      },
+      "cohort_cells": {
+        "cross_slot_excluded/screened_primary": {
+          "admitted_pairs": 22438,
+          "branch": "screened_primary",
+          "class_balance": {
+            "active": 11831,
+            "decided": 22438,
+            "inactive": 10607,
+            "minority_count": 10607,
+            "positive_rate": 0.527275
+          },
+          "coverage": {
+            "distinct_compounds": 15472,
+            "distinct_targets": 1016
+          },
+          "increment_arm": "cross_slot_excluded",
+          "label_counts": {
+            "active": 11831,
+            "inactive": 10607
+          },
+          "rankability": {
+            "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+            "rankable_at": {
+              "1": 397,
+              "10": 85,
+              "2": 243,
+              "20": 49,
+              "5": 134
+            },
+            "targets_single_class_only": 619,
+            "targets_with_any_admitted_pair": 1016
+          }
+        },
+        "cross_slot_excluded/unscreened_sensitivity": {
+          "admitted_pairs": 22540,
+          "branch": "unscreened_sensitivity",
+          "class_balance": {
+            "active": 11869,
+            "decided": 22540,
+            "inactive": 10671,
+            "minority_count": 10671,
+            "positive_rate": 0.526575
+          },
+          "coverage": {
+            "distinct_compounds": 15502,
+            "distinct_targets": 1016
+          },
+          "increment_arm": "cross_slot_excluded",
+          "label_counts": {
+            "active": 11869,
+            "inactive": 10671
+          },
+          "rankability": {
+            "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+            "rankable_at": {
+              "1": 398,
+              "10": 86,
+              "2": 244,
+              "20": 51,
+              "5": 135
+            },
+            "targets_single_class_only": 618,
+            "targets_with_any_admitted_pair": 1016
+          }
+        },
+        "declared_increment/screened_primary": {
+          "admitted_pairs": 25910,
+          "branch": "screened_primary",
+          "class_balance": {
+            "active": 13332,
+            "decided": 25910,
+            "inactive": 12578,
+            "minority_count": 12578,
+            "positive_rate": 0.51455
+          },
+          "coverage": {
+            "distinct_compounds": 16809,
+            "distinct_targets": 1041
+          },
+          "increment_arm": "declared_increment",
+          "label_counts": {
+            "active": 13332,
+            "inactive": 12578
+          },
+          "rankability": {
+            "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+            "rankable_at": {
+              "1": 410,
+              "10": 96,
+              "2": 258,
+              "20": 58,
+              "5": 152
+            },
+            "targets_single_class_only": 631,
+            "targets_with_any_admitted_pair": 1041
+          }
+        },
+        "declared_increment/unscreened_sensitivity": {
+          "admitted_pairs": 26014,
+          "branch": "unscreened_sensitivity",
+          "class_balance": {
+            "active": 13368,
+            "decided": 26014,
+            "inactive": 12646,
+            "minority_count": 12646,
+            "positive_rate": 0.513877
+          },
+          "coverage": {
+            "distinct_compounds": 16838,
+            "distinct_targets": 1041
+          },
+          "increment_arm": "declared_increment",
+          "label_counts": {
+            "active": 13368,
+            "inactive": 12646
+          },
+          "rankability": {
+            "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+            "rankable_at": {
+              "1": 411,
+              "10": 97,
+              "2": 259,
+              "20": 60,
+              "5": 152
+            },
+            "targets_single_class_only": 630,
+            "targets_with_any_admitted_pair": 1041
+          }
+        }
+      },
+      "discordance_pki": 1.0,
+      "endpoint": "KI",
+      "increment_observation_accounting": {
+        "increment_measurements_all_pairs": 33941,
+        "ki_additions_from_the_matcher": 33953,
+        "note": "Every KI addition the matcher counted is either a measurement in some pair's increment, withheld against a correction candidate, or an addition row whose value would not normalise. Counted over ALL bridged pairs, including those whose whole increment was withheld and which therefore never appear in an arm -- which is why the arm-level figures are smaller.",
+        "reconciles": true,
+        "sum": 33953,
+        "unparseable_addition_rows": 0,
+        "withheld_for_corrections_all_pairs": 12
+      },
+      "ki_classifications_from_the_restricted_report": {
+        "a_equals_unchanged_plus_removals": 614755,
+        "additions": 33953,
+        "b_equals_unchanged_plus_additions": 619931,
+        "correction_candidates": 12,
+        "note": "These must equal the KI column of the slot-sharded M11d run. Pair-sharding is a coarsening of slot-sharding, so the classifications cannot differ -- and the equality is checked rather than assumed.",
+        "removals": 28777,
+        "unchanged": 585978
+      },
+      "normalisation_version": "m11-normalise-v2",
+      "observations": {
+        "a_all_types": 3136836,
+        "a_ki": 614755,
+        "b_all_types": 3233963,
+        "b_ki": 619931,
+        "ki_removals": 28776
+      },
+      "pairs": {
+        "absent_from_a": 20331,
+        "note": "'present_in_a' is historical presence in snapshot A. It is NOT recurrence relative to an eventual fitted training set: which pairs a model is actually trained on depends on split construction that has not been run, so recurrence against a fitted set cannot be reported here.",
+        "present_in_a": 482196,
+        "with_ki_evidence_in_either_snapshot": 502527,
+        "with_ki_removals": 22247
+      },
+      "primary_cohort_feasibility_is_judged_on": "the screened_primary branch -- pairs whose own B evidence is self-consistent. Reported for both increment arms; the cross_slot_excluded arm is the conservative one.",
+      "qualifications": [
+        "Exploratory. Snapshot B is our already-inspected 202609 and the M8/M9 results were produced from it, so this validates machinery and measures rates; it is not a confirmatory evaluation.",
+        "Provisional pooling: whether Ki may be pooled across assay contexts at all is M5's open question. These counts assume the current pooling rule and would change if it were narrowed.",
+        "No model was fitted, no prediction metric was computed, nothing was docked."
+      ],
+      "resources": {
+        "budget_enforced_before_materialising": true,
+        "budget_observations_per_shard_pair": 400000,
+        "largest_shard_pair_observations": 102469,
+        "peak_rss_bytes": 531070976,
+        "peak_rss_gb": 0.49,
+        "seconds": 112.3
+      },
+      "sensitivity_effect": {
+        "axis": "increment arm, holding the consistency branch fixed",
+        "observations_excluded": 4031,
+        "screened_primary": {
+          "admitted_cross_slot_excluded": 22438,
+          "admitted_declared": 25910,
+          "rankable_at_5_cross_slot_excluded": 134,
+          "rankable_at_5_declared": 152,
+          "targets_cross_slot_excluded": 1016,
+          "targets_declared": 1041
+        },
+        "unscreened_sensitivity": {
+          "admitted_cross_slot_excluded": 22540,
+          "admitted_declared": 26014
+        }
+      },
+      "shard_count": 64,
+      "sharded_on": "compound-target pair, so every pair is complete in one shard",
+      "shards_processed": 64,
+      "threshold_pki": 7.0,
+      "training_evidence_from_a": {
+        "how_checked": "per shard, the (pair, status, label, n) digest from the two-snapshot run is compared against the same digest computed on a path that never receives B. Restricted to pairs that HAVE A evidence: a pair appearing first in B has an empty in_a and no training evidence, and the A-only path correctly never enumerates it.",
+        "label_counts": {
+          "active": 228010,
+          "ambiguous": 7413,
+          "inactive": 246773
+        },
+        "pairs_first_seen_in_b_excluded_from_the_digest": 20331,
+        "shards_compared": 64,
+        "unchanged_by_b": true
+      }
+    },
+    "pki8": {
+      "aggregation_version": "m11e/ki-aggregation/v1",
+      "arms": {
+        "axes": {
+          "consistency_branch": [
+            "unscreened_sensitivity",
+            "screened_primary"
+          ],
+          "increment_arm": [
+            "declared_increment",
+            "cross_slot_excluded"
+          ],
+          "note": "Two independent axes. The increment arm says which evidence counts; the consistency branch says whether snapshot B's own evidence contradicts itself. Every cohort figure below is qualified by both, because the first revision pooled them and published pre-screen figures as the cohort."
+        },
+        "cross_slot_excluded": {
+          "branches": {
+            "effect_of_the_screen": {
+              "pairs_removed": 102,
+              "rankable_at_5_after": 125,
+              "rankable_at_5_before": 127,
+              "targets_lost": 0
+            },
+            "screened_because": {
+              "empty_intersection": 4,
+              "exact_bound_conflict": 98
+            },
+            "screened_out_of_primary": 102,
+            "screened_primary": {
+              "admitted_pairs": 22358,
+              "branch": "screened_primary",
+              "class_balance": {
+                "active": 6643,
+                "decided": 22358,
+                "inactive": 15715,
+                "minority_count": 6643,
+                "positive_rate": 0.29712
+              },
+              "coverage": {
+                "distinct_compounds": 15440,
+                "distinct_targets": 1016
+              },
+              "label_counts": {
+                "active": 6643,
+                "inactive": 15715
+              },
+              "rankability": {
+                "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+                "rankable_at": {
+                  "1": 367,
+                  "10": 67,
+                  "2": 241,
+                  "20": 35,
+                  "5": 125
+                },
+                "targets_single_class_only": 649,
+                "targets_with_any_admitted_pair": 1016
+              }
+            },
+            "unscreened_sensitivity": {
+              "admitted_pairs": 22460,
+              "branch": "unscreened_sensitivity",
+              "class_balance": {
+                "active": 6671,
+                "decided": 22460,
+                "inactive": 15789,
+                "minority_count": 6671,
+                "positive_rate": 0.297017
+              },
+              "coverage": {
+                "distinct_compounds": 15470,
+                "distinct_targets": 1016
+              },
+              "label_counts": {
+                "active": 6671,
+                "inactive": 15789
+              },
+              "rankability": {
+                "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+                "rankable_at": {
+                  "1": 367,
+                  "10": 67,
+                  "2": 241,
+                  "20": 35,
+                  "5": 127
+                },
+                "targets_single_class_only": 649,
+                "targets_with_any_admitted_pair": 1016
+              }
+            }
+          },
+          "eligibility_is_branch_independent": "discordance, ambiguous labels and endpoint status failures are decided before the consistency screen, so these counts are the same in both branches",
+          "excluded_pairs_by_reason": {
+            "ambiguous_label": 794,
+            "discordant": 463,
+            "empty_intersection": 2,
+            "exact_bound_conflict": 151,
+            "no_usable_evidence": 1
+          },
+          "excluded_pairs_total": 1411,
+          "increment_arm": "cross_slot_sensitivity",
+          "increment_label_counts_all_pairs": {
+            "active": 6856,
+            "ambiguous": 948,
+            "inactive": 16067
+          },
+          "observations": {
+            "eligible_increment": 29910,
+            "excluded_as_cross_slot_candidates": 4031,
+            "increment_before_withholding": 30103,
+            "unparseable_dropped": 2,
+            "withheld_for_corrections": 1
+          },
+          "pairs_with_any_increment": 23871,
+          "pairs_with_no_increment_after_filtering": 3627,
+          "pre_screen_pool": {
+            "note": "every pair passing eligibility, which is exactly the unscreened sensitivity branch. The first revision published these figures as the cohort; they are the pool the cohort is drawn FROM.",
+            "scoreable_pairs": 22460
+          },
+          "strata": {
+            "new_pair": 20331,
+            "recurrent": 3540
+          }
+        },
+        "declared_increment": {
+          "branches": {
+            "effect_of_the_screen": {
+              "pairs_removed": 104,
+              "rankable_at_5_after": 134,
+              "rankable_at_5_before": 136,
+              "targets_lost": 0
+            },
+            "screened_because": {
+              "empty_intersection": 5,
+              "exact_bound_conflict": 99
+            },
+            "screened_out_of_primary": 104,
+            "screened_primary": {
+              "admitted_pairs": 25831,
+              "branch": "screened_primary",
+              "class_balance": {
+                "active": 7460,
+                "decided": 25831,
+                "inactive": 18371,
+                "minority_count": 7460,
+                "positive_rate": 0.2888
+              },
+              "coverage": {
+                "distinct_compounds": 16779,
+                "distinct_targets": 1041
+              },
+              "label_counts": {
+                "active": 7460,
+                "inactive": 18371
+              },
+              "rankability": {
+                "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+                "rankable_at": {
+                  "1": 375,
+                  "10": 75,
+                  "2": 250,
+                  "20": 46,
+                  "5": 134
+                },
+                "targets_single_class_only": 666,
+                "targets_with_any_admitted_pair": 1041
+              }
+            },
+            "unscreened_sensitivity": {
+              "admitted_pairs": 25935,
+              "branch": "unscreened_sensitivity",
+              "class_balance": {
+                "active": 7487,
+                "decided": 25935,
+                "inactive": 18448,
+                "minority_count": 7487,
+                "positive_rate": 0.288683
+              },
+              "coverage": {
+                "distinct_compounds": 16808,
+                "distinct_targets": 1041
+              },
+              "label_counts": {
+                "active": 7487,
+                "inactive": 18448
+              },
+              "rankability": {
+                "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+                "rankable_at": {
+                  "1": 375,
+                  "10": 75,
+                  "2": 250,
+                  "20": 47,
+                  "5": 136
+                },
+                "targets_single_class_only": 666,
+                "targets_with_any_admitted_pair": 1041
+              }
+            }
+          },
+          "eligibility_is_branch_independent": "discordance, ambiguous labels and endpoint status failures are decided before the consistency screen, so these counts are the same in both branches",
+          "excluded_pairs_by_reason": {
+            "ambiguous_label": 861,
+            "discordant": 522,
+            "empty_intersection": 2,
+            "exact_bound_conflict": 177,
+            "no_usable_evidence": 1
+          },
+          "excluded_pairs_total": 1563,
+          "increment_arm": "primary",
+          "increment_label_counts_all_pairs": {
+            "active": 7704,
+            "ambiguous": 1041,
+            "inactive": 18753
+          },
+          "observations": {
+            "eligible_increment": 33941,
+            "excluded_as_cross_slot_candidates": 0,
+            "increment_before_withholding": 33941,
+            "unparseable_dropped": 2,
+            "withheld_for_corrections": 1
+          },
+          "pairs_with_any_increment": 27498,
+          "pairs_with_no_increment_after_filtering": 0,
+          "pre_screen_pool": {
+            "note": "every pair passing eligibility, which is exactly the unscreened sensitivity branch. The first revision published these figures as the cohort; they are the pool the cohort is drawn FROM.",
+            "scoreable_pairs": 25935
+          },
+          "strata": {
+            "new_pair": 20331,
+            "recurrent": 7167
+          }
+        }
+      },
+      "cohort_cells": {
+        "cross_slot_excluded/screened_primary": {
+          "admitted_pairs": 22358,
+          "branch": "screened_primary",
+          "class_balance": {
+            "active": 6643,
+            "decided": 22358,
+            "inactive": 15715,
+            "minority_count": 6643,
+            "positive_rate": 0.29712
+          },
+          "coverage": {
+            "distinct_compounds": 15440,
+            "distinct_targets": 1016
+          },
+          "increment_arm": "cross_slot_excluded",
+          "label_counts": {
+            "active": 6643,
+            "inactive": 15715
+          },
+          "rankability": {
+            "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+            "rankable_at": {
+              "1": 367,
+              "10": 67,
+              "2": 241,
+              "20": 35,
+              "5": 125
+            },
+            "targets_single_class_only": 649,
+            "targets_with_any_admitted_pair": 1016
+          }
+        },
+        "cross_slot_excluded/unscreened_sensitivity": {
+          "admitted_pairs": 22460,
+          "branch": "unscreened_sensitivity",
+          "class_balance": {
+            "active": 6671,
+            "decided": 22460,
+            "inactive": 15789,
+            "minority_count": 6671,
+            "positive_rate": 0.297017
+          },
+          "coverage": {
+            "distinct_compounds": 15470,
+            "distinct_targets": 1016
+          },
+          "increment_arm": "cross_slot_excluded",
+          "label_counts": {
+            "active": 6671,
+            "inactive": 15789
+          },
+          "rankability": {
+            "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+            "rankable_at": {
+              "1": 367,
+              "10": 67,
+              "2": 241,
+              "20": 35,
+              "5": 127
+            },
+            "targets_single_class_only": 649,
+            "targets_with_any_admitted_pair": 1016
+          }
+        },
+        "declared_increment/screened_primary": {
+          "admitted_pairs": 25831,
+          "branch": "screened_primary",
+          "class_balance": {
+            "active": 7460,
+            "decided": 25831,
+            "inactive": 18371,
+            "minority_count": 7460,
+            "positive_rate": 0.2888
+          },
+          "coverage": {
+            "distinct_compounds": 16779,
+            "distinct_targets": 1041
+          },
+          "increment_arm": "declared_increment",
+          "label_counts": {
+            "active": 7460,
+            "inactive": 18371
+          },
+          "rankability": {
+            "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+            "rankable_at": {
+              "1": 375,
+              "10": 75,
+              "2": 250,
+              "20": 46,
+              "5": 134
+            },
+            "targets_single_class_only": 666,
+            "targets_with_any_admitted_pair": 1041
+          }
+        },
+        "declared_increment/unscreened_sensitivity": {
+          "admitted_pairs": 25935,
+          "branch": "unscreened_sensitivity",
+          "class_balance": {
+            "active": 7487,
+            "decided": 25935,
+            "inactive": 18448,
+            "minority_count": 7487,
+            "positive_rate": 0.288683
+          },
+          "coverage": {
+            "distinct_compounds": 16808,
+            "distinct_targets": 1041
+          },
+          "increment_arm": "declared_increment",
+          "label_counts": {
+            "active": 7487,
+            "inactive": 18448
+          },
+          "rankability": {
+            "definition": "a target is rankable at N when it has at least N ADMITTED pairs of both classes in this branch; a target with one class cannot be ranked",
+            "rankable_at": {
+              "1": 375,
+              "10": 75,
+              "2": 250,
+              "20": 47,
+              "5": 136
+            },
+            "targets_single_class_only": 666,
+            "targets_with_any_admitted_pair": 1041
+          }
+        }
+      },
+      "discordance_pki": 1.0,
+      "endpoint": "KI",
+      "increment_observation_accounting": {
+        "increment_measurements_all_pairs": 33941,
+        "ki_additions_from_the_matcher": 33953,
+        "note": "Every KI addition the matcher counted is either a measurement in some pair's increment, withheld against a correction candidate, or an addition row whose value would not normalise. Counted over ALL bridged pairs, including those whose whole increment was withheld and which therefore never appear in an arm -- which is why the arm-level figures are smaller.",
+        "reconciles": true,
+        "sum": 33953,
+        "unparseable_addition_rows": 0,
+        "withheld_for_corrections_all_pairs": 12
+      },
+      "ki_classifications_from_the_restricted_report": {
+        "a_equals_unchanged_plus_removals": 614755,
+        "additions": 33953,
+        "b_equals_unchanged_plus_additions": 619931,
+        "correction_candidates": 12,
+        "note": "These must equal the KI column of the slot-sharded M11d run. Pair-sharding is a coarsening of slot-sharding, so the classifications cannot differ -- and the equality is checked rather than assumed.",
+        "removals": 28777,
+        "unchanged": 585978
+      },
+      "normalisation_version": "m11-normalise-v2",
+      "observations": {
+        "a_all_types": 3136836,
+        "a_ki": 614755,
+        "b_all_types": 3233963,
+        "b_ki": 619931,
+        "ki_removals": 28776
+      },
+      "pairs": {
+        "absent_from_a": 20331,
+        "note": "'present_in_a' is historical presence in snapshot A. It is NOT recurrence relative to an eventual fitted training set: which pairs a model is actually trained on depends on split construction that has not been run, so recurrence against a fitted set cannot be reported here.",
+        "present_in_a": 482196,
+        "with_ki_evidence_in_either_snapshot": 502527,
+        "with_ki_removals": 22247
+      },
+      "primary_cohort_feasibility_is_judged_on": "the screened_primary branch -- pairs whose own B evidence is self-consistent. Reported for both increment arms; the cross_slot_excluded arm is the conservative one.",
+      "qualifications": [
+        "Exploratory. Snapshot B is our already-inspected 202609 and the M8/M9 results were produced from it, so this validates machinery and measures rates; it is not a confirmatory evaluation.",
+        "Provisional pooling: whether Ki may be pooled across assay contexts at all is M5's open question. These counts assume the current pooling rule and would change if it were narrowed.",
+        "No model was fitted, no prediction metric was computed, nothing was docked."
+      ],
+      "resources": {
+        "budget_enforced_before_materialising": true,
+        "budget_observations_per_shard_pair": 400000,
+        "largest_shard_pair_observations": 102469,
+        "peak_rss_bytes": 537280512,
+        "peak_rss_gb": 0.5,
+        "seconds": 113.7
+      },
+      "sensitivity_effect": {
+        "axis": "increment arm, holding the consistency branch fixed",
+        "observations_excluded": 4031,
+        "screened_primary": {
+          "admitted_cross_slot_excluded": 22358,
+          "admitted_declared": 25831,
+          "rankable_at_5_cross_slot_excluded": 125,
+          "rankable_at_5_declared": 134,
+          "targets_cross_slot_excluded": 1016,
+          "targets_declared": 1041
+        },
+        "unscreened_sensitivity": {
+          "admitted_cross_slot_excluded": 22460,
+          "admitted_declared": 25935
+        }
+      },
+      "shard_count": 64,
+      "sharded_on": "compound-target pair, so every pair is complete in one shard",
+      "shards_processed": 64,
+      "threshold_pki": 8.0,
+      "training_evidence_from_a": {
+        "how_checked": "per shard, the (pair, status, label, n) digest from the two-snapshot run is compared against the same digest computed on a path that never receives B. Restricted to pairs that HAVE A evidence: a pair appearing first in B has an empty in_a and no training evidence, and the A-only path correctly never enumerates it.",
+        "label_counts": {
+          "active": 120714,
+          "ambiguous": 10160,
+          "inactive": 351322
+        },
+        "pairs_first_seen_in_b_excluded_from_the_digest": 20331,
+        "shards_compared": 64,
+        "unchanged_by_b": true
+      }
+    }
+  },
+  "scope": "KI-only pair aggregation and eligibility semantics. No model fitting, no prediction metric, no docking, no new downloads, no freeze signing.",
+  "sensitivity_spec": {
+    "declared_before_results": true,
+    "path": "configs/m11e_cross_slot_sensitivity.json",
+    "sha256": "f83321019e166d1a69e9c5b829877c5b5d704cd35711ca4fa143bebbb6a89bc5"
+  },
+  "shard_configuration": {
+    "pair_shard_hash": "blake2b-64",
+    "pair_total_max": 102469,
+    "pair_total_min": 97797,
+    "partition_peak_rss_bytes": 941146112,
+    "shard_count": 64,
+    "sharded_on": "compound-target pair"
+  },
+  "versions": {
+    "aggregation_version": "m11e/ki-aggregation/v1",
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "python": "3.11.15"
+  }
+}

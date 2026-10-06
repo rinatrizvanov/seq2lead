@@ -1,0 +1,1429 @@
+{
+  "access_method": {
+    "checksum_field_quirk": "the API swaps the two fields: `dsChecksumType` holds the hex digest and `dsChecksum` holds the algorithm name ('SHA-1'). Recorded as observed.",
+    "download_url_pattern": "https://library.ucsd.edu/dc/object/<object_id>/_<component>_<id>.<ext>",
+    "download_verified_by": "HTTP HEAD only; content-length matched the recorded byte size",
+    "endpoint": "https://library.ucsd.edu/dc/object/<object_id>.json",
+    "landing_page_note": "the human collection page is behind bot protection; this object endpoint is a separate, public JSON view and was used instead.",
+    "object_id_source": "the DataCite `url` field of each deposit DOI"
+  },
+  "built_at": "2026-10-02T14:36:14.289288+00:00",
+  "cadence_gaps": [],
+  "cadence_observations": {
+    "not_found_by_the_recorded_search": [
+      "2026-04-01"
+    ],
+    "note": "The recorded DataCite query returned 11 deposits and none of them carries a 2026-04-01 version date. That is a statement about this search, not about the archive: the deposit may exist without matching this title pattern, may be registered under another prefix or client, may be embargoed, or may not have been cut. We did not query the collection landing page, which is bot-protected.",
+    "search_used": "https://api.datacite.org/dois?query=prefix:10.6075+AND+titles.title:%22BindingDB+Dataset%22&page[size]=50"
+  },
+  "curation_compatibility": {
+    "deposits_with_both_auxiliary_files": [
+      "2026-01-01",
+      "2026-07-01"
+    ],
+    "deposits_without": [
+      "2023-10-01",
+      "2024-01-01",
+      "2024-04-01",
+      "2024-07-01",
+      "2024-10-01",
+      "2025-01-01",
+      "2025-04-01",
+      "2025-07-01",
+      "2025-10-01"
+    ],
+    "requirement": "Our M3 curation performs a three-way assay-context join over BindingDB_Assays and BindingDB_rsid_eaids. A deposit lacking either cannot reproduce it.",
+    "target_fasta": {
+      "blocks_curation": false,
+      "present_in_any_deposit": false,
+      "why_not": "`curate/parse.py` reads target sequences from the TSV's own `BindingDB Target Chain Sequence 1` column. `raw_sequence`, which the FASTA populates, is written by the ingest and never read downstream. The FASTA is also un-versioned at source (no release date in its filename), so it could not have served an as-of purpose anyway."
+    }
+  },
+  "growth_between_deposits": {
+    "approximate_net_growth": [
+      {
+        "approx_net": 140000,
+        "from": "2025-10-01",
+        "quarters": 3,
+        "to": "2026-07-01"
+      },
+      {
+        "approx_net": 180000,
+        "from": "2024-10-01",
+        "quarters": 4,
+        "to": "2025-10-01"
+      },
+      {
+        "approx_net": 620000,
+        "from": "2023-10-01",
+        "quarters": 11,
+        "to": "2026-07-01"
+      }
+    ],
+    "only_a_real_diff_settles_these": true,
+    "unmeasured_assumptions": [
+      "Ki-specific growth. The deposit counts are totals across all measurement types. Applying our corpus's 19.2% Ki share to them assumes the type mix is constant across releases, which we have not measured.",
+      "Back-fill. A release may add measurements with old publication or entry dates, so net growth does not tell us how much of the increment is genuinely recent.",
+      "Withdrawals. Net growth hides them entirely: a release that added 60,000 and withdrew 10,000 shows the same net as one that added 50,000 and withdrew none.",
+      "Eligible fraction. None of these totals is filtered to our endpoint's eligibility rules, so the usable new-pair count is unknown."
+    ],
+    "what_this_is": "differences between ROUNDED record counts quoted in deposit descriptions. They are approximate **net growth** -- additions minus withdrawals and minus any re-curation that merged or split rows -- not a count of added measurements."
+  },
+  "inventory_version": "m11-archive-inventory-v3",
+  "license_finding": {
+    "deposit_declared": "Creative Commons Attribution 4.0 International",
+    "our_source_release_rows_say": "CC-BY-3.0 (BindingDB-curated); CC-BY-SA-3.0 (ChEMBL-derived rows)",
+    "resolution": "the deposits declare CC BY 4.0, matching the 2024 paper. Our recorded string is stale for the BindingDB-curated portion and must not be carried into any republication without re-reading the deposit's own rights metadata."
+  },
+  "live_monthly_channel": {
+    "note": "only the current release is served; past dated monthly files 404, including the 202609 release this project pinned and holds locally.",
+    "probed": [
+      {
+        "approximate_bytes": true,
+        "bytes": 594200000,
+        "http": 200,
+        "last_modified": "Wed, 30 Sep 2026 03:16:08 GMT",
+        "release": "202610"
+      },
+      {
+        "http": 404,
+        "release": "202609"
+      },
+      {
+        "http": 404,
+        "release": "202606"
+      },
+      {
+        "http": 404,
+        "release": "202601"
+      },
+      {
+        "http": 404,
+        "release": "202509"
+      },
+      {
+        "http": 404,
+        "release": "202409"
+      },
+      {
+        "http": 404,
+        "release": "202309"
+      }
+    ]
+  },
+  "locally_held": {
+    "activities_ingested": 3233963,
+    "archive_bytes": 593600000,
+    "note": "not retrievable from source any more; our copy and its digest are the only evidence of this release's contents.",
+    "release": "202609",
+    "sha256": "4c04e0fec46fadab8a48465a7ac2344cf4e2b3887c6b69acc968676130b73e16",
+    "subset": "all"
+  },
+  "method": "metadata only. DataCite REST API for the deposit records; HTTP HEAD for the live monthly file. No dataset bytes were downloaded.",
+  "quarterly_deposits": [
+    {
+      "approx_measurements_millions": 2.6,
+      "approx_measurements_millions_note": "taken from the deposit's prose description ('about N million'), so it is rounded at source and carries unknown precision.",
+      "auxiliary_files_confirmed": {
+        "articles": true,
+        "assays": false,
+        "mysql_dump": true,
+        "patents": true,
+        "rsid_eaids": false,
+        "target_fasta": false
+      },
+      "bytes": 2241427820,
+      "checksums": {
+        "algorithm": "SHA-1",
+        "per_file": true
+      },
+      "doi": "10.6075/j0wq040d",
+      "file_names": [
+        "README-bindingdb_202310.txt",
+        "BDB-Oracle_All_202310_dmp.zip",
+        "BDB-mySQL_All_202310_dmp.zip",
+        "BindingDB_All_202310_tsv.zip",
+        "BindingDB_BindingDB_Articles_202310_tsv.zip",
+        "BindingDB_Patents_202310_tsv.zip",
+        "20775-bb6496315b-7-7.jpg"
+      ],
+      "files": [
+        {
+          "bytes": 4906,
+          "checksum_algorithm": "SHA-1",
+          "component": 1,
+          "date_created": "2023-10-18T07:50:38-0700",
+          "mime": "text/plain",
+          "name": "README-bindingdb_202310.txt",
+          "sha1": "b339c0b8890e5fe11b5242de431df1edd004f57d"
+        },
+        {
+          "bytes": 807670369,
+          "checksum_algorithm": "SHA-1",
+          "component": 2,
+          "date_created": "2023-10-18T07:50:50-0700",
+          "mime": "application/zip",
+          "name": "BDB-Oracle_All_202310_dmp.zip",
+          "sha1": "9b3962fc606c6be94df91a59479a5e50b76df45d"
+        },
+        {
+          "bytes": 828909825,
+          "checksum_algorithm": "SHA-1",
+          "component": 3,
+          "date_created": "2023-10-18T07:51:28-0700",
+          "mime": "application/zip",
+          "name": "BDB-mySQL_All_202310_dmp.zip",
+          "sha1": "13b8e6fe0c56a834d5bfa703146894ae344ad1f2"
+        },
+        {
+          "bytes": 471398593,
+          "checksum_algorithm": "SHA-1",
+          "component": 4,
+          "date_created": "2023-10-18T07:52:10-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_All_202310_tsv.zip",
+          "sha1": "df4a0f70a260b9465d1ef07f37155b831c90aaa1"
+        },
+        {
+          "bytes": 16473596,
+          "checksum_algorithm": "SHA-1",
+          "component": 5,
+          "date_created": "2023-10-18T07:52:39-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Articles_202310_tsv.zip",
+          "sha1": "d9ebb214adbe67de55e91d23632b3c33d6456858"
+        },
+        {
+          "bytes": 116745907,
+          "checksum_algorithm": "SHA-1",
+          "component": 6,
+          "date_created": "2023-10-18T07:52:44-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_Patents_202310_tsv.zip",
+          "sha1": "4a0f263bc6e1dca8520d1947517a106974082ed0"
+        },
+        {
+          "bytes": 224624,
+          "checksum_algorithm": "SHA-1",
+          "component": 7,
+          "date_created": "2023-10-18T07:53:18-0700",
+          "mime": "image/jpeg",
+          "name": "20775-bb6496315b-7-7.jpg",
+          "sha1": "471c9faa20c97327bb27da787d7119b9c87d2eb4"
+        }
+      ],
+      "format_counts": {
+        "application/pdf": 1,
+        "application/zip": 5,
+        "image/jpeg": 1,
+        "text/plain": 1
+      },
+      "landing_url": "https://library.ucsd.edu/dc/object/bb6496315b",
+      "license": [
+        "Creative Commons Attribution 4.0 International"
+      ],
+      "license_uri": [
+        "https://creativecommons.org/licenses/by/4.0/legalcode"
+      ],
+      "measurement_file": {
+        "bytes": 471398593,
+        "checksum_algorithm": "SHA-1",
+        "component": 4,
+        "date_created": "2023-10-18T07:52:10-0700",
+        "mime": "application/zip",
+        "name": "BindingDB_All_202310_tsv.zip",
+        "sha1": "df4a0f70a260b9465d1ef07f37155b831c90aaa1"
+      },
+      "n_deposited_zip_files": 5,
+      "object_id": "bb6496315b",
+      "title": "BindingDB Dataset, October 1, 2023. In BindingDB: Measured Binding Data for Protein-Ligand and Other Molecular Systems",
+      "version_date": "2023-10-01"
+    },
+    {
+      "approx_measurements_millions": 2.6,
+      "approx_measurements_millions_note": "taken from the deposit's prose description ('about N million'), so it is rounded at source and carries unknown precision.",
+      "auxiliary_files_confirmed": {
+        "articles": true,
+        "assays": false,
+        "mysql_dump": true,
+        "patents": true,
+        "rsid_eaids": false,
+        "target_fasta": false
+      },
+      "bytes": 2286315662,
+      "checksums": {
+        "algorithm": "SHA-1",
+        "per_file": true
+      },
+      "doi": "10.6075/j0bp02zt",
+      "file_names": [
+        "README-bindingdb_202401.txt",
+        "BDB-Oracle_All_202401_dmp.zip",
+        "BDB-mySQL_All_202401_dmp.zip",
+        "BindingDB_All_202401_tsv.zip",
+        "BindingDB_BindingDB_Articles_202401_tsv.zip",
+        "BindingDB_BindingDB_Patents_202401_tsv.zip",
+        "20775-bb73840168-7-7.jpg"
+      ],
+      "files": [
+        {
+          "bytes": 4906,
+          "checksum_algorithm": "SHA-1",
+          "component": 1,
+          "date_created": "2024-01-10T03:30:14-0800",
+          "mime": "text/plain",
+          "name": "README-bindingdb_202401.txt",
+          "sha1": "ad7ea0cf692a03643caf98436e141b9776b0e423"
+        },
+        {
+          "bytes": 820578820,
+          "checksum_algorithm": "SHA-1",
+          "component": 2,
+          "date_created": "2024-01-10T03:30:28-0800",
+          "mime": "application/zip",
+          "name": "BDB-Oracle_All_202401_dmp.zip",
+          "sha1": "4e364b15e2a5bc7c9917cf3ce523b0040520e930"
+        },
+        {
+          "bytes": 850350603,
+          "checksum_algorithm": "SHA-1",
+          "component": 3,
+          "date_created": "2024-01-10T03:31:07-0800",
+          "mime": "application/zip",
+          "name": "BDB-mySQL_All_202401_dmp.zip",
+          "sha1": "7e782f2733dec17575a1e3035fdcc2b8b4ab4ebb"
+        },
+        {
+          "bytes": 478618524,
+          "checksum_algorithm": "SHA-1",
+          "component": 4,
+          "date_created": "2024-01-10T03:32:04-0800",
+          "mime": "application/zip",
+          "name": "BindingDB_All_202401_tsv.zip",
+          "sha1": "7aa3a2f958a924730990efa368ae32ccf0147ee2"
+        },
+        {
+          "bytes": 17290106,
+          "checksum_algorithm": "SHA-1",
+          "component": 5,
+          "date_created": "2024-01-10T03:32:34-0800",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Articles_202401_tsv.zip",
+          "sha1": "0c2cff791cfa5db0555e6008d7a11a3b414732cf"
+        },
+        {
+          "bytes": 119248079,
+          "checksum_algorithm": "SHA-1",
+          "component": 6,
+          "date_created": "2024-01-10T03:32:41-0800",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Patents_202401_tsv.zip",
+          "sha1": "3a1ad1058ae674e99d749a4076cc2d6c623261fc"
+        },
+        {
+          "bytes": 224624,
+          "checksum_algorithm": "SHA-1",
+          "component": 7,
+          "date_created": "2024-01-10T03:33:24-0800",
+          "mime": "image/jpeg",
+          "name": "20775-bb73840168-7-7.jpg",
+          "sha1": "471c9faa20c97327bb27da787d7119b9c87d2eb4"
+        }
+      ],
+      "format_counts": {
+        "application/pdf": 1,
+        "application/zip": 5,
+        "image/jpeg": 1,
+        "text/plain": 1
+      },
+      "landing_url": "https://library.ucsd.edu/dc/object/bb73840168",
+      "license": [
+        "Creative Commons Attribution 4.0 International"
+      ],
+      "license_uri": [
+        "https://creativecommons.org/licenses/by/4.0/legalcode"
+      ],
+      "measurement_file": {
+        "bytes": 478618524,
+        "checksum_algorithm": "SHA-1",
+        "component": 4,
+        "date_created": "2024-01-10T03:32:04-0800",
+        "mime": "application/zip",
+        "name": "BindingDB_All_202401_tsv.zip",
+        "sha1": "7aa3a2f958a924730990efa368ae32ccf0147ee2"
+      },
+      "n_deposited_zip_files": 5,
+      "object_id": "bb73840168",
+      "title": "BindingDB Dataset, January 1, 2024. In BindingDB: Measured Binding Data for Protein-Ligand and Other Molecular Systems",
+      "version_date": "2024-01-01"
+    },
+    {
+      "approx_measurements_millions": 2.6,
+      "approx_measurements_millions_note": "taken from the deposit's prose description ('about N million'), so it is rounded at source and carries unknown precision.",
+      "auxiliary_files_confirmed": {
+        "articles": true,
+        "assays": false,
+        "mysql_dump": true,
+        "patents": true,
+        "rsid_eaids": false,
+        "target_fasta": false
+      },
+      "bytes": 2310205844,
+      "checksums": {
+        "algorithm": "SHA-1",
+        "per_file": true
+      },
+      "doi": "10.6075/j0ks6rrw",
+      "file_names": [
+        "README-bindingdb_202404.txt",
+        "BDB-Oracle_All_202404_dmp.zip",
+        "BDB-mySQL_All_202404_dmp.zip",
+        "BindingDB_All_202404_tsv.zip",
+        "BindingDB_BindingDB_Articles_202404_tsv.zip",
+        "BindingDB_BindingDB_Patents_202404_tsv.zip",
+        "20775-bb1479731z-7-7.jpg"
+      ],
+      "files": [
+        {
+          "bytes": 4900,
+          "checksum_algorithm": "SHA-1",
+          "component": 1,
+          "date_created": "2024-04-03T01:57:36-0700",
+          "mime": "text/plain",
+          "name": "README-bindingdb_202404.txt",
+          "sha1": "6a2509dd06b1107126d603f075b94d7df6919c40"
+        },
+        {
+          "bytes": 831012764,
+          "checksum_algorithm": "SHA-1",
+          "component": 2,
+          "date_created": "2024-04-03T01:57:47-0700",
+          "mime": "application/zip",
+          "name": "BDB-Oracle_All_202404_dmp.zip",
+          "sha1": "957a8e064359d3082258ec7996102b1c4ad3e412"
+        },
+        {
+          "bytes": 857548366,
+          "checksum_algorithm": "SHA-1",
+          "component": 3,
+          "date_created": "2024-04-03T01:58:27-0700",
+          "mime": "application/zip",
+          "name": "BDB-mySQL_All_202404_dmp.zip",
+          "sha1": "9d0145af301ef1d768ec50c769b0dbfc14162d94"
+        },
+        {
+          "bytes": 482185183,
+          "checksum_algorithm": "SHA-1",
+          "component": 4,
+          "date_created": "2024-04-03T01:59:11-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_All_202404_tsv.zip",
+          "sha1": "ba8653828c60aeeca3c91fc0b1dec54b451e73ca"
+        },
+        {
+          "bytes": 17304281,
+          "checksum_algorithm": "SHA-1",
+          "component": 5,
+          "date_created": "2024-04-03T01:59:37-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Articles_202404_tsv.zip",
+          "sha1": "ddd86754477de0128a8005f3e1953626b95d4d1f"
+        },
+        {
+          "bytes": 121930628,
+          "checksum_algorithm": "SHA-1",
+          "component": 6,
+          "date_created": "2024-04-03T01:59:42-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Patents_202404_tsv.zip",
+          "sha1": "277aeb0da2594841e62055f0226356bd36a8047c"
+        },
+        {
+          "bytes": 219722,
+          "checksum_algorithm": "SHA-1",
+          "component": 7,
+          "date_created": "2024-04-03T02:00:14-0700",
+          "mime": "image/jpeg",
+          "name": "20775-bb1479731z-7-7.jpg",
+          "sha1": "38d08d6883b69bc87e3407e0c2055fb6810b1082"
+        }
+      ],
+      "format_counts": {
+        "application/pdf": 1,
+        "application/zip": 5,
+        "image/jpeg": 1,
+        "text/plain": 1
+      },
+      "landing_url": "https://library.ucsd.edu/dc/object/bb1479731z",
+      "license": [
+        "Creative Commons Attribution 4.0 International"
+      ],
+      "license_uri": [
+        "https://creativecommons.org/licenses/by/4.0/legalcode"
+      ],
+      "measurement_file": {
+        "bytes": 482185183,
+        "checksum_algorithm": "SHA-1",
+        "component": 4,
+        "date_created": "2024-04-03T01:59:11-0700",
+        "mime": "application/zip",
+        "name": "BindingDB_All_202404_tsv.zip",
+        "sha1": "ba8653828c60aeeca3c91fc0b1dec54b451e73ca"
+      },
+      "n_deposited_zip_files": 5,
+      "object_id": "bb1479731z",
+      "title": "BindingDB Dataset, April 1, 2024. In BindingDB: Measured Binding Data for Protein-Ligand and Other Molecular Systems",
+      "version_date": "2024-04-01"
+    },
+    {
+      "approx_measurements_millions": 2.6,
+      "approx_measurements_millions_note": "taken from the deposit's prose description ('about N million'), so it is rounded at source and carries unknown precision.",
+      "auxiliary_files_confirmed": {
+        "articles": true,
+        "assays": false,
+        "mysql_dump": true,
+        "patents": true,
+        "rsid_eaids": false,
+        "target_fasta": false
+      },
+      "bytes": 2309487257,
+      "checksums": {
+        "algorithm": "SHA-1",
+        "per_file": true
+      },
+      "doi": "10.6075/j0902413",
+      "file_names": [
+        "README-bindingdb_202407.txt",
+        "BDB-Oracle_All_202407_dmp.zip",
+        "BDB-mySQL_All_202407_dmp.zip",
+        "BindingDB_All_202407_tsv.zip",
+        "BindingDB_BindingDB_Articles_202407_tsv.zip",
+        "BindingDB_BindingDB_Patents_202407_tsv.zip",
+        "20775-bb83743392-7-7.jpg"
+      ],
+      "files": [
+        {
+          "bytes": 4898,
+          "checksum_algorithm": "SHA-1",
+          "component": 1,
+          "date_created": "2024-07-08T07:57:21-0700",
+          "mime": "text/plain",
+          "name": "README-bindingdb_202407.txt",
+          "sha1": "e2971b0e3ad2040cc3b2669ae0c257b93be61e71"
+        },
+        {
+          "bytes": 851438391,
+          "checksum_algorithm": "SHA-1",
+          "component": 2,
+          "date_created": "2024-07-08T07:57:35-0700",
+          "mime": "application/zip",
+          "name": "BDB-Oracle_All_202407_dmp.zip",
+          "sha1": "c8d0c48effab80e4866a12679328b49f37e12af9"
+        },
+        {
+          "bytes": 823492012,
+          "checksum_algorithm": "SHA-1",
+          "component": 3,
+          "date_created": "2024-07-08T07:58:19-0700",
+          "mime": "application/zip",
+          "name": "BDB-mySQL_All_202407_dmp.zip",
+          "sha1": "c1c51b5ba6d2cfedbb08379df95d583cb33dbe58"
+        },
+        {
+          "bytes": 491393291,
+          "checksum_algorithm": "SHA-1",
+          "component": 4,
+          "date_created": "2024-07-08T07:59:03-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_All_202407_tsv.zip",
+          "sha1": "269413ae6f1d8fdd8e2c775c563980a3e626601b"
+        },
+        {
+          "bytes": 17314296,
+          "checksum_algorithm": "SHA-1",
+          "component": 5,
+          "date_created": "2024-07-08T07:59:34-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Articles_202407_tsv.zip",
+          "sha1": "d00dde39b0e7e9b8fff5d41e8d97ebf843f7edb0"
+        },
+        {
+          "bytes": 125624647,
+          "checksum_algorithm": "SHA-1",
+          "component": 6,
+          "date_created": "2024-07-08T07:59:39-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Patents_202407_tsv.zip",
+          "sha1": "3fb2aad97d4bc8a95de8b90d28bee11577406b70"
+        },
+        {
+          "bytes": 219722,
+          "checksum_algorithm": "SHA-1",
+          "component": 7,
+          "date_created": "2024-07-08T08:00:15-0700",
+          "mime": "image/jpeg",
+          "name": "20775-bb83743392-7-7.jpg",
+          "sha1": "38d08d6883b69bc87e3407e0c2055fb6810b1082"
+        }
+      ],
+      "format_counts": {
+        "application/pdf": 1,
+        "application/zip": 5,
+        "image/jpeg": 1,
+        "text/plain": 1
+      },
+      "landing_url": "https://library.ucsd.edu/dc/object/bb83743392",
+      "license": [
+        "Creative Commons Attribution 4.0 International"
+      ],
+      "license_uri": [
+        "https://creativecommons.org/licenses/by/4.0/legalcode"
+      ],
+      "measurement_file": {
+        "bytes": 491393291,
+        "checksum_algorithm": "SHA-1",
+        "component": 4,
+        "date_created": "2024-07-08T07:59:03-0700",
+        "mime": "application/zip",
+        "name": "BindingDB_All_202407_tsv.zip",
+        "sha1": "269413ae6f1d8fdd8e2c775c563980a3e626601b"
+      },
+      "n_deposited_zip_files": 5,
+      "object_id": "bb83743392",
+      "title": "BindingDB Dataset, July 1, 2024. In BindingDB: Measured Binding Data for Protein-Ligand and Other Molecular Systems",
+      "version_date": "2024-07-01"
+    },
+    {
+      "approx_measurements_millions": 2.9,
+      "approx_measurements_millions_note": "taken from the deposit's prose description ('about N million'), so it is rounded at source and carries unknown precision.",
+      "auxiliary_files_confirmed": {
+        "articles": true,
+        "assays": false,
+        "mysql_dump": true,
+        "patents": true,
+        "rsid_eaids": false,
+        "target_fasta": false
+      },
+      "bytes": 2334018082,
+      "checksums": {
+        "algorithm": "SHA-1",
+        "per_file": true
+      },
+      "doi": "10.6075/j0xg9rgf",
+      "file_names": [
+        "README-bindingdb_202410.txt",
+        "BDB-Oracle_All_202410_dmp.zip",
+        "BDB-mySQL_All_202410_dmp.zip",
+        "BindingDB_All_202410_tsv.zip",
+        "BindingDB_BindingDB_Articles_202410_tsv.zip",
+        "BindingDB_BindingDB_Patents_202410_tsv.zip",
+        "20775-bb4654545d-7-7.jpg"
+      ],
+      "files": [
+        {
+          "bytes": 4903,
+          "checksum_algorithm": "SHA-1",
+          "component": 1,
+          "date_created": "2024-10-02T07:29:44-0700",
+          "mime": "text/plain",
+          "name": "README-bindingdb_202410.txt",
+          "sha1": "cd64a3a6e477408ab604c75ba7ecad1f12b27bdd"
+        },
+        {
+          "bytes": 858130419,
+          "checksum_algorithm": "SHA-1",
+          "component": 2,
+          "date_created": "2024-10-02T07:30:27-0700",
+          "mime": "application/zip",
+          "name": "BDB-Oracle_All_202410_dmp.zip",
+          "sha1": "d80337b91703f4d9ac59f46513562a9c2a6ce426"
+        },
+        {
+          "bytes": 834135012,
+          "checksum_algorithm": "SHA-1",
+          "component": 3,
+          "date_created": "2024-10-02T07:32:00-0700",
+          "mime": "application/zip",
+          "name": "BDB-mySQL_All_202410_dmp.zip",
+          "sha1": "b1d6d8cebebfae0498082addbf41c2b633a8662a"
+        },
+        {
+          "bytes": 494971471,
+          "checksum_algorithm": "SHA-1",
+          "component": 4,
+          "date_created": "2024-10-02T07:33:20-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_All_202410_tsv.zip",
+          "sha1": "5e094d5002977b6269985f29e0ee0cc8ce7214d8"
+        },
+        {
+          "bytes": 17314327,
+          "checksum_algorithm": "SHA-1",
+          "component": 5,
+          "date_created": "2024-10-02T07:34:02-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Articles_202410_tsv.zip",
+          "sha1": "29380841aa3d7865b79b6863e968c4b4a9d5ebcf"
+        },
+        {
+          "bytes": 129242228,
+          "checksum_algorithm": "SHA-1",
+          "component": 6,
+          "date_created": "2024-10-02T07:34:10-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Patents_202410_tsv.zip",
+          "sha1": "773afd298494c4d4f3c771027393f2dcfc3930d9"
+        },
+        {
+          "bytes": 219722,
+          "checksum_algorithm": "SHA-1",
+          "component": 7,
+          "date_created": "2024-10-02T07:34:51-0700",
+          "mime": "image/jpeg",
+          "name": "20775-bb4654545d-7-7.jpg",
+          "sha1": "38d08d6883b69bc87e3407e0c2055fb6810b1082"
+        }
+      ],
+      "format_counts": {
+        "application/pdf": 1,
+        "application/zip": 5,
+        "image/jpeg": 1,
+        "text/plain": 1
+      },
+      "landing_url": "https://library.ucsd.edu/dc/object/bb4654545d",
+      "license": [
+        "Creative Commons Attribution 4.0 International"
+      ],
+      "license_uri": [
+        "https://creativecommons.org/licenses/by/4.0/legalcode"
+      ],
+      "measurement_file": {
+        "bytes": 494971471,
+        "checksum_algorithm": "SHA-1",
+        "component": 4,
+        "date_created": "2024-10-02T07:33:20-0700",
+        "mime": "application/zip",
+        "name": "BindingDB_All_202410_tsv.zip",
+        "sha1": "5e094d5002977b6269985f29e0ee0cc8ce7214d8"
+      },
+      "n_deposited_zip_files": 5,
+      "object_id": "bb4654545d",
+      "title": "BindingDB Dataset, October 1, 2024. In BindingDB: Measured Binding Data for Protein-Ligand and Other Molecular Systems",
+      "version_date": "2024-10-01"
+    },
+    {
+      "approx_measurements_millions": 3.0,
+      "approx_measurements_millions_note": "taken from the deposit's prose description ('about N million'), so it is rounded at source and carries unknown precision.",
+      "auxiliary_files_confirmed": {
+        "articles": true,
+        "assays": false,
+        "mysql_dump": true,
+        "patents": true,
+        "rsid_eaids": false,
+        "target_fasta": false
+      },
+      "bytes": 2372373905,
+      "checksums": {
+        "algorithm": "SHA-1",
+        "per_file": true
+      },
+      "doi": "10.6075/j06q1xm5",
+      "file_names": [
+        "README-bindingdb_202501.txt",
+        "BDB-Oracle_All_202501_dmp.zip",
+        "BDB-mySQL_All_202501_dmp.zip",
+        "BindingDB_All_202501_tsv.zip",
+        "BindingDB_BindingDB_Articles_202501_tsv.zip",
+        "BindingDB_Patents_202501_tsv.zip",
+        "20775-bb7999623d-7-7.jpg"
+      ],
+      "files": [
+        {
+          "bytes": 5133,
+          "checksum_algorithm": "SHA-1",
+          "component": 1,
+          "date_created": "2025-01-13T06:25:58-0800",
+          "mime": "text/plain",
+          "name": "README-bindingdb_202501.txt",
+          "sha1": "e5fdbd166e275a752faad7bab4be9b2f054c3ca4"
+        },
+        {
+          "bytes": 876832694,
+          "checksum_algorithm": "SHA-1",
+          "component": 2,
+          "date_created": "2025-01-13T06:26:44-0800",
+          "mime": "application/zip",
+          "name": "BDB-Oracle_All_202501_dmp.zip",
+          "sha1": "1942b2e7996e2b7732919bf612824f87facf75ef"
+        },
+        {
+          "bytes": 840972537,
+          "checksum_algorithm": "SHA-1",
+          "component": 3,
+          "date_created": "2025-01-13T06:28:34-0800",
+          "mime": "application/zip",
+          "name": "BDB-mySQL_All_202501_dmp.zip",
+          "sha1": "b7799a86032c5e0dae1d85abef775bc1d598abe4"
+        },
+        {
+          "bytes": 505797646,
+          "checksum_algorithm": "SHA-1",
+          "component": 4,
+          "date_created": "2025-01-13T06:30:25-0800",
+          "mime": "application/zip",
+          "name": "BindingDB_All_202501_tsv.zip",
+          "sha1": "e1fa6e051b8cdb44220b3eb05c302302b6931cfe"
+        },
+        {
+          "bytes": 17314331,
+          "checksum_algorithm": "SHA-1",
+          "component": 5,
+          "date_created": "2025-01-13T06:31:19-0800",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Articles_202501_tsv.zip",
+          "sha1": "224a9d9352c1b6f8e76fc4c8b896ec71364e1236"
+        },
+        {
+          "bytes": 131231842,
+          "checksum_algorithm": "SHA-1",
+          "component": 6,
+          "date_created": "2025-01-13T06:31:31-0800",
+          "mime": "application/zip",
+          "name": "BindingDB_Patents_202501_tsv.zip",
+          "sha1": "6c72cb9618c2e3c9b99cf5ad1ca9a31a1715b678"
+        },
+        {
+          "bytes": 219722,
+          "checksum_algorithm": "SHA-1",
+          "component": 7,
+          "date_created": "2025-01-13T06:32:21-0800",
+          "mime": "image/jpeg",
+          "name": "20775-bb7999623d-7-7.jpg",
+          "sha1": "38d08d6883b69bc87e3407e0c2055fb6810b1082"
+        }
+      ],
+      "format_counts": {
+        "application/pdf": 1,
+        "application/zip": 5,
+        "image/jpeg": 1,
+        "text/plain": 1
+      },
+      "landing_url": "https://library.ucsd.edu/dc/object/bb7999623d",
+      "license": [
+        "Creative Commons Attribution 4.0 International"
+      ],
+      "license_uri": [
+        "https://creativecommons.org/licenses/by/4.0/legalcode"
+      ],
+      "measurement_file": {
+        "bytes": 505797646,
+        "checksum_algorithm": "SHA-1",
+        "component": 4,
+        "date_created": "2025-01-13T06:30:25-0800",
+        "mime": "application/zip",
+        "name": "BindingDB_All_202501_tsv.zip",
+        "sha1": "e1fa6e051b8cdb44220b3eb05c302302b6931cfe"
+      },
+      "n_deposited_zip_files": 5,
+      "object_id": "bb7999623d",
+      "title": "BindingDB Dataset, January 1, 2025. In BindingDB: Measured Binding Data for Protein-Ligand and Other Molecular Systems",
+      "version_date": "2025-01-01"
+    },
+    {
+      "approx_measurements_millions": 3.0,
+      "approx_measurements_millions_note": "taken from the deposit's prose description ('about N million'), so it is rounded at source and carries unknown precision.",
+      "auxiliary_files_confirmed": {
+        "articles": true,
+        "assays": false,
+        "mysql_dump": true,
+        "patents": true,
+        "rsid_eaids": false,
+        "target_fasta": false
+      },
+      "bytes": 935808306,
+      "checksums": {
+        "algorithm": "SHA-1",
+        "per_file": true
+      },
+      "doi": "10.6075/j07s7p5q",
+      "file_names": [
+        "README-bindingdb_202504.txt",
+        "BDB-mySQL_All_202504_dmp.zip",
+        "BindingDB_All_202504_tsv.zip",
+        "BindingDB_BindingDB_Articles_202504_tsv.zip",
+        "BindingDB_Patents_202504_tsv.zip",
+        "20775-bb56447436-6-7.jpg"
+      ],
+      "files": [
+        {
+          "bytes": 4952,
+          "checksum_algorithm": "SHA-1",
+          "component": 1,
+          "date_created": "2025-04-02T10:24:25-0700",
+          "mime": "text/plain",
+          "name": "README-bindingdb_202504.txt",
+          "sha1": "d1310f9fe04b0e56a1961ccee5231410d9651c12"
+        },
+        {
+          "bytes": 277408821,
+          "checksum_algorithm": "SHA-1",
+          "component": 2,
+          "date_created": "2025-04-02T10:25:46-0700",
+          "mime": "application/zip",
+          "name": "BDB-mySQL_All_202504_dmp.zip",
+          "sha1": "3794a60415eedc23eeca66b0dab97736ab5e6f80"
+        },
+        {
+          "bytes": 507585174,
+          "checksum_algorithm": "SHA-1",
+          "component": 3,
+          "date_created": "2025-04-02T10:28:35-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_All_202504_tsv.zip",
+          "sha1": "2d6b46fc0b377f94356d5dcb5b04393fd065955b"
+        },
+        {
+          "bytes": 17314713,
+          "checksum_algorithm": "SHA-1",
+          "component": 4,
+          "date_created": "2025-04-02T10:31:02-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Articles_202504_tsv.zip",
+          "sha1": "8c4fb9d6cc140e17dbff51ca5c8005cffacac24e"
+        },
+        {
+          "bytes": 133274924,
+          "checksum_algorithm": "SHA-1",
+          "component": 5,
+          "date_created": "2025-04-02T10:31:47-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_Patents_202504_tsv.zip",
+          "sha1": "229324282a09219d6fe97ec0bb8c1ef5c9e3a26e"
+        },
+        {
+          "bytes": 219722,
+          "checksum_algorithm": "SHA-1",
+          "component": 6,
+          "date_created": "2025-04-02T10:34:21-0700",
+          "mime": "image/jpeg",
+          "name": "20775-bb56447436-6-7.jpg",
+          "sha1": "38d08d6883b69bc87e3407e0c2055fb6810b1082"
+        }
+      ],
+      "format_counts": {
+        "application/pdf": 1,
+        "application/zip": 4,
+        "image/jpeg": 1,
+        "text/plain": 1
+      },
+      "landing_url": "https://library.ucsd.edu/dc/object/bb56447436",
+      "license": [
+        "Creative Commons Attribution 4.0 International"
+      ],
+      "license_uri": [
+        "https://creativecommons.org/licenses/by/4.0/legalcode"
+      ],
+      "measurement_file": {
+        "bytes": 507585174,
+        "checksum_algorithm": "SHA-1",
+        "component": 3,
+        "date_created": "2025-04-02T10:28:35-0700",
+        "mime": "application/zip",
+        "name": "BindingDB_All_202504_tsv.zip",
+        "sha1": "2d6b46fc0b377f94356d5dcb5b04393fd065955b"
+      },
+      "n_deposited_zip_files": 4,
+      "object_id": "bb56447436",
+      "title": "BindingDB Dataset, April 1, 2025. In BindingDB: Measured Binding Data for Protein-Ligand and Other Molecular Systems",
+      "version_date": "2025-04-01"
+    },
+    {
+      "approx_measurements_millions": 3.0,
+      "approx_measurements_millions_note": "taken from the deposit's prose description ('about N million'), so it is rounded at source and carries unknown precision.",
+      "auxiliary_files_confirmed": {
+        "articles": true,
+        "assays": false,
+        "mysql_dump": true,
+        "patents": true,
+        "rsid_eaids": false,
+        "target_fasta": false
+      },
+      "bytes": 944169428,
+      "checksums": {
+        "algorithm": "SHA-1",
+        "per_file": true
+      },
+      "doi": "10.6075/j0vd6ztz",
+      "file_names": [
+        "README-bindingdb_202507.txt",
+        "BDB-mySQL_All_202507_dmp.zip",
+        "BindingDB_All_202507_tsv.zip",
+        "BindingDB_BindingDB_Articles_202507_tsv.zip",
+        "BindingDB_Patents_202507_tsv.zip",
+        "20775-bb8102782g-6-7.jpg"
+      ],
+      "files": [
+        {
+          "bytes": 15701,
+          "checksum_algorithm": "SHA-1",
+          "component": 1,
+          "date_created": "2025-07-10T06:52:48-0700",
+          "mime": "text/plain",
+          "name": "README-bindingdb_202507.txt",
+          "sha1": "89272d225a3f8ea9ecb8cb5b4e5053bed81f8441"
+        },
+        {
+          "bytes": 278756326,
+          "checksum_algorithm": "SHA-1",
+          "component": 2,
+          "date_created": "2025-07-10T06:52:54-0700",
+          "mime": "application/zip",
+          "name": "BDB-mySQL_All_202507_dmp.zip",
+          "sha1": "7dd94608d19ce94df52c55f7f899717505758115"
+        },
+        {
+          "bytes": 512338843,
+          "checksum_algorithm": "SHA-1",
+          "component": 3,
+          "date_created": "2025-07-10T06:53:14-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_All_202507_tsv.zip",
+          "sha1": "08b4d3dd88316bbc00b1a2e274e75e382202cfa8"
+        },
+        {
+          "bytes": 17633141,
+          "checksum_algorithm": "SHA-1",
+          "component": 4,
+          "date_created": "2025-07-10T06:53:44-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Articles_202507_tsv.zip",
+          "sha1": "754fdc639c234dd4f3a65d595eee7a1a8ac6a090"
+        },
+        {
+          "bytes": 135215559,
+          "checksum_algorithm": "SHA-1",
+          "component": 5,
+          "date_created": "2025-07-10T06:53:50-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_Patents_202507_tsv.zip",
+          "sha1": "5b819667ae9d5e4b4ca700ca4a85ba7278da593f"
+        },
+        {
+          "bytes": 209858,
+          "checksum_algorithm": "SHA-1",
+          "component": 6,
+          "date_created": "2025-07-10T06:54:21-0700",
+          "mime": "image/jpeg",
+          "name": "20775-bb8102782g-6-7.jpg",
+          "sha1": "da7173760a58af6143a231992b7f3aa0ef8cd204"
+        }
+      ],
+      "format_counts": {
+        "application/pdf": 1,
+        "application/zip": 4,
+        "image/jpeg": 1,
+        "text/plain": 1
+      },
+      "landing_url": "https://library.ucsd.edu/dc/object/bb8102782g",
+      "license": [
+        "Creative Commons Attribution 4.0 International"
+      ],
+      "license_uri": [
+        "https://creativecommons.org/licenses/by/4.0/legalcode"
+      ],
+      "measurement_file": {
+        "bytes": 512338843,
+        "checksum_algorithm": "SHA-1",
+        "component": 3,
+        "date_created": "2025-07-10T06:53:14-0700",
+        "mime": "application/zip",
+        "name": "BindingDB_All_202507_tsv.zip",
+        "sha1": "08b4d3dd88316bbc00b1a2e274e75e382202cfa8"
+      },
+      "n_deposited_zip_files": 4,
+      "object_id": "bb8102782g",
+      "title": "BindingDB Dataset, July 1, 2025. In BindingDB: Measured Binding Data for Protein-Ligand and Other Molecular Systems",
+      "version_date": "2025-07-01"
+    },
+    {
+      "approx_measurements_millions": 3.08,
+      "approx_measurements_millions_note": "taken from the deposit's prose description ('about N million'), so it is rounded at source and carries unknown precision.",
+      "auxiliary_files_confirmed": {
+        "articles": true,
+        "assays": false,
+        "mysql_dump": true,
+        "patents": true,
+        "rsid_eaids": false,
+        "target_fasta": false
+      },
+      "bytes": 952391243,
+      "checksums": {
+        "algorithm": "SHA-1",
+        "per_file": true
+      },
+      "doi": "10.6075/j04q7vzg",
+      "file_names": [
+        "README-bindingdb_202510.txt",
+        "BDB-mySQL_All_202510_dmp.zip",
+        "BindingDB_All_202510_tsv.zip",
+        "BindingDB_BindingDB_Articles_202510_tsv.zip",
+        "BindingDB_Patents_202510_tsv.zip",
+        "20775-bb56118946-6-7.jpg"
+      ],
+      "files": [
+        {
+          "bytes": 14454,
+          "checksum_algorithm": "SHA-1",
+          "component": 1,
+          "date_created": "2025-10-06T02:55:43-0700",
+          "mime": "text/plain",
+          "name": "README-bindingdb_202510.txt",
+          "sha1": "a54ff98fcfab7a39b08ee8ad5ec220bfbf9dd2e5"
+        },
+        {
+          "bytes": 280245519,
+          "checksum_algorithm": "SHA-1",
+          "component": 2,
+          "date_created": "2025-10-06T02:55:48-0700",
+          "mime": "application/zip",
+          "name": "BDB-mySQL_All_202510_dmp.zip",
+          "sha1": "27a009b862eccb97090a3ed3ff6500d9507d14e5"
+        },
+        {
+          "bytes": 515692597,
+          "checksum_algorithm": "SHA-1",
+          "component": 3,
+          "date_created": "2025-10-06T02:56:05-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_All_202510_tsv.zip",
+          "sha1": "d198938659dae0ba6894fba6048c34cf4f50a9b4"
+        },
+        {
+          "bytes": 17254733,
+          "checksum_algorithm": "SHA-1",
+          "component": 4,
+          "date_created": "2025-10-06T02:56:33-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Articles_202510_tsv.zip",
+          "sha1": "b3405e36750d7c28d4dfedd373b18fa74ffc0df5"
+        },
+        {
+          "bytes": 138975039,
+          "checksum_algorithm": "SHA-1",
+          "component": 5,
+          "date_created": "2025-10-06T02:56:38-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_Patents_202510_tsv.zip",
+          "sha1": "963c96206af3b4e94767712ac665753da5da6738"
+        },
+        {
+          "bytes": 208901,
+          "checksum_algorithm": "SHA-1",
+          "component": 6,
+          "date_created": "2025-10-06T02:57:09-0700",
+          "mime": "image/jpeg",
+          "name": "20775-bb56118946-6-7.jpg",
+          "sha1": "87b29dde96a4672573975b22f23745952f798097"
+        }
+      ],
+      "format_counts": {
+        "application/pdf": 1,
+        "application/zip": 4,
+        "image/jpeg": 1,
+        "text/plain": 1
+      },
+      "landing_url": "https://library.ucsd.edu/dc/object/bb56118946",
+      "license": [
+        "Creative Commons Attribution 4.0 International"
+      ],
+      "license_uri": [
+        "https://creativecommons.org/licenses/by/4.0/legalcode"
+      ],
+      "measurement_file": {
+        "bytes": 515692597,
+        "checksum_algorithm": "SHA-1",
+        "component": 3,
+        "date_created": "2025-10-06T02:56:05-0700",
+        "mime": "application/zip",
+        "name": "BindingDB_All_202510_tsv.zip",
+        "sha1": "d198938659dae0ba6894fba6048c34cf4f50a9b4"
+      },
+      "n_deposited_zip_files": 4,
+      "object_id": "bb56118946",
+      "title": "BindingDB Dataset, October 1, 2025. In BindingDB: Measured Binding Data for Protein-Ligand and Other Molecular Systems",
+      "version_date": "2025-10-01"
+    },
+    {
+      "approx_measurements_millions": 3.18,
+      "approx_measurements_millions_note": "taken from the deposit's prose description ('about N million'), so it is rounded at source and carries unknown precision.",
+      "auxiliary_files_confirmed": {
+        "articles": true,
+        "assays": true,
+        "mysql_dump": true,
+        "patents": true,
+        "rsid_eaids": true,
+        "target_fasta": false
+      },
+      "bytes": 1053808184,
+      "checksums": {
+        "algorithm": "SHA-1",
+        "per_file": true
+      },
+      "doi": "10.6075/j0v40w61",
+      "file_names": [
+        "README-bindingdb_202601.txt",
+        "BDB-mySQL_All_202601_dmp.zip",
+        "BindingDB_All_202601_tsv.zip",
+        "BindingDB_BindingDB_Articles_202601_tsv.zip",
+        "BindingDB_Patents_202601_tsv.zip",
+        "BindingDB_Assays_202601_tsv.zip",
+        "BindingDB_rsid_eaids_202601_tsv.zip",
+        "20775-bb6055793n-8-7.jpg"
+      ],
+      "files": [
+        {
+          "bytes": 11583,
+          "checksum_algorithm": "SHA-1",
+          "component": 1,
+          "date_created": "2026-01-13T07:07:18-0800",
+          "mime": "text/plain",
+          "name": "README-bindingdb_202601.txt",
+          "sha1": "409d7343e5178a395f1bc86d35772640e5587b89"
+        },
+        {
+          "bytes": 288277149,
+          "checksum_algorithm": "SHA-1",
+          "component": 2,
+          "date_created": "2026-01-13T07:07:24-0800",
+          "mime": "application/zip",
+          "name": "BDB-mySQL_All_202601_dmp.zip",
+          "sha1": "e54d519414667dfe039ed734a85561822216e24f"
+        },
+        {
+          "bytes": 571717360,
+          "checksum_algorithm": "SHA-1",
+          "component": 3,
+          "date_created": "2026-01-13T07:07:40-0800",
+          "mime": "application/zip",
+          "name": "BindingDB_All_202601_tsv.zip",
+          "sha1": "ac9ac1c4fd2f8ffb814f34b45b9c73899741bb29"
+        },
+        {
+          "bytes": 18903760,
+          "checksum_algorithm": "SHA-1",
+          "component": 4,
+          "date_created": "2026-01-13T07:08:13-0800",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Articles_202601_tsv.zip",
+          "sha1": "e14c5874425792695125a9ebd6e08c390af92a95"
+        },
+        {
+          "bytes": 156921627,
+          "checksum_algorithm": "SHA-1",
+          "component": 5,
+          "date_created": "2026-01-13T07:08:18-0800",
+          "mime": "application/zip",
+          "name": "BindingDB_Patents_202601_tsv.zip",
+          "sha1": "e587cb36e33a4321d9550909916c7475789cef0f"
+        },
+        {
+          "bytes": 10384151,
+          "checksum_algorithm": "SHA-1",
+          "component": 6,
+          "date_created": "2026-01-13T07:08:31-0800",
+          "mime": "application/zip",
+          "name": "BindingDB_Assays_202601_tsv.zip",
+          "sha1": "6959a286ae0375b90d5e6c639f1d58f683c83e7f"
+        },
+        {
+          "bytes": 7377798,
+          "checksum_algorithm": "SHA-1",
+          "component": 7,
+          "date_created": "2026-01-13T07:08:34-0800",
+          "mime": "application/zip",
+          "name": "BindingDB_rsid_eaids_202601_tsv.zip",
+          "sha1": "1407285665d30be37cb2ba3e493e2ed1d45d80af"
+        },
+        {
+          "bytes": 214756,
+          "checksum_algorithm": "SHA-1",
+          "component": 8,
+          "date_created": "2026-01-13T07:08:55-0800",
+          "mime": "image/jpeg",
+          "name": "20775-bb6055793n-8-7.jpg",
+          "sha1": "df1e41c855ce8f162fd690b12f7317906eec8afe"
+        }
+      ],
+      "format_counts": {
+        "application/pdf": 1,
+        "application/zip": 6,
+        "image/jpeg": 1,
+        "text/plain": 1
+      },
+      "landing_url": "https://library.ucsd.edu/dc/object/bb6055793n",
+      "license": [
+        "Creative Commons Attribution 4.0 International"
+      ],
+      "license_uri": [
+        "https://creativecommons.org/licenses/by/4.0/legalcode"
+      ],
+      "measurement_file": {
+        "bytes": 571717360,
+        "checksum_algorithm": "SHA-1",
+        "component": 3,
+        "date_created": "2026-01-13T07:07:40-0800",
+        "mime": "application/zip",
+        "name": "BindingDB_All_202601_tsv.zip",
+        "sha1": "ac9ac1c4fd2f8ffb814f34b45b9c73899741bb29"
+      },
+      "n_deposited_zip_files": 6,
+      "object_id": "bb6055793n",
+      "title": "BindingDB Dataset, January 1, 2026. In BindingDB: Measured Binding Data for Protein-Ligand and Other Molecular Systems",
+      "version_date": "2026-01-01"
+    },
+    {
+      "approx_measurements_millions": 3.22,
+      "approx_measurements_millions_note": "taken from the deposit's prose description ('about N million'), so it is rounded at source and carries unknown precision.",
+      "auxiliary_files_confirmed": {
+        "articles": true,
+        "assays": true,
+        "mysql_dump": true,
+        "patents": true,
+        "rsid_eaids": true,
+        "target_fasta": false
+      },
+      "bytes": 1087496300,
+      "checksums": {
+        "algorithm": "SHA-1",
+        "per_file": true
+      },
+      "doi": "10.6075/j06m37t9",
+      "file_names": [
+        "README-bindingdb_202607.txt",
+        "BDB-mySQL_All_202607_dmp.zip",
+        "BindingDB_All_202607_tsv.zip",
+        "BindingDB_BindingDB_Articles_202607_tsv.zip",
+        "BindingDB_Patents_202607_tsv.zip",
+        "BindingDB_Assays_202607_tsv.zip",
+        "BindingDB_rsid_eaids_202607_tsv.zip",
+        "20775-bb54426945-8-7.jpg"
+      ],
+      "files": [
+        {
+          "bytes": 162051,
+          "checksum_algorithm": "SHA-1",
+          "component": 1,
+          "date_created": "2026-07-02T10:45:04-0700",
+          "mime": "text/plain",
+          "name": "README-bindingdb_202607.txt",
+          "sha1": "3564e0a80cfd8f4509c9949cfa2e96ea75e1e877"
+        },
+        {
+          "bytes": 275423655,
+          "checksum_algorithm": "SHA-1",
+          "component": 2,
+          "date_created": "2026-07-02T10:45:10-0700",
+          "mime": "application/zip",
+          "name": "BDB-mySQL_All_202607_dmp.zip",
+          "sha1": "19cbed4851c74bb41837cac4a2768b54257f5671"
+        },
+        {
+          "bytes": 601012750,
+          "checksum_algorithm": "SHA-1",
+          "component": 3,
+          "date_created": "2026-07-02T10:45:28-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_All_202607_tsv.zip",
+          "sha1": "6542ab12e6129de2e796b785c1d104bb7dbd8912"
+        },
+        {
+          "bytes": 18114757,
+          "checksum_algorithm": "SHA-1",
+          "component": 4,
+          "date_created": "2026-07-02T10:46:03-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_BindingDB_Articles_202607_tsv.zip",
+          "sha1": "c582ca8168c4ff694a92684f250b0d677c22c95b"
+        },
+        {
+          "bytes": 175001352,
+          "checksum_algorithm": "SHA-1",
+          "component": 5,
+          "date_created": "2026-07-02T10:46:09-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_Patents_202607_tsv.zip",
+          "sha1": "b2f75a6069f7991f6e375f3a0ee05d085f4fbbee"
+        },
+        {
+          "bytes": 10045190,
+          "checksum_algorithm": "SHA-1",
+          "component": 6,
+          "date_created": "2026-07-02T10:46:24-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_Assays_202607_tsv.zip",
+          "sha1": "95571fee392c4cf0c47f7808e8106e39d8b97892"
+        },
+        {
+          "bytes": 7521789,
+          "checksum_algorithm": "SHA-1",
+          "component": 7,
+          "date_created": "2026-07-02T10:46:26-0700",
+          "mime": "application/zip",
+          "name": "BindingDB_rsid_eaids_202607_tsv.zip",
+          "sha1": "d8bb7cd4555ce7c30feb912427b7a4c4aed17aae"
+        },
+        {
+          "bytes": 214756,
+          "checksum_algorithm": "SHA-1",
+          "component": 8,
+          "date_created": "2026-07-02T10:46:46-0700",
+          "mime": "image/jpeg",
+          "name": "20775-bb54426945-8-7.jpg",
+          "sha1": "df1e41c855ce8f162fd690b12f7317906eec8afe"
+        }
+      ],
+      "format_counts": {
+        "application/pdf": 1,
+        "application/zip": 6,
+        "image/jpeg": 1,
+        "text/plain": 1
+      },
+      "landing_url": "https://library.ucsd.edu/dc/object/bb54426945",
+      "license": [
+        "Creative Commons Attribution 4.0 International"
+      ],
+      "license_uri": [
+        "https://creativecommons.org/licenses/by/4.0/legalcode"
+      ],
+      "measurement_file": {
+        "bytes": 601012750,
+        "checksum_algorithm": "SHA-1",
+        "component": 3,
+        "date_created": "2026-07-02T10:45:28-0700",
+        "mime": "application/zip",
+        "name": "BindingDB_All_202607_tsv.zip",
+        "sha1": "6542ab12e6129de2e796b785c1d104bb7dbd8912"
+      },
+      "n_deposited_zip_files": 6,
+      "object_id": "bb54426945",
+      "title": "BindingDB Dataset, July 1, 2026. In BindingDB: Measured Binding Data for Protein-Ligand and Other Molecular Systems",
+      "version_date": "2026-07-01"
+    }
+  ],
+  "revised_at": "2026-10-02T16:45:42.624788+00:00",
+  "revision_note": "v3 resolves the access blocker. The UCSD DAMS object endpoint `/dc/object/<id>.json` is public and returns per-file listings: source file names, byte sizes, SHA-1 digests and component ids. No access control was bypassed and no message was sent. Per-deposit sizes, checksums, file names and auxiliary-file availability move from unresolved to recorded.",
+  "sources": {
+    "archival_mechanism_citation": "BindingDB in 2024, Nucleic Acids Research, PMC11701568",
+    "collection_doi": "10.6075/j0hd7vvf",
+    "collection_landing": "https://library.ucsd.edu/dc/collection/bb03870458",
+    "datacite_api": "https://api.datacite.org/dois?query=prefix:10.6075+AND+titles.title:%22BindingDB+Dataset%22",
+    "monthly_download_page": "https://www.bindingdb.org/rwd/bind/chemsearch/marvin/SDFdownload.jsp?all_download=yes"
+  },
+  "unresolved_fields": {
+    "2026-04-01": "not found by the recorded DataCite search. Whether it exists is unknown; see cadence_observations.",
+    "ki_share_across_releases": "unmeasured. The 19.2% Ki share is from our single 202609 corpus and is assumed, not observed, for any other release.",
+    "release_specific_licensing": "every deposit's DataCite record declares CC BY 4.0 at deposit level. The ChEMBL-derived CC BY-SA 3.0 carve-out described in the literature is not broken out per deposit, and the per-deposit README (component 1) was not downloaded, so whether it states a different or more specific grant is unverified.",
+    "sha256": "the archive publishes SHA-1 only. Our pipeline pins SHA-256, so a downloaded deposit must be verified against SHA-1 on arrival and re-digested to SHA-256 for our own manifests.",
+    "zip_member_listings": "sizes and digests are for the ZIP files as deposited. What is inside each archive is still not described by this metadata; member names are assumed from the filename convention, not observed."
+  }
+}

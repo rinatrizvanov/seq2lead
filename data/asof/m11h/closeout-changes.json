@@ -1,0 +1,115 @@
+{
+  "deliberate_report_changes": [
+    {
+      "after": "B4's higher observed mean (0.788873 against 0.781229, a difference of 0.007644 in B4's favour) is reported, with per-seed ranges, and the report states that NO paired target-level uncertainty analysis was performed, so nothing establishes whether the difference is distinguishable from noise.",
+      "before": "'a gap of 0.0076, which is smaller than the seed spread itself ... so the honest reading is matched, not beaten either way'",
+      "change": "the joint-model comparison no longer claims equivalence",
+      "id": "C1",
+      "why": "seed spread is observed training variation across five fits. Comparing a between-model difference to it does not test anything, so using it to call two models equivalent was unsupported."
+    },
+    {
+      "after": "B3L-ligand-1nn is a TARGET-CONDITIONED chemical nearest-neighbour lookup: it chooses its neighbour among the compounds measured against this target in training, so target identity is an input. B1-ligand-ecfp4-lgbm is the only ligand-only model.",
+      "before": "'B1 and B3L are ligand-only'",
+      "change": "B3L is described by what it conditions on",
+      "id": "C2",
+      "why": "the earlier description was factually wrong about the model's inputs."
+    },
+    {
+      "after": "the margin is reported as a difference between models that differ in more than one way at once (protein features, joint treatment of both modalities, end-to-end training). No ablation holding the rest fixed was run, so the margin is consistent with protein features contributing and does not establish it.",
+      "before": "'the joint models' margin over them is the only evidence here that protein information contributed at all'",
+      "change": "the joint-versus-baseline margin is no longer attributed to protein features",
+      "id": "C3",
+      "why": "a multi-factor difference cannot isolate one factor."
+    },
+    {
+      "after": "measured from the prediction arrays: no family's seeds produced identical predictions. B1 differs by up to 8.96e-05 pKi and B2 by up to 1.049 pKi, with every one of 26,444 rows differing. Identical ranking metrics, identical predictions and identical fits are reported as three separate questions. B2's metrics are pinned at exactly 0.5 because its score is constant within all 1,041 targets, so every ranking is all-tied -- a structural property of the metric, not an agreement between fits. The cause of the between-seed differences is recorded as UNRESOLVED.",
+      "before": "'B1 and B2 are seed-invariant in practice ... the five seeds are five identical fits ... their seed SD of 0 is by construction, not by luck'",
+      "change": "the seed-invariance claim is withdrawn and replaced by measurements",
+      "id": "C4",
+      "why": "the claim was inferred from identical ranking metrics without examining the prediction arrays. The inference does not hold."
+    },
+    {
+      "after": "the strata are labelled as different evaluation populations, differing in size, target composition and exposure to fitting, with the scored-target count printed beside every figure. The B3L contrast is given as a plausible reading rather than a measured decomposition.",
+      "before": "'This gap is the whole reason the strata are kept apart ... a drop of 0.2957', presented as one model's performance falling",
+      "change": "between-stratum comparisons are labelled as population contrasts",
+      "id": "C5",
+      "why": "the populations differ in several ways at once, so the difference between them is not attributable to exposure alone."
+    },
+    {
+      "after": "scripts/asof/ holds the scripts as run, verbatim, with provenance and digests; seq2lead.asof.recompute and seq2lead.asof.verify_results are supported entry points that verify the artifacts, check prediction-to-pair alignment and regenerate the results and the report without fitting.",
+      "before": "the scoring and fitting code lived only in a session scratchpad",
+      "change": "the execution code and a recomputation entry point are in the repository",
+      "id": "C6",
+      "why": "a published result whose code is not preserved cannot be reproduced."
+    },
+    {
+      "after": "verify_and_load() verifies the consumed evaluation table against the digest the fit recorded, so a change to labels, strata, eligibility or branch membership refuses. A verification record carries the digests it was computed against; publication re-derives them and refuses any drift, so a stale PASSED record authorises nothing. The publisher carries the fit's recorded digests over unchanged and hashes only the derived outputs; a version bump is explicit and preserves the manifest it supersedes. The byte-identical check now compares fresh scoring against the PUBLISHED results.json rather than against a second fresh scoring call.",
+      "before": "one call did all three. verify_and_load() checked only the pair column of evaluation-pairs.jsonl, so a table whose LABELS changed was accepted provided pair identities and order were preserved; write_report() then rendered PASSED from whatever verification.json happened to be on disk; and the manifest writer recomputed every artifact digest, writing the tampered table's new value in.",
+      "change": "recomputation, verification and publication are three separate gates, and the publisher no longer refreshes the digests it is meant to check",
+      "id": "C7",
+      "why": "a verification that does not cover what is consumed, and a publisher that rewrites the values it is checking, together let an altered input reach a published report and then disappear from the record. Reproduced before fixing: flipping 400 labels moved the published dual-encoder AUROC from 0.783697 to 0.756850 and was accepted, published as PASSED, and registered in the manifest."
+    }
+  ],
+  "not_done": [
+    "no refitting, retuning, feature rebuild, docking or download",
+    "no paired target-level uncertainty analysis -- stated as absent, not performed",
+    "no refit to investigate the seed differences, so their cause stays unresolved",
+    "no paired uncertainty analysis, no refit to resolve the seed-difference cause, and no change to any prediction, fitted artifact or scientific conclusion"
+  ],
+  "numerical_changes": {
+    "any": false,
+    "corrected_figures": [
+      {
+        "after": "3.600e-07",
+        "before": "0.0000",
+        "cause": "not a different computation: round(sd, 6) printed a true SD of 3.6e-07 as 0.0, and that zero was then read as the seeds having produced identical fits",
+        "figure": "B1-ligand-ecfp4-lgbm seed SD on the headline AUROC"
+      }
+    ],
+    "newly_reported_measurements": [
+      "per-family prediction differences between seeds (max/mean absolute delta in pKi, rows differing, bit-identity) -- measured from the saved arrays, which the first report did not examine",
+      "seed standard deviations at full precision instead of round(sd, 6)",
+      "scored-target counts beside every between-population comparison",
+      "observed per-seed AUROC ranges for the two joint models",
+      "the verification record's `bound_to` digests, and which checks did not run because a file was absent (named individually rather than counted as checked)"
+    ],
+    "predictions_sha256": "9c3f7c85deafbe1aa87fa01c96add3821c44b1e2ffdefb8e6c030859b2df0503",
+    "predictions_unchanged": true,
+    "statement": "NO number produced by a fit changed. The prediction arrays are the original ones, verified against the digest the fit recorded; nothing was refitted, retuned or rebuilt. Every metric in the corrected report is recomputed from those same arrays by seq2lead.asof.recompute."
+  },
+  "preserved": {
+    "accepted_caches_and_extensions": "unchanged, digests re-verified",
+    "checkpoints": "untouched",
+    "historical_manifests": [
+      "configs/manifests/m11f_preflight.json",
+      "configs/manifests/m11g_preflight.json"
+    ],
+    "predictions": "original arrays, digest verified",
+    "qualifications": "exploratory, provisional pooling, unsigned freeze all intact",
+    "run_manifest": "untouched -- it is the fit's own record",
+    "training_records": "untouched"
+  },
+  "record": "m11h-closeout-changes-v2",
+  "reproduced_before_fixing": {
+    "hole_1_label_tamper": {
+      "accepted_by_verify_and_load": true,
+      "auroc_after_tamper": 0.75685,
+      "labels_flipped": 400,
+      "moved_by": 0.026847,
+      "pair_order_preserved": true,
+      "published_auroc_dual_encoder_seed20260930": 0.783697,
+      "row_count_preserved": true
+    },
+    "hole_2_stale_passed": {
+      "manifest_digests_relaunder": {
+        "evaluation-pairs.jsonl": "c21ee0ab7bff\u2026 -> 88e3f9e3fa4c\u2026",
+        "manifest.json": "7dd7fa5710f6\u2026 -> 92edc5738655\u2026"
+      },
+      "rendered_verdict": "PASSED",
+      "report_published_from_altered_inputs": true
+    },
+    "script": "scripts/asof/m11h_reproduce_integrity.py"
+  },
+  "supersedes": "m11h-closeout-changes-v1",
+  "why": "A corrected report that does not say what changed is indistinguishable from a quietly rewritten one. Deliberate wording changes are listed apart from numerical changes, because they carry different risk: a wording change can be checked by reading, a numerical change cannot."
+}

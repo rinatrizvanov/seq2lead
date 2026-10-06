@@ -1,0 +1,753 @@
+{
+  "audit_records_scanned": 26351,
+  "examples": {
+    "a_unchanged": {
+      "expected_from_docs_M11_7a": {
+        "actual_b": "ok (B holds the same observation)",
+        "branch": "neither; the pair has no increment",
+        "eligibility": "not applicable -- no increment",
+        "increment": "none -- B adds nothing at this slot",
+        "training": "included, A's label"
+      },
+      "implemented_on_the_synthetic_fixture": {
+        "audit_record_emitted": false,
+        "note": "no decision to audit: no additions, no removals and no withholding, so the aggregation emits no record. The pattern is nonetheless the dominant one in the corpus -- 585,978 KI observations are unchanged.",
+        "pairs_with_increment": 0
+      },
+      "real_example": {
+        "explanation": "an unchanged pair has no addition, no removal and no withholding, so the aggregation emits no audit record for it. The pattern is the dominant one in the corpus: 585,978 of 614,755 KI observations in A are unchanged in B.",
+        "observed": "by construction not in the audit",
+        "validated_by": "synthetic fixture"
+      },
+      "title": "An unchanged measurement, present in both snapshots"
+    },
+    "b_correction": {
+      "expected_from_docs_M11_7a": {
+        "actual_b": "ok, from B's corrected value",
+        "branch": "neither; the increment is withheld",
+        "eligibility": "excluded from evaluation; no stable label to score",
+        "increment": "withheld -- the measurement is the thing that moved",
+        "training": "includes A's value 12 nM, unchanged"
+      },
+      "implemented_on_the_synthetic_fixture": {
+        "actual_b": {
+          "label": "active",
+          "status": "ok",
+          "would_be_screened": false
+        },
+        "audit_record_emitted": true,
+        "branch": null,
+        "eligibility": {
+          "is_scoreable": null,
+          "reason": null,
+          "stratum": null
+        },
+        "increment": {
+          "absence_reason": "all_additions_withheld_as_correction_candidates",
+          "absent": true
+        },
+        "n_removals": 1,
+        "n_withheld_corrections": 1,
+        "training": {
+          "label": "active",
+          "n_exact": 1,
+          "spread_pki": 0.0,
+          "status": "ok"
+        }
+      },
+      "real_example": {
+        "declared_increment": {
+          "absence_reason": "all_additions_withheld_as_correction_candidates",
+          "entered_this_arm": false,
+          "has_increment": false,
+          "n_excluded_cross_slot": 0,
+          "n_increment": 0
+        },
+        "full_b_audit": {
+          "exact": {
+            "max_pki": 9.259637310505756,
+            "median_pki": 9.259637310505756,
+            "min_pki": 9.259637310505756,
+            "n_exact": 1,
+            "spread_pki": 0.0
+          },
+          "has_evidence": true,
+          "is_discordant": false,
+          "label": "active",
+          "source": "in_b, read directly -- complete actual B, corrections included",
+          "status": "ok",
+          "would_be_screened": false
+        },
+        "increment_locators": [],
+        "matching_pairs_in_audit": 12,
+        "n_in_a": 4,
+        "n_in_b": 1,
+        "observed": true,
+        "pair": "HQBQICQJRCNUBJ-PHZGNYQRSA-N|1C6644344A12E467BAC221D095A23FC2DA3D2EB868D6085259979D4B76029CBA",
+        "removed_locators": [
+          "BindingDB/202601/all#1010755",
+          "BindingDB/202601/all#397710",
+          "BindingDB/202601/all#525937",
+          "BindingDB/202601/all#1323533"
+        ],
+        "slots_touched": 4,
+        "training_from_a": {
+          "exact": {
+            "max_pki": 9.259637310505756,
+            "median_pki": 9.259637310505756,
+            "min_pki": 7.296708621881338,
+            "n_exact": 4,
+            "spread_pki": 1.9629286886244177
+          },
+          "has_evidence": true,
+          "is_discordant": true,
+          "label": "active",
+          "source": "in_a, read directly",
+          "status": "ok"
+        },
+        "withheld_locators": [
+          "BindingDB/202609/all#396242"
+        ]
+      },
+      "title": "A later correction"
+    },
+    "c_withdrawal": {
+      "expected_from_docs_M11_7a": {
+        "actual_b": "no_usable_evidence",
+        "branch": "neither",
+        "eligibility": "not applicable",
+        "increment": "none -- B offers no observation",
+        "training": "includes V1; a withdrawal must not edit history"
+      },
+      "implemented_on_the_synthetic_fixture": {
+        "actual_b": {
+          "label": "ambiguous",
+          "status": "no_usable_evidence",
+          "would_be_screened": false
+        },
+        "audit_record_emitted": true,
+        "branch": null,
+        "eligibility": {
+          "is_scoreable": null,
+          "reason": null,
+          "stratum": null
+        },
+        "increment": {
+          "absence_reason": "no_additions_at_this_pair",
+          "absent": true
+        },
+        "n_removals": 1,
+        "n_withheld_corrections": 0,
+        "training": {
+          "label": "active",
+          "n_exact": 1,
+          "spread_pki": 0.0,
+          "status": "ok"
+        }
+      },
+      "real_example": {
+        "declared_increment": {
+          "absence_reason": "no_additions_at_this_pair",
+          "entered_this_arm": false,
+          "has_increment": false,
+          "n_excluded_cross_slot": 0,
+          "n_increment": 0
+        },
+        "full_b_audit": {
+          "exact": {
+            "max_pki": null,
+            "median_pki": null,
+            "min_pki": null,
+            "n_exact": 0,
+            "spread_pki": null
+          },
+          "has_evidence": false,
+          "is_discordant": false,
+          "label": "ambiguous",
+          "source": "in_b, read directly -- complete actual B, corrections included",
+          "status": "no_usable_evidence",
+          "would_be_screened": false
+        },
+        "increment_locators": [],
+        "matching_pairs_in_audit": 17468,
+        "n_in_a": 3,
+        "n_in_b": 0,
+        "observed": true,
+        "pair": "ACEQZDGXQHUBSC-UHFFFAOYSA-N|E6A80905B838E43A89B0AD4E131B00B60220AD862701CD82A95E3CE4070FA1DB",
+        "removed_locators": [
+          "BindingDB/202601/all#461253",
+          "BindingDB/202601/all#640698",
+          "BindingDB/202601/all#444891"
+        ],
+        "slots_touched": 3,
+        "training_from_a": {
+          "exact": {
+            "max_pki": 6.404503778174426,
+            "median_pki": 6.404503778174426,
+            "min_pki": 6.404503778174426,
+            "n_exact": 3,
+            "spread_pki": 0.0
+          },
+          "has_evidence": true,
+          "is_discordant": false,
+          "label": "active",
+          "source": "in_a, read directly",
+          "status": "ok"
+        },
+        "withheld_locators": []
+      },
+      "title": "A withdrawal"
+    },
+    "d_repeated_rows": {
+      "expected_from_docs_M11_7a": {
+        "actual_b": "ok",
+        "branch": "recurrent stratum, not new_pair",
+        "eligibility": "eligible",
+        "increment": "the one added observation, eligible",
+        "training": "both A rows, as two indistinguishable observations"
+      },
+      "implemented_on_the_synthetic_fixture": {
+        "actual_b": {
+          "label": "active",
+          "status": "ok",
+          "would_be_screened": false
+        },
+        "audit_record_emitted": true,
+        "branch": {
+          "screened_primary": true,
+          "unscreened_sensitivity": true
+        },
+        "eligibility": {
+          "is_scoreable": true,
+          "reason": null,
+          "stratum": "recurrent"
+        },
+        "increment": {
+          "label": "active",
+          "n": 1,
+          "spread_pki": 0.0,
+          "status": "ok"
+        },
+        "n_removals": 0,
+        "n_withheld_corrections": 0,
+        "training": {
+          "label": "active",
+          "n_exact": 2,
+          "spread_pki": 0.0,
+          "status": "ok"
+        }
+      },
+      "real_example": {
+        "declared_increment": {
+          "absence_reason": null,
+          "branch_membership": {
+            "screened_primary": true,
+            "unscreened_sensitivity": true
+          },
+          "eligibility_reason": null,
+          "entered_this_arm": true,
+          "has_increment": true,
+          "increment_exact": {
+            "max_pki": 4.327902142064283,
+            "median_pki": 4.327902142064283,
+            "min_pki": 4.327902142064283,
+            "n_exact": 1,
+            "spread_pki": 0.0
+          },
+          "increment_label": "inactive",
+          "increment_status": "ok",
+          "is_scoreable": true,
+          "n_excluded_cross_slot": 0,
+          "n_increment": 1,
+          "screened_because": null,
+          "stratum": "recurrent"
+        },
+        "full_b_audit": {
+          "exact": {
+            "max_pki": 4.327902142064283,
+            "median_pki": 4.115496064528113,
+            "min_pki": 3.9030899869919438,
+            "n_exact": 2,
+            "spread_pki": 0.42481215507233916
+          },
+          "has_evidence": true,
+          "is_discordant": false,
+          "label": "inactive",
+          "source": "in_b, read directly -- complete actual B, corrections included",
+          "status": "ok",
+          "would_be_screened": false
+        },
+        "increment_locators": [
+          "BindingDB/202609/all#2321845"
+        ],
+        "matching_pairs_in_audit": 22,
+        "n_in_a": 1,
+        "n_in_b": 2,
+        "observed": true,
+        "pair": "QWDRYURVUDZKSG-VIFPVBQESA-N|654714F03F47EDFBD184977A2F92201496944F42467797CCEB91016BCEA59277",
+        "removed_locators": [],
+        "slots_touched": 1,
+        "training_from_a": {
+          "exact": {
+            "max_pki": 3.9030899869919438,
+            "median_pki": 3.9030899869919438,
+            "min_pki": 3.9030899869919438,
+            "n_exact": 1,
+            "spread_pki": 0.0
+          },
+          "has_evidence": true,
+          "is_discordant": false,
+          "label": "inactive",
+          "source": "in_a, read directly",
+          "status": "ok"
+        },
+        "withheld_locators": []
+      },
+      "title": "Repeated identical rows"
+    },
+    "e_clean_then_contradictory": {
+      "expected_from_docs_M11_7a": {
+        "actual_b": "exact_bound_conflict (A's exact lies outside the bound)",
+        "branch": "unscreened only; the screen drops it from primary",
+        "eligibility": "eligible -- it has a label",
+        "increment": "decisively inactive from the added bound",
+        "training": "stays, A's label active"
+      },
+      "implemented_on_the_synthetic_fixture": {
+        "actual_b": {
+          "label": "ambiguous",
+          "status": "exact_bound_conflict",
+          "would_be_screened": true
+        },
+        "audit_record_emitted": true,
+        "branch": {
+          "screened_primary": false,
+          "unscreened_sensitivity": true
+        },
+        "eligibility": {
+          "is_scoreable": true,
+          "reason": null,
+          "stratum": "recurrent"
+        },
+        "increment": {
+          "label": "inactive",
+          "n": 1,
+          "spread_pki": null,
+          "status": "ok"
+        },
+        "n_removals": 0,
+        "n_withheld_corrections": 0,
+        "training": {
+          "label": "active",
+          "n_exact": 1,
+          "spread_pki": 0.0,
+          "status": "ok"
+        }
+      },
+      "real_example": {
+        "declared_increment": {
+          "absence_reason": null,
+          "branch_membership": {
+            "screened_primary": false,
+            "unscreened_sensitivity": true
+          },
+          "eligibility_reason": null,
+          "entered_this_arm": true,
+          "has_increment": true,
+          "increment_exact": {
+            "max_pki": null,
+            "median_pki": null,
+            "min_pki": null,
+            "n_exact": 0,
+            "spread_pki": null
+          },
+          "increment_label": "inactive",
+          "increment_status": "ok",
+          "is_scoreable": true,
+          "n_excluded_cross_slot": 0,
+          "n_increment": 1,
+          "screened_because": "exact_bound_conflict",
+          "stratum": "recurrent"
+        },
+        "full_b_audit": {
+          "exact": {
+            "max_pki": 6.85078088734462,
+            "median_pki": 6.149966742310231,
+            "min_pki": 5.740000204918113,
+            "n_exact": 9,
+            "spread_pki": 1.1107806824265074
+          },
+          "has_evidence": true,
+          "is_discordant": true,
+          "label": "ambiguous",
+          "source": "in_b, read directly -- complete actual B, corrections included",
+          "status": "exact_bound_conflict",
+          "would_be_screened": true
+        },
+        "increment_locators": [
+          "BindingDB/202609/all#2196804"
+        ],
+        "matching_pairs_in_audit": 7,
+        "n_in_a": 9,
+        "n_in_b": 10,
+        "observed": true,
+        "pair": "RTHCYVBBDHJXIQ-MRXNPFEDSA-N|86062261249DCEC9F9E1ABBFACDAC36EB941BE044AD45FD7250073DD12D500FE",
+        "removed_locators": [],
+        "slots_touched": 8,
+        "training_from_a": {
+          "exact": {
+            "max_pki": 6.85078088734462,
+            "median_pki": 6.149966742310231,
+            "min_pki": 5.740000204918113,
+            "n_exact": 9,
+            "spread_pki": 1.1107806824265074
+          },
+          "has_evidence": true,
+          "is_discordant": true,
+          "label": "active",
+          "source": "in_a, read directly",
+          "status": "ok"
+        },
+        "withheld_locators": []
+      },
+      "title": "A clean training pair that becomes contradictory later"
+    },
+    "f_opposite_bounds": {
+      "expected_from_docs_M11_7a": {
+        "actual_b": "empty_intersection -- the two bounds cannot both hold",
+        "branch": "unscreened only; the screen drops it from primary",
+        "eligibility": "eligible",
+        "increment": "decisively inactive from the added bound",
+        "training": "stays, active from A's decisive lower bound"
+      },
+      "implemented_on_the_synthetic_fixture": {
+        "actual_b": {
+          "label": "ambiguous",
+          "status": "empty_intersection",
+          "would_be_screened": true
+        },
+        "audit_record_emitted": true,
+        "branch": {
+          "screened_primary": false,
+          "unscreened_sensitivity": true
+        },
+        "eligibility": {
+          "is_scoreable": true,
+          "reason": null,
+          "stratum": "recurrent"
+        },
+        "increment": {
+          "label": "inactive",
+          "n": 1,
+          "spread_pki": null,
+          "status": "ok"
+        },
+        "n_removals": 0,
+        "n_withheld_corrections": 0,
+        "training": {
+          "label": "active",
+          "n_exact": 0,
+          "spread_pki": null,
+          "status": "ok"
+        }
+      },
+      "real_example": {
+        "declared_increment": {
+          "absence_reason": null,
+          "branch_membership": {
+            "screened_primary": false,
+            "unscreened_sensitivity": true
+          },
+          "eligibility_reason": null,
+          "entered_this_arm": true,
+          "has_increment": true,
+          "increment_exact": {
+            "max_pki": null,
+            "median_pki": null,
+            "min_pki": null,
+            "n_exact": 0,
+            "spread_pki": null
+          },
+          "increment_label": "inactive",
+          "increment_status": "ok",
+          "is_scoreable": true,
+          "n_excluded_cross_slot": 0,
+          "n_increment": 1,
+          "screened_because": "empty_intersection",
+          "stratum": "recurrent"
+        },
+        "full_b_audit": {
+          "exact": {
+            "max_pki": 5.823908740944319,
+            "median_pki": 5.823908740944319,
+            "min_pki": 5.823908740944319,
+            "n_exact": 1,
+            "spread_pki": 0.0
+          },
+          "has_evidence": true,
+          "is_discordant": false,
+          "label": "ambiguous",
+          "source": "in_b, read directly -- complete actual B, corrections included",
+          "status": "empty_intersection",
+          "would_be_screened": true
+        },
+        "increment_locators": [
+          "BindingDB/202609/all#1471319"
+        ],
+        "matching_pairs_in_audit": 2,
+        "n_in_a": 4,
+        "n_in_b": 4,
+        "observed": true,
+        "pair": "LRSQZPCASCBMKU-BEVDRBHNSA-N|351664067C22D7E6A071E811DDB3B5759E91101E0C46D4454FC61CE4BCA10FA2",
+        "removed_locators": [
+          "BindingDB/202601/all#1469789"
+        ],
+        "slots_touched": 3,
+        "training_from_a": {
+          "exact": {
+            "max_pki": 5.823908740944319,
+            "median_pki": 5.823908740944319,
+            "min_pki": 5.823908740944319,
+            "n_exact": 1,
+            "spread_pki": 0.0
+          },
+          "has_evidence": true,
+          "is_discordant": false,
+          "label": "ambiguous",
+          "source": "in_a, read directly",
+          "status": "empty_intersection"
+        },
+        "withheld_locators": []
+      },
+      "title": "A clean active pair receiving a decisive inactive bound"
+    },
+    "g_withdrawal_makes_b_cleaner": {
+      "expected_from_docs_M11_7a": {
+        "actual_b": "ok, active",
+        "branch": "both -- nothing to screen",
+        "eligibility": "eligible",
+        "increment": "active, from the added exact",
+        "training": "retains A's inactive evidence and inactive label"
+      },
+      "implemented_on_the_synthetic_fixture": {
+        "actual_b": {
+          "label": "active",
+          "status": "ok",
+          "would_be_screened": false
+        },
+        "audit_record_emitted": true,
+        "branch": {
+          "screened_primary": true,
+          "unscreened_sensitivity": true
+        },
+        "eligibility": {
+          "is_scoreable": true,
+          "reason": null,
+          "stratum": "recurrent"
+        },
+        "increment": {
+          "label": "active",
+          "n": 1,
+          "spread_pki": 0.0,
+          "status": "ok"
+        },
+        "n_removals": 1,
+        "n_withheld_corrections": 0,
+        "training": {
+          "label": "inactive",
+          "n_exact": 0,
+          "spread_pki": null,
+          "status": "ok"
+        }
+      },
+      "real_example": {
+        "declared_increment": {
+          "absence_reason": null,
+          "branch_membership": {
+            "screened_primary": false,
+            "unscreened_sensitivity": false
+          },
+          "eligibility_reason": "discordant",
+          "entered_this_arm": true,
+          "has_increment": true,
+          "increment_exact": {
+            "max_pki": 7.522878745280337,
+            "median_pki": 7.180456064458131,
+            "min_pki": 5.3872161432802645,
+            "n_exact": 3,
+            "spread_pki": 2.135662602000073
+          },
+          "increment_label": "active",
+          "increment_status": "ok",
+          "is_scoreable": false,
+          "n_excluded_cross_slot": 0,
+          "n_increment": 3,
+          "screened_because": null,
+          "stratum": "recurrent"
+        },
+        "full_b_audit": {
+          "exact": {
+            "max_pki": 7.522878745280337,
+            "median_pki": 7.180456064458131,
+            "min_pki": 5.3872161432802645,
+            "n_exact": 3,
+            "spread_pki": 2.135662602000073
+          },
+          "has_evidence": true,
+          "is_discordant": true,
+          "label": "active",
+          "source": "in_b, read directly -- complete actual B, corrections included",
+          "status": "ok",
+          "would_be_screened": false
+        },
+        "increment_locators": [
+          "BindingDB/202609/all#2197086",
+          "BindingDB/202609/all#1477178",
+          "BindingDB/202609/all#2357703"
+        ],
+        "matching_pairs_in_audit": 2,
+        "n_in_a": 1,
+        "n_in_b": 3,
+        "observed": true,
+        "pair": "SFLSHLFXELFNJZ-QMMMGPOBSA-N|0153DBEBB226A1E5B5F70A1CA9ADD9FC132E086045E02EE6797B928C3F08547D",
+        "removed_locators": [
+          "BindingDB/202601/all#1475648"
+        ],
+        "slots_touched": 4,
+        "training_from_a": {
+          "exact": {
+            "max_pki": 5.3872161432802645,
+            "median_pki": 5.3872161432802645,
+            "min_pki": 5.3872161432802645,
+            "n_exact": 1,
+            "spread_pki": 0.0
+          },
+          "has_evidence": true,
+          "is_discordant": false,
+          "label": "inactive",
+          "source": "in_a, read directly",
+          "status": "ok"
+        },
+        "withheld_locators": []
+      },
+      "title": "A withdrawal that makes B cleaner than A"
+    },
+    "h_discordant_replicates": {
+      "expected_from_docs_M11_7a": {
+        "actual_b": "ok, active",
+        "branch": "neither; not a consistency-screen matter",
+        "eligibility": "EXCLUDED, discordant -- spread 4.00 > 1.0",
+        "increment": "ok, active -- median pKi 7.0",
+        "training": "no A evidence; unaffected either way"
+      },
+      "implemented_on_the_synthetic_fixture": {
+        "actual_b": {
+          "label": "active",
+          "status": "ok",
+          "would_be_screened": false
+        },
+        "audit_record_emitted": true,
+        "branch": {
+          "screened_primary": false,
+          "unscreened_sensitivity": false
+        },
+        "eligibility": {
+          "is_scoreable": false,
+          "reason": "discordant",
+          "stratum": "new_pair"
+        },
+        "increment": {
+          "label": "active",
+          "n": 2,
+          "spread_pki": 4.0,
+          "status": "ok"
+        },
+        "n_removals": 0,
+        "n_withheld_corrections": 0,
+        "training": {
+          "label": "ambiguous",
+          "n_exact": 0,
+          "spread_pki": null,
+          "status": "no_usable_evidence"
+        }
+      },
+      "real_example": {
+        "declared_increment": {
+          "absence_reason": null,
+          "branch_membership": {
+            "screened_primary": false,
+            "unscreened_sensitivity": false
+          },
+          "eligibility_reason": "discordant",
+          "entered_this_arm": true,
+          "has_increment": true,
+          "increment_exact": {
+            "max_pki": 9.602059991327963,
+            "median_pki": 9.0,
+            "min_pki": 7.026872146400302,
+            "n_exact": 3,
+            "spread_pki": 2.575187844927661
+          },
+          "increment_label": "active",
+          "increment_status": "ok",
+          "is_scoreable": false,
+          "n_excluded_cross_slot": 0,
+          "n_increment": 3,
+          "screened_because": null,
+          "stratum": "recurrent"
+        },
+        "full_b_audit": {
+          "exact": {
+            "max_pki": 9.602059991327963,
+            "median_pki": 9.0,
+            "min_pki": 7.026872146400302,
+            "n_exact": 7,
+            "spread_pki": 2.575187844927661
+          },
+          "has_evidence": true,
+          "is_discordant": true,
+          "label": "active",
+          "source": "in_b, read directly -- complete actual B, corrections included",
+          "status": "ok",
+          "would_be_screened": false
+        },
+        "increment_locators": [
+          "BindingDB/202609/all#1468488",
+          "BindingDB/202609/all#1468487",
+          "BindingDB/202609/all#1468439"
+        ],
+        "matching_pairs_in_audit": 522,
+        "n_in_a": 7,
+        "n_in_b": 7,
+        "observed": true,
+        "pair": "AHFRNFYONJRGRW-BZQUYTCOSA-N|1DA0D0189F8D63B52B620B69D639A2B818FBEFD6AE4647A60930937D1A73F1E4",
+        "removed_locators": [
+          "BindingDB/202601/all#1466957",
+          "BindingDB/202601/all#1466909",
+          "BindingDB/202601/all#1466958"
+        ],
+        "slots_touched": 4,
+        "training_from_a": {
+          "exact": {
+            "max_pki": 9.602059991327963,
+            "median_pki": 9.0,
+            "min_pki": 7.026872146400302,
+            "n_exact": 7,
+            "spread_pki": 2.575187844927661
+          },
+          "has_evidence": true,
+          "is_discordant": true,
+          "label": "active",
+          "source": "in_a, read directly",
+          "status": "ok"
+        },
+        "withheld_locators": []
+      },
+      "title": "Discordant replicates: a label without the standing to be scored"
+    }
+  },
+  "method": "each example is run as a synthetic fixture through the real aggregation path, and the corpus audit is searched for a pair showing the same pattern. Patterns absent from the real snapshots are stated as NOT OBSERVED and validated by the fixture alone; no real example is manufactured.",
+  "review": "m11e-worked-example-review-v1",
+  "source": "docs/M11.md \u00a77a, examples (a)-(h)",
+  "threshold_pki": 6.0
+}

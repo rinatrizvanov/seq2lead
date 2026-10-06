@@ -1,0 +1,160 @@
+{
+  "description": "Cosine between the first N residues embedded alone (in the pre-training crop window) and the same residues embedded inside the full sequence.",
+  "failures": [],
+  "measurements": [
+    {
+      "length": 1356,
+      "mean_residue_cosine": 0.993172,
+      "pooled_cosine": 0.999396,
+      "pooled_relative_l2": 0.034979,
+      "sequence_sha256": "da7cf2eef06369b44f4b2bbc5b92c9a165b89d249e82180c95a41fc58390aedb",
+      "target_id": 9860
+    },
+    {
+      "length": 1235,
+      "mean_residue_cosine": 0.996813,
+      "pooled_cosine": 0.99966,
+      "pooled_relative_l2": 0.029554,
+      "sequence_sha256": "ab1a43aca4bcc58806202605915e1b817ac449b41bc99497f163b2d6d3495e80",
+      "target_id": 2213
+    },
+    {
+      "length": 1230,
+      "mean_residue_cosine": 0.994953,
+      "pooled_cosine": 0.999036,
+      "pooled_relative_l2": 0.044987,
+      "sequence_sha256": "97cc713adbb20145bf2799dae36a09c67b84be0b62dd8b20984a6801dcbba6d6",
+      "target_id": 4769
+    },
+    {
+      "length": 1435,
+      "mean_residue_cosine": 0.992636,
+      "pooled_cosine": 0.999481,
+      "pooled_relative_l2": 0.032498,
+      "sequence_sha256": "8350feeaa5f9759892f669df716ffdd87c836e281f51564d6fa1fb2242a9b885",
+      "target_id": 4639
+    },
+    {
+      "length": 3256,
+      "mean_residue_cosine": 0.967231,
+      "pooled_cosine": 0.992725,
+      "pooled_relative_l2": 0.123356,
+      "sequence_sha256": "c2540585d035a8057b88ea4a019fd2fe493b87250ccb07e8041870a8ec92a261",
+      "target_id": 9924
+    },
+    {
+      "length": 1313,
+      "mean_residue_cosine": 0.987191,
+      "pooled_cosine": 0.998952,
+      "pooled_relative_l2": 0.046,
+      "sequence_sha256": "be5291d8ec559c80e2cc3791aa361a84157c4524ee3abc7f1496c0eea998cba7",
+      "target_id": 5828
+    },
+    {
+      "length": 1390,
+      "mean_residue_cosine": 0.993904,
+      "pooled_cosine": 0.999449,
+      "pooled_relative_l2": 0.0362,
+      "sequence_sha256": "0a1654e54cb68f56c75248ee4d560206d9d6114cabc958d671fbe9c9e6bdfeae",
+      "target_id": 4502
+    },
+    {
+      "length": 1548,
+      "mean_residue_cosine": 0.976252,
+      "pooled_cosine": 0.99686,
+      "pooled_relative_l2": 0.084648,
+      "sequence_sha256": "6e545adaf8e4107e7a0c2eee5adaf1a86385bd86407030f70c307a11d27ea4d1",
+      "target_id": 9161
+    },
+    {
+      "length": 2036,
+      "mean_residue_cosine": 0.98814,
+      "pooled_cosine": 0.998413,
+      "pooled_relative_l2": 0.056598,
+      "sequence_sha256": "003bf485a4e2001764b0df5c36fb4f03bf1290502acdf49032b4508d0aca6a60",
+      "target_id": 10877
+    },
+    {
+      "length": 1323,
+      "mean_residue_cosine": 0.991204,
+      "pooled_cosine": 0.998307,
+      "pooled_relative_l2": 0.060325,
+      "sequence_sha256": "a50bbccdc35544708ac34a222c0e9352b02d153bb6da8bf30ee3b719ad7272f2",
+      "target_id": 7028
+    },
+    {
+      "length": 1586,
+      "mean_residue_cosine": 0.992778,
+      "pooled_cosine": 0.997699,
+      "pooled_relative_l2": 0.069088,
+      "sequence_sha256": "b8cc3943dbfffcd00d0227f6a316e823ba7d1bafa4e49c5ba270b158ad30a840",
+      "target_id": 6816
+    },
+    {
+      "length": 1333,
+      "mean_residue_cosine": 0.99243,
+      "pooled_cosine": 0.999355,
+      "pooled_relative_l2": 0.038213,
+      "sequence_sha256": "b5c5a49c1e9d58754556c25f2842084d8ec1fc7bce7671c8b9eeb30bf4f8bb49",
+      "target_id": 5710
+    },
+    {
+      "length": 1378,
+      "mean_residue_cosine": 0.995073,
+      "pooled_cosine": 0.999686,
+      "pooled_relative_l2": 0.025246,
+      "sequence_sha256": "3af956ccd09aed6937e7b18cc9426710925daaf1c2b40bab1072240e9b18ade0",
+      "target_id": 7159
+    },
+    {
+      "length": 1321,
+      "mean_residue_cosine": 0.991951,
+      "pooled_cosine": 0.999255,
+      "pooled_relative_l2": 0.041116,
+      "sequence_sha256": "0951bc666a2b2f525698f4dc66c2c857affe40aaecf6200425aef603b6bd05a8",
+      "target_id": 2220
+    },
+    {
+      "length": 1205,
+      "mean_residue_cosine": 0.990991,
+      "pooled_cosine": 0.999114,
+      "pooled_relative_l2": 0.043478,
+      "sequence_sha256": "1df00f10954db8e79893232f8f367973ef91ad7910dbaebc0469c6f61f9d0ff6",
+      "target_id": 630
+    },
+    {
+      "length": 1278,
+      "mean_residue_cosine": 0.993465,
+      "pooled_cosine": 0.99946,
+      "pooled_relative_l2": 0.033251,
+      "sequence_sha256": "4e24d009a2ddd244a0a0eb2cdff86a7c7afe8006103d97c723616088876f494e",
+      "target_id": 7980
+    }
+  ],
+  "metadata": {
+    "device": "mps",
+    "libraries": {
+      "numpy": "2.4.6",
+      "python": "3.11.15",
+      "torch": "2.14.0",
+      "transformers": "5.17.0"
+    },
+    "model": "facebook/esm2_t33_650M_UR50D",
+    "model_revision": "08e4846e537177426273712802403f7ba8261b6c",
+    "note": "Forward passes are deterministic; the seed selects inputs, not outputs. Values are specific to this device and dtype: the same specification on another backend yields the same representation, not the same bytes.",
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "pooling": "mean_over_residues_excluding_special_tokens",
+    "processor": "arm",
+    "run_at": "2026-09-30T11:59:30+00:00",
+    "seed": 20260929,
+    "window": 1022
+  },
+  "name": "prefix_drift",
+  "selection": {
+    "max_length": 6000,
+    "min_length": 1200,
+    "n_requested": 16,
+    "rule": "targets with 1200 <= length <= 6000, ordered by md5(sequence_sha256 || seed), first n taken",
+    "window": 1022
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "compounds": {
+    "coverage": 1.0,
+    "failures_by_reason": {},
+    "in_cohort": 17373,
+    "representable": 17373
+  },
+  "representations": {
+    "ecfp4": {
+      "include_chirality": true,
+      "n_bits": 2048,
+      "note": "chirality is ON. The curator's fragment-parent step can leave two stereoisomers differing only in configuration; an achiral fingerprint would give them byte-identical vectors.",
+      "radius": 2
+    },
+    "esm2": {
+      "length_policy": "full",
+      "max_length": 40000,
+      "model": "facebook/esm2_t33_650M_UR50D",
+      "note": "frozen; no fine-tuning, so the representation carries no label information",
+      "pooling": "mean_over_residues_excluding_special_tokens",
+      "revision": "08e4846e537177426273712802403f7ba8261b6c"
+    }
+  },
+  "targets": {
+    "coverage": 1.0,
+    "failures_by_reason": {},
+    "in_cohort": 1060,
+    "over_training_window_1022": 107,
+    "over_window_note": "flagged, not excluded. The length policy is `full` with no truncation; M7 records this as a provisional choice whose sensitivity report is the check on it.",
+    "representable": 1060
+  },
+  "why_computable_for_every_entity": "both are deterministic functions of a structure or a sequence and are not fitted. Computing one for an evaluation entity reveals nothing about that entity's activity label. What must be fitted on training evidence alone is anything with learned parameters."
+}
