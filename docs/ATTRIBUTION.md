@@ -260,8 +260,8 @@ What remains **unresolved**: whether the *scores themselves*, and the
 identifier-free `protein-transform.npz`, are "Adaptations" under CC BY-SA 3.0.
 Neither provider's published terms addresses statistical or model-derived
 outputs. Missing wording is neither permission nor prohibition, so a draft
-inquiry is held at `docs/inquiries/bindingdb-chembl-derived-artifacts.md`. It has
-**not** been sent.
+inquiry has been written and is held outside this repository. It has **not** been
+sent.
 
 **The transform's licence was corrected on measurement, not on reading.** An
 earlier revision of this audit placed `protein-transform.npz` under MIT because it
@@ -312,9 +312,9 @@ cannot grant rights in data the licensor does not hold.
 
 ## Decisions needed from the owner
 
-> Consolidated, with the scientific limitations listed separately, in
-> [`docs/OWNER_DECISIONS.md`](OWNER_DECISIONS.md). The items below are the
-> licensing detail behind that checklist.
+> The owner's consolidated decision checklist is working material and is not
+> tracked in this repository. What follows is the licensing detail a reader needs
+> in order to judge the terms, which is why it stays here.
 
 The licensing questions that blocked a complete release are now **answered from
 the providers' own terms**. What remains is approval plus one genuine unknown.
@@ -345,7 +345,11 @@ the providers' own terms**. What remains is approval plus one genuine unknown.
    render the CLI in a child process at a pinned width, so neither colour nor
    terminal width can decide the result (`tests/cli_help.py`). They run in CI;
    nothing was skipped, deselected or weakened. See `docs/CI_SCOPE.md`.
-7. **Perform the backup** in `docs/BACKUP_CHECKLIST.md` — 1.85 GB, single copy.
+7. **Perform and verify the evidence backup** — 3,973 files, 10,592,625,649 bytes
+   (9.87 GB), to storage on a different physical disk. The procedure and the tool
+   are owner working material held outside this repository. An earlier figure of
+   1.85 GB was wrong: it omitted `data/raw` entirely, including the September
+   BindingDB archive, which is the one input that may not be obtainable again.
 8. **Accept the release scope** in `docs/RELEASE_SCOPE.md`: this release is a
    **saved-prediction reproduction**, not a from-raw rebuild. Approving
    it does not claim a third party can regenerate the predictions from BindingDB,
@@ -359,9 +363,8 @@ the providers' own terms**. What remains is approval plus one genuine unknown.
 9. **Are model predictions and fitted statistics "Adaptations" under CC BY-SA
    3.0?** Affects `predictions.npz` and `protein-transform.npz`. Not addressed
    by either provider's published terms.
-   A draft inquiry is ready at
-   `docs/inquiries/bindingdb-chembl-derived-artifacts.md` and has **not** been
-   sent — sending it is your call.
+   A draft inquiry is ready, held outside this repository, and has **not** been
+   sent — sending it is the owner's call.
 
    **Both affected files now ship under CC BY-SA 3.0.** `predictions.npz` on
    the strength of the 16,795 InChIKeys it carries, and `protein-transform.npz`

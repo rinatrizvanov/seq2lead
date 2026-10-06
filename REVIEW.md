@@ -1,10 +1,10 @@
-# Verifying this review copy
+# Verifying the published copy
 
-This archive is a **review copy**, not the full working tree. Two kinds of
+The published copy is a subset of the full working tree. Two kinds of
 evidence are deliberately absent for size, and the verification tooling names
 them rather than reporting their checks as done.
 
-## What you can verify from this archive alone
+## What you can verify from the published copy alone
 
 ```
 python -m seq2lead.asof.recompute       data/asof/m11h/run-20261005T134842Z
@@ -23,7 +23,7 @@ python -m seq2lead.asof.publish         data/asof/m11h/run-20261005T134842Z
 | The verification record is bound to the current input digests | **yes** |
 | Each declared refusal (tampered table, stale record, laundered digest) | **yes** — `pytest tests/test_m11h_publish.py tests/test_m11h_recompute.py` |
 
-## What you cannot verify from this archive alone
+## What you cannot verify from the published copy alone
 
 | Missing evidence | Why it is absent | What cannot be checked |
 | --- | --- | --- |
@@ -39,7 +39,7 @@ a check impossible, not passed, and the record says which.
 ## What is not in scope
 
 No refitting, tuning, feature rebuild, download or docking is possible or
-intended from this archive. The run's scientific qualifications stand as
+intended from the published copy. The run's scientific qualifications stand as
 published: the study is **exploratory**, the Ki **pooling rule is provisional**,
 the confirmatory freeze is **unsigned**, retrieval is **unbuilt**, evaluation
 evidence display is **off**, and `label_reversal-v3` is **unscored**.

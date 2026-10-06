@@ -1,7 +1,7 @@
 """Back up the evidence that exists only on this machine, and verify the copy.
 
-Four groups, from `configs/manifests/closeout_inventory.json` and
-`docs/BACKUP_CHECKLIST.md`:
+Four groups, from `configs/manifests/closeout_inventory.json` and the owner's
+backup checklist, which is working material held outside this repository:
 
     A  the consolidated historical-revisions archive
     B  the four retained review ZIPs

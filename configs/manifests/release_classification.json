@@ -310,15 +310,7 @@
    "category": "code",
    "licence": "MIT"
   },
-  "docs/ARCHIVE_POLICY.md": {
-   "category": "prose",
-   "licence": "MIT"
-  },
   "docs/ATTRIBUTION.md": {
-   "category": "prose",
-   "licence": "MIT"
-  },
-  "docs/BACKUP_CHECKLIST.md": {
    "category": "prose",
    "licence": "MIT"
   },
@@ -350,19 +342,7 @@
    "category": "prose",
    "licence": "MIT"
   },
-  "docs/NEXT_STEPS.md": {
-   "category": "prose",
-   "licence": "MIT"
-  },
-  "docs/NOVELTY.md": {
-   "category": "prose",
-   "licence": "MIT"
-  },
-  "docs/OWNER_DECISIONS.md": {
-   "category": "prose",
-   "licence": "MIT"
-  },
-  "docs/PUBLICATION_PLAN.md": {
+  "docs/RELATED_WORK.md": {
    "category": "prose",
    "licence": "MIT"
   },
@@ -374,7 +354,7 @@
    "category": "prose",
    "licence": "MIT"
   },
-  "docs/RESUME.md": {
+  "docs/ROADMAP.md": {
    "category": "prose",
    "licence": "MIT"
   },
@@ -386,16 +366,20 @@
    "category": "prose",
    "licence": "MIT"
   },
-  "docs/closeout_preservation.json": {
-   "category": "other",
-   "licence": "MIT"
-  },
-  "docs/gitignore_precloseout.txt": {
-   "category": "other",
-   "licence": "MIT"
-  },
-  "docs/inquiries/bindingdb-chembl-derived-artifacts.md": {
+  "docs/archive/ARCHIVE_POLICY.md": {
    "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/archive/README.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/archive/closeout_preservation.json": {
+   "category": "other",
+   "licence": "MIT"
+  },
+  "docs/archive/gitignore_precloseout.txt": {
+   "category": "other",
    "licence": "MIT"
   },
   "licenses/CC-BY-3.0.txt": {

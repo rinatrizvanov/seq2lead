@@ -217,8 +217,8 @@ identifiers, fitted over a population that is 71.14% ChEMBL-linked by pair).
 Neither BindingDB's nor ChEMBL's terms address statistical or model-derived
 outputs, and ChEMBL's CC BY-SA 3.0 defines "Adaptation" without contemplating a
 fitted parameter. Missing wording is not permission and it is not prohibition. A
-draft inquiry to both providers is held at
-`docs/inquiries/bindingdb-chembl-derived-artifacts.md`; it has not been sent.
+draft inquiry to both providers has been written and is held outside this
+repository with the owner's working material; it has not been sent.
 
 --- What is decided, and by whom -------------------------------------------
 

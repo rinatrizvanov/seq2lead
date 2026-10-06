@@ -1,7 +1,5 @@
 # What this release reproduces, and what it does not
 
-> This is approval **A8** in [`OWNER_DECISIONS.md`](OWNER_DECISIONS.md).
-
 One sentence: **the repository alone reproduces the benchmark's reported numbers
 from saved predictions; it does not rebuild those predictions from raw BindingDB
 data.** Both halves of that sentence are stated precisely below, with the
