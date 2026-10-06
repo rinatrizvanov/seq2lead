@@ -9,9 +9,11 @@ Scope: this draft covers the PROJECT CODE ONLY — `src/`, `tests/`,
 `scripts/asof/`, `scripts/release/`, `paper/build_paper.py`, and the prose under
 `docs/`, `README.md` and `REVIEW.md`. It does NOT cover, and must not be read as covering:
 
-  * the shipped data files derived from BindingDB measurements, whose terms are
-    analysed file by file in `docs/ATTRIBUTION.md` §3 and include an unresolved
-    ChEMBL share-alike question;
+  * the shipped data files derived from BindingDB measurements, which are
+    CC BY 3.0 or CC BY-SA 3.0 Unported depending on the row-level source, analysed
+    file by file in `DATA_LICENSE.draft` and `docs/ATTRIBUTION.md` §3. ChEMBL's
+    share-alike is not in doubt — both ChEMBL and BindingDB state CC BY-SA 3.0
+    Unported for ChEMBL-sourced rows;
   * the model-derived artifacts `predictions.npz` and `protein-transform.npz`,
     both of which ship under CC BY-SA 3.0 as a conservative packaging decision
     (`DATA_LICENSE.draft`, "THE ONE OPEN QUESTION"; `docs/ATTRIBUTION.md` §4);

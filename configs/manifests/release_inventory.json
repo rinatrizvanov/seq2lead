@@ -64,11 +64,11 @@
    "sha256": "960a65dc38df0ff8d5b33cc964590f75986237658322ad4451583845db3a5436"
   },
   {
-   "bytes": 2659,
+   "bytes": 2822,
    "category": "prose",
    "licence": "MIT",
    "path": "LICENSE.draft",
-   "sha256": "2e1d71231ba74479fefead1e182dd18fe442a7de3bf4416815b07b2a736d64f8"
+   "sha256": "417ac4d8a833e530ab259d8f2c3b3849fd5ab829bec766b51bb41019b11bcba0"
   },
   {
    "bytes": 12333,
@@ -2476,7 +2476,7 @@
   }
  ],
  "files": 349,
- "generated_after_commit": "0034bdc9f9b9acce09a3bfcfc6b64e30281d8a00",
+ "generated_after_commit": "726f4279d3e9ee4a81ae9d2247a6d632a88b3b26",
  "generated_by": "scripts/release/build_inventory.py",
  "inventory": "seq2lead-complete-release-inventory-v2",
  "licence_basis": {
@@ -2505,7 +2505,7 @@
   ],
   "tracked_at_head": 351
  },
- "recorded_at": "2026-10-06T08:12:38.665814+00:00",
+ "recorded_at": "2026-10-06T08:25:43.163429+00:00",
  "release_option": "A - complete benchmark, pending owner approval. Repository remains PRIVATE.",
  "scientific_bytes_preserved": true,
  "self_excluded": {
@@ -2515,5 +2515,5 @@
   ],
   "why": "Neither file can record its own digest: writing the digest changes the bytes being described. Verify both by the commit they are attached to."
  },
- "total_bytes": 36566878
+ "total_bytes": 36567041
 }
