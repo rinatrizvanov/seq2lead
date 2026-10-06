@@ -56,15 +56,58 @@ jobs:
       - name: Apply migrations
         run: uv run seq2lead db migrate
 
-      - name: Test
-        run: uv run pytest -v
+      # ------------------------------------------------------------------
+      # PORTABLE tests only. A hosted runner gets a git checkout, which by
+      # design excludes the bulk scientific artifacts: data/m10/runs (3,564
+      # docking files), data/m9/final, data/features/*.npz and the 433 MB
+      # training-membership export. Seven test files bind to those artifacts
+      # and fail with FileNotFoundError without them -- measured, not assumed:
+      # a fresh clone of this repository fails 65 tests across those seven
+      # files while the other forty pass.
+      #
+      # Those seven are NOT weakened, skipped or deselected inside the test
+      # code. They are excluded HERE, in CI configuration, so the boundary is
+      # visible: CI covers what a checkout can cover, and the rest is declared
+      # a full-local check in docs/CI_SCOPE.md. A green CI run is therefore
+      # not a claim that the artifact-bound checks passed; they did not run.
+      - name: Test (portable subset)
+        run: >-
+          uv run pytest -v
+          --ignore=tests/test_m10_corrections.py
+          --ignore=tests/test_m10_docking.py
+          --ignore=tests/test_m10_hardening.py
+          --ignore=tests/test_m11f_record.py
+          --ignore=tests/test_m11g_contract.py
+          --ignore=tests/test_m9_corrections.py
+          --ignore=tests/test_m9_wiring.py
 
       # The README offers this as the no-database workflow, so CI has to prove
       # it still works rather than leaving it to rot.
-      - name: Test without a database
-        run: uv run pytest
+      - name: Test without a database (portable subset)
+        run: >-
+          uv run pytest
+          --ignore=tests/test_m10_corrections.py
+          --ignore=tests/test_m10_docking.py
+          --ignore=tests/test_m10_hardening.py
+          --ignore=tests/test_m11f_record.py
+          --ignore=tests/test_m11g_contract.py
+          --ignore=tests/test_m9_corrections.py
+          --ignore=tests/test_m9_wiring.py
         env:
           SEQ2LEAD_SKIP_DB_TESTS: "1"
+
+      - name: State what CI did not cover
+        run: |
+          echo "CI ran the portable subset only."
+          echo "NOT run here, because a checkout lacks the artifacts they bind to:"
+          echo "  tests/test_m10_corrections.py   needs data/m10/runs/"
+          echo "  tests/test_m10_docking.py       needs data/m10/runs/, data/m10/structures/"
+          echo "  tests/test_m10_hardening.py     needs data/m10/runs/"
+          echo "  tests/test_m9_corrections.py    needs data/m9/final/"
+          echo "  tests/test_m9_wiring.py         needs data/m9/final/"
+          echo "  tests/test_m11f_record.py       needs the pinned input set on disk"
+          echo "  tests/test_m11g_contract.py     needs the pinned input set on disk"
+          echo "Run them on a full local tree: see docs/CI_SCOPE.md."
 
       - name: Smoke-check the CLI
         run: |

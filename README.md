@@ -89,7 +89,7 @@ uv run seq2lead db migrate
 uv run seq2lead db ping
 ```
 
-The full suite needs the complete local artifact set and PostgreSQL; a review copy is not a promise that every corpus-backed test runs without them. Do not treat skipped or unavailable checks as passed. The working-tree suite was recorded at 1,318 passed, which is a historical total and not a fresh-clone guarantee.
+The full suite needs the complete local artifact set and PostgreSQL. **A fresh clone cannot run all of it**: measured on a disposable clone, 65 tests across 7 files fail for want of the git-ignored docking runs, M9 records, feature caches and membership export, while the other 1,075 pass. CI therefore runs the portable subset and says so — see [CI scope](docs/CI_SCOPE.md). Do not treat skipped or unavailable checks as passed. On the full local tree the suite was recorded at 1,322 passed, 0 failures.
 
 ## Data and model boundaries
 
@@ -103,7 +103,7 @@ Historical snapshot A is the 2026-01-01 deposit, DOI [10.6075/J0V40W61](https://
 
 This tree holds source, configs, reports, the preserved execution scripts and a narrow allow-list of small review artifacts, including the saved M11h predictions. Excluded: raw archives, database volumes, large feature caches, membership exports, model checkpoints, ligand and pose directories, third-party binaries and secrets. The learned protein transform is included as a small reproducibility artifact; it is not an embedding cache. **A private repository is not a backup of the excluded evidence** — see the [archive policy](docs/ARCHIVE_POLICY.md) and `configs/manifests/closeout_inventory.json`.
 
-Before any public release, see the [attribution and licensing audit](docs/ATTRIBUTION.md). In short: there is **no `LICENSE` file**; `pyproject.toml` declares MIT, which is metadata and covers code only. Dataset and model terms are separate — the 2026-01-01 archival deposit declares CC BY 4.0 in its own rights metadata, while a possible ChEMBL-derived share-alike obligation on some shipped rows is **unresolved**. Do not infer redistribution permission from a software licence.
+Before any public release, see the [attribution and licensing audit](docs/ATTRIBUTION.md). In short: there is **no `LICENSE` file in effect** — a draft sits at `LICENSE.draft` for owner review and covers project code only. Dataset and model terms are separate. BindingDB's own `Curation/DataSource` column shows **ChEMBL is the largest single source at 50.81%** of the corpus, and **14 of the 17 shipped data files** reference compounds whose measurements include ChEMBL-sourced rows; two of them ship chemical structures. Whether ChEMBL's terms carry share-alike is **unresolved** and cannot be settled from deposit metadata. ESM-2's weights are MIT-declared at the pinned revision but are not redistributed here, and MIT does not speak to model outputs. Do not infer redistribution permission from a software licence.
 
 ## Start here
 
@@ -112,7 +112,8 @@ Before any public release, see the [attribution and licensing audit](docs/ATTRIB
 - [Demo guide](docs/DEMO.md) — live ranking prerequisites and evidence modes.
 - [Scientific manuscript](paper/manuscript.md) — illustrated Markdown draft; [editable Word version](paper/Seq2Lead_scientific_manuscript.docx). An unreviewed technical-report draft.
 - [Next steps](docs/NEXT_STEPS.md) — remaining work and publication review.
-- [Attribution and licensing audit](docs/ATTRIBUTION.md) — what is shipped, under which terms, and the decisions still open.
+- [Attribution and licensing audit](docs/ATTRIBUTION.md) — row-level provenance for every shipped data file, the ESM-2 terms at the pinned revision, and the decisions still open.
+- [CI scope](docs/CI_SCOPE.md) — which 1,075 tests CI covers and which 65 it cannot, measured on a fresh clone.
 - [Backup checklist](docs/BACKUP_CHECKLIST.md) — the 1.85 GB that exists only on local disk, with its verification procedure.
 - [Archive policy](docs/ARCHIVE_POLICY.md) — what to retain before deleting review ZIPs.
 - [Preserved execution scripts](scripts/asof/README.md) — the code actually run, with recorded hashes.
