@@ -55,7 +55,7 @@
    "tracked_in_git": false
   }
  },
- "inventory": "seq2lead-closeout-inventory-v1",
+ "inventory": "seq2lead-closeout-inventory-v2",
  "never_delete": [
   "raw source archives",
   "database volumes",
@@ -65,7 +65,7 @@
   "training membership exports",
   "docking runs, receptors and poses"
  ],
- "recorded_at": "2026-10-06T03:21:23.716233+00:00",
+ "recorded_at": "2026-10-06T03:39:57.321912+00:00",
  "repository": {
   "commit": "4a64d900f48b1bbf10e3f54845b6a31ea1d60d3c",
   "tag": "m11h-closeout",
@@ -73,7 +73,7 @@
   "url": "https://github.com/rinatrizvanov/seq2lead",
   "visibility": "PRIVATE"
  },
- "retention_rule": "A wrapper may be deleted only when every one of its unique members is preserved in Git or an independent backup. Because this repository has a single initial commit, the PRE-correction revisions of reports, manifests and contracts exist only inside these wrappers, so 15 of 17 are not yet safely deletable.",
+ "retention_rule": "A wrapper may be deleted only when every one of its members is preserved in Git, on local disk, in a retained wrapper, or in the verified consolidated archive. The four retained wrappers stay until their contents have an independent backup.",
  "review_zips": {
   "entries": [
    {
@@ -352,5 +352,155 @@
   "total_count": 17,
   "total_megabytes": 53.0
  },
- "statement": "A private GitHub copy is NOT a backup of the excluded scientific artifacts. Everything listed under `excluded_from_git` exists only on local disk and needs an independent backup."
+ "statement": "A private GitHub copy is NOT a backup of the excluded scientific artifacts. Everything listed under `excluded_from_git` exists only on local disk and needs an independent backup.",
+ "supersedes": "seq2lead-closeout-inventory-v1",
+ "zip_cleanup": {
+  "consolidated_archive": {
+   "bytes": 807015,
+   "entries": 92,
+   "independent_backup": false,
+   "independent_backup_note": "NONE. The archive is on the same local disk as the wrappers it replaced, so it is not yet a backup. Copy it to independent media before relying on it.",
+   "layout": "<source-zip-stem>/<original-member-path>, so original paths are preserved per wrapper",
+   "member_bytes": 2701866,
+   "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-historical-revisions-archive.zip",
+   "sha256": "22d12c45eb22b2646f28c9f712ccaafe388da87483799936f36af13d9c7bf1f2",
+   "verified": "extraction + byte comparison against every source ZIP: 92 of 92 identical"
+  },
+  "deleted": [
+   {
+    "bytes": 955242,
+    "members": 184,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11b-review-v3.zip",
+    "reason": "every member preserved in Git, on local disk, in a retained wrapper, or in the consolidated archive",
+    "sha256": "a0bd6a6fb29959208173531c771d936ab6c09d86abd3c80896c405d441b2d1f3",
+    "zip": "seq2lead-m11b-review-v3.zip"
+   },
+   {
+    "bytes": 1026075,
+    "members": 196,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11c-ingest-review-v1.zip",
+    "reason": "every member preserved in Git, on local disk, in a retained wrapper, or in the consolidated archive",
+    "sha256": "8ab8260e85b592ef8d82bcc0b0702cd75e61eca69e94d62c6c45def4e6f91cde",
+    "zip": "seq2lead-m11c-ingest-review-v1.zip"
+   },
+   {
+    "bytes": 1066001,
+    "members": 206,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11d-matching-review-v1.zip",
+    "reason": "every member preserved in Git, on local disk, in a retained wrapper, or in the consolidated archive",
+    "sha256": "bcf6a592263437a6be57d42c5f698ede8e2fbad8b192bf5c98fe76a4822ab336",
+    "zip": "seq2lead-m11d-matching-review-v1.zip"
+   },
+   {
+    "bytes": 1083481,
+    "members": 208,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11d-matching-review-v2.zip",
+    "reason": "every member preserved in Git, on local disk, in a retained wrapper, or in the consolidated archive",
+    "sha256": "fbc97ea5ee8609b242b1ecf0c86ea6584aa612101733205b17724c6fd28f991f",
+    "zip": "seq2lead-m11d-matching-review-v2.zip"
+   },
+   {
+    "bytes": 1162649,
+    "members": 220,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11e-closeout-review-v1.zip",
+    "reason": "every member preserved in Git, on local disk, in a retained wrapper, or in the consolidated archive",
+    "sha256": "ae0f8c88e4031370b98a54c424672edd20b5fe99cb1c82c6f16338bd43012cec",
+    "zip": "seq2lead-m11e-closeout-review-v1.zip"
+   },
+   {
+    "bytes": 1126576,
+    "members": 216,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11e-ki-aggregation-review-v1.zip",
+    "reason": "every member preserved in Git, on local disk, in a retained wrapper, or in the consolidated archive",
+    "sha256": "a5a2337e3ff32802409c6a451d1cd533b12c145762abf17c5183a1667fa3353b",
+    "zip": "seq2lead-m11e-ki-aggregation-review-v1.zip"
+   },
+   {
+    "bytes": 1145702,
+    "members": 218,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11e-ki-aggregation-review-v2.zip",
+    "reason": "every member preserved in Git, on local disk, in a retained wrapper, or in the consolidated archive",
+    "sha256": "f5a64cd53d919257cb373a31be79803da62bf9699948120bc7d7a167fd72e588",
+    "zip": "seq2lead-m11e-ki-aggregation-review-v2.zip"
+   },
+   {
+    "bytes": 1193782,
+    "members": 228,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11f-preflight-review-v1.zip",
+    "reason": "every member preserved in Git, on local disk, in a retained wrapper, or in the consolidated archive",
+    "sha256": "53dd0c8c0ee8beac3971e8dd94899243287ab1721214503214e486c0a5e0a3c0",
+    "zip": "seq2lead-m11f-preflight-review-v1.zip"
+   },
+   {
+    "bytes": 1215895,
+    "members": 232,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11f-preflight-review-v2.zip",
+    "reason": "every member preserved in Git, on local disk, in a retained wrapper, or in the consolidated archive",
+    "sha256": "780c0dfd21f7cdfdef6d43f74c96b0808fdc558628493e25baec2612aa18ba45",
+    "zip": "seq2lead-m11f-preflight-review-v2.zip"
+   },
+   {
+    "bytes": 5933550,
+    "members": 274,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11g-preflight-review-v2.zip",
+    "reason": "every member preserved in Git, on local disk, in a retained wrapper, or in the consolidated archive",
+    "sha256": "08aa226ef33703d2c2346d702f84b2ccd64523b2ce5f520b69dd6a4e5611d1aa",
+    "zip": "seq2lead-m11g-preflight-review-v2.zip"
+   },
+   {
+    "bytes": 5675242,
+    "members": 272,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11g-preflight-review.zip",
+    "reason": "every member preserved in Git, on local disk, in a retained wrapper, or in the consolidated archive",
+    "sha256": "94e860cbcdf4a439c95a8e4909f5306614a891c403ba47f7809b02f57f159979",
+    "zip": "seq2lead-m11g-preflight-review.zip"
+   },
+   {
+    "bytes": 9610053,
+    "members": 303,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11h-closeout-review.zip",
+    "reason": "every member preserved in Git, on local disk, in a retained wrapper, or in the consolidated archive",
+    "sha256": "ccf55c462befa523a1406498a1e8c5a30f6aa36121912c604e9f5c29fee0d1f2",
+    "zip": "seq2lead-m11h-closeout-review.zip"
+   },
+   {
+    "bytes": 9531061,
+    "members": 285,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11h-results-review.zip",
+    "reason": "every member preserved in Git, on local disk, in a retained wrapper, or in the consolidated archive",
+    "sha256": "c7263145310684a9d72cb99af746ae80159537d08d46b8287656dead13e0b2b7",
+    "zip": "seq2lead-m11h-results-review.zip"
+   }
+  ],
+  "method": "every member of every candidate wrapper was hashed and matched against the Git tree, local disk and the retained wrappers. Members preserved nowhere else were consolidated into one archive, which was verified by extraction and byte comparison against the source ZIPs BEFORE any wrapper was deleted. Deletion used exact absolute filenames, one at a time, never a wildcard.",
+  "not_deleted_and_why": "Nothing outside the thirteen listed wrappers was touched. Raw archives, database volumes, feature caches, membership exports, model checkpoints, saved predictions and docking evidence were never candidates.",
+  "performed_at": "2026-10-06T03:39:57.322320+00:00",
+  "retained": [
+   {
+    "bytes": 9626536,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m11h-integrity-review.zip",
+    "reason": "the final M11h integrity ZIP; retained by instruction",
+    "sha256": "8768c266cbb1728c9540b1fbad168f0e21aeced3d5d2dfddaf24abebf8bda692"
+   },
+   {
+    "bytes": 669539,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m8-review-v4.zip",
+    "reason": "accepted M8 snapshot; retained until preservation is independently proved",
+    "sha256": "e3587a416911fbc528b515758066ed692d84ac87ba3f239317fb8d6360e24023"
+   },
+   {
+    "bytes": 825771,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m9-review-v4.zip",
+    "reason": "accepted M9 snapshot; retained until preservation is independently proved",
+    "sha256": "5c1d63e1a60c5b27ed096ff2d5040cf4e2fa1521d650c29e391ace4bcd141ca5"
+   },
+   {
+    "bytes": 1178397,
+    "path": "/Users/rinatrizvanov/Desktop/Projects/seq2lead-m10-review-v3.zip",
+    "reason": "accepted M10 snapshot; retained until preservation is independently proved",
+    "sha256": "280475deea30109b109ea537fc183db2657328603d314d1a0fd18702843388ce"
+   }
+  ],
+  "space_recovered_bytes": 40725309
+ }
 }
