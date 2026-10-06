@@ -91,6 +91,28 @@ Two inventory-reconciliation guards were added to `test_safeguards.py` in the sa
 pass, so the suite is now **1,324** and CI collects **909 of 1,324** across 31
 files. 1,324 − 415 = 909.
 
+### Confirmed by the next run
+
+**Run <https://github.com/rinatrizvanov/seq2lead/actions/runs/37436066708>**,
+commit `eed128519b0286c3c1fe40f44d21b12f110e292f`, conclusion **success**,
+2026-10-06 08:26:03Z → 08:43:54Z, all 13 steps green.
+
+| Step | Collected | Passed | Failed | Skipped | Errors |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Test (portable subset) | 909 | 897 | 0 | 12 | 0 |
+| Test without a database (portable subset) | 909 | 807 | 0 | 102 | 0 |
+
+909 is what the arithmetic above predicted, and the two repaired files report
+`tests/test_cli.py .....` and `tests/test_safeguards.py .................` — 5 and
+17 tests, all passing on the runner, with no `F` or `E` in either step's progress
+output. So the repair is confirmed by CI and not only locally.
+
+One limit, stated rather than hidden: a document cannot record the result of the
+run that tests the commit containing it. The commit that added this section
+changes only this prose and the inventory digests that follow from it — no source,
+test or workflow file — so the run above remains the one that exercised this
+code. Later runs are on the Actions page; this file is not a substitute for it.
+
 ## Reproducing CI's condition locally
 
 A separate empty database was created beside the real one, migrations applied,

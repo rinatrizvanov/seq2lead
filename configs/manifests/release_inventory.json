@@ -576,11 +576,11 @@
    "sha256": "58e425fbbe9ddd9ebfe0ee6f6b76a6b24061891eac89cccbd965a9cfeb9bb2ac"
   },
   {
-   "bytes": 9830,
+   "bytes": 11008,
    "category": "prose",
    "licence": "MIT",
    "path": "docs/CI_SCOPE.md",
-   "sha256": "45e4457184aae7848b2d2582baadd5fa045e082c97b1c9743379f0ae5eba3315"
+   "sha256": "b0246a37c74ed93d9de51c341a7226e83d6b8d6c73945be2e5c3d4b719703192"
   },
   {
    "bytes": 1866,
@@ -2476,7 +2476,7 @@
   }
  ],
  "files": 349,
- "generated_after_commit": "726f4279d3e9ee4a81ae9d2247a6d632a88b3b26",
+ "generated_after_commit": "eed128519b0286c3c1fe40f44d21b12f110e292f",
  "generated_by": "scripts/release/build_inventory.py",
  "inventory": "seq2lead-complete-release-inventory-v2",
  "licence_basis": {
@@ -2505,7 +2505,7 @@
   ],
   "tracked_at_head": 351
  },
- "recorded_at": "2026-10-06T08:25:43.163429+00:00",
+ "recorded_at": "2026-10-06T08:45:32.933501+00:00",
  "release_option": "A - complete benchmark, pending owner approval. Repository remains PRIVATE.",
  "scientific_bytes_preserved": true,
  "self_excluded": {
@@ -2515,5 +2515,5 @@
   ],
   "why": "Neither file can record its own digest: writing the digest changes the bytes being described. Verify both by the commit they are attached to."
  },
- "total_bytes": 36567041
+ "total_bytes": 36568219
 }
