@@ -1,0 +1,179 @@
+DRAFT — NOT YET IN EFFECT
+
+Licensing of the data shipped in this repository.
+
+This file is a draft for owner review. It does not change, and is not changed by,
+the project code's proposed MIT licence in `LICENSE.draft`. Code and data are
+licensed separately and deliberately.
+
+================================================================================
+WHY TWO LICENCES, AND WHY SHARE-ALIKE DOES NOT REACH THE CODE
+================================================================================
+
+The measured affinity evidence in this repository comes from BindingDB, which
+states its terms per data source rather than for the database as a whole:
+
+  * data curated by BindingDB staff      Creative Commons Attribution 3.0
+  * data imported from ChEMBL            Creative Commons Attribution-Share
+                                         Alike 3.0 Unported
+
+ChEMBL confirms the same for its own data: Attribution-Share Alike 3.0 Unported,
+requiring attribution and that derivative works be shared under the same terms.
+
+Share-alike attaches to adaptations of the licensed material. The project code is
+not an adaptation of the data: it is independently authored software that reads
+it. So the code stays MIT, and the share-alike obligation travels with the data
+files and with anything derived from them. That separation is why there are two
+licence files rather than one.
+
+================================================================================
+WHAT APPLIES TO WHAT
+================================================================================
+
+Row-level provenance was taken from BindingDB's own `Curation/DataSource` column,
+which this repository preserves for every raw row. A file is listed under
+CC BY-SA 3.0 where the compounds it references have measurements carrying
+`Curation/DataSource = ChEMBL`.
+
+--- CC BY-SA 3.0 Unported (attribution AND share-alike) --------------------
+
+Source data — chemical structures:
+  data/asof/m11g/recompute-compounds.json      InChIKey -> canonical SMILES
+  reports/results/m10_cohort.json              600 members with canonical SMILES
+
+Transformed data and identifiers:
+  data/asof/m11d/examples.json
+  data/asof/m11e/examples.json
+  data/asof/m11e/worked-example-review.json
+  data/asof/m11g/evaluation-entities.json
+  data/asof/m11g/recurrence-agreement.json
+  data/asof/m11g/reuse-compounds.json
+  data/asof/m11h/run-20261005T134842Z/evaluation-pairs.jsonl
+  reports/results/m11d_ambiguous_slots.jsonl
+  reports/results/m11d_correction_candidates.jsonl
+  reports/results/m11d_examples.json
+  reports/results/m11e_examples.json
+  reports/results/m11e_worked_example_review.json
+
+Model predictions keyed by compound identifier:
+  data/asof/m11h/run-20261005T134842Z/predictions.npz
+      26,444 rows; the `pair` array carries 16,795 InChIKeys. Listed here
+      because of those identifiers, not because the scores are ChEMBL content.
+      Whether the scores themselves are an "Adaptation" under CC BY-SA 3.0 is
+      an open question — see UNRESOLVED below.
+
+--- CC BY 3.0 (attribution) ------------------------------------------------
+
+  data/asof/m11g/recompute-targets.json        13 protein sequences, no ChEMBL
+                                               measurement rows
+  reports/examples/query_target.fasta          one protein sequence (demo input)
+  reports/results/m11d_identifier_conflicts.jsonl
+                                               BindingDB record metadata;
+                                               its one compound has no
+                                               ChEMBL-sourced rows
+
+--- No third-party data; covered by LICENSE.draft (MIT) --------------------
+
+  data/asof/m11h/run-20261005T134842Z/protein-transform.npz
+      A 1x1280 mean, a 1x1280 scale and a fitted-row count. Summary statistics
+      over ESM-2 embeddings of training proteins. Contains no identifier, no
+      structure, no sequence and no measured value.
+
+  All other tracked data and report files: counts, digests, metrics, cohort
+  sizes, verification records and manifests. These carry no structures, no
+  sequences and no compound identifiers.
+
+================================================================================
+REQUIRED ATTRIBUTION
+================================================================================
+
+When redistributing any file listed above, carry the following.
+
+BindingDB, for all measured affinity evidence:
+
+  Liu T, Hwang L, Burley SK, Nitsche CI, Southan C, Walters WP, Gilson MK.
+  BindingDB in 2024: a FAIR knowledgebase of protein-small molecule binding
+  data. Nucleic Acids Research. 2025;53:D1633-D1644.
+
+  Data curated by BindingDB staff: Creative Commons Attribution 3.0.
+  https://www.bindingdb.org/
+
+Snapshot A, the historical training snapshot:
+
+  BindingDB archival deposit, 2026-01-01. DOI 10.6075/J0V40W61.
+  UC San Diego Library Digital Collections.
+
+Snapshot B: the locally pinned BindingDB 202609 rolling release.
+
+ChEMBL, for the rows BindingDB attributes to it:
+
+  ChEMBL, European Molecular Biology Laboratory - European Bioinformatics
+  Institute. Creative Commons Attribution-Share Alike 3.0 Unported.
+  https://www.ebi.ac.uk/chembl/
+
+  Cite the specific ChEMBL release DOI where a release is identified. This
+  repository does not record which ChEMBL release each imported row came from;
+  BindingDB's export carries the source label but not the ChEMBL release
+  identifier.
+
+ESM-2, for the protein representations:
+
+  facebook/esm2_t33_650M_UR50D, revision
+  08e4846e537177426273712802403f7ba8261b6c, declared MIT. Neither the model
+  code nor its weights are redistributed here.
+
+Full licence texts: licenses/CC-BY-3.0.txt, licenses/CC-BY-SA-3.0.txt.
+
+================================================================================
+HOW THE DATA WAS TRANSFORMED
+================================================================================
+
+Nothing shipped here is a verbatim copy of a BindingDB export. The chain:
+
+ 1. Ingest. Raw rows loaded verbatim into an immutable layer with a
+    `source_release` row pinning name, version, SHA-256 and URL. Every raw
+    payload is retained, including `Curation/DataSource`.
+ 2. Standardisation. RDKit 2026.03.6 fragment-parent standardisation; InChIKey
+    assigned from the standardised parent; protein identity from the SHA-256 of
+    the uppercased sequence.
+ 3. Endpoint build. Exact (`=`) and censored (`<`, `>`) records kept apart.
+    `pair_regression` holds median pKi over exact records only; `pair_label`
+    holds threshold labels from interval intersection. No censored value ever
+    enters a median.
+ 4. Snapshot matching. January and September exports compared by counted
+    multiset matching over measurement slots, producing unchanged, added,
+    removed and correction-candidate populations with row locators.
+ 5. Features. ECFP4 radius 2, 2048 bits, chirality on, bit-packed to 256 bytes.
+    ESM-2 mean-pooled over residues excluding special tokens.
+ 6. Fitting. Exact-Ki regression on January evidence alone; checkpoint selection
+    on a reserved January validation split.
+ 7. Evaluation. Tie-aware per-target ranking metrics, macro-averaged over
+    targets meeting a five-per-class floor.
+
+The shipped identifier files are the *entity sets* and *aggregates* these steps
+produced. `reuse-compounds.json`, for instance, is a mapping from InChIKey to an
+internal surrogate id; it contains no structure and no measured value. The two
+files that do ship structures are named explicitly above.
+
+================================================================================
+UNRESOLVED — READ BEFORE REDISTRIBUTING
+================================================================================
+
+One question is not answered by either provider's published terms:
+
+  Are model predictions and fitted statistics derived from CC BY-SA 3.0 data
+  themselves "Adaptations" under that licence, such that share-alike attaches
+  to them?
+
+What is affected: `predictions.npz` (scores for 26,444 pairs, keyed by 16,795
+InChIKeys) and, on a stricter reading, `protein-transform.npz` (2,560 summary
+statistics with no identifiers).
+
+Neither BindingDB's nor ChEMBL's published terms address statistical or
+model-derived outputs. Missing wording is not permission and not prohibition.
+A draft inquiry to the providers is held at
+`docs/inquiries/bindingdb-chembl-derived-artifacts.md`; it has not been sent.
+
+Until that is answered, the conservative course is to treat `predictions.npz` as
+CC BY-SA 3.0 — which is how it is listed above — because it carries ChEMBL-linked
+identifiers regardless of how the scores are characterised.

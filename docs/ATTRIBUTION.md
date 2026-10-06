@@ -145,33 +145,52 @@ Notes on the four files that needed resolution beyond an InChIKey scan:
 - **`data/asof/m11g/recompute-targets.json`** ships 13 January-only protein
   sequences with no 202609 measurement rows. Same reasoning.
 
-### What this means for terms
+### What this means for terms — resolved from the providers' own pages
 
-| Source | Verified | Where |
+| Source | Official statement | Where |
 | --- | --- | --- |
-| The 2026-01-01 UCSD Library deposit, DOI `10.6075/J0V40W61` | declares **CC BY 4.0** in its DataCite rights metadata | `configs/manifests/m11_acquisition_202601.json`, `deposit.license_declared_at_deposit_level` |
-| The project's `source_release` string | `CC-BY-3.0 (BindingDB-curated); CC-BY-SA-3.0 (ChEMBL-derived rows)` — a hand-written constant, **stale** for the curated portion | `src/seq2lead/ingest/sources.py:44` |
-| Snapshot B, the pinned 202609 rolling release | deposit-level rights metadata **not recorded locally** | — |
-| ChEMBL's own terms for the rows it contributed | **UNRESOLVED.** Not broken out in the deposit's rights metadata, and not verified against ChEMBL's own licence in this pass | `docs/M11.md` §Licensing |
+| **BindingDB**, data curated by its own staff | **Creative Commons Attribution 3.0** | BindingDB's terms page, <https://www.bindingdb.org/rwd/bind/info.jsp> |
+| **BindingDB**, data imported from ChEMBL | **Creative Commons Attribution-Share Alike 3.0 Unported** | same page |
+| **ChEMBL**, for its own data | **Creative Commons Attribution-Share Alike 3.0 Unported**, requiring attribution and that derivative works be shared under the same terms | ChEMBL interface documentation, <https://chembl.gitbook.io/chembl-interface-documentation/about> |
+| Required BindingDB citation | Liu T, Hwang L, Burley SK, Nitsche CI, Southan C, Walters WP, Gilson MK. *BindingDB in 2024: a FAIR knowledgebase of protein-small molecule binding data.* Nucleic Acids Research. 2025;53:D1633–D1644 | BindingDB's terms page |
+| Snapshot A deposit | DOI `10.6075/J0V40W61`, whose DataCite rights metadata declares CC BY 4.0 | `configs/manifests/m11_acquisition_202601.json` |
 
-**The open question, stated precisely.** Deposit-level CC BY 4.0 is a statement
-by the depositor about the deposit. It does not by itself establish the terms of
-the 1.66 million rows the deposit attributes to ChEMBL. Fourteen of the
-seventeen shipped files reference compounds whose measurements include such
-rows, and two of those files ship chemical structures rather than identifiers.
-If ChEMBL's terms carry share-alike, redistribution of at least those two files
-is affected. This cannot be settled from deposit metadata, and it is not
-settled here.
+**Two earlier statements in this project are now reconciled rather than one
+overriding the other.** The hand-written constant in
+`src/seq2lead/ingest/sources.py` reads
+`CC-BY-3.0 (BindingDB-curated); CC-BY-SA-3.0 (ChEMBL-derived rows)` — and that
+**matches BindingDB's own terms page exactly**. The M11b finding that the
+archival deposit declares CC BY 4.0 is a statement about *the deposit's DataCite
+record*, which is a different object from BindingDB's per-source terms. Both are
+true of different things, and the per-source terms are the ones that govern rows.
+An earlier revision of this audit called the constant "stale"; that was wrong.
 
-### Required attribution, as far as it is established
+**So the share-alike question is answered, and answered against the simple
+case.** ChEMBL is the single largest source at 50.81% of rows, and BindingDB
+imports those rows under CC BY-SA 3.0. Fourteen shipped files reference compounds
+with such rows, and `predictions.npz` makes fifteen. Those files carry a
+share-alike obligation.
 
-- Cite **BindingDB** as the source of the measured affinity evidence, and the
-  **2026-01-01 deposit by DOI `10.6075/J0V40W61`** for snapshot A.
-- Reproduce the deposit's **CC BY 4.0** notice for content covered by it.
-- Name **ChEMBL** as the upstream source of the rows attributed to it, pending
-  the unresolved question above.
-- Nothing here authorises redistribution; attribution is necessary, not
-  sufficient.
+### Can separate licences cover the data without touching the code's MIT?
+
+**Yes, and that is what `DATA_LICENSE.draft` does.** Share-alike under CC BY-SA
+3.0 attaches to *Adaptations of the Work* — the licensed material. The project
+code is not an adaptation of the data: it is independently authored software that
+reads it, and it would function on any other corpus. So:
+
+* `LICENSE.draft` (MIT) covers project code, configuration, figures, prose, and
+  artifacts that carry no third-party content.
+* `DATA_LICENSE.draft` assigns CC BY 3.0 or CC BY-SA 3.0 per file, from row
+  provenance, and carries the attribution set.
+* Where a file's compounds mix BindingDB-curated and ChEMBL-sourced rows, the
+  stricter licence governs that file.
+
+This is the ordinary dual-licence arrangement for a code-plus-data repository.
+It does not require weakening MIT, and it does not let MIT imply anything about
+the data.
+
+Full licence texts are in `licenses/`, retrieved verbatim from creativecommons.org
+with their digests recorded in `licenses/README.md`. They are not paraphrased.
 
 ## 4. Model-derived artifacts and the ESM-2 terms
 
@@ -198,7 +217,7 @@ of "the Software".
 | --- | --- | --- |
 | ESM-2 **code** (`facebookresearch/esm`, `transformers`) | no | MIT's notice condition is not triggered by this tree |
 | ESM-2 **weights** (`model.safetensors`, 2.6 GB) | no — local cache only | same |
-| **Our artifacts computed by running the model** — `protein-transform.npz` (1,280 means and 1,280 scales over A-training embeddings) and `predictions.npz` (one score per evaluated pair) | **yes, both shipped** | see below |
+| **Our artifacts computed by running the model** — `protein-transform.npz` (a 1×1280 mean, a 1×1280 scale and a fitted-row count) and `predictions.npz` (26,444 rows × 22 model-seed score columns, indexed by 16,795 InChIKeys) | **yes, both shipped** | see below |
 
 **Using a model does not place its licence on every output.** MIT grants rights
 to use, copy, modify and distribute *the Software*, and conditions that on
@@ -210,9 +229,25 @@ nor restricts anything about them. Whether any separate obligation attaches to
 outputs is a question about Meta's terms and about the inputs, not something the
 MIT text answers — and the inputs bring us back to §3.
 
+A correction to an earlier revision of this audit: a byte scan reported
+`predictions.npz` as containing no identifiers. That was wrong — the file is
+compressed, which hid them. Loading it shows a `pair` array of **16,795
+InChIKeys**, so it is listed under CC BY-SA 3.0 in `DATA_LICENSE.draft` on the
+strength of those identifiers alone. `protein-transform.npz` was checked the same
+way and genuinely holds only numeric arrays: no identifier, no structure, no
+sequence, no measured value.
+
 What is therefore **established**: we are not redistributing ESM-2 code or
-weights, and we carry no MIT notice obligation for them. What is **unresolved**:
-whether anything beyond §3 constrains the two shipped artifacts.
+weights, and carry no MIT notice obligation for them; and `predictions.npz`
+carries ChEMBL-linked identifiers, so share-alike applies to it regardless of how
+the scores are characterised.
+
+What remains **unresolved**: whether the *scores themselves*, and the
+identifier-free `protein-transform.npz`, are "Adaptations" under CC BY-SA 3.0.
+Neither provider's published terms addresses statistical or model-derived
+outputs. Missing wording is neither permission nor prohibition, so a draft
+inquiry is held at `docs/inquiries/bindingdb-chembl-derived-artifacts.md`. It has
+**not** been sent.
 
 ## 5. Figures and manuscript
 
@@ -241,24 +276,42 @@ cannot grant rights in data the licensor does not hold.
 
 ## Decisions needed from the owner
 
-1. **Confirm rights and rename** `LICENSE.draft` to `LICENSE`, or supply a
-   different copyright line.
-2. **Settle the ChEMBL question** for the fourteen files in §3 — in particular
-   `reports/results/m10_cohort.json` (600 structures, 91.96% ChEMBL) and
-   `data/asof/m11g/recompute-compounds.json` (structures, 62.36% ChEMBL),
-   which ship chemical structures rather than identifiers. If share-alike
-   applies, the repository's own distribution terms are affected.
-3. **Record snapshot B's deposit-level rights metadata**, absent locally.
-4. **Decide whether any obligation attaches to the two model-derived
-   artifacts** beyond what §3 implies; MIT does not answer it.
-5. **Approve the attribution text** in §3 once 2 and 3 are settled.
-6. **Decide whether to ship structures at all.** Dropping the SMILES columns
-   from those two files would reduce the §3 exposure to identifiers and derived
-   values. That is a scientific-reproducibility trade-off, not an editorial one,
-   so it is the owner's call — and no such change was made here.
-7. **Perform the backup** in `docs/BACKUP_CHECKLIST.md` (1.85 GB, single copy).
-8. **Accept the CI scope** in `docs/CI_SCOPE.md`, which records that CI covers
-   1,075 portable tests and cannot cover 65 artifact-bound ones.
+The licensing questions that blocked a complete release are now **answered from
+the providers' own terms**. What remains is approval plus one genuine unknown.
+
+### Ready for your decision
+
+1. **Confirm rights and rename** `LICENSE.draft` → `LICENSE` (MIT, project code)
+   and `DATA_LICENSE.draft` → `DATA_LICENSE` (CC BY 3.0 / CC BY-SA 3.0 per file).
+2. **Accept the per-file licence assignment** in `DATA_LICENSE.draft` and the
+   inventory at `configs/manifests/release_inventory.json`: 323 files MIT,
+   15 CC BY-SA 3.0, 3 CC BY 3.0.
+3. **Accept the attribution set** — BindingDB's 2025 *NAR* citation, deposit DOI
+   `10.6075/J0V40W61`, the pinned 202609 release, ChEMBL under CC BY-SA 3.0, and
+   ESM-2 at its pinned revision.
+4. **Decide on `docs/CLAUDE_CLOSEOUT_PROMPT.md`.** Untracked in HEAD but
+   reachable in history at `4a64d90`; publication would expose it. It carries no
+   third-party data. History was deliberately not rewritten.
+5. **Accept the CI scope** in `docs/CI_SCOPE.md` — 18 files out of CI's reach,
+   split by cause.
+6. **Fix or accept the two ANSI-dependent CLI tests.** A test-code change, so
+   not made unreviewed; see `docs/CI_SCOPE.md` §(b).
+7. **Perform the backup** in `docs/BACKUP_CHECKLIST.md` — 1.85 GB, single copy.
+
+### The one unresolved permission question
+
+8. **Are model predictions and fitted statistics "Adaptations" under CC BY-SA
+   3.0?** Affects `predictions.npz` and, on a stricter reading,
+   `protein-transform.npz`. Not addressed by either provider's published terms.
+   A draft inquiry is ready at
+   `docs/inquiries/bindingdb-chembl-derived-artifacts.md` and has **not** been
+   sent — sending it is your call.
+
+   This does **not** block a complete release as currently packaged, because
+   `predictions.npz` is already assigned CC BY-SA 3.0 on the strength of the
+   16,795 InChIKeys it carries. Answering it could only *relax* that, or extend
+   share-alike to `protein-transform.npz`. The conservative assignment is already
+   in place.
 
 Nothing in this file grants or assumes any permission, and no dataset or model
 term was inferred from the software licence.

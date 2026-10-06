@@ -1,0 +1,2471 @@
+{
+ "also_in_git_history": [
+  {
+   "contains_third_party_data": false,
+   "note": "working prose, untracked in HEAD; history deliberately not rewritten, so publication would expose it",
+   "path": "docs/CLAUDE_CLOSEOUT_PROMPT.md",
+   "reachable_at": "4a64d90"
+  }
+ ],
+ "by_category": {
+  "code": 177,
+  "configuration": 22,
+  "figure": 12,
+  "fitted statistic": 1,
+  "other": 4,
+  "prediction": 1,
+  "prose": 50,
+  "source data (structures/sequences)": 4,
+  "third-party licence text": 2,
+  "transformed data / identifiers": 73
+ },
+ "by_licence": {
+  "CC-BY-3.0": 3,
+  "CC-BY-3.0 (verbatim licence text)": 1,
+  "CC-BY-SA-3.0": 15,
+  "CC-BY-SA-3.0 (verbatim licence text)": 1,
+  "MIT": 326
+ },
+ "commit": "a83ee470afcd5e3bf8d1a5c437b814c9f996ffa8",
+ "digest_note": "every digest here was computed from the file as it stands at the commit named above; an inventory whose digests do not match its files records nothing",
+ "entries": [
+  {
+   "bytes": 364,
+   "category": "code",
+   "licence": "MIT",
+   "path": ".env.example",
+   "sha256": "8a7be7f027e2f39d207763221a8dfd5c45d408b14c7793a9eefbf80fdef59ed1"
+  },
+  {
+   "bytes": 6150,
+   "category": "code",
+   "licence": "MIT",
+   "path": ".github/workflows/ci.yml",
+   "sha256": "3872fa1e54b6baf5a1fbd63498b18b13a9339ec19502977b80058b4f4a0cb1f6"
+  },
+  {
+   "bytes": 5155,
+   "category": "code",
+   "licence": "MIT",
+   "path": ".gitignore",
+   "sha256": "93a8837b9a6dfe30456f55fce39e887c979fcdab38cef35e420726098d43aec9"
+  },
+  {
+   "bytes": 306,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "CITATION.cff",
+   "sha256": "6f6dc9902e2260c4294a18c651d5f7f94524ef5c0b65582bf313cc5637bdb350"
+  },
+  {
+   "bytes": 8643,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "DATA_LICENSE.draft",
+   "sha256": "12310756f5d0b5174bc5fbee7f1a9c12811a0cb6fc91d5f619d16efa3a9c9c05"
+  },
+  {
+   "bytes": 2372,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "LICENSE.draft",
+   "sha256": "625bb4b090e65e2d34708e7b7a7a24a241ded3ce4bbcb27b7ae54fb79a17e073"
+  },
+  {
+   "bytes": 11104,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "README.md",
+   "sha256": "5b40455e7c5c05e46d5095018e2fce6063e69aada2424c6201b02711bf6c21d8"
+  },
+  {
+   "bytes": 3140,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "REVIEW.md",
+   "sha256": "39e3b98fd0b4addae58045a1471440d4998444a5a1ca93486f97a01c929138cd"
+  },
+  {
+   "bytes": 0,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/.gitkeep",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "bytes": 2901,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/experiments/baseline-v1.yaml",
+   "sha256": "65345ed38dbb07b4a5f3331eba93b9103ff311cfef3478b2b148e52c2969bdd7"
+  },
+  {
+   "bytes": 9063,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/experiments/m10-docking-v1.yaml",
+   "sha256": "84b6515d5c0c656ec95b8b1ad569fb4b461619ff20b44e2bb2f87fb542d185c9"
+  },
+  {
+   "bytes": 4714,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/experiments/m9-dual-encoder-v1.yaml",
+   "sha256": "58662cd2033d81c73e0b3b90fdea0861d7d9f19fe76bff49cbb7ee37958b951f"
+  },
+  {
+   "bytes": 3441,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/m11e_cross_slot_sensitivity.json",
+   "sha256": "f83321019e166d1a69e9c5b829877c5b5d704cd35711ca4fa143bebbb6a89bc5"
+  },
+  {
+   "bytes": 44508,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/m11f_evaluation_contract.json",
+   "sha256": "3600854abdd09a21090122098aed989d4893a206f477191a2e1c8a1d611f9ef2"
+  },
+  {
+   "bytes": 17977,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/closeout_inventory.json",
+   "sha256": "498e58a7873cbd06aa0344f3ea9c54b26095bf168673c3a955e591adcf56018f"
+  },
+  {
+   "bytes": 7373,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m10_docking.json",
+   "sha256": "3a13decffd3c8926c3c4017b86b4e0356f8cd22e188c6599f8fa7f0e6858830a"
+  },
+  {
+   "bytes": 5701,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m10_docking.v1.json",
+   "sha256": "ae48c84d8fc569f1f277c4a2af3d306d205026cb82e1d2b17806e0217a60a273"
+  },
+  {
+   "bytes": 7251,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m10_docking.v2.json",
+   "sha256": "a5afc5ff480b7eb728b74cfa6a157893c358bc26d6816133c7dce82c61a1f439"
+  },
+  {
+   "bytes": 896,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m10_verification.json",
+   "sha256": "b6c489019df19b1e7b3d8a4116978f33532a05ef4f747a35ebd3f2de81f55f68"
+  },
+  {
+   "bytes": 4526,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m11_acquisition_202601.json",
+   "sha256": "f38488aaa7a8afd9a7828f7cc25ddd286db284cbe3f9df11ed736c14ffbd734c"
+  },
+  {
+   "bytes": 52619,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m11_archive_inventory.json",
+   "sha256": "bc501b4e75c18ebde38938a45c7c1041e58798e5b453c47ce8a5c828265a997b"
+  },
+  {
+   "bytes": 8841,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m11c_isolated_ingest_202601.json",
+   "sha256": "0a43f7d4ca253e0a0956bff4e5b9d42917d164c79f91c630d83d3eee41505aa0"
+  },
+  {
+   "bytes": 18548,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m11d_matching_202601_202609.json",
+   "sha256": "23fb981c9195547edca7ad1f2afef66ef63716895b6452d1b17c2f7560315031"
+  },
+  {
+   "bytes": 44464,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m11e_ki_aggregation.json",
+   "sha256": "8b8f7d068e9429f0f66034237474be387c2a3b57cc834a5728a98b27d38e114d"
+  },
+  {
+   "bytes": 33798,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m11f_preflight.json",
+   "sha256": "6a8417dc4bb50cae6ab097d5e81e88b4f4ea2a24462e7e31fb5144065410b4ed"
+  },
+  {
+   "bytes": 4220,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m11g_preflight.json",
+   "sha256": "d018ba7533ec5a91a7ffdde29625b925409e9a75c75da5cb834456f5314c5955"
+  },
+  {
+   "bytes": 6053,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m11h_fit.json",
+   "sha256": "1b204db22c64a93079a33542c49fceb2aa2852cf0189cc7b1925061a5b70389f"
+  },
+  {
+   "bytes": 22369,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m8_predictions.json",
+   "sha256": "cf91e908627af7103b19abdf85058af24f189f46d8368414f32b7200943b09fb"
+  },
+  {
+   "bytes": 23416,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m9_runs.json",
+   "sha256": "69de1689d43150ff2d67dd56beb49894a524cea6afc25732509478869b1ca8f3"
+  },
+  {
+   "bytes": 21323,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/manifests/m9_runs.v1.json",
+   "sha256": "8318f20873f38ed1b5e15e5e61a2e4d129414d4d23071ad7828dfe77f3e79cb4"
+  },
+  {
+   "bytes": 1570,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/export-summary-both.json",
+   "sha256": "fdf088427c93455f504e096cdec748e99781e216c9885a0c5b2c1f02a2057339"
+  },
+  {
+   "bytes": 3145,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "data/asof/m11d/examples.json",
+   "sha256": "9942d2ac9cc3809d6570776cdbed54dfd55c87df80089af297fe121808c6e847"
+  },
+  {
+   "bytes": 5199,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11d/matching-result.json",
+   "sha256": "e311d354f1632cb5336901c41a0474559f6969d1a91546a1ba4bb23df2ec0d40"
+  },
+  {
+   "bytes": 4231,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11d/moved-observations-comparison.json",
+   "sha256": "cc3b9993048f1a47ef7a51127be33ec7f3d5897297ea488e61d6fe0c56d21d41"
+  },
+  {
+   "bytes": 3778,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11d/moved-observations-v2.json",
+   "sha256": "110c3d5d5af2a7a2fe6309a8d237b6edd24b806f387d28ca04b29713e91e70e2"
+  },
+  {
+   "bytes": 840,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11d/moved-observations.json",
+   "sha256": "6849400150bc4c47c1d5987e1b4dbe5c583db217d6b10b9603d76560053ce9ea"
+  },
+  {
+   "bytes": 2699,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11d/partition-k32.json",
+   "sha256": "62745a617dc18a39a880b57a3207e36d2357416096e82ec27dc90485303cee67"
+  },
+  {
+   "bytes": 800,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11d/pilot-k32.json",
+   "sha256": "727e603ee669343210dee91f7a850a2e047eef41e09dbefbd628356888ec3931"
+  },
+  {
+   "bytes": 517,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11e/audit-reconstruction.json",
+   "sha256": "8f05bb7947cba2aec9a5fc6185c4d211df48c5fe087f680c2b26c9bc96272e14"
+  },
+  {
+   "bytes": 15966,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "data/asof/m11e/examples.json",
+   "sha256": "544ed746ed65a088924b6057e5244676f7118efa4b4eda987c9051f0aab0e595"
+  },
+  {
+   "bytes": 145282,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11e/excluded-locators-ki.json",
+   "sha256": "2cc04affa04d231785b5571ccf13d5b9317aca061b554594e8cbfe76cf8f5cb6"
+  },
+  {
+   "bytes": 54607,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11e/ki-aggregation-result.json",
+   "sha256": "a65b04e67967c27ccdf384ca49273da1eca43dbc2b9caf6dd8dccb54d1a4fff2"
+  },
+  {
+   "bytes": 4001,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11e/partition-k64.json",
+   "sha256": "21a5327e792aa35083f7526ad45f30928f90e00cb493756324949916216fec0f"
+  },
+  {
+   "bytes": 24615,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "data/asof/m11e/worked-example-review.json",
+   "sha256": "fc424d1c293d571c21b806d00df64b4060d86a25b6706ea56402e82aefb30b29"
+  },
+  {
+   "bytes": 13350,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11f/cohort-preflight.json",
+   "sha256": "76a3cc13a5778b42c9403ac4cd56c902feaf517875f1bd7237f77ad0665772b6"
+  },
+  {
+   "bytes": 3709,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11f/feature-binding.json",
+   "sha256": "8de70f06c34199edf1e49459af9c3edee11d9c01e8f19a1d8239f60add569c74"
+  },
+  {
+   "bytes": 1423,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11f/feature-coverage.json",
+   "sha256": "eea225e995217b99fb0f6c4d64faa01e9d3a18a3edbeb87d35fb6fad784b8acd"
+  },
+  {
+   "bytes": 797,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11f/model-facing-datasets.json",
+   "sha256": "571b542ae14601110aa4362df7456e6946920d5fa8cf288e034cb6be8887bc0a"
+  },
+  {
+   "bytes": 3074,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11f/partition-summary.json",
+   "sha256": "d4c0be3b469655a10bdfc1ddbe16e9bfc4bde36681ae2d948ada4dd84f4eadb3"
+  },
+  {
+   "bytes": 5063,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11g/binding-defects.json",
+   "sha256": "fd3807a5f4063094794ca5a0470318ead8506b7eed6d6298c59fa161aff0f1d9"
+  },
+  {
+   "bytes": 14797,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11g/cohort-preflight.json",
+   "sha256": "3f98c802b2fd8d9a1be54dcf3f671a38214f560ababa96b42be055cc56dfffe6"
+  },
+  {
+   "bytes": 685066,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "data/asof/m11g/evaluation-entities.json",
+   "sha256": "01a966b567e63cb44dd814e42fb620ef5d05f8aa929b4fb53c19b45c58035a8c"
+  },
+  {
+   "bytes": 2127,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11g/evaluation-pairs-summary.json",
+   "sha256": "a46c1ad71968fc683583fcfef8f5c3154593d093bb504094990b1a16a05c0092"
+  },
+  {
+   "bytes": 1536,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11g/feature-binding.json",
+   "sha256": "e00024c0976efe0f371662547a6aff2c72d0105557e7fa5717cbd7bdd3158641"
+  },
+  {
+   "bytes": 3188,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11g/feature-coverage.json",
+   "sha256": "ac2a3cd4b98edc9ca4b4a5fa5c3eb18bf79897033b0ea6017125ee4219d2f831"
+  },
+  {
+   "bytes": 3335,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11g/feature-extension.json",
+   "sha256": "053878c49fca931050e704aad12895441c56658ed2d4e31ae4740cf0a63acc3b"
+  },
+  {
+   "bytes": 748,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11g/length-window.json",
+   "sha256": "9f3ac4f0c8aa419418c18abb9f7a6085c5cab36bf1572bbca92962b9694ea25e"
+  },
+  {
+   "bytes": 1053,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11g/model-facing-datasets.json",
+   "sha256": "c938c981ecb1654f9981b154f3389d08f89330ffa9ae1fadd0e8d53f3c8140b6"
+  },
+  {
+   "bytes": 433018,
+   "category": "source data (structures/sequences)",
+   "licence": "CC-BY-SA-3.0",
+   "path": "data/asof/m11g/recompute-compounds.json",
+   "sha256": "8642f6638dd11d3bbfcdca55816ee67812f00eecd02a0fdc8f419db990135bca"
+  },
+  {
+   "bytes": 6677,
+   "category": "source data (structures/sequences)",
+   "licence": "CC-BY-3.0",
+   "path": "data/asof/m11g/recompute-targets.json",
+   "sha256": "eac6af0973530b78f87fab8e8c39629fd6390c20ecc54cda0a12b3b999532980"
+  },
+  {
+   "bytes": 1254,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "data/asof/m11g/recurrence-agreement.json",
+   "sha256": "b5e699f973a4fdcbd32c2c3c65edf7ad60b20087b0e388af629033154c2a5782"
+  },
+  {
+   "bytes": 2847,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11g/resolution.json",
+   "sha256": "4e2492a079911e2d0465b8aa76f0dc840003fb8eecaed1b441beacc02fd744d0"
+  },
+  {
+   "bytes": 10076682,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "data/asof/m11g/reuse-compounds.json",
+   "sha256": "fe7dcbffead38c98b51560f12674ac6a9d16643734834bb21a7fddd651172ea5"
+  },
+  {
+   "bytes": 281316,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11g/reuse-targets.json",
+   "sha256": "55feecc8c44380e3c799d2c400dba1fbeb69b69f8eb8b9bf1813dbecbb836828"
+  },
+  {
+   "bytes": 6978,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11g/runner-record.json",
+   "sha256": "65cbbe0c9468096ec680c556b91f9849549b0be515f5c21fb490f3d7873c93f6"
+  },
+  {
+   "bytes": 9282,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11h/closeout-changes.json",
+   "sha256": "3fc8d485c6ad50917cdbfb97eb93a225469e776cf9544ac821097df8b209c20e"
+  },
+  {
+   "bytes": 13665385,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "data/asof/m11h/run-20261005T134842Z/evaluation-pairs.jsonl",
+   "sha256": "c21ee0ab7bffe00985919e4d15394fdaa1ed189110680dae4ad09a73c6a5d8ee"
+  },
+  {
+   "bytes": 12581,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11h/run-20261005T134842Z/manifest.json",
+   "sha256": "7dd7fa5710f631b4c603245240bee5b0407d38526f2059c077df1e855ce2176e"
+  },
+  {
+   "bytes": 2581441,
+   "category": "prediction",
+   "licence": "CC-BY-SA-3.0",
+   "path": "data/asof/m11h/run-20261005T134842Z/predictions.npz",
+   "sha256": "9c3f7c85deafbe1aa87fa01c96add3821c44b1e2ffdefb8e6c030859b2df0503"
+  },
+  {
+   "bytes": 11000,
+   "category": "fitted statistic",
+   "licence": "MIT",
+   "path": "data/asof/m11h/run-20261005T134842Z/protein-transform.npz",
+   "sha256": "40154b7228691cdddf6164adee7d130c3e139124a4ef2c6fdb9e85fec0cb1620"
+  },
+  {
+   "bytes": 295098,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11h/run-20261005T134842Z/results.json",
+   "sha256": "0d380b37f1f91782ba192be12c8d54cb4d7270505bb685a51aedf666a866ee48"
+  },
+  {
+   "bytes": 30766,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11h/run-20261005T134842Z/training-records.json",
+   "sha256": "7592521cbbc152298734dd967d3de662e789f40b1c064ad0814afd524c4b7097"
+  },
+  {
+   "bytes": 1362,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/m11h/run-20261005T134842Z/verification.json",
+   "sha256": "06ed6408776d40ecb290524bfafcd0ef0f45237b48fff14c3c5650ed2669f6b9"
+  },
+  {
+   "bytes": 2027,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "data/asof/readiness-stats.json",
+   "sha256": "c6f2286059054a61f4b54b4dbc763ee93412d43dd89a4c9c912fa45f31bd08df"
+  },
+  {
+   "bytes": 1369,
+   "category": "code",
+   "licence": "MIT",
+   "path": "docker/compose.yml",
+   "sha256": "c439e09a2aa2f0785595a6ff88d17711838de042369bd4353e13b710676818d1"
+  },
+  {
+   "bytes": 1691,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/ARCHIVE_POLICY.md",
+   "sha256": "345ac8b3289fb4b023f809176e913f5e43802e9fe467e32bd4585672277b3bf6"
+  },
+  {
+   "bytes": 18826,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/ATTRIBUTION.md",
+   "sha256": "64121854368982686a9fb740157b236fa923b8f186717f6787db69bdf2bfb52b"
+  },
+  {
+   "bytes": 5382,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/BACKUP_CHECKLIST.md",
+   "sha256": "58e425fbbe9ddd9ebfe0ee6f6b76a6b24061891eac89cccbd965a9cfeb9bb2ac"
+  },
+  {
+   "bytes": 4379,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/CI_SCOPE.md",
+   "sha256": "619f176852b85003642d3bcd82de744f0489e5a8b76c013a15cd29cf7e4203c8"
+  },
+  {
+   "bytes": 1866,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/DEMO.md",
+   "sha256": "357331329a071793c522cf7b06963bdfa68a43dad02dcb68754681c787c07118"
+  },
+  {
+   "bytes": 12236,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/DOCKING.md",
+   "sha256": "1da8f8c4db029d88725e64179a21d554c68f9801ea7ca35ed7c9d6993f1e7e90"
+  },
+  {
+   "bytes": 14950,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/EVALUATION.md",
+   "sha256": "42a8c5a991c846955afd59b4a239f272c0cf143beef51dc416cae5b48c04df16"
+  },
+  {
+   "bytes": 11633,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/FEATURES.md",
+   "sha256": "154329ee42191a9272c6f1f4f2a1da683f7b8a07fefd1c8aa081c37f0b8f6c2f"
+  },
+  {
+   "bytes": 87441,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/M11.md",
+   "sha256": "e013ce8c72f937c44d0dc7a9a8a6ab1a7c0918ad92cfa727c51dc4483e6b4f00"
+  },
+  {
+   "bytes": 9439,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/M9.md",
+   "sha256": "3b236a1451995350722961a90b4d64961598eab4c70b3816b57679e6970d80af"
+  },
+  {
+   "bytes": 3000,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/NEXT_STEPS.md",
+   "sha256": "766d16d03758b3d924554420bc77f813bd0a15167e28e4ef4c33e181279be7d9"
+  },
+  {
+   "bytes": 3926,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/NOVELTY.md",
+   "sha256": "8d721218d986e355a483a2d7a80a3dc30b36163bbf9bf09ef61c73d7ee98831f"
+  },
+  {
+   "bytes": 2370,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/PUBLICATION_PLAN.md",
+   "sha256": "3de6e7e104cf97bcf5e206258e4932785ad6fab44e01dcb863eaff0b37fdbe04"
+  },
+  {
+   "bytes": 4111,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/REPRODUCIBILITY.md",
+   "sha256": "82174d9d1032ae7ce60f580ca2be12689b26c20a260efab58e9e3647221f1cd1"
+  },
+  {
+   "bytes": 1454,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/RESUME.md",
+   "sha256": "eb678df9eb40dfa456e95f31030bf81a2ef6aee177a63e211ea360f6673f4240"
+  },
+  {
+   "bytes": 10728,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/SCHEMA.md",
+   "sha256": "8767c0d463bdf403371c50db4d66a57bcff0b2f2eedd7e27d558c1c1cec2d4e4"
+  },
+  {
+   "bytes": 13034,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/SPLITS.md",
+   "sha256": "4ecac749f261ab33f41b897c535467d9dfa56f96b8a6a8c0189cf42be78ce3c4"
+  },
+  {
+   "bytes": 44585,
+   "category": "other",
+   "licence": "MIT",
+   "path": "docs/closeout_preservation.json",
+   "sha256": "f6751535815794cbcfd90b944f5280ead5566e4a9f7d54a16b5ef6a6005aac8a"
+  },
+  {
+   "bytes": 669,
+   "category": "other",
+   "licence": "MIT",
+   "path": "docs/gitignore_precloseout.txt",
+   "sha256": "335cd2f62d1a5a52f5ef353a62dce5d23d99826be7bfa119f7fc18e7dc12d556"
+  },
+  {
+   "bytes": 4704,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/inquiries/bindingdb-chembl-derived-artifacts.md",
+   "sha256": "bbc16f17332f813d7c2a382620df1fa42cc662450e72eff48ed440385cba9296"
+  },
+  {
+   "bytes": 19467,
+   "category": "third-party licence text",
+   "licence": "CC-BY-3.0 (verbatim licence text)",
+   "path": "licenses/CC-BY-3.0.txt",
+   "sha256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76"
+  },
+  {
+   "bytes": 22240,
+   "category": "third-party licence text",
+   "licence": "CC-BY-SA-3.0 (verbatim licence text)",
+   "path": "licenses/CC-BY-SA-3.0.txt",
+   "sha256": "3f941b3b89cf7b8370ceb83cc76d2120d471b58735d8ca60238a751a48d7f72f"
+  },
+  {
+   "bytes": 903,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "licenses/README.md",
+   "sha256": "3e7ea0e17453ec40fbb6c2b8fdf4e6a5fce98dab9a40dd2e7464c45fec81103a"
+  },
+  {
+   "bytes": 1493,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "paper/FIGURES.md",
+   "sha256": "9e96f8a4b5408d75457edf843fd83b5f59722c02282d419c82fba176091e88a4"
+  },
+  {
+   "bytes": 835569,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "paper/Seq2Lead_scientific_manuscript.docx",
+   "sha256": "959447ab40fda32360921bf95bed5821248a369d2de65a8fad2029db6c5ea2f2"
+  },
+  {
+   "bytes": 36515,
+   "category": "code",
+   "licence": "MIT",
+   "path": "paper/build_paper.py",
+   "sha256": "c99e1e1aa32c8e44d1d1c035bc89b02de3c87cccb29069d94b8dfec328a3f00c"
+  },
+  {
+   "bytes": 213074,
+   "category": "figure",
+   "licence": "MIT",
+   "path": "paper/figures/figure_1_evidence_workflow.png",
+   "sha256": "20aa0e85313de31d592e3345a3c13dd5700c0217a1e9c3a8290dcd753f45a59d"
+  },
+  {
+   "bytes": 8397,
+   "category": "figure",
+   "licence": "MIT",
+   "path": "paper/figures/figure_1_evidence_workflow.svg",
+   "sha256": "f522eb8f1729ccb9a1eefce6d8bef9a79b40c92f689f0d0ec68be9040ff902c5"
+  },
+  {
+   "bytes": 186201,
+   "category": "figure",
+   "licence": "MIT",
+   "path": "paper/figures/figure_2_dual_encoder.png",
+   "sha256": "219c3b777d8b7cda4967b388dcdde0e92b77ff6832d39cf054c5bb135eb9cea4"
+  },
+  {
+   "bytes": 7624,
+   "category": "figure",
+   "licence": "MIT",
+   "path": "paper/figures/figure_2_dual_encoder.svg",
+   "sha256": "51ec7bfb7bd9488038e30fd049c5c9ccedab7d65f6a9777ab1bbe41aa89d49b0"
+  },
+  {
+   "bytes": 139259,
+   "category": "figure",
+   "licence": "MIT",
+   "path": "paper/figures/figure_3_ranking_results.png",
+   "sha256": "6bc22c6091fb990c699e8cf351d449637b944486bee8ef61da04ce5e3c86c314"
+  },
+  {
+   "bytes": 21310,
+   "category": "figure",
+   "licence": "MIT",
+   "path": "paper/figures/figure_3_ranking_results.svg",
+   "sha256": "bbe668cfffea35438156d5053a197f9767cc2e3eab7e1e743e44479293770e73"
+  },
+  {
+   "bytes": 226362,
+   "category": "figure",
+   "licence": "MIT",
+   "path": "paper/figures/figure_4_target_and_stratum_diagnostics.png",
+   "sha256": "bbb23336d92afb64f1c7e91afdd6d0cf67f925429c5ffbdeb05585f837b32a45"
+  },
+  {
+   "bytes": 37518,
+   "category": "figure",
+   "licence": "MIT",
+   "path": "paper/figures/figure_4_target_and_stratum_diagnostics.svg",
+   "sha256": "1373960955a583303ac0822e8872639b746a3444a65fa63769f86aef08d47a69"
+  },
+  {
+   "bytes": 126522,
+   "category": "figure",
+   "licence": "MIT",
+   "path": "paper/figures/figure_5_docking_gate.png",
+   "sha256": "53387c8c8416b37428bd26886d0ff55cd22ece9bf9892b46997a7fcb2724df1d"
+  },
+  {
+   "bytes": 10242,
+   "category": "figure",
+   "licence": "MIT",
+   "path": "paper/figures/figure_5_docking_gate.svg",
+   "sha256": "8f4bf6a6f8a000dd0623899bd7fea85123ad9c740f3cb5a93aee51b5565273f9"
+  },
+  {
+   "bytes": 2036,
+   "category": "figure",
+   "licence": "MIT",
+   "path": "paper/figures/figure_provenance.json",
+   "sha256": "463c6419b906afab39e72cdb7fc37f416fd82a8e8e3b9d41f13e445e4757e6b2"
+  },
+  {
+   "bytes": 29550,
+   "category": "figure",
+   "licence": "MIT",
+   "path": "paper/figures/per_target_comparison.json",
+   "sha256": "b362e4cf45ccd8651f7ab75780de892e6f4b10a26461f22679d71d854fd7650a"
+  },
+  {
+   "bytes": 21317,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "paper/manuscript.md",
+   "sha256": "177ddc1d089a881800014174f91b0574efbbe26a646602e5eb587777d08ca963"
+  },
+  {
+   "bytes": 35,
+   "category": "other",
+   "licence": "MIT",
+   "path": "paper/requirements.txt",
+   "sha256": "58028b61efd35e1a22c13ca936776ecc2874b3f4e1ba41bf7ab8eee80b814079"
+  },
+  {
+   "bytes": 2221,
+   "category": "code",
+   "licence": "MIT",
+   "path": "pyproject.toml",
+   "sha256": "c29091bffe6701bfa48db12cfdad5ae2e0be53dbee72256f652f83b134a2290b"
+  },
+  {
+   "bytes": 0,
+   "category": "other",
+   "licence": "MIT",
+   "path": "reports/.gitkeep",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "bytes": 17116,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/assay_variance.md",
+   "sha256": "c98d5f7395afe59203bd2de0ee62225b5d0b080f5b827225113f0a208bc3bded"
+  },
+  {
+   "bytes": 11809,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/curation.md",
+   "sha256": "ca205e98678726a9e9054acafa25c12676d17d5b735fc4ff5c9b04245df622e7"
+  },
+  {
+   "bytes": 11959,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/docking.md",
+   "sha256": "6063b1d87b13c784a2d58e96cfa41b61d4fd483680b93e69680f46555909c57a"
+  },
+  {
+   "bytes": 11617,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/endpoint.md",
+   "sha256": "e8c8d0f2677b618f5baa311a53106cb11931afd59e99619a96548c32eb7a4043"
+  },
+  {
+   "bytes": 469,
+   "category": "source data (structures/sequences)",
+   "licence": "CC-BY-3.0",
+   "path": "reports/examples/query_target.fasta",
+   "sha256": "bc0b0d55ca681db900be2d8a217c627ec18090de4c16cc310d7a64f9bb1c1064"
+  },
+  {
+   "bytes": 2808,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/examples/rank_demo.txt",
+   "sha256": "6315e03e8b7d54e581d274147989643522fa7237a54d11a6c45ff2c3c00a3e3f"
+  },
+  {
+   "bytes": 22078,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/features.md",
+   "sha256": "f02c01a74ae6a1c6b6d9fd640bc70a5cb405152eedf9fb93477a9220c0ad8f64"
+  },
+  {
+   "bytes": 15211,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/ingest.md",
+   "sha256": "02d1c405eb5e1a98c384b48d098cc30784887d07ba61fd91eb574c8230b5d6fb"
+  },
+  {
+   "bytes": 26550,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/leaderboard.md",
+   "sha256": "6e950bdd47ad6b7cba90938827181b32558052bce5fbc2b99b03e7895b47aa5c"
+  },
+  {
+   "bytes": 5387,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/m11_acquisition.md",
+   "sha256": "6c5607a24428ba99e9c99fc86c39d8e736bf647efd35f4b74c95feda51ec1b4f"
+  },
+  {
+   "bytes": 28183,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/m11c_isolated_ingest.md",
+   "sha256": "e43435db3c136ac9798176377690faa43876a82cdb8445728d0bc1255993a19e"
+  },
+  {
+   "bytes": 24645,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/m11d_matching.md",
+   "sha256": "c96d363b0455a17b870848f9feda2646cdffa830ca0c1883f908d0a87ea872f1"
+  },
+  {
+   "bytes": 31753,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/m11e_ki_aggregation.md",
+   "sha256": "a5230de6ce46dfb3df7b33d89ca200486abab0e53e14ad56810e4867eedeebd9"
+  },
+  {
+   "bytes": 20968,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/m11f_preflight.md",
+   "sha256": "3eaec2d74ac1df82365a1c7d3bdd16b7f434aea133a693426f64600635715bb4"
+  },
+  {
+   "bytes": 26744,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/m11g_preflight.md",
+   "sha256": "16d4b420d3a2a0910e776b8eb2fb95fadafcdce536b534d2ee4cf073b85f061a"
+  },
+  {
+   "bytes": 33428,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/m11h_results.md",
+   "sha256": "54b501bb8fbd0ee0f203ffe4c91fe6fb2311c08fed823a57569d1b9ee77fa145"
+  },
+  {
+   "bytes": 16176,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/m9_dual_encoder.md",
+   "sha256": "c3ae1f690c94c4ac4675d6ac5011f0867c975aa7fa30ca5f81cf7cae3c0a3c13"
+  },
+  {
+   "bytes": 1147,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/probes/chirality_impact.json",
+   "sha256": "55053c260745f5ad422ba9105eef6c687c1ec1f8b6e88e5599314ed6c01981bf"
+  },
+  {
+   "bytes": 1374750,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/probes/cluster_similarity.json",
+   "sha256": "0cd83675523768290868cffad1c723f157a796338fb2f733e396b46b5485ddd6"
+  },
+  {
+   "bytes": 2501,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/probes/length_feasibility.json",
+   "sha256": "7b86542a42f4c39acbc11558703faa8bf6d0820639228e83ce640a998644ca18"
+  },
+  {
+   "bytes": 5365,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/probes/prefix_drift.json",
+   "sha256": "9550a33f10ed3eb37531ef781b73fdfd01151ded011793ba530f69afbf024c21"
+  },
+  {
+   "bytes": 10622,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/profile.md",
+   "sha256": "cd40ed33716bc0339f2953b8820219d04cf73052418ed9e2e3a53f816912b8f6"
+  },
+  {
+   "bytes": 5015,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/project_closeout.md",
+   "sha256": "27afde331385908918c3e7d652fc894518c9566fa84b27b03c37669df8709ba3"
+  },
+  {
+   "bytes": 13402,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/results/artifacts.md",
+   "sha256": "41003080dfc3a30ddd588e0c0618db8abedf96c739436a9b6c3c57693a1a2e32"
+  },
+  {
+   "bytes": 376469,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/baseline_summary.json",
+   "sha256": "aa3f7faf2914a2efc95e0f20f420a94ac0304bb16afa4e43810a4de9aef329c7"
+  },
+  {
+   "bytes": 399769,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/baseline_summary_v2.json",
+   "sha256": "9330e1735b03162f9ee20b3f6d54d7c99b9d749bc9520a808cb166980d2136f2"
+  },
+  {
+   "bytes": 86839,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/correction_m8_v2.json",
+   "sha256": "e3d670da7ed09322e811c4e8ffec6132c6ead352f9794d02fdb474a64e0c354e"
+  },
+  {
+   "bytes": 84723,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/correction_v2.json",
+   "sha256": "b371559442906db514c2d988cbac0850b859d64221020537822440f436b689e4"
+  },
+  {
+   "bytes": 2058,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/index.json",
+   "sha256": "a5a9cfc8baf426fc7d17088bce7c93f578f431e3bc872ada9be029b8e4b35e7c"
+  },
+  {
+   "bytes": 192763,
+   "category": "source data (structures/sequences)",
+   "licence": "CC-BY-SA-3.0",
+   "path": "reports/results/m10_cohort.json",
+   "sha256": "b4888947e1ebb078bc43d9bef2b85c1f2a8460402abf8c4b48a2094a4920f54e"
+  },
+  {
+   "bytes": 17588,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/results/m10_corrections.md",
+   "sha256": "1a52e1304f7fafad554cffcfe1b705f5a583b22d324a4cf60e7741dd773423e7"
+  },
+  {
+   "bytes": 3805,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m10_gate.json",
+   "sha256": "a52ae980f8227163772e1a517525200abb092be65ec667c61ad5c8273b72c910"
+  },
+  {
+   "bytes": 338,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m10_qa_redock.json",
+   "sha256": "8f620d44f2ee3bde6c36f9c4812b0b5a6a7e743e03dfa364d7e792923011b67a"
+  },
+  {
+   "bytes": 2605,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m10_sensitivity_box-15A.json",
+   "sha256": "feb027aaa1bdd918afccf2e21d52a2a5dd094fee42e20a784251002f8975dae3"
+  },
+  {
+   "bytes": 2573,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m10_sensitivity_box-25A.json",
+   "sha256": "8e88d552168d203208a812beb25e7e06c31a287f5a74f127d574b9cdf0d8fc3d"
+  },
+  {
+   "bytes": 1110,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "reports/results/m11d_ambiguous_slots.jsonl",
+   "sha256": "9e744975d46de52e8d9afcd58776d4595202d9e894ffc2e5c872bf013149d293"
+  },
+  {
+   "bytes": 40551,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "reports/results/m11d_correction_candidates.jsonl",
+   "sha256": "58988361e71833fcd666164eb6f05aa126afc04a38dd82ef5ff9b9fae731578e"
+  },
+  {
+   "bytes": 3145,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "reports/results/m11d_examples.json",
+   "sha256": "9942d2ac9cc3809d6570776cdbed54dfd55c87df80089af297fe121808c6e847"
+  },
+  {
+   "bytes": 486,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-3.0",
+   "path": "reports/results/m11d_identifier_conflicts.jsonl",
+   "sha256": "4ec402817efca9e4a32931ef0eb0c026ef56281b9b5298357ca7c131d0f18a38"
+  },
+  {
+   "bytes": 3343,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m11d_moved_observations.json",
+   "sha256": "9a222cf0782dc1c95f75b94aed0b9ba0cf90da2bd78867b5cd77f7ad48890d10"
+  },
+  {
+   "bytes": 4231,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m11d_moved_observations_comparison.json",
+   "sha256": "cc3b9993048f1a47ef7a51127be33ec7f3d5897297ea488e61d6fe0c56d21d41"
+  },
+  {
+   "bytes": 517,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m11e_audit_reconstruction.json",
+   "sha256": "8f05bb7947cba2aec9a5fc6185c4d211df48c5fe087f680c2b26c9bc96272e14"
+  },
+  {
+   "bytes": 15966,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "reports/results/m11e_examples.json",
+   "sha256": "544ed746ed65a088924b6057e5244676f7118efa4b4eda987c9051f0aab0e595"
+  },
+  {
+   "bytes": 54607,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m11e_ki_aggregation_summary.json",
+   "sha256": "a65b04e67967c27ccdf384ca49273da1eca43dbc2b9caf6dd8dccb54d1a4fff2"
+  },
+  {
+   "bytes": 24615,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "reports/results/m11e_worked_example_review.json",
+   "sha256": "fc424d1c293d571c21b806d00df64b4060d86a25b6706ea56402e82aefb30b29"
+  },
+  {
+   "bytes": 13350,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m11f_cohort_preflight.json",
+   "sha256": "76a3cc13a5778b42c9403ac4cd56c902feaf517875f1bd7237f77ad0665772b6"
+  },
+  {
+   "bytes": 3709,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m11f_feature_binding.json",
+   "sha256": "8de70f06c34199edf1e49459af9c3edee11d9c01e8f19a1d8239f60add569c74"
+  },
+  {
+   "bytes": 1423,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m11f_feature_coverage.json",
+   "sha256": "eea225e995217b99fb0f6c4d64faa01e9d3a18a3edbeb87d35fb6fad784b8acd"
+  },
+  {
+   "bytes": 797,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m11f_model_facing_datasets.json",
+   "sha256": "571b542ae14601110aa4362df7456e6946920d5fa8cf288e034cb6be8887bc0a"
+  },
+  {
+   "bytes": 3074,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m11f_partition_summary.json",
+   "sha256": "d4c0be3b469655a10bdfc1ddbe16e9bfc4bde36681ae2d948ada4dd84f4eadb3"
+  },
+  {
+   "bytes": 7817,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/results/m9_artifacts.md",
+   "sha256": "b2282e80f487141973bc989028de4fb6d85c00249e62e142d4b26fb536e16569"
+  },
+  {
+   "bytes": 1034,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m9_cli_checkpoint.json",
+   "sha256": "eb8fa6e71a87a3dd4d7985d1668f451f9bdde1dd139621cfa0234f447e4afc9b"
+  },
+  {
+   "bytes": 15046,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/results/m9_corrections.md",
+   "sha256": "ceb78c4b44b4db0826522d80323b250b3a836c7378aa19780962df1e1425522c"
+  },
+  {
+   "bytes": 3916,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m9_selection.json",
+   "sha256": "f21ec615256aa62a813bf86f9ba897105c8ab73ee4462824252a6a09bde00f09"
+  },
+  {
+   "bytes": 115395,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/m9_v1_summary.json",
+   "sha256": "8bb3e5955ec9a5ec0cab3d642f1eb2d92ce6a51d942c9d5d2d17561536743236"
+  },
+  {
+   "bytes": 5943,
+   "category": "transformed data / identifiers",
+   "licence": "MIT",
+   "path": "reports/results/prediction_sample.csv",
+   "sha256": "74196e2c73faba1baebdb77772601553b24d425c5868b7b8729f14ccd4c3f530"
+  },
+  {
+   "bytes": 27276,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/splits.md",
+   "sha256": "11aaf50a8bd26e79259cb8747c094be24a990c991e71437ec4e51bffd63c5cd2"
+  },
+  {
+   "bytes": 2419,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/wal_probe.md",
+   "sha256": "1eb3ab661230da20884bb096d8c0bd258af64e67acd5be4bcd5d62474076d0b5"
+  },
+  {
+   "bytes": 4060,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/README.md",
+   "sha256": "41f78d8003567a5bde25445ef37aacff2560982f18c2788d30f999bb42171366"
+  },
+  {
+   "bytes": 20945,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/m11g_bind.py",
+   "sha256": "93500e0497f1149f6e02bdf6dbb4c6466c480dd243efaa7047e978432562938d"
+  },
+  {
+   "bytes": 19628,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/m11g_contract.py",
+   "sha256": "6544e36c44ede8fc3f23c6f08679e623b854e4543b98e5130ee394299bafd9c1"
+  },
+  {
+   "bytes": 3739,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/m11g_recurrence_check.py",
+   "sha256": "37121f75a4684cb2a1eb91f00fe3075de0e305387f8e40fc2d005443218b2241"
+  },
+  {
+   "bytes": 4397,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/m11g_reproduce.py",
+   "sha256": "a66d9a576e1b7eace407aef6a6039c0fa04b1827392e8ec09aaf71bac63ab356"
+  },
+  {
+   "bytes": 7019,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/m11g_resolve_eval.py",
+   "sha256": "d153caf7703d93070bb6f1e354f154ddfa7397f5a3d8a4699dcb104e445b56ec"
+  },
+  {
+   "bytes": 5708,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/m11g_runner_fixture.py",
+   "sha256": "a3862c27bcbd3580304dc0a8951e27c307c4d496deb6afc6acadb78328d41401"
+  },
+  {
+   "bytes": 3461,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/m11g_window.py",
+   "sha256": "901e0b08d8208bdfd1e7ae65fb1f746612071c046ea02ea57aef9da2bdc32479"
+  },
+  {
+   "bytes": 9718,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/m11h_eval.py",
+   "sha256": "de5318fb3282c9a82c67afefe665aad80607c845009f997ee109a5c3dcead8dc"
+  },
+  {
+   "bytes": 5293,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/m11h_evalpairs.py",
+   "sha256": "ed3d9924b37d61d27fc3526fc772c33e277d3e8cc9a2d81da354567c2ca05d61"
+  },
+  {
+   "bytes": 19162,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/m11h_fit.py",
+   "sha256": "38fd5ca6b819129332621cc78c4dd1d94000631ad8dbe7f671a7fa8032648360"
+  },
+  {
+   "bytes": 25188,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/m11h_report.py",
+   "sha256": "54540ffced0fb9c1cb3ef5d623fc554a071e3117278c79759ae5ed248b335481"
+  },
+  {
+   "bytes": 5783,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/m11h_reproduce_integrity.py",
+   "sha256": "eca64ad7fbe9c8ba8f8ee930670fbd38cc3db31ca7de717be992759ef2f0dd2b"
+  },
+  {
+   "bytes": 7944,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/asof/m11h_verify.py",
+   "sha256": "677f8c36eb7ff86e3d1b3354f49201e957dd2d924a0f281db15c54ec553e66bb"
+  },
+  {
+   "bytes": 122,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/__init__.py",
+   "sha256": "20c1097532a3d5179fb4f4bbfe63df3e406c8a50cae1e45a570ff5c1b2b78c31"
+  },
+  {
+   "bytes": 609,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/analysis/__init__.py",
+   "sha256": "7016555aa5fa2633401f974920791da15b1f5014ef978176ee6060bcf52c9258"
+  },
+  {
+   "bytes": 30646,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/analysis/assay_variance.py",
+   "sha256": "81ad81043bbb61be656ba2f31c26b11b9b73d216f29d2527d3b20cfd49d7a908"
+  },
+  {
+   "bytes": 1002,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/__init__.py",
+   "sha256": "6a9fba4b01b1898fc1b5d2414c1b7066821c80bb43c2f05dffc032f532c88b52"
+  },
+  {
+   "bytes": 10121,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/bridge.py",
+   "sha256": "0b55c73601b87e0bcf505b90362f7126f87116c4d822c4283f4c8d9c49e0c860"
+  },
+  {
+   "bytes": 4405,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/contract.py",
+   "sha256": "fe9a116e17effddfc72ff5fff0880af500267779939e9f21f3ef4f78a9e00ddc"
+  },
+  {
+   "bytes": 9670,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/datasets.py",
+   "sha256": "a1ca35535421e62c5bdbd38fb5374ccd485f53752ff2639c70dd176bfcb0befa"
+  },
+  {
+   "bytes": 17407,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/evaluation.py",
+   "sha256": "ca6de6741eb789aaa5e245d6b3848f47df15ba683b13ba93ec3105ff2cce4e51"
+  },
+  {
+   "bytes": 10358,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/export.py",
+   "sha256": "6b5cc7f781adfeb879cd59c8172a4c10eb11d35a8b4bfa7874855979ad7f3869"
+  },
+  {
+   "bytes": 7323,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/features.py",
+   "sha256": "dfc13403a693b49febe69af10d762cc49302bd5bb15534c6f3430c8434c174e2"
+  },
+  {
+   "bytes": 11224,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/fitting.py",
+   "sha256": "60915fc811eb61f0124d69d51f691836ed2f2193b1bc56168147f185eac7bffb"
+  },
+  {
+   "bytes": 52344,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/ki_aggregation.py",
+   "sha256": "282a3eacbdacbe64f878ba44d21eb37dc09c2e4b0c0b5ec4ee18f0e79830adec"
+  },
+  {
+   "bytes": 21367,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/matching.py",
+   "sha256": "19e93a5e3e2dbfda924b7884722c40a7f3150f80c0c3c9903cf8bd5a0ca3c02f"
+  },
+  {
+   "bytes": 4258,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/normalise.py",
+   "sha256": "fd873b4fd5f685ff322b342e3cbbe3babcab9ecf29f930f4578d1eea3af1d34d"
+  },
+  {
+   "bytes": 21781,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/partition.py",
+   "sha256": "d167ff97494ab4e1a52cc2c6d74bc8b657fe53c6169f4bd725e421a882304ffd"
+  },
+  {
+   "bytes": 8187,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/publish.py",
+   "sha256": "772726d423219037e3bb03f3d8af0d9f98ed32912225d35bec4708ee2c7b8e54"
+  },
+  {
+   "bytes": 21540,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/recompute.py",
+   "sha256": "716d56ebd5becb5e9a44c9ef3e8bdc17b77666f8acf55d5a0f5af7d20476d0b5"
+  },
+  {
+   "bytes": 35113,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/results_report.py",
+   "sha256": "68a1243ebf16f79b1aa755bf334f9e3a414580125e8436c089036f15f9c761d7"
+  },
+  {
+   "bytes": 18573,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/runner.py",
+   "sha256": "31ce8f4621b01ae71af8cd58e42fb0bb5bea4be0c6eaa360b3bc265a30b8eda9"
+  },
+  {
+   "bytes": 46033,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/sharded.py",
+   "sha256": "3da74ca887f6a4318cdeeb35334ca2b33853ea520dab2c71d76bb7a810499fe6"
+  },
+  {
+   "bytes": 9269,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/asof/verify_results.py",
+   "sha256": "17aa92dfa88f96fc6e90eea323e1a3fe8d1fbfcef331bcc96ffa82d233edfb3d"
+  },
+  {
+   "bytes": 91225,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/cli.py",
+   "sha256": "488e494ec3ed4447c747852fbc16bc0942f0ba2921be3c21f75a96e3635194b4"
+  },
+  {
+   "bytes": 2257,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/config.py",
+   "sha256": "14e49d01426e5acb5936f0e3308bc263bd259d85de569025da6ac2aab7903471"
+  },
+  {
+   "bytes": 1117,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/curate/__init__.py",
+   "sha256": "03f3fa4a865024322da198867a2e8518aeb8f3ea21c364e02aed361cde6e7bfb"
+  },
+  {
+   "bytes": 6796,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/curate/parse.py",
+   "sha256": "49bdc94fe5c17efa8bcd51b1a94af32f0947e49272958f17c27039d20906d2ae"
+  },
+  {
+   "bytes": 23193,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/curate/pipeline.py",
+   "sha256": "8c246b4be2524f78de2f8c86887283810b366cd4db86e30a41daf1d1eba5f166"
+  },
+  {
+   "bytes": 2816,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/curate/standardizer.py",
+   "sha256": "827d0bfc517890e6e52e2cab99fe109cf8e41aa226f9d3ae7b1b5de3d324db9b"
+  },
+  {
+   "bytes": 223,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/db/__init__.py",
+   "sha256": "c99bc78077ee46dfd62c4eaf783633e2b0699706d1c2cef066479b203ddb0d05"
+  },
+  {
+   "bytes": 3003,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/db/connection.py",
+   "sha256": "040768c4911a9a40b97e2a1b8f8fd54ea85ca2e9f7bc8651b2f905aa8152df86"
+  },
+  {
+   "bytes": 5050,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/db/isolation.py",
+   "sha256": "185eba454c8de0af1e22bae56a9692f7c56263a61bdbe07c678894320cab7b54"
+  },
+  {
+   "bytes": 7517,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/db/m3_schema.py",
+   "sha256": "98afe54b7fd41005fe0e2fb69985146c6576c65d16617f490981b23352096823"
+  },
+  {
+   "bytes": 4940,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/db/m4_schema.py",
+   "sha256": "bf9fbc9f4f7825be88d04b3059dd48852c21a86cbe44203d0270fd86d0c5a2f5"
+  },
+  {
+   "bytes": 4480,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/db/m6_schema.py",
+   "sha256": "e3afcd5afdee0adfa650330c369ab2210d41df7b0861776e80383dbea2e075e6"
+  },
+  {
+   "bytes": 3258,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/db/maintenance.py",
+   "sha256": "5fc0e3897ab6bb4aec7dbcd7d62e30fcdb482855489ee97ca071b22a90879d17"
+  },
+  {
+   "bytes": 15533,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/db/migrations.py",
+   "sha256": "c8353265b952f5852509547903bb3ad359a4e907e958e2ffa5b066459039e170"
+  },
+  {
+   "bytes": 6666,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/db/schema.py",
+   "sha256": "9ff06822e2e2714f6899fd973c1998e4588021261e402f6b1e546d0d178fc576"
+  },
+  {
+   "bytes": 684,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/dock/__init__.py",
+   "sha256": "3883d2edc0e37b766706836ca77b818bb5edf3e111b2b2d1cd1cc6b950daefc0"
+  },
+  {
+   "bytes": 19076,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/dock/artifacts.py",
+   "sha256": "dbfc668faf966fa1a775c33e5a614c37788bfc2fcfbf8485fa6d4c02ea5109b4"
+  },
+  {
+   "bytes": 9989,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/dock/cohort.py",
+   "sha256": "39a99c10840fc8163f4f6f29e286394d92736b257686d8687e23d4e7cace06e4"
+  },
+  {
+   "bytes": 5158,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/dock/config.py",
+   "sha256": "c8ecc32b636eefd3d4b437cc2c3161c905e062fae2ad9e18c3d07684edb556b1"
+  },
+  {
+   "bytes": 6130,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/dock/engine.py",
+   "sha256": "80b9cb199932d02975432067ba253ead5e4fe83bdfdf6f7d178757876513e7ae"
+  },
+  {
+   "bytes": 10053,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/dock/gate.py",
+   "sha256": "ddbd746d0e6415bb5398426e95c86fea2d24f459b2a7976b00636608628e0128"
+  },
+  {
+   "bytes": 2715,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/dock/ligands.py",
+   "sha256": "71918c96bd51639ff759d3856a1856eaa9f4c3885b4dbdd6f6f26790d4bae894"
+  },
+  {
+   "bytes": 5187,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/dock/qa.py",
+   "sha256": "8670f6d58884b42c8c43c3b860977d7d7710553ee11d0c644bc2cbcebe3a7264"
+  },
+  {
+   "bytes": 5325,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/dock/receptor.py",
+   "sha256": "1faf7284cea9d72d199882c4c0ee739c0d711acca4d9f44439e1db5faa88ba4a"
+  },
+  {
+   "bytes": 26696,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/dock/report.py",
+   "sha256": "4abfaf39f488380f589257dad237a82a7b66a87c84fab8a02c1e6ea2cfc16869"
+  },
+  {
+   "bytes": 9613,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/dock/runner.py",
+   "sha256": "d36cae01104e459ad004c771ef6aae5f3153325367db95196923af9f059f5635"
+  },
+  {
+   "bytes": 26402,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/dock/verify.py",
+   "sha256": "90d99886ec75fdf722cb116deeedf1846ec5b43e6676123b8462e673e17c1cb2"
+  },
+  {
+   "bytes": 881,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/endpoint/__init__.py",
+   "sha256": "70fb002cbfbc10a1e61d9941b284e5fce7a3845d5fe81d3b11f3dcb7bf8426a9"
+  },
+  {
+   "bytes": 15831,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/endpoint/build.py",
+   "sha256": "b032c78dfb4a6773792af984c7864c886aaeaf0e9f40c4509c36b1192d47b8a0"
+  },
+  {
+   "bytes": 5688,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/endpoint/interval.py",
+   "sha256": "b659ab0a9da65130226bc92701147cafcb7191c5c35e14111d93c1835d0e0afc"
+  },
+  {
+   "bytes": 292,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/eval/__init__.py",
+   "sha256": "7a3826f54a5f1d529bddedbfce313fe3b009ebcc90def049f10437ba5f2c6819"
+  },
+  {
+   "bytes": 4989,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/eval/artifacts.py",
+   "sha256": "75d8ea3e4570597fe35a918ca3323416395e84ecbb458ef53e04760c780b4cac"
+  },
+  {
+   "bytes": 16630,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/eval/baselines.py",
+   "sha256": "5ac7c545a06dbbe435bcf8994efa2b90aa6c851caad2bab3bcc824d9fb72b951"
+  },
+  {
+   "bytes": 6926,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/eval/cohort.py",
+   "sha256": "159815d0050cfa94b5f5dcd68c08a670f4d7fefbe8fb08995920ceac7a4c8ea4"
+  },
+  {
+   "bytes": 7282,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/eval/config.py",
+   "sha256": "9e89db8e212ddc9b2e39c8237c34e244fb4bc6b32c35ee5e0f81be0c724de7c0"
+  },
+  {
+   "bytes": 3180,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/eval/features.py",
+   "sha256": "3ba5d472eea5e46d1a365399b16323eaa31c023241b60e7bcdd2fe3feb82a6fa"
+  },
+  {
+   "bytes": 11162,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/eval/metrics.py",
+   "sha256": "56884221cc2825534ae7b2293748984bae2a8e8b62e9f9f0adde41e3a73836c5"
+  },
+  {
+   "bytes": 16171,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/eval/recompute.py",
+   "sha256": "2c942859da2a828bc0db1b7b55b022241982e7eb5c882e7d389c0135068506a0"
+  },
+  {
+   "bytes": 11250,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/eval/results.py",
+   "sha256": "b42861bdaa0d88cfe60ed7d6c2a2d45556db3e29357a0b730e096062d5d9cd69"
+  },
+  {
+   "bytes": 10000,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/eval/runner.py",
+   "sha256": "da0d6670a67df9b0f16c84a4908314db582bddc318a9dad23dc595cd044fa4f9"
+  },
+  {
+   "bytes": 11794,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/eval/verify.py",
+   "sha256": "767cb0a3c81a1978b4f08ed6cc7d2015c1eb0b7b2b9b230069a77b8a722862f7"
+  },
+  {
+   "bytes": 717,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/features/__init__.py",
+   "sha256": "6453480c7c499a9533cf53f146d3fe93d35236b9bdf33da7cac9dabd64ff33c9"
+  },
+  {
+   "bytes": 7061,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/features/activity.py",
+   "sha256": "cb27797eb9bebc1320d251dd5de0f3eb3eb8dd862098a236bebbadc4b0a007ac"
+  },
+  {
+   "bytes": 6110,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/features/coverage.py",
+   "sha256": "8539e8a147a974ac61f2baaba24569b23d28a43e9d8c3a91b7764690a50d7b8b"
+  },
+  {
+   "bytes": 4372,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/features/ecfp.py",
+   "sha256": "4c0df42901ed548a4acfe9506df3f52d890781899700ce0e8f0a628e89b8a1a7"
+  },
+  {
+   "bytes": 4205,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/features/identity.py",
+   "sha256": "8d6ea1db9f35442557b9686546ab9dbd0a26e29e4ba3c73e490eb74a3d17cefc"
+  },
+  {
+   "bytes": 9335,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/features/manifest.py",
+   "sha256": "fad7512421466980ca4c20ab68b678f8433ca7cb706d521df4642265b33d23fe"
+  },
+  {
+   "bytes": 7557,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/features/plm.py",
+   "sha256": "2ad06617a7a51acb28a8795b339746324913cc72a5d8adc96a0c4653c406c225"
+  },
+  {
+   "bytes": 17093,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/features/probes.py",
+   "sha256": "da56050e71d12f8eb96838df6365f9f69cea7cf8a2d364b9a5905484b2db8c70"
+  },
+  {
+   "bytes": 10056,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/features/store.py",
+   "sha256": "7e43d04f9d9eb93bfbf64b4703bb91af93a21f11c12ba8bf6507d12a83bbf9fc"
+  },
+  {
+   "bytes": 3843,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/features/validate.py",
+   "sha256": "a09b629fed5ca73c96c10aed53a385dc9b58137328f496a473e2b02b079f2856"
+  },
+  {
+   "bytes": 975,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/ingest/__init__.py",
+   "sha256": "a981ab1f7ec2c9ad8cd025ec69e0b631bb967af5a37ae831ff6bb2e4023b5cab"
+  },
+  {
+   "bytes": 11066,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/ingest/auxiliary.py",
+   "sha256": "b7a820620bf075871ae7c75bb014f7427a5d3280d1008ad415aba8fb39206884"
+  },
+  {
+   "bytes": 19207,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/ingest/bindingdb.py",
+   "sha256": "6aaa32fae7b4926145f6f19885caf81bc6dbcfed6af7a333a8dc633d8743ec4f"
+  },
+  {
+   "bytes": 3993,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/ingest/download.py",
+   "sha256": "27ab1bc9a0b9a189a0d2a621922af8ec10666e3226f2bf0648266406959f7507"
+  },
+  {
+   "bytes": 3668,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/ingest/inspection.py",
+   "sha256": "536c88de220fae9ea2645cf6c3d9049c3941c9c17ed65e13966e3a502245c8e7"
+  },
+  {
+   "bytes": 9520,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/ingest/sources.py",
+   "sha256": "f496d45c6b93076396f27aa6f1976d8150510bc36ca4dca02ec25dae77ff0142"
+  },
+  {
+   "bytes": 360,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/models/__init__.py",
+   "sha256": "1f4ba4de454c9ec6b6c6fbc3688d0788b633e0278cea5a690850823d6c3ba306"
+  },
+  {
+   "bytes": 12722,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/models/binding.py",
+   "sha256": "af0a1172e0318eb8367a7027e0bb96e4faeaec5e26a14d8af2e0e3cd5f60cf28"
+  },
+  {
+   "bytes": 8282,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/models/dual_encoder.py",
+   "sha256": "0b2973405277310325c947dd6328d4b7ee1122018cb1ef62c681a4eca8b87efb"
+  },
+  {
+   "bytes": 4643,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/models/library.py",
+   "sha256": "0f93b6759ef37d6b8c62ecedfe91f2a579f1744c797f409bf132df64809afbdc"
+  },
+  {
+   "bytes": 12186,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/models/m9_artifacts.py",
+   "sha256": "ebe623cdd59dc9d1c4127ea66e28e9be3d7b91f39d055b9134d609428f908c2f"
+  },
+  {
+   "bytes": 16473,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/models/m9_runner.py",
+   "sha256": "7415c3502bfee1c365ed0c2cb0f9d767de64f58bec20bf2940fba8e34643d069"
+  },
+  {
+   "bytes": 16251,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/models/rank.py",
+   "sha256": "080768b504cedc2e644e3175b4a6394b94018fb12e238059f1778fda304fc892"
+  },
+  {
+   "bytes": 5373,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/models/train.py",
+   "sha256": "15a595430afa6e338d5f984e848e2e1c7dbec7be0e932885124ae16398d9784a"
+  },
+  {
+   "bytes": 601,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/__init__.py",
+   "sha256": "d66af99646bea22b426835958971be3f619745df854b3f76fcd4f0c983a16655"
+  },
+  {
+   "bytes": 21069,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/curation_report.py",
+   "sha256": "9d8190f3e2a53fe622838035167c4d254e8ea86c05bde8789035c35ff43b1ced"
+  },
+  {
+   "bytes": 5599,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/dataset.py",
+   "sha256": "aba1539340612bfa5110b8283f4b21077f6e2620b6c20c17f1db40f36f2718f3"
+  },
+  {
+   "bytes": 22238,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/endpoint_report.py",
+   "sha256": "db02cc8a5230027ddbdcc247e334875308ffce7063709c5ba6dbed5e80c1b1ec"
+  },
+  {
+   "bytes": 5123,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/esm2.py",
+   "sha256": "bef8c1a9b1e2bd96853e7d944f2914018ed960a2f2b0a6f0521234e28dea4d3e"
+  },
+  {
+   "bytes": 38224,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/feature_report.py",
+   "sha256": "97943daded30eaf76b9bd0b266d1e5d8457af4f90825da4285daf9038c78e420"
+  },
+  {
+   "bytes": 27497,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/leaderboard.py",
+   "sha256": "7382263e80eb05d964a9c3dec769235bcdc34cbae4a72477768f6c95feb17ff3"
+  },
+  {
+   "bytes": 25202,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/m2_report.py",
+   "sha256": "982ce24bb9dd9ed34d11d0cc04fc6d96bf63664cba1b901de22dde2aa30d46c5"
+  },
+  {
+   "bytes": 28332,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/m9_report.py",
+   "sha256": "84a813dabe7f7edf1988a0fc687a7d6deb4ce564b4d3a64b4fd0d7d02c5d54a1"
+  },
+  {
+   "bytes": 19261,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/report.py",
+   "sha256": "03f650a9b8955f2a3c73d694409d6483e697dc516a12e4a502b8188317df41b7"
+  },
+  {
+   "bytes": 36435,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/split_report.py",
+   "sha256": "241c1ce8a0c1ed68e2c7b5e3c0c90519bb4cf91fc7e26f28c1843ad977d2e721"
+  },
+  {
+   "bytes": 777,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/status_banner.py",
+   "sha256": "7a0ba3ff763f0b355da5b2c5657535df93cf113ea97ee25b21ee40f1cb557f30"
+  },
+  {
+   "bytes": 3732,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/storage.py",
+   "sha256": "ef4c8f8dd41402ade13dd3f2b1250bac0b9afc38b0fe5cfda4729d5766f3fcab"
+  },
+  {
+   "bytes": 23232,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/variance_report.py",
+   "sha256": "0d81781d342b90694eeb6f187c989a5dd7118467f7f59f3e60b8d08c657254ca"
+  },
+  {
+   "bytes": 3170,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/profiling/wal.py",
+   "sha256": "4d57911108344772c4b8db88405e486255cd1267d065c36f32ca57e673e00b3c"
+  },
+  {
+   "bytes": 1676,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/splits/__init__.py",
+   "sha256": "9ecc114444ce8e9e2bc08d131065efb1b698185ccc50d55c953d0323333f521d"
+  },
+  {
+   "bytes": 18352,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/splits/assertions.py",
+   "sha256": "67afbb1ca9283ed384d85c21ecc64b242adecee424f6752c48831f3209adb1d3"
+  },
+  {
+   "bytes": 23568,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/splits/build.py",
+   "sha256": "1041c04d2b3a44ec0d5d535ba22331995611024db7be0b3ad727ac9882d2089c"
+  },
+  {
+   "bytes": 5611,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/splits/clustering.py",
+   "sha256": "4552ae0d54b482678a83fcbe23e648cbe469c7255c141687a5d9d971d5d9ea74"
+  },
+  {
+   "bytes": 13022,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/splits/similarity.py",
+   "sha256": "324436ed58de81a4b6c6a2b3b5615c38d7d1cdc8178d09b3fde58ab109a77a83"
+  },
+  {
+   "bytes": 1069,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/conftest.py",
+   "sha256": "3f6357f167f3a26ade3e2c1e199e0ba1c1a061ffb56e7b564457e8f2872e625f"
+  },
+  {
+   "bytes": 2472,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/fixtures/average_precision_cases.json",
+   "sha256": "4ae4f8f9ebdecc49a9bdd5fb3d470f7052e891c4ff1535d32f502e3356cae5ea"
+  },
+  {
+   "bytes": 6612,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/m10_mirror.py",
+   "sha256": "08b105d35d6623afe8c793ab51e6545117f2347296487b9dfb8543ccaa9ee02f"
+  },
+  {
+   "bytes": 1459,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_cli.py",
+   "sha256": "f408bd29e378373bb9c8d6b8223bea16e600e06017319b96db0fd9881ebc42f3"
+  },
+  {
+   "bytes": 1538,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_config.py",
+   "sha256": "0d3e6e2f06864323144eb42f48a9def72ffb89685dccf8f3bcf24940cba2e3ec"
+  },
+  {
+   "bytes": 22868,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_curate.py",
+   "sha256": "ebb50c879403c4d208608fd5be79bcc5ed6172e5da371eaf529c50ec4d225d5d"
+  },
+  {
+   "bytes": 4410,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_db.py",
+   "sha256": "e80017b6061172e23b478a8ac1f1ca56ec8f8269c4c346154f52db74598760a3"
+  },
+  {
+   "bytes": 11131,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_dual_encoder.py",
+   "sha256": "4af4b01d4fe602e304692bd8cd15f2988b2051b0866090aa1e8e0e00bb966090"
+  },
+  {
+   "bytes": 30488,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_endpoint.py",
+   "sha256": "d3eaea1b4bc59474835f4daae4f4d91593461c4e489b3662de73a6c57e7491c3"
+  },
+  {
+   "bytes": 12297,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_eval_contracts.py",
+   "sha256": "170e60cb3514e077bd8c70a32dc079afcbeec1a9037a37d692067235a8ac333b"
+  },
+  {
+   "bytes": 11498,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_eval_metrics.py",
+   "sha256": "edcf1cf1eb774581c9aff2fac14a159787496b23db4b6f8e6bfdcce8e81cd7b6"
+  },
+  {
+   "bytes": 7320,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_eval_verification.py",
+   "sha256": "90d5a250ea9c3292999083131aa8de359e19732faa9ba1433336e5f1acd26b66"
+  },
+  {
+   "bytes": 12637,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_feature_contracts.py",
+   "sha256": "03f9560ab7f64a92470ec7e8991d479885dd3e71ea8aa2d6c596c77f2b7840d5"
+  },
+  {
+   "bytes": 9182,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_feature_identity.py",
+   "sha256": "edfed700d5d2a130ba76add88d21820966fe671d95ac24b82955678cc1a2fd29"
+  },
+  {
+   "bytes": 13486,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_features.py",
+   "sha256": "98398f7fa10e99f6e2f238335a480b094b4d721964495be08a0d07cd15f43bb6"
+  },
+  {
+   "bytes": 4294,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_fingerprint_stereo.py",
+   "sha256": "d36e0320924640fcd26e056c2c5e08cb221edb3620bd1ba3219b3c86118719ca"
+  },
+  {
+   "bytes": 19338,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_ingest.py",
+   "sha256": "b8c3076bc6fc4435aa118abe75a6fb6ac7ac21eb12c404918ae0db4bab3bc852"
+  },
+  {
+   "bytes": 13529,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_leaderboard_reporting.py",
+   "sha256": "13be22e27d4b9612a77af2e64f1669e9950357151fe8a6b27851a22b58dea808"
+  },
+  {
+   "bytes": 26979,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m10_corrections.py",
+   "sha256": "11d298c0e26fd3ffdbd84bdc3d856f9de3b43ce39e63248f561f974fbbdf5f7b"
+  },
+  {
+   "bytes": 29696,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m10_docking.py",
+   "sha256": "98b30e544ae0aba2bc6714a49cd32e2e0d09490bfb1750a4e26e458e9099932b"
+  },
+  {
+   "bytes": 23831,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m10_hardening.py",
+   "sha256": "2017197c90d8055201f834fd96b6db92921e213b912d818e85e4377b708b2e36"
+  },
+  {
+   "bytes": 20148,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11_evaluation.py",
+   "sha256": "aa6c4bd7db9b8330186817269a2db5bb893328010f1b6baf4634c5213148ba78"
+  },
+  {
+   "bytes": 27029,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11_matching.py",
+   "sha256": "e7a91cb4cc0027daa108b7a84b4fbc8f276b492e67e64feea1cd9c70df156bfc"
+  },
+  {
+   "bytes": 10714,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11c_acquisition.py",
+   "sha256": "a5b5857f0987686eff64396612632efc42399e7316d469bb7e9f62b810f6b3b2"
+  },
+  {
+   "bytes": 24235,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11c_end_to_end.py",
+   "sha256": "4c920d5fec10fd33f9c4a8a0c4336c52cbcc2d1d087cbeb0d3cff4118f1547e4"
+  },
+  {
+   "bytes": 8885,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11c_isolated_ingest.py",
+   "sha256": "f4f39e1f2fd6f8c38d1b06ec5bf1915a1eb2f03d9aba3a0f27ae8ae77471b87d"
+  },
+  {
+   "bytes": 9716,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11c_observation_export.py",
+   "sha256": "9137c4e5d8a17a9cc5c82d39398e2012d6dc0ff405713cefd020693594320d91"
+  },
+  {
+   "bytes": 21337,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11c_production_wiring.py",
+   "sha256": "912c77fb90345adb842751f5583b818e9f08e7aa0ebfda2b02af2cced1f539cd"
+  },
+  {
+   "bytes": 11711,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11c_release_lifecycle.py",
+   "sha256": "bf3fffbdb34c470d6ca12cc05e3958b5d9b1b5351dc758d1494a286780fa907d"
+  },
+  {
+   "bytes": 16921,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11d_cross_slot_pairing.py",
+   "sha256": "6b65e4b040d333a1922ac622c1316d86f63955ebb8587bcf669c05447fd5e6f6"
+  },
+  {
+   "bytes": 14407,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11d_matching_record.py",
+   "sha256": "d3715e39f63c5e12ea1423e1d1a29df827c6c1a66d1f5d40280ce73058e80111"
+  },
+  {
+   "bytes": 20016,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11d_shard_equivalence.py",
+   "sha256": "3e038e8415168cac3c551695ddb2e458aa574c0f94e18b33f44fb54687268b49"
+  },
+  {
+   "bytes": 26734,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11e_branch_accounting.py",
+   "sha256": "4934853d92758155292783b0820400c4611df582e4de21f8d4a31e0f45cc964f"
+  },
+  {
+   "bytes": 22834,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11e_ki_aggregation.py",
+   "sha256": "8b706d4882bc282f1a9ab7a05ee056d7488b5957a7f422d4c828b84557b4b519"
+  },
+  {
+   "bytes": 23296,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11e_record.py",
+   "sha256": "2933b0d29a7b8bfd9091e5ca186db66d77b7ff110b25f2b0ede5077df53a306f"
+  },
+  {
+   "bytes": 16603,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11f_datasets.py",
+   "sha256": "bb0a3da2e3488a6b0f6d4aa219d6474664b61ff1d430178eb5fb9ef45ab5bc58"
+  },
+  {
+   "bytes": 19137,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11f_partition.py",
+   "sha256": "e521c5935c25d97c5989b1b4dc31dc88ce8303851bcf7686a7216b4ba5dfb913"
+  },
+  {
+   "bytes": 15519,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11f_record.py",
+   "sha256": "efe26264ca070fc3c034f4f21e6a11d36e6d4ace57d1ae5128a6a5080f4ea6bd"
+  },
+  {
+   "bytes": 8555,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11g_contract.py",
+   "sha256": "a2252f9727e3e9f82d4f57138b5718a702d4d7a8bf5a5a3332884850d6946709"
+  },
+  {
+   "bytes": 29875,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11g_runner.py",
+   "sha256": "fca17321448bbbb9f578f6b671077357f9f6ff934507cbac04b1138f63e74811"
+  },
+  {
+   "bytes": 15749,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11h_publish.py",
+   "sha256": "578586ae4a9354b3d86fa1f4cdf176a71b6854d8cd5276136281bfa8dc6b138f"
+  },
+  {
+   "bytes": 15307,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m11h_recompute.py",
+   "sha256": "145038a7bfb6e3afd45b63c1aa8762382b6642b37b87b700e8cfbc5342be3821"
+  },
+  {
+   "bytes": 14378,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m9_corrections.py",
+   "sha256": "696acdfef29639038b3e669989349c930cb3c944aaa3f7d4bb0c71b15d27799f"
+  },
+  {
+   "bytes": 15794,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m9_followup.py",
+   "sha256": "3f438c5510bca0bb4f05309212dfaea58c856a44c8e2552963b2332e60575f18"
+  },
+  {
+   "bytes": 14163,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_m9_wiring.py",
+   "sha256": "fcaaf27c895ff21d80a90fd7d0df30e5baf6bf10c3b365d01b5f43dd416bf432"
+  },
+  {
+   "bytes": 13119,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_result_versions.py",
+   "sha256": "6986e8e33cc8cfcb8571b54eb29f6a479c195b8e509207602f29f7c882ec233a"
+  },
+  {
+   "bytes": 9321,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_safeguards.py",
+   "sha256": "3de919027183483f8f21f1604d756247c265784f82d2dca228f0b702e23566ab"
+  },
+  {
+   "bytes": 27269,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_splits.py",
+   "sha256": "505529afe2b68229e3b23c9a46fdd910e78cf181ac9bc03db99adea615b89484"
+  },
+  {
+   "bytes": 13726,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_temporal_visibility.py",
+   "sha256": "1850d31ad89322ee69e66b74835961e95f9777cb84f1dadea1dce722f4f53a5c"
+  },
+  {
+   "bytes": 1360,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_toolchain.py",
+   "sha256": "8210b064a7ad546672de0d43f92b708ab61c598a4acef00bf469728eb5138ba2"
+  },
+  {
+   "bytes": 91653,
+   "category": "code",
+   "licence": "MIT",
+   "path": "uv.lock",
+   "sha256": "9968e1302733399b00670fcba47f1e1749c90093b28aac6e46fb70b2af77f908"
+  }
+ ],
+ "files": 346,
+ "inventory": "seq2lead-complete-release-inventory-v1",
+ "licence_basis": {
+  "CC-BY-3.0": "data traceable to BindingDB-staff-curated rows only; BindingDB's own terms page",
+  "CC-BY-SA-3.0": "data whose referenced compounds have measurements with Curation/DataSource = ChEMBL; BindingDB imports those under CC BY-SA 3.0 and ChEMBL confirms the same licence. Share-alike governs where a file mixes sources.",
+  "MIT": "project code, configuration, figures, prose and artifacts carrying no third-party data; see LICENSE.draft"
+ },
+ "provenance_method": "row-level Curation/DataSource from the preserved raw payloads; 202609 for B-side entities and the isolated seq2lead_m11c_202601 schema for A-only entities",
+ "recorded_at": "2026-10-06T07:28:37.166109+00:00",
+ "release_option": "A - complete benchmark, pending owner approval. Repository remains PRIVATE.",
+ "scientific_bytes_preserved": true,
+ "self_excluded": {
+  "path": "configs/manifests/release_inventory.json",
+  "why": "this file cannot record its own digest: writing the digest changes the bytes it describes. Verify it by the commit it is attached to, not by a self-reference."
+ },
+ "total_bytes": 36524126
+}

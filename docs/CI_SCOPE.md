@@ -1,79 +1,104 @@
 # What CI covers, and what it cannot
 
-A green CI badge on this repository does **not** mean the whole suite passed. It
-means the portable subset passed. This file records the boundary and how it was
-measured, so nobody has to infer it from a workflow file.
+A green CI badge on this repository does **not** mean the whole suite passed.
+It means the portable subset passed. This file records the boundary, how it was
+measured, and a correction to an earlier version of it.
 
-## How the boundary was measured
+## Corrected: the first boundary was measured wrongly
 
-Not by reasoning about which tests "look local". A disposable clone of this
-repository was made — which is exactly what a hosted runner gets — and the full
-suite was run inside it with `SEQ2LEAD_SKIP_DB_TESTS=1`:
+An earlier revision put the boundary at **7 files**, derived from running the
+suite on a fresh clone with `SEQ2LEAD_SKIP_DB_TESTS=1`. That was the wrong model
+of CI. The workflow's `Test` step runs **with a live, migrated, empty**
+PostgreSQL service, so database-backed tests execute there and find no data —
+a condition the skip-flag run never exercised.
 
-```
-1,322 tests   65 failures   0 errors   229 skipped
-```
+Real GitHub Actions runs settled it. Every run on this branch had failed:
 
-Of the 65 failures, 50 report a missing `data/m10/runs` path; the rest report
-missing `data/m9/final`, missing `data/features/*.npz`, or a missing
-training-membership export. Those paths are git-ignored on purpose: they are
-1.83 GB of docking runs, per-seed records, feature vectors and membership
-exports, recorded in `configs/manifests/closeout_inventory.json`.
+| Commit | Result | Failing step |
+| --- | --- | --- |
+| `4a64d90` | failure | Test |
+| `0013451` | failure | Test |
+| `43e3397` | failure | Test |
+| `1d16719` | failure | Test — **92 failed, 1,130 passed, 66 skipped, 34 errors** across 18 files |
+| `a83ee47` | failure | Test (portable subset) — the 7-file exclusion was insufficient: **22 failed, 979 passed, 47 skipped, 27 errors** |
 
-## Portable — run in CI
+The authoritative boundary is the union of those two measured runs: **18 files**.
 
-**40 test files, 1,075 tests** (197 of them skipped when no database is present).
-Plus `ruff check .`, `ruff format --check .`, the migrations, and the CLI smoke
-checks. These pass on a bare checkout.
+## Reproducing CI's condition locally
 
-## Full-local — NOT run in CI
-
-**7 test files, 65 of whose tests cannot run on a checkout.**
-
-| Test file | Needs | Tests / fail on a checkout |
-| --- | --- | ---: |
-| `tests/test_m10_corrections.py` | `data/m10/runs/` | 58 / 37 |
-| `tests/test_m10_hardening.py` | `data/m10/runs/` | 57 / 16 |
-| `tests/test_m10_docking.py` | `data/m10/runs/`, `data/m10/structures/` | 52 / 5 |
-| `tests/test_m9_wiring.py` | `data/m9/final/` | 15 / 4 |
-| `tests/test_m9_corrections.py` | `data/m9/final/` | 26 / 1 |
-| `tests/test_m11f_record.py` | the pinned input set on disk | 24 / 1 |
-| `tests/test_m11g_contract.py` | the pinned input set on disk | 15 / 1 |
-
-Run them where the artifacts exist:
+A separate empty database was created beside the real one, migrations applied,
+and the suite run from a clone — which reproduced **90 failures and 34 errors**
+across 16 of the 18 files, matching the real run. The real corpus database was
+never touched.
 
 ```bash
-uv run pytest tests/test_m10_corrections.py tests/test_m10_hardening.py \
-              tests/test_m10_docking.py tests/test_m9_wiring.py \
-              tests/test_m9_corrections.py tests/test_m11f_record.py \
-              tests/test_m11g_contract.py
+createdb seq2lead_ci_sim          # or: CREATE DATABASE seq2lead_ci_sim;
+git clone . /tmp/ci-sim && cd /tmp/ci-sim
+SEQ2LEAD_DB_NAME=seq2lead_ci_sim uv run seq2lead db migrate
+SEQ2LEAD_DB_NAME=seq2lead_ci_sim FORCE_COLOR=1 COLUMNS=80 uv run pytest -q
 ```
 
-On the full local tree these pass: the working-tree suite was recorded at
-**1,322 passed, 0 failures, 0 errors, 0 skipped** per JUnit.
+## The two causes, kept apart
+
+### (a) Artifact-dependent — 16 files
+
+A checkout excludes 1.83 GB of docking runs, M9 per-seed records, feature
+caches and the 433 MB training-membership export, and the CI database is
+migrated but empty.
+
+- `tests/test_dual_encoder.py`
+- `tests/test_eval_contracts.py`
+- `tests/test_eval_verification.py`
+- `tests/test_feature_contracts.py`
+- `tests/test_feature_identity.py`
+- `tests/test_m10_corrections.py`
+- `tests/test_m10_docking.py`
+- `tests/test_m10_hardening.py`
+- `tests/test_m11c_acquisition.py`
+- `tests/test_m11f_record.py`
+- `tests/test_m11g_contract.py`
+- `tests/test_m9_corrections.py`
+- `tests/test_m9_followup.py`
+- `tests/test_m9_wiring.py`
+- `tests/test_result_versions.py`
+- `tests/test_splits.py`
+
+### (b) Environment-dependent — 2 files
+
+These assert that a flag name appears in CLI `--help` output. On the runner,
+Rich emits ANSI escape sequences **inside** the flag names, so the substring
+match fails. Reproduced locally with `FORCE_COLOR=1 COLUMNS=80`, which gives
+the identical assertion message as CI. `NO_COLOR=1` does **not** fix it:
+`FORCE_COLOR` takes precedence in Rich.
+
+- `tests/test_cli.py`
+- `tests/test_safeguards.py`
+
+**This is a test defect, not a missing artifact.** The fix is to strip ANSI
+before asserting, or to assert against a styled-output-safe form. That is a
+change to accepted test code, so it is reported here for owner review rather
+than made unreviewed. Until then these two are excluded in CI for a cause that
+is honestly labelled, not conflated with the artifact group.
 
 ## What was deliberately not done
 
-These seven files were **not** weakened, and no test was made to skip instead of
-fail. A test that binds to a digest still binds to it; a test that verifies a
-docking manifest still verifies every referenced file. They are excluded in the
-*workflow*, not in the test code, so that:
-
-* running the suite locally still exercises them in full, and
-* a missing artifact still fails loudly rather than passing quietly.
-
-Making them self-skip when an artifact is absent would have turned "this check
-did not run" into a green tick, which is the thing this project spends most of
-its verification effort avoiding.
+None of the 18 files was weakened, and no test was made to skip instead of
+fail. They are excluded in the **workflow**, not in the test code, so that
+running the suite locally still exercises them in full and a missing artifact
+still fails loudly. Making them self-skip would turn "this check did not run"
+into a green tick.
 
 ## What a green CI run does and does not establish
 
 **Does:** the code imports, lints, formats, migrates a fresh database, the CLI
-starts, and 1,075 tests pass — including the as-of recomputation and publication
-refusals, which ship their own small artifacts.
+starts, and the portable subset passes — including the as-of recomputation and
+publication refusals, which ship their own small artifacts.
 
-**Does not:** that the M10 docking manifest still verifies against its 3,564
-files; that the M9 per-seed records are intact; that the pinned input digests
-still match the bytes on disk. Those are properties of a local artifact set that
-CI has no copy of, and `configs/manifests/closeout_inventory.json` is the record
-of what that set contains.
+**Does not:** that the M10 docking manifest verifies against its 3,564 files;
+that the M9 per-seed records are intact; that the pinned input digests match
+the bytes on disk; that feature caches and splits are consistent. Those are
+properties of a local artifact set CI has no copy of.
+
+On a complete local tree the whole suite was recorded at **1,322 passed, 0
+failures, 0 errors, 0 skipped** per JUnit.
+
