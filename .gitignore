@@ -144,3 +144,9 @@ tools/
 # explicitly because  already excludes them and no negation should
 # ever reach them.
 reports/results/baseline_runs.json
+
+# The closeout prompt is working material, not part of the public-facing tree.
+# Untracked in the final-review pass; a copy is preserved outside the repository
+# and its location and digest are recorded in docs/ATTRIBUTION.md's sibling
+# checklist (docs/BACKUP_CHECKLIST.md). History is NOT rewritten to remove it.
+docs/CLAUDE_CLOSEOUT_PROMPT.md

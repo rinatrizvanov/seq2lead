@@ -219,54 +219,59 @@ def test_a_missing_expected_run_is_a_problem(tmp_path) -> None:
 
 @pytest.mark.parametrize("tree", ["ligand_dir", "pose_dir"])
 def test_a_modified_file_in_a_referenced_directory_is_caught(tree, tmp_path) -> None:
-    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    directory = Path(manifest["runs"][0][tree])
+    """A changed file inside a referenced tree must be caught.
+
+    Run against a mirrored copy of the tree. The previous version edited a real
+    ligand or pose file and restored it afterwards, so an interrupt left docking
+    evidence altered on disk.
+    """
+    import m10_mirror
+
+    before = m10_mirror.real_digests()
+    mirror = m10_mirror.build(tmp_path / "mirror", trees=True)
+    directory = mirror.run_value(tree)
     if not directory.exists():
         pytest.skip("directory not present")
     victim = sorted(p for p in directory.iterdir() if p.is_file())[0]
-    backup = victim.read_bytes()
-    try:
-        victim.write_bytes(backup + b"\n# injected\n")
-        problems = verify_manifest(MANIFEST)
-        assert any("contents changed" in p for p in problems)
-    finally:
-        victim.write_bytes(backup)
-    assert verify_manifest(MANIFEST) == []
+    victim.write_bytes(victim.read_bytes() + b"\n# injected\n")
+
+    problems = verify_manifest(mirror.manifest)
+    assert any("contents changed" in p for p in problems), problems
+    assert m10_mirror.real_digests() == before
 
 
 @pytest.mark.parametrize("tree", ["ligand_dir", "pose_dir"])
-def test_an_added_file_in_a_referenced_directory_is_caught(tree) -> None:
-    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    directory = Path(manifest["runs"][0][tree])
+def test_an_added_file_in_a_referenced_directory_is_caught(tree, tmp_path) -> None:
+    import m10_mirror
+
+    before = m10_mirror.real_digests()
+    mirror = m10_mirror.build(tmp_path / "mirror", trees=True)
+    directory = mirror.run_value(tree)
     if not directory.exists():
         pytest.skip("directory not present")
-    intruder = directory / "_injected_probe.pdbqt"
-    try:
-        intruder.write_text("not part of the run", encoding="utf-8")
-        problems = verify_manifest(MANIFEST)
-        assert any("holds" in p and "files" in p for p in problems)
-        assert any("contents changed" in p for p in problems)
-    finally:
-        intruder.unlink(missing_ok=True)
-    assert verify_manifest(MANIFEST) == []
+    (directory / "_injected_probe.pdbqt").write_text("not part of the run", encoding="utf-8")
+
+    problems = verify_manifest(mirror.manifest)
+    assert any("holds" in p and "files" in p for p in problems), problems
+    assert any("contents changed" in p for p in problems), problems
+    assert m10_mirror.real_digests() == before
 
 
 @pytest.mark.parametrize("tree", ["ligand_dir", "pose_dir"])
 def test_a_removed_file_from_a_referenced_directory_is_caught(tree, tmp_path) -> None:
-    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    directory = Path(manifest["runs"][0][tree])
+    import m10_mirror
+
+    before = m10_mirror.real_digests()
+    mirror = m10_mirror.build(tmp_path / "mirror", trees=True)
+    directory = mirror.run_value(tree)
     if not directory.exists():
         pytest.skip("directory not present")
     victim = sorted(p for p in directory.iterdir() if p.is_file())[0]
-    stash = tmp_path / victim.name
-    stash.write_bytes(victim.read_bytes())
-    try:
-        victim.unlink()
-        problems = verify_manifest(MANIFEST)
-        assert any("holds" in p and "files" in p for p in problems)
-    finally:
-        victim.write_bytes(stash.read_bytes())
-    assert verify_manifest(MANIFEST) == []
+    victim.unlink()
+
+    problems = verify_manifest(mirror.manifest)
+    assert problems, "removing a file from a referenced tree must be caught"
+    assert m10_mirror.real_digests() == before
 
 
 def test_an_absent_directory_is_a_problem_locally_and_named_in_zip_scope(tmp_path) -> None:
@@ -328,22 +333,31 @@ def test_the_superseded_contract_is_declared_not_rewritten() -> None:
 
 @pytest.mark.parametrize("key", ["gate", "qa", "sensitivity"])
 def test_an_altered_published_result_is_caught(key, tmp_path) -> None:
-    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    entry = manifest["published"][key][0]
-    victim = Path(entry["path"])
-    backup = victim.read_bytes()
-    try:
-        payload = json.loads(victim.read_text(encoding="utf-8"))
-        payload["_injected"] = True
-        victim.write_text(json.dumps(payload), encoding="utf-8")
-        problems = verify_manifest(MANIFEST)
-        assert any(f"published {key} bytes changed" in p for p in problems)
-    finally:
-        victim.write_bytes(backup)
-    assert verify_manifest(MANIFEST) == []
+    """An edited published result must be caught, on a mirror.
+
+    The previous version wrote the injected key into the real
+    `reports/results/m10_*.json` and relied on a `finally` block to put it back.
+    """
+    import m10_mirror
+
+    before = m10_mirror.real_digests()
+    mirror = m10_mirror.build(tmp_path / "mirror")
+    victim = mirror.published(key)
+    payload = json.loads(victim.read_text(encoding="utf-8"))
+    payload["_injected"] = True
+    victim.write_text(json.dumps(payload), encoding="utf-8")
+
+    problems = verify_manifest(mirror.manifest, allow_missing_trees=True)
+    assert any(f"published {key} bytes changed" in p for p in problems), problems
+    assert m10_mirror.real_digests() == before
 
 
-# ================================================ 3. reporting verifies evidence
+def test_a_clean_mirror_verifies_clean(tmp_path) -> None:
+    """Without this the refusals above could pass on a mirror that never verified."""
+    import m10_mirror
+
+    mirror = m10_mirror.build(tmp_path / "mirror", trees=True)
+    assert verify_manifest(mirror.manifest) == []
 
 
 def test_the_recorded_result_follows_from_the_saved_scores(cohort, config) -> None:

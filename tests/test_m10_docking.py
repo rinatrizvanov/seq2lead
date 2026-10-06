@@ -446,23 +446,87 @@ def test_the_docking_manifest_verifies() -> None:
 
 
 def test_a_changed_score_file_fails_manifest_verification(tmp_path) -> None:
-    from seq2lead.dock.artifacts import MANIFEST_PATH
+    """A changed score file must fail verification, proven on a mirror.
 
-    if not MANIFEST_PATH.exists():
+    The previous version edited the real `scores.json` under `data/m10/runs/`
+    and restored it in a `finally` block, so an interrupt left a docking score
+    file altered.
+    """
+    import m10_mirror
+
+    if not m10_mirror.REAL_MANIFEST.exists():
         pytest.skip("no docking manifest yet")
-    manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
-    victim = Path(manifest["runs"][0]["scores_path"])
-    backup = tmp_path / "backup.json"
-    backup.write_bytes(victim.read_bytes())
-    try:
-        rows = json.loads(victim.read_text(encoding="utf-8"))
-        rows[0]["ranking_score"] = 999.0
-        victim.write_text(json.dumps(rows), encoding="utf-8")
-        problems = verify_manifest()
-        assert any("scores" in p and "bytes changed" in p for p in problems)
-    finally:
-        victim.write_bytes(backup.read_bytes())
-    assert verify_manifest() == []
+    before = m10_mirror.real_digests()
+    mirror = m10_mirror.build(tmp_path / "mirror")
+    victim = mirror.run_value("scores_path")
+    rows = json.loads(victim.read_text(encoding="utf-8"))
+    rows[0]["ranking_score"] = 999.0
+    victim.write_text(json.dumps(rows), encoding="utf-8")
+
+    problems = verify_manifest(mirror.manifest, allow_missing_trees=True)
+    assert any("scores" in p and "bytes changed" in p for p in problems), problems
+    assert m10_mirror.real_digests() == before
+
+
+def test_corrupted_mirrored_evidence_is_refused_for_each_artifact_kind(tmp_path) -> None:
+    """One discriminating case per artifact kind, all on temporary copies.
+
+    Each mutation must be refused for its own stated reason, so a single
+    catch-all error cannot make the whole set pass.
+    """
+    import m10_mirror
+
+    if not m10_mirror.REAL_MANIFEST.exists():
+        pytest.skip("no docking manifest yet")
+    before = m10_mirror.real_digests()
+
+    def bump_score(rows):
+        rows[0] = {**rows[0], "ranking_score": 1.0}
+
+    def add_failure(rows):
+        rows.append({"ligand": "X", "reason": "injected"})
+
+    cases = [
+        ("scores_path", "scores", bump_score),
+        ("failures_path", "failures", add_failure),
+    ]
+    for key, needle, mutate in cases:
+        mirror = m10_mirror.build(tmp_path / f"mirror-{key}")
+        victim = mirror.run_value(key)
+        payload = json.loads(victim.read_text(encoding="utf-8"))
+        mutate(payload)
+        victim.write_text(json.dumps(payload), encoding="utf-8")
+        problems = verify_manifest(mirror.manifest, allow_missing_trees=True)
+        assert any(needle in p and "bytes changed" in p for p in problems), (key, problems)
+    assert m10_mirror.real_digests() == before
+
+
+def test_an_exception_after_tampering_leaves_the_real_tree_untouched(tmp_path) -> None:
+    """The property the old `finally` blocks could only hope for.
+
+    A tampering test that raises mid-way must still leave every real artifact
+    byte-identical. With the mirror that holds by construction, because nothing
+    real is ever opened for writing -- so the exception is raised deliberately
+    here and the real digests checked afterwards.
+    """
+    import m10_mirror
+
+    if not m10_mirror.REAL_MANIFEST.exists():
+        pytest.skip("no docking manifest yet")
+    before = m10_mirror.real_digests()
+    assert before, "there should be real M10 artifacts to protect"
+
+    class Boom(RuntimeError):
+        pass
+
+    with pytest.raises(Boom):
+        mirror = m10_mirror.build(tmp_path / "mirror")
+        victim = mirror.qa()
+        victim.write_text('{"ruined": true}', encoding="utf-8")
+        raise Boom("interrupted immediately after tampering, with no restore")
+
+    after = m10_mirror.real_digests()
+    assert after == before, sorted(k for k in before if before[k] != after.get(k))
 
 
 # ===================================================== attrition can bias a gate

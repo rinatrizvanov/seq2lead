@@ -208,18 +208,28 @@ def test_a_sensitivity_row_whose_scale_disagrees_with_its_record_refuses(
 
 
 def test_a_tampered_qa_artifact_refuses_through_the_publisher(tmp_path) -> None:
-    qa = Path("reports/results/m10_qa_redock.json")
-    backup = qa.read_bytes()
-    target = tmp_path / "docking.md"
-    try:
-        payload = json.loads(backup)
-        payload["top_pose_rmsd"] = 0.1
-        qa.write_text(json.dumps(payload), encoding="utf-8")
-        with pytest.raises(EvidenceMismatch, match="QA artifact"):
-            write(target, sensitivity_paths=SENSITIVITY)
-    finally:
-        qa.write_bytes(backup)
-    assert not target.exists()
+    """A changed QA artifact must be refused, proven on a throwaway copy.
+
+    This used to edit `reports/results/m10_qa_redock.json` in place and restore
+    it in a `finally` block. An exception between the two left a tracked
+    scientific artifact modified on disk, and a concurrent `git add` could stage
+    the tampered bytes. The mirror redirects every path the verifier consumes,
+    so the real tree is never written.
+    """
+    import m10_mirror
+
+    before = m10_mirror.real_digests()
+    mirror = m10_mirror.build(tmp_path / "mirror")
+    qa = mirror.qa()
+    payload = json.loads(qa.read_text(encoding="utf-8"))
+    payload["_injected"] = True
+    qa.write_text(json.dumps(payload), encoding="utf-8")
+
+    problems = verify_manifest_scoped(mirror.manifest, allow_missing_trees=True).problems
+    assert any("published qa bytes changed" in p for p in problems), problems
+
+    # the mirror is what moved; nothing real did
+    assert m10_mirror.real_digests() == before
 
 
 def test_the_qa_check_now_recalculates_rather_than_caveating() -> None:
@@ -431,20 +441,23 @@ def test_zip_scope_still_names_unavailable_directories(tmp_path) -> None:
 
 
 def test_the_publisher_refuses_a_manifest_that_fails_the_contract(tmp_path) -> None:
-    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    backup = MANIFEST.read_bytes()
-    target = tmp_path / "docking.md"
-    try:
-        del manifest["published"]["sensitivity"]
-        MANIFEST.write_text(json.dumps(manifest, indent=2, sort_keys=True), encoding="utf-8")
-        with pytest.raises(EvidenceMismatch, match="manifest"):
-            write(target, sensitivity_paths=SENSITIVITY)
-    finally:
-        MANIFEST.write_bytes(backup)
-    assert not target.exists()
+    """Checked on a mirrored manifest, so the real one is never rewritten."""
+    import m10_mirror
 
+    before = m10_mirror.real_digests()
+    mirror = m10_mirror.build(tmp_path / "mirror")
+    manifest = json.loads(mirror.manifest.read_text(encoding="utf-8"))
+    manifest["runs"] = [r for r in manifest["runs"] if r["run"] != "box-25A"]
+    manifest["n_runs"] = len(manifest["runs"])
+    mirror.manifest.write_text(json.dumps(manifest, indent=2, sort_keys=True), encoding="utf-8")
 
-# ============================ 4. corrected claims stay corrected
+    problems = verify_manifest_scoped(
+        mirror.manifest,
+        contract=load_verification_contract(mirror.verification),
+        allow_missing_trees=True,
+    ).problems
+    assert any("box-25A" in p for p in problems), problems
+    assert m10_mirror.real_digests() == before
 
 
 def test_the_uncertainty_claim_is_the_corrected_wording() -> None:
@@ -497,23 +510,48 @@ def test_a_qa_override_is_verified_not_trusted(tmp_path) -> None:
 
 
 def test_a_qa_artifact_with_a_forged_rmsd_is_caught_by_recalculation(tmp_path) -> None:
-    """Even bound and digest-consistent, a wrong RMSD must not survive."""
+    """Even bound and digest-consistent, a wrong RMSD must not survive.
+
+    The recalculation needs the saved pose and the crystal structure, so the
+    mirror copies both and the verifier is pointed at the copies. Nothing under
+    `data/m10/` or `reports/results/` is written.
+    """
+    import m10_mirror
     from seq2lead.dock.verify import verify_qa
 
-    qa_real = Path("reports/results/m10_qa_redock.json")
-    backup = qa_real.read_bytes()
-    try:
-        payload = json.loads(backup)
-        payload["top_pose_rmsd"] = 0.5
-        payload["passed"] = True
-        qa_real.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-        problems, _checks, _unavailable = verify_qa(qa_real, MANIFEST)
-        assert any("recomputing it from" in p for p in problems), problems
-    finally:
-        qa_real.write_bytes(backup)
-    problems, checks, _ = verify_qa(qa_real, MANIFEST)
-    assert problems == []
-    assert any("independently recalculated" in c for c in checks)
+    before = m10_mirror.real_digests()
+    mirror = m10_mirror.build(tmp_path / "mirror")
+    qa = mirror.qa()
+    payload = json.loads(qa.read_text(encoding="utf-8"))
+    payload["top_pose_rmsd"] = 0.5
+    payload["passed"] = True
+    qa.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+    kwargs = {}
+    if mirror.qa_pose is not None:
+        kwargs["pose_path"] = mirror.qa_pose
+    if mirror.structure is not None:
+        kwargs["structure_path"] = mirror.structure
+    problems, _checks, _unavailable = verify_qa(qa, mirror.manifest, **kwargs)
+    assert any("recomputing it from" in p for p in problems), problems
+
+    assert m10_mirror.real_digests() == before
+
+
+def test_the_untouched_qa_artifact_still_verifies_on_a_mirror(tmp_path) -> None:
+    """The clean case, so the refusal above is not vacuous."""
+    import m10_mirror
+    from seq2lead.dock.verify import verify_qa
+
+    mirror = m10_mirror.build(tmp_path / "mirror")
+    kwargs = {}
+    if mirror.qa_pose is not None:
+        kwargs["pose_path"] = mirror.qa_pose
+    if mirror.structure is not None:
+        kwargs["structure_path"] = mirror.structure
+    problems, checks, _unavailable = verify_qa(mirror.qa(), mirror.manifest, **kwargs)
+    assert problems == [], problems
+    assert any("independently recalculated" in c for c in checks), checks
 
 
 def test_the_pose_rmsd_recalculates_without_re_docking() -> None:

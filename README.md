@@ -103,7 +103,7 @@ Historical snapshot A is the 2026-01-01 deposit, DOI [10.6075/J0V40W61](https://
 
 This tree holds source, configs, reports, the preserved execution scripts and a narrow allow-list of small review artifacts, including the saved M11h predictions. Excluded: raw archives, database volumes, large feature caches, membership exports, model checkpoints, ligand and pose directories, third-party binaries and secrets. The learned protein transform is included as a small reproducibility artifact; it is not an embedding cache. **A private repository is not a backup of the excluded evidence** — see the [archive policy](docs/ARCHIVE_POLICY.md) and `configs/manifests/closeout_inventory.json`.
 
-Before any public release: code-license metadata currently says MIT, but code ownership and a corresponding licence file need owner review. Dataset and model terms are separate, and older source-licence prose is not authoritative for every deposit. Do not infer redistribution permission from a software licence.
+Before any public release, see the [attribution and licensing audit](docs/ATTRIBUTION.md). In short: there is **no `LICENSE` file**; `pyproject.toml` declares MIT, which is metadata and covers code only. Dataset and model terms are separate — the 2026-01-01 archival deposit declares CC BY 4.0 in its own rights metadata, while a possible ChEMBL-derived share-alike obligation on some shipped rows is **unresolved**. Do not infer redistribution permission from a software licence.
 
 ## Start here
 
@@ -112,5 +112,7 @@ Before any public release: code-license metadata currently says MIT, but code ow
 - [Demo guide](docs/DEMO.md) — live ranking prerequisites and evidence modes.
 - [Scientific manuscript](paper/manuscript.md) — illustrated Markdown draft; [editable Word version](paper/Seq2Lead_scientific_manuscript.docx). An unreviewed technical-report draft.
 - [Next steps](docs/NEXT_STEPS.md) — remaining work and publication review.
+- [Attribution and licensing audit](docs/ATTRIBUTION.md) — what is shipped, under which terms, and the decisions still open.
+- [Backup checklist](docs/BACKUP_CHECKLIST.md) — the 1.85 GB that exists only on local disk, with its verification procedure.
 - [Archive policy](docs/ARCHIVE_POLICY.md) — what to retain before deleting review ZIPs.
 - [Preserved execution scripts](scripts/asof/README.md) — the code actually run, with recorded hashes.
