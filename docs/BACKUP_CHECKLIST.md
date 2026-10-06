@@ -156,13 +156,67 @@ uv run python scripts/release/backup_evidence.py copy --dest /Volumes/YOUR_DISK
 #    file by file -- not a sample. Writes VERIFIED.json only if all match.
 uv run python scripts/release/backup_evidence.py verify --dest /Volumes/YOUR_DISK
 
-# 4. Spot-restore. Copies one file per group and category back off the
-#    destination and re-hashes it. A backup never read from is untested.
+# 4. Spot-restore -- see "The restoration test" below for the exact form.
 uv run python scripts/release/backup_evidence.py restore --dest /Volumes/YOUR_DISK
 ```
 
 Step 3 exiting non-zero means you do **not** have a backup yet; re-copy before
 relying on it. Step 3 writing `VERIFIED.json` is the record referred to below.
+
+### The restoration test, exactly
+
+A backup that has never been read from is untested, so step 4 copies a sample
+back **off** the destination and re-hashes it against the source. Run it into a
+**new, empty directory outside the project**, created by `mktemp -d` so the name
+cannot collide with anything:
+
+```bash
+cd "/Users/rinatrizvanov/Desktop/Projects/Project 2 - Seq2Lead"
+
+RESTORE_TEST="$(mktemp -d /tmp/seq2lead-restore-XXXXXX)"   # empty, outside the project
+echo "restoring into $RESTORE_TEST"
+ls -A "$RESTORE_TEST"            # must print nothing
+
+uv run python scripts/release/backup_evidence.py restore \
+    --dest /Volumes/YOUR_DISK \
+    --scratch "$RESTORE_TEST"
+
+echo "exit status: $?"           # 0 = every sample matched its source
+find "$RESTORE_TEST" -type f | sort
+```
+
+Omitting `--scratch` is also safe: the tool then creates its own `mktemp`
+directory and prints the path.
+
+**What it samples.** One file per group and per evidence category -- 12 files in
+the current tree: groups A, B and D, plus `data/asof`, `data/raw`,
+`data/features`, `data/m9`, `data/m10`, `data/predictions`,
+`data/predictions_m9`, `reports/results` and `tools/vina`. It is a sample, not a
+full read; step 3 is what hashes all 3,973 files.
+
+**What it refuses, and why.** Each of these was tested against a synthetic
+fixture rather than assumed:
+
+| Refused | Reason |
+| --- | --- |
+| `--scratch` inside the project | restoring there would write backup bytes over the working tree |
+| `--scratch` not empty | a stale file from an earlier run cannot be told apart from a freshly restored one |
+| `--dest` inside the project | a backup inside the tree it backs up is not a backup, and restoring from it would prove nothing |
+| no `seq2lead-evidence-*` generation under `--dest` | there is nothing to restore from; run `copy` then `verify` first |
+
+The tool **never deletes anything** -- not sources, not the destination, not the
+scratch directory. Removing `$RESTORE_TEST` afterwards is your call:
+
+```bash
+rm -rf "$RESTORE_TEST"           # only after you have read the output
+```
+
+**A correction worth knowing about.** An earlier version of `restore` keyed its
+sample on the first path level, which is `data` for every one of the 3,966 group C
+files. It therefore sampled **one** file from all of `data/` while printing a
+per-category-looking result, and a corrupted byte in a category it had not picked
+went undetected. Found by the fixture test, fixed, and re-tested: the corruption
+is now reported as `DIGEST MISMATCH` and the command exits non-zero.
 
 ### Then, and only then
 

@@ -13,19 +13,37 @@ reported metrics follow from the predictions and the labels, and it detects
 tampering with either. It does not prove the predictions follow from the raw data,
 because the fitting inputs are not shipped.
 
-## Three things, three names
+## Three modes, three names
 
-These are used consistently across the repository and mean different things. Where
-any document uses one of these terms, it means the one defined here.
+Seq2Lead can be run in three distinct ways. They need different artifacts and
+establish different things, and the repository supports exactly one of them from a
+clone. Where any document uses one of these terms it means the one defined here.
 
-| Term | What it is | What it establishes |
-| --- | --- | --- |
-| **saved-prediction reproduction** | recomputing the published metrics from the shipped `predictions.npz` and `evaluation-pairs.jsonl`, fitting nothing | that the reported numbers follow from the predictions and the labels, and that tampering with either is detected |
-| **raw-to-fit rebuild** | ingesting BindingDB from raw archives, re-curating, re-featurising and refitting end to end | that the predictions follow from the raw data. **Not supported from a clone**, and not independently supported at all while snapshot B is a rolling release |
-| **full local test suite** | `uv run pytest` over all 1,324 tests on a complete local artifact set | that the software behaves as specified. It is a software check, **not** a reproduction of the benchmark, and a green suite is not evidence about the scientific result |
+| Mode | What it does | Needs | From a clone? |
+| --- | --- | --- | --- |
+| **saved-prediction reproduction** | recomputes the published metrics from the shipped `predictions.npz` and `evaluation-pairs.jsonl`, fitting nothing | only tracked files | **yes** |
+| **live sequence-query ranking** | the product path: `seq2lead rank` takes one protein FASTA and orders a frozen compound library by predicted pKi | a trained checkpoint, a registered frozen library in PostgreSQL, the exact bound feature caches, and the pinned ESM-2 weights — **all stored separately and none tracked** | **no** |
+| **raw-to-fit rebuild** | ingests BindingDB from raw archives, re-curates, re-featurises and refits end to end | the raw archives, the databases and the full intermediate set | **no**, and not independently reproducible at all while snapshot B is a rolling release |
 
-A green CI run establishes the third of these over a 909-test subset. It does not
-establish the first, and says nothing about the second.
+What each one establishes, which is not interchangeable:
+
+- Saved-prediction reproduction establishes that **the reported numbers follow
+  from the predictions and the labels**, and that tampering with either is
+  detected. It says nothing about whether the predictions follow from the raw
+  data.
+- Live sequence-query ranking **demonstrates the intended use**. It produces a
+  ranked list, not evidence: a predicted pKi is not a calibrated probability and
+  not experimental proof of binding. The recorded example output is
+  `reports/examples/rank_demo.txt`.
+- Raw-to-fit rebuild would establish that **the predictions follow from the raw
+  data**. Nobody can currently do this independently; see the re-obtainability
+  section below.
+
+**The full local test suite is none of the three.** `uv run pytest` over all 1,324
+tests on a complete artifact set establishes that the *software* behaves as
+specified. It is a software check, not a reproduction of the benchmark, and a
+green suite — or a green CI badge over its 909-test subset — is not evidence about
+the scientific result.
 
 For the commands themselves and the per-check availability table, see
 [`docs/REPRODUCIBILITY.md`](REPRODUCIBILITY.md); this file states the *scope* those
@@ -49,13 +67,14 @@ score columns**, with the metrics recomputable end to end.
 
 ## Not supported from a clone
 
-Four capabilities need artifacts a checkout does not carry. Nothing here is
+Seven capabilities need artifacts a checkout does not carry. Nothing here is
 hidden by a fallback or a stub: each refuses with a message naming the missing
 input.
 
 | Capability | Blocked on | Size |
 | --- | --- | ---: |
-| Re-predict from the fitted models | `…/run-20261005T134842Z/checkpoints/` (5 files) | 42.6 MB |
+| **Live sequence-query ranking** (`seq2lead rank`) | a trained checkpoint under `data/m9/final/`, a registered frozen library in the local PostgreSQL corpus, the exact bound feature caches, and the pinned ESM-2 weights. The CLI refuses a missing or incompatible feature binding rather than silently using whatever cache is current. | 53.6 MB checkpoints + 826.1 MB caches + 2.6 GB ESM-2 weights (never redistributed) |
+| Re-predict from the M11h fitted models | `…/run-20261005T134842Z/checkpoints/` (5 files) | 42.6 MB |
 | Refit the models | the A-train membership export `data/asof/m11f/a-membership.jsonl` | 413.5 MB |
 | Rebuild the features | `data/features/` ECFP4 and ESM-2 caches (9 files) | 826.1 MB |
 | Rebuild from raw, including the snapshot match | `data/raw/` BindingDB 202601 and 202609 archives, plus the `data/asof/` intermediates | 1,157.7 MB raw; 7.7 GB intermediates |

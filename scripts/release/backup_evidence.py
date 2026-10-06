@@ -34,6 +34,7 @@ import plistlib
 import shutil
 import subprocess
 import sys
+import tempfile
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -284,33 +285,114 @@ def cmd_verify(args: argparse.Namespace) -> int:
     return 0
 
 
+def _refuse_unsafe_scratch(scratch: Path) -> None:
+    """The restore target must be an empty directory outside the project.
+
+    Three ways this could otherwise damage the thing it is meant to protect:
+    a scratch inside the working tree would write restored bytes over project
+    files; a non-empty scratch makes a stale file from an earlier run
+    indistinguishable from a freshly restored one; and a scratch that is the
+    project root would be both at once.
+    """
+    root = ROOT.resolve()
+    resolved = scratch.resolve() if scratch.exists() else scratch.absolute()
+    if resolved == root or root in resolved.parents:
+        raise SystemExit(
+            f"REFUSED: --scratch {resolved} is inside the project at {root}. "
+            "Restoring there would write backup bytes over the working tree. "
+            "Use a path outside the project, e.g. a fresh mktemp -d."
+        )
+    if resolved.exists():
+        if not resolved.is_dir():
+            raise SystemExit(f"REFUSED: --scratch {resolved} exists and is not a directory.")
+        existing = sorted(resolved.iterdir())
+        if existing:
+            raise SystemExit(
+                f"REFUSED: --scratch {resolved} is not empty ({len(existing)} entries). "
+                "A stale file there cannot be told apart from a restored one. "
+                "Point --scratch at a new empty directory."
+            )
+    else:
+        resolved.mkdir(parents=True)
+    return None
+
+
 def cmd_restore(args: argparse.Namespace) -> int:
-    """Spot-restore one file per group C category: a backup never read from is untested."""
+    """Spot-restore one file per group and category.
+
+    A backup that has never been read from is untested, so this copies a sample
+    back OFF the destination and re-hashes it against the source. It reads the
+    destination and writes only into an empty scratch directory outside the
+    project; it never writes to the project and never deletes anything.
+    """
     dest = Path(args.dest).resolve()
+    root = ROOT.resolve()
+    if dest == root or root in dest.parents:
+        raise SystemExit(
+            f"REFUSED: --dest {dest} is inside the project at {root}. A backup "
+            "inside the tree it backs up is not a backup, and restoring from it "
+            "would prove nothing."
+        )
     gen = generation_dir(dest, create=False)
-    scratch = Path(args.scratch or "/tmp/seq2lead-restore-test")  # noqa: S108
-    scratch.mkdir(parents=True, exist_ok=True)
+    if not gen.exists():
+        raise SystemExit(
+            f"REFUSED: no backup generation found under {dest}. Expected a "
+            "directory named seq2lead-evidence-<timestamp>. Run `copy` first, "
+            "then `verify`, then this."
+        )
+
+    if args.scratch:
+        scratch = Path(args.scratch)
+    else:
+        scratch = Path(tempfile.mkdtemp(prefix="seq2lead-restore-"))
+    _refuse_unsafe_scratch(scratch)
+    scratch = scratch.resolve()
+    print(f"  generation: {gen}")
+    print(f"  restoring into: {scratch}  (empty, outside the project)")
+
+    # One sample per EVIDENCE CATEGORY, which for group C is the second level
+    # under groupC/ -- data/asof, data/raw, data/features, reports/results and so
+    # on. Keying on the first level instead would collapse every one of those into
+    # a single "data" bucket and sample one file out of 3,966, while still
+    # printing a per-category-looking result. That is the shape of a check that
+    # passes because it examined almost nothing.
     picks: dict[str, tuple[Path, str]] = {}
-    for group, src, rel in sources():
+    for group, src, rel in sources(include_literature=args.include_literature):
         parts = Path(rel).parts
-        category = parts[1] if group == "C" and len(parts) > 1 else group
+        if group == "C" and len(parts) > 2:
+            category = "/".join(parts[1:3])
+        elif group == "C" and len(parts) > 1:
+            category = parts[1]
+        else:
+            category = group
         key = f"{group}:{category}"
         if key not in picks and src.exists():
             picks[key] = (src, rel)
+
     failures = 0
     for key, (src, rel) in sorted(picks.items()):
         target = gen / rel
         if not target.exists():
-            print(f"  {key}: MISSING {rel}")
+            print(f"  {key}: MISSING AT DESTINATION  {rel}")
             failures += 1
             continue
-        back = scratch / Path(rel).name
+        # The full relative path, not the basename: two categories can hold files
+        # of the same name, and collapsing them would silently overwrite one
+        # sample with another and still report success.
+        back = scratch / rel
+        back.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(target, back)
         same = digest(back) == digest(src)
-        print(f"  {key}: {'ok' if same else 'MISMATCH'}  {Path(rel).name}")
+        print(f"  {key}: {'ok' if same else 'DIGEST MISMATCH'}  {rel}")
         failures += 0 if same else 1
-    print(f"  restored {len(picks)} sample(s) to {scratch}; failures: {failures}")
-    return 1 if failures else 0
+
+    print(f"  restored {len(picks)} sample(s); failures: {failures}")
+    if failures:
+        print("  VERDICT: the destination did not return what the source holds.")
+        return 1
+    print(f"  VERDICT: sample restored and verified. Delete {scratch} when done.")
+    print("  This tool never deletes anything; removing the scratch is your call.")
+    return 0
 
 
 def main() -> int:

@@ -71,11 +71,11 @@
    "sha256": "cc3fa166786920b20e612114173ed12fe5daf64cfe71f13cabac9cc22d560f68"
   },
   {
-   "bytes": 12686,
+   "bytes": 15533,
    "category": "prose",
    "licence": "MIT",
    "path": "README.md",
-   "sha256": "549281b51f70c0f426c5d4fa5fd97f39ca297079eb5f8ece1b13464248ed2450"
+   "sha256": "79247856bf4747360f6b01a10d1fb04d3b9b8352904c8ce1640038546b6ad1ae"
   },
   {
    "bytes": 3140,
@@ -569,11 +569,11 @@
    "sha256": "2b0ea5f781960d7df18a6ff910926fa22af017aae1b050ee31ac82c4d3080687"
   },
   {
-   "bytes": 9404,
+   "bytes": 11883,
    "category": "prose",
    "licence": "MIT",
    "path": "docs/BACKUP_CHECKLIST.md",
-   "sha256": "df3d8f69b6dd64c36c82faf9a49557c74d68a28e1a1af60ce061690febe1bc9c"
+   "sha256": "69e1c6ca6d2790f0059fe0325f8b8ca38389b59ecbd3d4d8384ba733be7d70c4"
   },
   {
    "bytes": 11008,
@@ -653,11 +653,11 @@
    "sha256": "3de6e7e104cf97bcf5e206258e4932785ad6fab44e01dcb863eaff0b37fdbe04"
   },
   {
-   "bytes": 7334,
+   "bytes": 8774,
    "category": "prose",
    "licence": "MIT",
    "path": "docs/RELEASE_SCOPE.md",
-   "sha256": "d32bf643bd60ec26375f33179394736f94262cf66d02dbbfdb4a2820663c89e9"
+   "sha256": "ffb36ccba70d75ba51e7bc548dedd282dd9411b06ed24656eacf9dbb3090cd64"
   },
   {
    "bytes": 4495,
@@ -739,18 +739,18 @@
    "sha256": "9e96f8a4b5408d75457edf843fd83b5f59722c02282d419c82fba176091e88a4"
   },
   {
-   "bytes": 835586,
+   "bytes": 842156,
    "category": "prose",
    "licence": "MIT",
    "path": "paper/Seq2Lead_scientific_manuscript.docx",
-   "sha256": "fa1ee1c23176b85cf6fdc6dd3dd3e6cc64d7dad9c694c44463d3a7f5df1a21b8"
+   "sha256": "ee8200f92c55f36d02eb99d2a65bb1887275bc871efd6895f6a50e469141dab8"
   },
   {
-   "bytes": 36551,
+   "bytes": 49912,
    "category": "code",
    "licence": "MIT",
    "path": "paper/build_paper.py",
-   "sha256": "e6ec594032f788dd51ae5311c8e03b91a3ecbd3986bad977273b30284c6545cf"
+   "sha256": "2e48c07464dfde10c8d68ee59fcdc7380f65b4f5f7de148e9f2794bbefbe90bf"
   },
   {
    "bytes": 213074,
@@ -837,11 +837,11 @@
    "sha256": "b362e4cf45ccd8651f7ab75780de892e6f4b10a26461f22679d71d854fd7650a"
   },
   {
-   "bytes": 21337,
+   "bytes": 33631,
    "category": "prose",
    "licence": "MIT",
    "path": "paper/manuscript.md",
-   "sha256": "f20c7b2bb67b69f1d5a06f20f797fcd003e4bf649ba5569dc5f944cd1ce71801"
+   "sha256": "1623c3efc0f434f5b2668e104179d2076e29baabd48849feba8154115c053b39"
   },
   {
    "bytes": 35,
@@ -1369,11 +1369,11 @@
    "sha256": "677f8c36eb7ff86e3d1b3354f49201e957dd2d924a0f281db15c54ec553e66bb"
   },
   {
-   "bytes": 12899,
+   "bytes": 16546,
    "category": "code",
    "licence": "MIT",
    "path": "scripts/release/backup_evidence.py",
-   "sha256": "04fd0bd9e4d7fd1355b36c006dc6bca62d2cb7b20ad30937e0730be4690b9ef0"
+   "sha256": "2dde6afa6cf887114570908d30f5810c2f758abb50255560eec17c68731b2c9f"
   },
   {
    "bytes": 9511,
@@ -2490,7 +2490,7 @@
   }
  ],
  "files": 351,
- "generated_after_commit": "2a7dde99a67ebd0f431b3a09c0a1b8b120ea2cb7",
+ "generated_after_commit": "e2c44740632e95fb1b28e8a35581d0a8d8a6e722",
  "generated_by": "scripts/release/build_inventory.py",
  "inventory": "seq2lead-complete-release-inventory-v2",
  "licence_basis": {
@@ -2519,7 +2519,7 @@
   ],
   "tracked_at_head": 353
  },
- "recorded_at": "2026-10-06T09:21:09.309670+00:00",
+ "recorded_at": "2026-10-06T09:45:03.595120+00:00",
  "release_option": "A - complete benchmark, pending owner approval. Repository remains PRIVATE.",
  "scientific_bytes_preserved": true,
  "self_excluded": {
@@ -2529,5 +2529,5 @@
   ],
   "why": "Neither file can record its own digest: writing the digest changes the bytes being described. Verify both by the commit they are attached to."
  },
- "total_bytes": 36599879
+ "total_bytes": 36642517
 }

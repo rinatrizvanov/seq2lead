@@ -1,8 +1,31 @@
 # Seq2Lead
 
-**Auditable protein–ligand ranking and historical BindingDB evaluation.**
+**Scientific software for protein-sequence-based prioritisation of compounds from an existing library.**
 
-Given a protein amino-acid sequence and a defined compound library, Seq2Lead ranks existing compounds by predicted pKi using chiral ECFP4 fingerprints and frozen ESM-2 representations. The repository also records how the data, endpoints, splits, features, fits and published results were constructed and checked.
+## What it is for
+
+You have a protein sequence and a library of compounds that already exist. Seq2Lead orders that library by predicted pKi, so that a limited number of compounds can be taken forward first. It prioritises *existing* compounds — it does not design or generate molecules, and a predicted ranking is a hypothesis for triage, not evidence of binding.
+
+Prioritisation is only useful if the ranking can be trusted, so the project treats the evaluation as the hard part. It keeps raw evidence, records which snapshot every measurement came from, keeps exact and censored measurements apart, and refuses to publish a number whose inputs it cannot re-verify.
+
+## What it actually is today
+
+**A bounded CLI prototype, plus an auditable benchmark of it.** Stated plainly so the scope is not overread:
+
+- **The prototype.** `seq2lead rank` takes one protein FASTA and a frozen library and returns a ranked list with predicted pKi. It works, and it is a command-line tool only — there is no web interface, no hosted service and no API. It needs a trained checkpoint, a registered library in a local PostgreSQL corpus, the exact bound feature caches and the pinned ESM-2 weights, none of which are in this repository.
+- **The benchmark.** A historical January → September 2026 BindingDB evaluation, with its predictions, labels, provenance and verification gates shipped so the reported numbers can be recomputed from a clone. This is the part a reader can check.
+
+The benchmark is the contribution. The prototype is what the benchmark measures.
+
+## Three ways to run it, and which one works from a clone
+
+| Mode | Works from a clone? | Needs |
+| --- | --- | --- |
+| **Saved-prediction reproduction** — recompute the published metrics from the shipped predictions and labels | **yes**, nothing to download | tracked files only |
+| **Live sequence-query ranking** — the product path, `seq2lead rank` on a new sequence | **no** | checkpoint, frozen library, bound feature caches and ESM-2 weights, all stored separately |
+| **Raw-to-fit rebuild** — ingest BindingDB and refit end to end | **no** | raw archives, databases and the full intermediate set; also not independently reproducible, see below |
+
+Definitions and the measured artifact sizes: [release scope](docs/RELEASE_SCOPE.md). The **full local test suite is none of the three** — it checks the software, not the science.
 
 **Status: M11h closed; historical evaluation completed.** Results are exploratory, Ki pooling across assays is provisional, and the prospective confirmatory freeze is unsigned. Retrieval is unbuilt, evaluation evidence display is off, and `label_reversal-v3` is unscored. The project does not generate molecules and does not establish experimentally validated new binders. No paper has been submitted or peer reviewed.
 
@@ -38,7 +61,7 @@ Full results and denominators: [M11h report](reports/m11h_results.md). Consolida
 
 An integrated, auditable case study: preserved raw evidence; exact and censored endpoint semantics kept apart; counted snapshot matching with row locators; independent historical, increment and full-B readings; bounded-memory processing; content-bound feature resolution; and reproducible results behind fail-closed publication checks. Protein-language-model dual encoders and temporal benchmarks have prior art. No claim of a first method, a novel architecture, or state-of-the-art performance is made. See [related work](docs/NOVELTY.md).
 
-## Reproduce the saved results
+## Mode 1 — saved-prediction reproduction
 
 Run from the repository root. The project declares Python 3.11 and pins its environment in `uv.lock`.
 
@@ -66,11 +89,11 @@ verdict = verify("data/asof/m11h/run-20261005T134842Z")
 print(verdict["passed"], verdict["checks_not_performed"])
 ```
 
-Saved-prediction reproduction needs no refitting. A full raw-to-fit rebuild has further local dependencies and historical identity assumptions, and is **not** a tested one-command fresh clone — see the [reproduction guide](docs/REPRODUCIBILITY.md).
+That is mode 1 in full: no refitting, nothing downloaded. **Mode 3, a raw-to-fit rebuild, is a different claim** — it has further local dependencies and historical identity assumptions, is not a tested one-command fresh clone, and is not independently reproducible while the September snapshot remains a rolling release. See the [reproduction guide](docs/REPRODUCIBILITY.md) and [release scope](docs/RELEASE_SCOPE.md).
 
-## Demo
+## Mode 2 — live sequence-query ranking
 
-Live ranking needs a populated database and the feature caches, neither of which ships in a review copy. Prerequisites, evidence modes and the exact commands are in the [demo guide](docs/DEMO.md). Evaluation evidence display stays off: there is no partition-filtered evidence API, so evaluation mode shows no evidence at all.
+This is the product path, and it does **not** work from a clone. `seq2lead rank` takes one protein FASTA and a frozen library and returns a ranked list with predicted pKi. It needs a trained checkpoint, a registered frozen library in a local PostgreSQL corpus, the exact bound feature caches and the pinned ESM-2 weights — all stored separately, none tracked here. The CLI refuses a missing or incompatible feature binding rather than quietly using whichever cache is current. A recorded example output is at `reports/examples/rank_demo.txt`; prerequisites, evidence modes and the exact commands are in the [demo guide](docs/DEMO.md). A predicted pKi is not a calibrated probability and not evidence of binding. Evaluation evidence display stays off: there is no partition-filtered evidence API, so evaluation mode shows no evidence at all.
 
 ## Development checks
 
