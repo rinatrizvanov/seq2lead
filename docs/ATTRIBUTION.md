@@ -6,9 +6,10 @@ against the exact pinned upstream revision. Nothing is inferred from a general
 statement about BindingDB, ChEMBL or Meta. Where a term could not be
 established it is marked **unresolved** rather than guessed.
 
-**There is no `LICENSE` file in effect.** `pyproject.toml` declares
-`license = { text = "MIT" }`, which is metadata. A draft is prepared at
-`LICENSE.draft` for owner review; see §6.
+**`LICENSE` is in effect** and covers the project code only; `DATA_LICENSE`
+covers the shipped data, per file. `pyproject.toml` declares
+`license = { text = "MIT" }`, which is packaging metadata describing the code
+licence and says nothing about the data; see §6.
 
 ---
 
@@ -16,7 +17,7 @@ established it is marked **unresolved** rather than guessed.
 
 | Item | Extent | Proposed terms |
 | --- | --- | --- |
-| `src/seq2lead/` | 106 files | MIT, per `LICENSE.draft` |
+| `src/seq2lead/` | 106 files | MIT, per `LICENSE` |
 | `tests/` | 51 files | same |
 | `scripts/asof/` | 13 preserved execution scripts | same; excluded from lint/format so recorded digests stay valid |
 | `paper/build_paper.py` | figure and manuscript builder | same |
@@ -37,7 +38,7 @@ manuscript's disclosure no longer lists affiliation as outstanding, because it i
 no longer outstanding; the contributor list, repository URL and release identifier
 still are.
 
-`LICENSE.draft`'s copyright line now reads **`Copyright (c) 2026 Rinat Rizvanov`**,
+`LICENSE`'s copyright line now reads **`Copyright (c) 2026 Rinat Rizvanov`**,
 on the owner's instruction. Only the two occurrences of the name changed: the
 licence terms, the scope paragraph and the `.draft` filename are untouched, so no
 licence is in effect and no licensing choice has been made on the owner's behalf.
@@ -187,14 +188,14 @@ share-alike obligation.
 
 ### Can separate licences cover the data without touching the code's MIT?
 
-**Yes, and that is what `DATA_LICENSE.draft` does.** Share-alike under CC BY-SA
+**Yes, and that is what `DATA_LICENSE` does.** Share-alike under CC BY-SA
 3.0 attaches to *Adaptations of the Work* — the licensed material. The project
 code is not an adaptation of the data: it is independently authored software that
 reads it, and it would function on any other corpus. So:
 
-* `LICENSE.draft` (MIT) covers project code, configuration, figures, prose, and
+* `LICENSE` (MIT) covers project code, configuration, figures, prose, and
   artifacts that carry no third-party content.
-* `DATA_LICENSE.draft` assigns CC BY 3.0 or CC BY-SA 3.0 per file, from row
+* `DATA_LICENSE` assigns CC BY 3.0 or CC BY-SA 3.0 per file, from row
   provenance, and carries the attribution set.
 * Where a file's compounds mix BindingDB-curated and ChEMBL-sourced rows, the
   stricter licence governs that file.
@@ -246,7 +247,7 @@ MIT text answers — and the inputs bring us back to §3.
 A correction to an earlier revision of this audit: a byte scan reported
 `predictions.npz` as containing no identifiers. That was wrong — the file is
 compressed, which hid them. Loading it shows a `pair` array of **16,795
-InChIKeys**, so it is listed under CC BY-SA 3.0 in `DATA_LICENSE.draft` on the
+InChIKeys**, so it is listed under CC BY-SA 3.0 in `DATA_LICENSE` on the
 strength of those identifiers alone. `protein-transform.npz` was checked the same
 way and genuinely holds only numeric arrays: no identifier, no structure, no
 sequence, no measured value.
@@ -280,7 +281,7 @@ fitting — against BindingDB's row-level `Curation/DataSource`:
 
 A file summarising a population that is roughly seven-tenths CC BY-SA 3.0 is not
 safely labelled MIT on the strength of containing no identifier. It is now listed
-under CC BY-SA 3.0 in `DATA_LICENSE.draft`, with the reason recorded as an
+under CC BY-SA 3.0 in `DATA_LICENSE`, with the reason recorded as an
 explicit `licence_exception` in the release inventory.
 
 ## 5. Figures and manuscript
@@ -296,17 +297,16 @@ unreviewed technical-report draft, not submitted and not peer reviewed. Their
 **AI-assistance disclosure is retained deliberately** and must not be removed;
 it concerns how the text was produced and is separate from Git authorship.
 
-## 6. The LICENSE draft
+## 6. The code licence
 
-`LICENSE.draft` holds an MIT text with the proposed line
+`LICENSE` holds an MIT text under
 **`Copyright (c) 2026 Rinat Rizvanov`** — the given name was corrected from
-"Timur" on the owner's instruction; the terms were not touched. It is named
-`.draft` and is **not in
-effect**: renaming it to `LICENSE` is the owner's act, subject to confirming
-they hold the relevant rights in the code. Its preamble states that it covers
-project code only and names what it does not cover — the §3 data files, the §4
-model-derived artifacts, and every third-party component. A software licence
-cannot grant rights in data the licensor does not hold.
+"Timur" on the owner's instruction; the terms were never touched, and the MIT
+text is byte-identical to the draft the owner approved. The file was activated by
+the owner's authorisation for the first public release. Its preamble states that
+it covers project code only and names what it does not cover — the §3 data files,
+the §4 model-derived artifacts, and every third-party component. A software
+licence cannot grant rights in data the licensor does not hold.
 
 ---
 
@@ -321,9 +321,9 @@ the providers' own terms**. What remains is approval plus one genuine unknown.
 
 ### Ready for your decision
 
-1. **Confirm rights and rename** `LICENSE.draft` → `LICENSE` (MIT, project code)
-   and `DATA_LICENSE.draft` → `DATA_LICENSE` (CC BY 3.0 / CC BY-SA 3.0 per file).
-2. **Accept the per-file licence assignment** in `DATA_LICENSE.draft`, the
+1. **Confirm rights and rename** `LICENSE` → `LICENSE` (MIT, project code)
+   and `DATA_LICENSE` → `DATA_LICENSE` (CC BY 3.0 / CC BY-SA 3.0 per file).
+2. **Accept the per-file licence assignment** in `DATA_LICENSE`, the
    inventory at `configs/manifests/release_inventory.json` and the assignment it
    is built from at `configs/manifests/release_classification.json`: **330 MIT,
    16 CC BY-SA 3.0, 3 CC BY 3.0, 2 CC0 1.0** — 351 entries, every label a single

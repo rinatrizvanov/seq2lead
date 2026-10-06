@@ -1,14 +1,14 @@
 # Third-party licence texts
 
 Full texts of the licences that apply to the data shipped in this repository.
-Which file falls under which licence is set out in `../DATA_LICENSE.draft`.
+Which file falls under which licence is set out in `../DATA_LICENSE`.
 
 | File | Applies to |
 | --- | --- |
 | `CC-BY-3.0.txt` | data curated by BindingDB staff |
 | `CC-BY-SA-3.0.txt` | data BindingDB imported from ChEMBL, and anything derived from it |
 
-The project code is licensed separately; see `../LICENSE.draft`.
+The project code is licensed separately; see `../LICENSE`.
 
 ## What licence these two files are themselves under
 

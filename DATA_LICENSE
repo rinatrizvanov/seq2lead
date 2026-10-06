@@ -1,10 +1,7 @@
-DRAFT — NOT YET IN EFFECT
-
 Licensing of the data shipped in this repository.
 
-This file is a draft for owner review. It does not change, and is not changed by,
-the project code's proposed MIT licence in `LICENSE.draft`. Code and data are
-licensed separately and deliberately.
+This file does not change, and is not changed by, the project code's MIT licence
+in `LICENSE`. Code and data are licensed separately and deliberately.
 
 ================================================================================
 WHY TWO LICENCES, AND WHY SHARE-ALIKE DOES NOT REACH THE CODE
@@ -97,7 +94,7 @@ Fitted statistics over predominantly ChEMBL-sourced rows:
                                                its one compound has no
                                                ChEMBL-sourced rows
 
---- No third-party data; covered by LICENSE.draft (MIT) --------------------
+--- No third-party data; covered by LICENSE (MIT) --------------------
 
   All other tracked data and report files: counts, digests, metrics, cohort
   sizes, verification records and manifests. These carry no structures, no
@@ -269,7 +266,7 @@ removing it would weaken the tamper-detection reproduction in order to avoid a
 labelling question that a label already answers. Excluding it remains available to
 the owner at the cost of that coverage.
 
---- Owner approval required ------------------------------------------------
+--- What the owner approved ------------------------------------------------
 
-This draft is not in effect. The owner is asked to confirm the conservative
-labelling of both model-derived artifacts, or to direct the alternative.
+The owner approved the conservative CC BY-SA 3.0 labelling of both model-derived
+artifacts, and this file is in effect as of the first public release.

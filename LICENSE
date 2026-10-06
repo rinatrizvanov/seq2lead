@@ -1,32 +1,22 @@
-DRAFT — NOT YET IN EFFECT
+Seq2Lead — licence for the project code.
 
-This file is a draft prepared for owner review. It is deliberately named
-`LICENSE.draft` and not `LICENSE`, so that no licence grant is implied until the
-owner confirms the copyright line below and renames the file. Renaming it is the
-owner's act, not an editorial one.
-
-Scope: this draft covers the PROJECT CODE ONLY — `src/`, `tests/`,
+Scope: this licence covers the PROJECT CODE ONLY — `src/`, `tests/`,
 `scripts/asof/`, `scripts/release/`, `paper/build_paper.py`, and the prose under
-`docs/`, `README.md` and `REVIEW.md`. It does NOT cover, and must not be read as covering:
+`docs/`, `README.md` and `REVIEW.md`. It does NOT cover, and must not be read as
+covering:
 
   * the shipped data files derived from BindingDB measurements, which are
-    CC BY 3.0 or CC BY-SA 3.0 Unported depending on the row-level source, analysed
-    file by file in `DATA_LICENSE.draft` and `docs/ATTRIBUTION.md` §3. ChEMBL's
-    share-alike is not in doubt — both ChEMBL and BindingDB state CC BY-SA 3.0
-    Unported for ChEMBL-sourced rows;
+    CC BY 3.0 or CC BY-SA 3.0 Unported depending on the row-level source, set out
+    file by file in `DATA_LICENSE` and `docs/ATTRIBUTION.md` §3;
   * the model-derived artifacts `predictions.npz` and `protein-transform.npz`,
     both of which ship under CC BY-SA 3.0 as a conservative packaging decision
-    (`DATA_LICENSE.draft`, "THE ONE OPEN QUESTION"; `docs/ATTRIBUTION.md` §4);
+    (`DATA_LICENSE`, "THE ONE OPEN QUESTION"; `docs/ATTRIBUTION.md` §4);
   * the verbatim Creative Commons legal code in `licenses/`, which is CC's own
     text, available under CC0 1.0 and reproduced unmodified;
   * any third-party dependency, model weight set, or protein structure, none of
     which is redistributed here.
 
 A software licence cannot grant rights in data the licensor does not hold.
-
-Before this becomes effective, the owner should confirm:
-  1. that they hold the relevant rights in the project code, and
-  2. that "Rinat Rizvanov" is the correct copyright holder for the year shown.
 
 --------------------------------------------------------------------------------
 

@@ -177,11 +177,10 @@ subset and names what it skipped — [CI scope](docs/CI_SCOPE.md).
 
 ## Licences
 
-**No licence is in effect yet.** Two drafts await the owner's confirmation and are
-deliberately named `.draft` so that renaming them is a separate, deliberate act:
+Two licences are in effect, deliberately separate:
 
-- `LICENSE.draft` — MIT, covering the **project code only**.
-- `DATA_LICENSE.draft` — the shipped data, assigned per file from BindingDB's own
+- `LICENSE` — MIT, covering the **project code only**.
+- `DATA_LICENSE` — the shipped data, assigned per file from BindingDB's own
   row-level source column: CC BY 3.0 for BindingDB-curated rows, CC BY-SA 3.0
   Unported for rows BindingDB imported from ChEMBL. Full texts in `licenses/`.
 
@@ -191,7 +190,7 @@ it. Two model-derived artifacts ship under CC BY-SA 3.0 as a conservative choice
 whether a fitted statistic is an "Adaptation" is not decided here. ESM-2's weights
 are MIT-declared at the pinned revision but are not redistributed, and MIT does not
 speak to model outputs. Per-file assignments and the reasoning are in
-[attribution and licensing](docs/ATTRIBUTION.md) and `DATA_LICENSE.draft`.
+[attribution and licensing](docs/ATTRIBUTION.md) and `DATA_LICENSE`.
 
 Required attribution when redistributing any shipped data file: BindingDB (Liu et
 al., *Nucleic Acids Research* 2025;53:D1633–D1644), the archival deposit DOI, the
