@@ -22,11 +22,25 @@ established it is marked **unresolved** rather than guessed.
 | `paper/build_paper.py` | figure and manuscript builder | same |
 | `docs/`, `README.md`, `REVIEW.md` | prose | same |
 
-Authorship: `CITATION.cff` records **Rizvanov, Timur** as author of the work,
+Authorship: `CITATION.cff` records **Rizvanov, Rinat** as author of the work,
 and commits are authored under the owner's configured Git identity
 `rinatrizvanov <1812Rinat@gmail.com>`. These describe different things — the
-scholarly author of the work and the account that committed it — and are
-recorded as the owner intends. Neither was changed.
+scholarly author of the work and the account that committed it — and they now
+agree on the given name. An earlier revision recorded "Timur"; the owner
+corrected it to **Rinat** and asked for that name consistently across the
+manuscript, `CITATION.cff`, copyright notices, the README and release metadata.
+The Git author and committer identity itself was **not** changed.
+
+The affiliation **Boston University, Boston, MA, USA** was supplied by the owner on
+request and applied verbatim to `CITATION.cff` and the manuscript byline. The
+manuscript's disclosure no longer lists affiliation as outstanding, because it is
+no longer outstanding; the contributor list, repository URL and release identifier
+still are.
+
+`LICENSE.draft`'s copyright line now reads **`Copyright (c) 2026 Rinat Rizvanov`**,
+on the owner's instruction. Only the two occurrences of the name changed: the
+licence terms, the scope paragraph and the `.draft` filename are untouched, so no
+licence is in effect and no licensing choice has been made on the owner's behalf.
 
 ## 2. Incorporated third-party code
 
@@ -285,7 +299,9 @@ it concerns how the text was produced and is separate from Git authorship.
 ## 6. The LICENSE draft
 
 `LICENSE.draft` holds an MIT text with the proposed line
-**`Copyright (c) 2026 Timur Rizvanov`**. It is named `.draft` and is **not in
+**`Copyright (c) 2026 Rinat Rizvanov`** — the given name was corrected from
+"Timur" on the owner's instruction; the terms were not touched. It is named
+`.draft` and is **not in
 effect**: renaming it to `LICENSE` is the owner's act, subject to confirming
 they hold the relevant rights in the code. Its preamble states that it covers
 project code only and names what it does not cover — the §3 data files, the §4
@@ -296,6 +312,10 @@ cannot grant rights in data the licensor does not hold.
 
 ## Decisions needed from the owner
 
+> Consolidated, with the scientific limitations listed separately, in
+> [`docs/OWNER_DECISIONS.md`](OWNER_DECISIONS.md). The items below are the
+> licensing detail behind that checklist.
+
 The licensing questions that blocked a complete release are now **answered from
 the providers' own terms**. What remains is approval plus one genuine unknown.
 
@@ -305,10 +325,12 @@ the providers' own terms**. What remains is approval plus one genuine unknown.
    and `DATA_LICENSE.draft` → `DATA_LICENSE` (CC BY 3.0 / CC BY-SA 3.0 per file).
 2. **Accept the per-file licence assignment** in `DATA_LICENSE.draft`, the
    inventory at `configs/manifests/release_inventory.json` and the assignment it
-   is built from at `configs/manifests/release_classification.json`: **328 MIT,
-   16 CC BY-SA 3.0, 3 CC BY 3.0, 2 CC0 1.0** — 349 entries, every label a single
-   licence, plus the 2 self-excluded manifests, accounting for all 351 files git
-   would ship. Three entries carry a `licence_exception` giving the reason their
+   is built from at `configs/manifests/release_classification.json`: **330 MIT,
+   16 CC BY-SA 3.0, 3 CC BY 3.0, 2 CC0 1.0** — 351 entries, every label a single
+   licence, plus the 2 self-excluded manifests, accounting for all 353 files git
+   would ship. These counts move whenever a file is added, so
+   `scripts/release/build_inventory.py` is the authority; it refuses to emit an
+   inventory while anything is unclassified. Three entries carry a `licence_exception` giving the reason their
    label needs one: the two CC licence texts and `protein-transform.npz`.
 3. **Accept the attribution set** — BindingDB's 2025 *NAR* citation, deposit DOI
    `10.6075/J0V40W61`, the pinned 202609 release, ChEMBL under CC BY-SA 3.0, and
@@ -325,7 +347,7 @@ the providers' own terms**. What remains is approval plus one genuine unknown.
    nothing was skipped, deselected or weakened. See `docs/CI_SCOPE.md`.
 7. **Perform the backup** in `docs/BACKUP_CHECKLIST.md` — 1.85 GB, single copy.
 8. **Accept the release scope** in `docs/RELEASE_SCOPE.md`: this release is a
-   **saved-prediction benchmark reproduction**, not a from-raw rebuild. Approving
+   **saved-prediction reproduction**, not a from-raw rebuild. Approving
    it does not claim a third party can regenerate the predictions from BindingDB,
    and the blocker on that is external — the 202609 snapshot is a rolling release
    BindingDB does not archive at a stable URL. Re-pinning the evaluation to two

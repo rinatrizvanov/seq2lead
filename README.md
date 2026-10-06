@@ -89,7 +89,7 @@ uv run seq2lead db migrate
 uv run seq2lead db ping
 ```
 
-The full suite needs the complete local artifact set and PostgreSQL. **A fresh clone cannot run all of it**: 16 files, **415 tests**, need the git-ignored docking runs, M9 records, feature caches and the membership export, so CI collects the remaining **909 of 1,324** and says which files it skipped. The boundary was measured from real workflow runs, not from a clone — an earlier estimate of 7 files was wrong because it modelled CI as having no database when CI in fact has a live, empty one. The first fully green run is [37429970087](https://github.com/rinatrizvanov/seq2lead/actions/runs/37429970087) — 875 passed, 12 skipped, 0 failed, of 887 collected under the previous 18-file list, before the two CLI help-output tests were repaired and returned to CI. Do not treat skipped or unavailable checks as passed — see [CI scope](docs/CI_SCOPE.md), which records each run's totals.
+The **full local test suite** is a software check, not a reproduction of the benchmark — see the three definitions in [release scope](docs/RELEASE_SCOPE.md). It needs the complete local artifact set and PostgreSQL. **A fresh clone cannot run all of it**: 16 files, **415 tests**, need the git-ignored docking runs, M9 records, feature caches and the membership export, so CI collects the remaining **909 of 1,324** and says which files it skipped. The boundary was measured from real workflow runs, not from a clone — an earlier estimate of 7 files was wrong because it modelled CI as having no database when CI in fact has a live, empty one. The first fully green run is [37429970087](https://github.com/rinatrizvanov/seq2lead/actions/runs/37429970087) — 875 passed, 12 skipped, 0 failed, of 887 collected under the previous 18-file list, before the two CLI help-output tests were repaired and returned to CI. Do not treat skipped or unavailable checks as passed — see [CI scope](docs/CI_SCOPE.md), which records each run's totals.
 
 ## Data and model boundaries
 
@@ -107,8 +107,9 @@ Before any public release, see the [attribution and licensing audit](docs/ATTRIB
 
 ## Start here
 
+- [Owner decisions](docs/OWNER_DECISIONS.md) — **start here**: every remaining approval, and the disclosed scientific limitations kept separate from them.
 - [Review scope](REVIEW.md) — what this copy can and cannot verify, and which evidence is missing.
-- [Reproduction guide](docs/REPRODUCIBILITY.md) — saved-prediction reproduction versus full-data refitting.
+- [Reproduction guide](docs/REPRODUCIBILITY.md) — how to run the saved-prediction reproduction, and why a raw-to-fit rebuild is not supported from a clone.
 - [Demo guide](docs/DEMO.md) — live ranking prerequisites and evidence modes.
 - [Scientific manuscript](paper/manuscript.md) — illustrated Markdown draft; [editable Word version](paper/Seq2Lead_scientific_manuscript.docx). An unreviewed technical-report draft.
 - [Next steps](docs/NEXT_STEPS.md) — remaining work and publication review.

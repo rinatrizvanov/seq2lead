@@ -253,7 +253,8 @@ def table(headers, data, widths=None):
         trpr.append(ns)
     md.extend(['| ' + ' | '.join(headers) + ' |', '| ' + ' | '.join(['---'] * len(headers)) + ' |'] + ['| ' + ' | '.join(map(str, r)) + ' |' for r in data] + [''])
 p('Seq2Lead historical evaluation of protein ligand ranking', 'Title')
-p('Timur Rizvanov', 'Subtitle')
+p('Rinat Rizvanov', 'Subtitle')
+p('Boston University, Boston, MA, USA', 'Subtitle')
 p('Scientific manuscript draft · 5 October 2026 · Not submitted or peer reviewed', 'Caption')
 h('Abstract')
 p('Sequence-based protein–ligand prediction requires a clear boundary between historical training evidence and later evaluation evidence. We developed Seq2Lead, a provenance-preserving BindingDB pipeline and compound-library ranking tool, and evaluated it in an exploratory historical snapshot study. January and September 2026 snapshots were curated under an identical pinned pipeline. Counted matching distinguished unchanged observations, additions, removals and constrained correction candidates. Training used January evidence alone; increment labels and complete September consistency checks remained separate. Models fitted exact-Ki regression targets and were evaluated with tie-aware per-target ranking metrics. In the primary new-to-fitting cohort, 22,221 pairs covered 992 targets, with 123 meeting the five-positive/five-negative scoring floor. Mean macro AUROC was 0.788873 for a concatenated-feature MLP and 0.781229 for an affine-cosine dual encoder. A separate carbonic-anhydrase-2 docking protocol failed its declared ranking gate despite successful known-pose recovery. The contribution is an auditable implementation and measured case study. Prior corpus exposure and provisional assay pooling preclude a confirmatory interpretation.')
@@ -320,7 +321,7 @@ q = p('uv sync --frozen\nuv run python -m seq2lead.asof.recompute \\\n  data/aso
 for rr in q.runs:
     rr.font.name = 'Liberation Mono'
     rr.font.size = Pt(9)
-p('Author affiliation, final contributor list, repository URL and any persistent release identifier remain to be confirmed before circulation. AI coding and review assistants were used extensively during implementation, auditing and drafting. The human author is responsible for the final code, evidence, interpretation and manuscript. This document is a draft technical report, not a submitted or peer-reviewed publication.')
+p('The final contributor list, repository URL and any persistent release identifier remain to be confirmed before circulation. AI coding and review assistants were used extensively during implementation, auditing and drafting. The human author is responsible for the final code, evidence, interpretation and manuscript. This document is a draft technical report, not a submitted or peer-reviewed publication.')
 h('References')
 refs = [('Singh R, Sledzieski S, Bryson B, Cowen L, Berger B. Contrastive learning in protein language space predicts interactions between drugs and protein targets. PNAS. 2023.', 'https://doi.org/10.1073/pnas.2220778120'), ('Béquignon OJM et al. Papyrus: a large-scale curated dataset aimed at bioactivity predictions. Journal of Cheminformatics. 2023;15:3.', 'https://doi.org/10.1186/s13321-022-00672-x'), ('Durairaj J et al. PLINDER: The protein-ligand interactions dataset and evaluation resource. Preprint. 2024.', 'https://doi.org/10.1101/2024.07.17.603955'), ('Huang K et al. Artificial intelligence foundation for therapeutic science. Nature Chemical Biology. 2022;18:1033–1036.', 'https://doi.org/10.1038/s41589-022-01131-2'), ('BindingDB in 2024: a FAIR knowledgebase of protein-small molecule binding data. Nucleic Acids Research. 2025;53(D1):D1633–D1644.', 'https://doi.org/10.1093/nar/gkae1075'), ('Rogers D, Hahn M. Extended-connectivity fingerprints. Journal of Chemical Information and Modeling. 2010;50:742–754.', 'https://doi.org/10.1021/ci100050t'), ('Lin Z et al. Evolutionary-scale prediction of atomic-level protein structure with a language model. Science. 2023;379:1123–1130.', 'https://doi.org/10.1126/science.ade2574'), ('Ke G et al. LightGBM: A Highly Efficient Gradient Boosting Decision Tree. Advances in Neural Information Processing Systems. 2017;30.', 'https://proceedings.neurips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html'), ('Eberhardt J et al. AutoDock Vina 1.2.0: New Docking Methods, Expanded Force Field, and Python Bindings. Journal of Chemical Information and Modeling. 2021;61:3891–3898.', 'https://doi.org/10.1021/acs.jcim.1c00203')]
 for i, (t, url) in enumerate(refs, 1):
@@ -345,7 +346,7 @@ for i, (t, url) in enumerate(refs, 1):
     q._p.append(link)
     md[-1] = f'{i}. {t} {url}\n'
 doc.core_properties.title = 'Seq2Lead historical evaluation of protein ligand ranking'
-doc.core_properties.author = 'Timur Rizvanov'
+doc.core_properties.author = 'Rinat Rizvanov'
 doc.core_properties.subject = 'Exploratory historical BindingDB evaluation and artifact integrity'
 out = ROOT / 'Seq2Lead_scientific_manuscript.docx'
 doc.save(out)

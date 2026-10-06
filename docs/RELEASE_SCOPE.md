@@ -1,5 +1,7 @@
 # What this release reproduces, and what it does not
 
+> This is approval **A8** in [`OWNER_DECISIONS.md`](OWNER_DECISIONS.md).
+
 One sentence: **the repository alone reproduces the benchmark's reported numbers
 from saved predictions; it does not rebuild those predictions from raw BindingDB
 data.** Both halves of that sentence are stated precisely below, with the
@@ -10,6 +12,20 @@ very different guarantees. Recomputing scores from saved predictions proves the
 reported metrics follow from the predictions and the labels, and it detects
 tampering with either. It does not prove the predictions follow from the raw data,
 because the fitting inputs are not shipped.
+
+## Three things, three names
+
+These are used consistently across the repository and mean different things. Where
+any document uses one of these terms, it means the one defined here.
+
+| Term | What it is | What it establishes |
+| --- | --- | --- |
+| **saved-prediction reproduction** | recomputing the published metrics from the shipped `predictions.npz` and `evaluation-pairs.jsonl`, fitting nothing | that the reported numbers follow from the predictions and the labels, and that tampering with either is detected |
+| **raw-to-fit rebuild** | ingesting BindingDB from raw archives, re-curating, re-featurising and refitting end to end | that the predictions follow from the raw data. **Not supported from a clone**, and not independently supported at all while snapshot B is a rolling release |
+| **full local test suite** | `uv run pytest` over all 1,324 tests on a complete local artifact set | that the software behaves as specified. It is a software check, **not** a reproduction of the benchmark, and a green suite is not evidence about the scientific result |
+
+A green CI run establishes the third of these over a 909-test subset. It does not
+establish the first, and says nothing about the second.
 
 For the commands themselves and the per-check availability table, see
 [`docs/REPRODUCIBILITY.md`](REPRODUCIBILITY.md); this file states the *scope* those
@@ -90,8 +106,7 @@ this release; it is the natural first step of any public release.
 
 ## Summary for the owner
 
-Approving this release approves publishing a **saved-prediction benchmark
-reproduction**: the numbers, the predictions behind them, the labels, the
+Approving this release approves publishing a **saved-prediction reproduction**: the numbers, the predictions behind them, the labels, the
 provenance and the gates that refuse tampered inputs. It does not claim, and the
 documents must not be read as claiming, that a third party can rebuild the
 predictions from BindingDB. The blocker on that is the rolling 202609 snapshot,

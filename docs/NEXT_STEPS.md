@@ -1,5 +1,11 @@
 # Owner next steps
 
+> **Steps 2–5 are done.** The closeout ran, and the private repository exists at
+> <https://github.com/rinatrizvanov/seq2lead>. The remaining decisions are
+> consolidated in [`OWNER_DECISIONS.md`](OWNER_DECISIONS.md), which supersedes
+> steps 6, 7 and 9 below; this file is kept for the interface detail in steps 1,
+> 3, 5 and 8.
+
 1. Review `paper/Seq2Lead_scientific_manuscript.docx`, especially title/author details and interpretation. Keep it an unreviewed draft.
 2. Download `seq2lead-closeout-private-ready-v2.zip` to `/Users/rinatrizvanov/Downloads`.
 3. In Terminal, open the real project and launch Claude Code with Downloads access:

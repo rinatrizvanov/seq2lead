@@ -358,6 +358,10 @@
    "category": "prose",
    "licence": "MIT"
   },
+  "docs/OWNER_DECISIONS.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
   "docs/PUBLICATION_PLAN.md": {
    "category": "prose",
    "licence": "MIT"
@@ -769,6 +773,10 @@
    "licence": "MIT"
   },
   "scripts/asof/m11h_verify.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/release/backup_evidence.py": {
    "category": "code",
    "licence": "MIT"
   },

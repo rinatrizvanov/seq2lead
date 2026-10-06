@@ -4,4 +4,5 @@ title: "Seq2Lead: auditable protein–ligand ranking and historical BindingDB ev
 type: software
 authors:
   - family-names: Rizvanov
-    given-names: Timur
+    given-names: Rinat
+    affiliation: "Boston University, Boston, MA, USA"

@@ -1,6 +1,8 @@
 Seq2Lead historical evaluation of protein ligand ranking
 
-Timur Rizvanov
+Rinat Rizvanov
+
+Boston University, Boston, MA, USA
 
 Scientific manuscript draft · 5 October 2026 · Not submitted or peer reviewed
 
@@ -132,7 +134,7 @@ uv run python -m seq2lead.asof.recompute \
 uv run python -m seq2lead.asof.verify_results \
   data/asof/m11h/run-20261005T134842Z
 
-Author affiliation, final contributor list, repository URL and any persistent release identifier remain to be confirmed before circulation. AI coding and review assistants were used extensively during implementation, auditing and drafting. The human author is responsible for the final code, evidence, interpretation and manuscript. This document is a draft technical report, not a submitted or peer-reviewed publication.
+The final contributor list, repository URL and any persistent release identifier remain to be confirmed before circulation. AI coding and review assistants were used extensively during implementation, auditing and drafting. The human author is responsible for the final code, evidence, interpretation and manuscript. This document is a draft technical report, not a submitted or peer-reviewed publication.
 
 ## References
 

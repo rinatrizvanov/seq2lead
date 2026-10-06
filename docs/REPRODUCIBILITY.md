@@ -1,8 +1,8 @@
 # Reproduction and verification
 
-For what the release as a whole does and does not let a reader reproduce — saved-prediction benchmark reproduction versus a full raw-to-fit rebuild, with the excluded artifacts measured and the re-obtainability of each pinned input stated — see [release scope](RELEASE_SCOPE.md).
+For what the release as a whole does and does not let a reader reproduce — saved-prediction reproduction versus a raw-to-fit rebuild, with the excluded artifacts measured and the re-obtainability of each pinned input stated — see [release scope](RELEASE_SCOPE.md).
 
-## 1. Saved-prediction review — no database, vectors or refitting required
+## 1. Saved-prediction reproduction — no database, vectors or refitting required
 
 Use the repository root as the working directory: recorded paths are relative to it. Install the declared environment with `uv sync --all-groups`.
 
@@ -30,9 +30,11 @@ uv run pytest tests/test_m11h_publish.py tests/test_m11h_recompute.py --junit-xm
 
 These tests use temporary clones and test valid publication as well as refusal. Read their results; do not infer a total from truncated log dots.
 
-## 3. Full historical refit — requires the full artifact set
+## 3. Raw-to-fit rebuild — requires the full artifact set
 
-The supported review reproduction above is distinct from rebuilding the experiment. The actual executed fitting code is preserved at `scripts/asof/m11h_fit.py`. It relies on the complete pinned inputs, database identities, feature caches/extensions, resolution maps and A-membership export. Inspect its preconditions and paths before invoking it; this copy alone cannot refit. Some preserved scripts have historical scratchpad assumptions. They are execution evidence, not an unconditional one-command installer.
+The saved-prediction reproduction above is a different thing from a raw-to-fit
+rebuild, and neither is the full local test suite; see
+[release scope](RELEASE_SCOPE.md) for the three definitions. The actual executed fitting code is preserved at `scripts/asof/m11h_fit.py`. It relies on the complete pinned inputs, database identities, feature caches/extensions, resolution maps and A-membership export. Inspect its preconditions and paths before invoking it; this copy alone cannot refit. Some preserved scripts have historical scratchpad assumptions. They are execution evidence, not an unconditional one-command installer.
 
 A full rebuild must preserve the pinned curator, both source identities, endpoint semantics, partition seed/fraction, exact-only regression targets, clean validation-RMSE cohort, both feature bindings, role resolution and emitted count/digest checks. Output preflight must refuse collisions. No sweep, cutoff change, or train+validation refit is part of the accepted experiment.
 
