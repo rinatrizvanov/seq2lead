@@ -1,0 +1,1425 @@
+{
+ "also_in_git_history": [
+  {
+   "contains_third_party_data": false,
+   "note": "working prose, untracked in HEAD; history deliberately not rewritten, so publication would expose it",
+   "path": "docs/CLAUDE_CLOSEOUT_PROMPT.md",
+   "reachable_at": "4a64d90"
+  }
+ ],
+ "classification": "seq2lead-release-classification-v1",
+ "files": {
+  ".env.example": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  ".github/workflows/ci.yml": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  ".gitignore": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "CITATION.cff": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "DATA_LICENSE.draft": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "LICENSE.draft": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "README.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "REVIEW.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "configs/.gitkeep": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/experiments/baseline-v1.yaml": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/experiments/m10-docking-v1.yaml": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/experiments/m9-dual-encoder-v1.yaml": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/m11e_cross_slot_sensitivity.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/m11f_evaluation_contract.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/closeout_inventory.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m10_docking.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m10_docking.v1.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m10_docking.v2.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m10_verification.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m11_acquisition_202601.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m11_archive_inventory.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m11c_isolated_ingest_202601.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m11d_matching_202601_202609.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m11e_ki_aggregation.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m11f_preflight.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m11g_preflight.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m11h_fit.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m8_predictions.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m9_runs.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "configs/manifests/m9_runs.v1.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
+  "data/asof/export-summary-both.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11d/examples.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "data/asof/m11d/matching-result.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11d/moved-observations-comparison.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11d/moved-observations-v2.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11d/moved-observations.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11d/partition-k32.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11d/pilot-k32.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11e/audit-reconstruction.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11e/examples.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "data/asof/m11e/excluded-locators-ki.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11e/ki-aggregation-result.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11e/partition-k64.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11e/worked-example-review.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "data/asof/m11f/cohort-preflight.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11f/feature-binding.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11f/feature-coverage.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11f/model-facing-datasets.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11f/partition-summary.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11g/binding-defects.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11g/cohort-preflight.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11g/evaluation-entities.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "data/asof/m11g/evaluation-pairs-summary.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11g/feature-binding.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11g/feature-coverage.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11g/feature-extension.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11g/length-window.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11g/model-facing-datasets.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11g/recompute-compounds.json": {
+   "category": "source data (structures/sequences)",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "data/asof/m11g/recompute-targets.json": {
+   "category": "source data (structures/sequences)",
+   "licence": "CC-BY-3.0"
+  },
+  "data/asof/m11g/recurrence-agreement.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "data/asof/m11g/resolution.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11g/reuse-compounds.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "data/asof/m11g/reuse-targets.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11g/runner-record.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11h/closeout-changes.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11h/run-20261005T134842Z/evaluation-pairs.jsonl": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "data/asof/m11h/run-20261005T134842Z/manifest.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11h/run-20261005T134842Z/predictions.npz": {
+   "category": "prediction",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "data/asof/m11h/run-20261005T134842Z/protein-transform.npz": {
+   "category": "fitted statistic",
+   "exception": "conservative assignment, not a legal conclusion. The file is 2,560 summary statistics and a row count, carrying no identifier, sequence, structure or measured value -- but it was fitted over 353,957 A-train pairs of which 251,811 (71.14%) have at least one ChEMBL-sourced exact-Ki record, and 67.07% of the 454,694 underlying records are ChEMBL-sourced. Whether a fitted statistic is an 'Adaptation' under CC BY-SA 3.0 is not answered by either provider's published terms. Labelled CC-BY-SA-3.0 so the file is correctly licensed whichever way that resolves; see DATA_LICENSE.draft.",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "data/asof/m11h/run-20261005T134842Z/results.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11h/run-20261005T134842Z/training-records.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/m11h/run-20261005T134842Z/verification.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "data/asof/readiness-stats.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "docker/compose.yml": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "docs/ARCHIVE_POLICY.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/ATTRIBUTION.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/BACKUP_CHECKLIST.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/CI_SCOPE.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/DEMO.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/DOCKING.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/EVALUATION.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/FEATURES.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/M11.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/M9.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/NEXT_STEPS.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/NOVELTY.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/PUBLICATION_PLAN.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/RELEASE_SCOPE.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/REPRODUCIBILITY.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/RESUME.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/SCHEMA.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/SPLITS.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "docs/closeout_preservation.json": {
+   "category": "other",
+   "licence": "MIT"
+  },
+  "docs/gitignore_precloseout.txt": {
+   "category": "other",
+   "licence": "MIT"
+  },
+  "docs/inquiries/bindingdb-chembl-derived-artifacts.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "licenses/CC-BY-3.0.txt": {
+   "category": "third-party licence text",
+   "exception": "verbatim, unmodified Creative Commons legal code. Not project content and not third-party data: it is the licence document itself, shipped because CC BY 3.0 and CC BY-SA 3.0 section 4(a) each require a copy of the licence to accompany every copy of the Work distributed. Creative Commons makes the legal code of its licenses available under CC0 1.0 (creativecommons.org/policies, 'Legal text (we call this legal code) and Commons deeds'), which is the basis for reproducing it here. CC reserves all trademark and branding rights, and a changed licence text may no longer be called a CC licence, so the bytes are reproduced exactly and never edited.",
+   "licence": "CC0-1.0"
+  },
+  "licenses/CC-BY-SA-3.0.txt": {
+   "category": "third-party licence text",
+   "exception": "verbatim, unmodified Creative Commons legal code. Not project content and not third-party data: it is the licence document itself, shipped because CC BY 3.0 and CC BY-SA 3.0 section 4(a) each require a copy of the licence to accompany every copy of the Work distributed. Creative Commons makes the legal code of its licenses available under CC0 1.0 (creativecommons.org/policies, 'Legal text (we call this legal code) and Commons deeds'), which is the basis for reproducing it here. CC reserves all trademark and branding rights, and a changed licence text may no longer be called a CC licence, so the bytes are reproduced exactly and never edited.",
+   "licence": "CC0-1.0"
+  },
+  "licenses/README.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "paper/FIGURES.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "paper/Seq2Lead_scientific_manuscript.docx": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "paper/build_paper.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "paper/figures/figure_1_evidence_workflow.png": {
+   "category": "figure",
+   "licence": "MIT"
+  },
+  "paper/figures/figure_1_evidence_workflow.svg": {
+   "category": "figure",
+   "licence": "MIT"
+  },
+  "paper/figures/figure_2_dual_encoder.png": {
+   "category": "figure",
+   "licence": "MIT"
+  },
+  "paper/figures/figure_2_dual_encoder.svg": {
+   "category": "figure",
+   "licence": "MIT"
+  },
+  "paper/figures/figure_3_ranking_results.png": {
+   "category": "figure",
+   "licence": "MIT"
+  },
+  "paper/figures/figure_3_ranking_results.svg": {
+   "category": "figure",
+   "licence": "MIT"
+  },
+  "paper/figures/figure_4_target_and_stratum_diagnostics.png": {
+   "category": "figure",
+   "licence": "MIT"
+  },
+  "paper/figures/figure_4_target_and_stratum_diagnostics.svg": {
+   "category": "figure",
+   "licence": "MIT"
+  },
+  "paper/figures/figure_5_docking_gate.png": {
+   "category": "figure",
+   "licence": "MIT"
+  },
+  "paper/figures/figure_5_docking_gate.svg": {
+   "category": "figure",
+   "licence": "MIT"
+  },
+  "paper/figures/figure_provenance.json": {
+   "category": "figure",
+   "licence": "MIT"
+  },
+  "paper/figures/per_target_comparison.json": {
+   "category": "figure",
+   "licence": "MIT"
+  },
+  "paper/manuscript.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "paper/requirements.txt": {
+   "category": "other",
+   "licence": "MIT"
+  },
+  "pyproject.toml": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "reports/.gitkeep": {
+   "category": "other",
+   "licence": "MIT"
+  },
+  "reports/assay_variance.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/curation.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/docking.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/endpoint.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/examples/query_target.fasta": {
+   "category": "source data (structures/sequences)",
+   "licence": "CC-BY-3.0"
+  },
+  "reports/examples/rank_demo.txt": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/features.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/ingest.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/leaderboard.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/m11_acquisition.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/m11c_isolated_ingest.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/m11d_matching.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/m11e_ki_aggregation.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/m11f_preflight.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/m11g_preflight.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/m11h_results.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/m9_dual_encoder.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/probes/chirality_impact.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/probes/cluster_similarity.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/probes/length_feasibility.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/probes/prefix_drift.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/profile.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/project_closeout.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/results/artifacts.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/results/baseline_summary.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/baseline_summary_v2.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/correction_m8_v2.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/correction_v2.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/index.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m10_cohort.json": {
+   "category": "source data (structures/sequences)",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "reports/results/m10_corrections.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/results/m10_gate.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m10_qa_redock.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m10_sensitivity_box-15A.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m10_sensitivity_box-25A.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m11d_ambiguous_slots.jsonl": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "reports/results/m11d_correction_candidates.jsonl": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "reports/results/m11d_examples.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "reports/results/m11d_identifier_conflicts.jsonl": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-3.0"
+  },
+  "reports/results/m11d_moved_observations.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m11d_moved_observations_comparison.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m11e_audit_reconstruction.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m11e_examples.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "reports/results/m11e_ki_aggregation_summary.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m11e_worked_example_review.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "reports/results/m11f_cohort_preflight.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m11f_feature_binding.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m11f_feature_coverage.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m11f_model_facing_datasets.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m11f_partition_summary.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m9_artifacts.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/results/m9_cli_checkpoint.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m9_corrections.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/results/m9_selection.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/m9_v1_summary.json": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/results/prediction_sample.csv": {
+   "category": "transformed data / identifiers",
+   "licence": "MIT"
+  },
+  "reports/splits.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/wal_probe.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "scripts/asof/README.md": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/asof/m11g_bind.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/asof/m11g_contract.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/asof/m11g_recurrence_check.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/asof/m11g_reproduce.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/asof/m11g_resolve_eval.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/asof/m11g_runner_fixture.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/asof/m11g_window.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/asof/m11h_eval.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/asof/m11h_evalpairs.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/asof/m11h_fit.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/asof/m11h_report.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/asof/m11h_reproduce_integrity.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/asof/m11h_verify.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "scripts/release/build_inventory.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/analysis/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/analysis/assay_variance.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/bridge.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/contract.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/datasets.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/evaluation.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/export.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/features.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/fitting.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/ki_aggregation.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/matching.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/normalise.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/partition.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/publish.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/recompute.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/results_report.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/runner.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/sharded.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/asof/verify_results.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/cli.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/config.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/curate/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/curate/parse.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/curate/pipeline.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/curate/standardizer.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/db/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/db/connection.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/db/isolation.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/db/m3_schema.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/db/m4_schema.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/db/m6_schema.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/db/maintenance.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/db/migrations.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/db/schema.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/dock/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/dock/artifacts.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/dock/cohort.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/dock/config.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/dock/engine.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/dock/gate.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/dock/ligands.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/dock/qa.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/dock/receptor.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/dock/report.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/dock/runner.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/dock/verify.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/endpoint/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/endpoint/build.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/endpoint/interval.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/eval/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/eval/artifacts.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/eval/baselines.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/eval/cohort.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/eval/config.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/eval/features.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/eval/metrics.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/eval/recompute.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/eval/results.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/eval/runner.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/eval/verify.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/features/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/features/activity.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/features/coverage.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/features/ecfp.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/features/identity.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/features/manifest.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/features/plm.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/features/probes.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/features/store.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/features/validate.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/ingest/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/ingest/auxiliary.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/ingest/bindingdb.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/ingest/download.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/ingest/inspection.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/ingest/sources.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/models/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/models/binding.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/models/dual_encoder.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/models/library.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/models/m9_artifacts.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/models/m9_runner.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/models/rank.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/models/train.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/curation_report.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/dataset.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/endpoint_report.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/esm2.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/feature_report.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/leaderboard.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/m2_report.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/m9_report.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/report.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/split_report.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/status_banner.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/storage.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/variance_report.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/profiling/wal.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/splits/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/splits/assertions.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/splits/build.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/splits/clustering.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/splits/similarity.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/cli_help.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/conftest.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/fixtures/average_precision_cases.json": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/m10_mirror.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_cli.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_config.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_curate.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_db.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_dual_encoder.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_endpoint.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_eval_contracts.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_eval_metrics.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_eval_verification.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_feature_contracts.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_feature_identity.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_features.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_fingerprint_stereo.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_ingest.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_leaderboard_reporting.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m10_corrections.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m10_docking.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m10_hardening.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11_evaluation.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11_matching.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11c_acquisition.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11c_end_to_end.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11c_isolated_ingest.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11c_observation_export.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11c_production_wiring.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11c_release_lifecycle.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11d_cross_slot_pairing.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11d_matching_record.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11d_shard_equivalence.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11e_branch_accounting.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11e_ki_aggregation.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11e_record.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11f_datasets.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11f_partition.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11f_record.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11g_contract.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11g_runner.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11h_publish.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m11h_recompute.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m9_corrections.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m9_followup.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_m9_wiring.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_result_versions.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_safeguards.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_splits.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_temporal_visibility.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_toolchain.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "uv.lock": {
+   "category": "code",
+   "licence": "MIT"
+  }
+ },
+ "licence_basis": {
+  "CC-BY-3.0": "data traceable to BindingDB-staff-curated rows only; BindingDB's own terms page",
+  "CC-BY-SA-3.0": "data whose referenced compounds have measurements with Curation/DataSource = ChEMBL; BindingDB imports those under CC BY-SA 3.0 and ChEMBL confirms the same licence. Share-alike governs where a file mixes sources.",
+  "CC0-1.0": "Creative Commons' own legal code, which CC makes available under CC0 1.0. Applies only to the licence texts in licenses/, never to project content or to third-party data.",
+  "MIT": "project code, configuration, figures, prose and artifacts carrying no third-party data; see LICENSE.draft"
+ },
+ "provenance_method": "row-level Curation/DataSource from the preserved raw payloads; 202609 for B-side entities and the isolated seq2lead_m11c_202601 schema for A-only entities",
+ "self_excluded": [
+  "configs/manifests/release_inventory.json",
+  "configs/manifests/release_classification.json"
+ ],
+ "self_excluded_why": "Neither file can record its own digest: writing the digest changes the bytes being described. Verify both by the commit they are attached to.",
+ "what_this_is": "The per-file category and licence assignment the release inventory is built from. Kept separate from the inventory so that the inventory is a pure function of (this file, the tracked bytes) and can be regenerated and checked; scripts/release/build_inventory.py refuses to emit an inventory if any tracked file is unclassified or any classified path is not tracked."
+}

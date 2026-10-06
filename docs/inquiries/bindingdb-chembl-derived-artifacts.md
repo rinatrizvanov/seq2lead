@@ -91,3 +91,23 @@ Thank you.
 | 5 | `data/asof/m11h/run-20261005T134842Z/protein-transform.npz` | 11,000 B | `mean` (1×1280), `scale` (1×1280), `n_fitted` (1) |
 
 Items 1–3 are enumerated file by file in `DATA_LICENSE.draft`.
+
+### How much ChEMBL-sourced data item 5 summarises
+
+Item 5 carries no identifier, so its dependence on ChEMBL-sourced rows is a
+property of the population it was fitted over, not of its bytes. That population
+was resolved against BindingDB's own row-level `Curation/DataSource`. Its
+`n_fitted` field, 353,957, is exactly the A-train pair count recorded as supplied
+to fitting.
+
+| | |
+| --- | ---: |
+| exact-Ki records behind those 353,957 pairs | 454,694 |
+| of which `Curation/DataSource = ChEMBL` | 304,963 (67.07%) |
+| pairs with at least one ChEMBL-sourced exact-Ki record | 251,811 (71.14%) |
+| distinct training sequences touching a ChEMBL-sourced row | 2,613 of 3,466 (75.4%) |
+
+Pending your answer we have labelled item 5 CC BY-SA 3.0, the same as item 4, so
+that it is correctly licensed whichever way the question resolves. We are not
+asserting that share-alike attaches; we are avoiding a permissive label we could
+not withdraw if it turned out to be wrong.

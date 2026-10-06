@@ -6,14 +6,17 @@ owner confirms the copyright line below and renames the file. Renaming it is the
 owner's act, not an editorial one.
 
 Scope: this draft covers the PROJECT CODE ONLY — `src/`, `tests/`,
-`scripts/asof/`, `paper/build_paper.py`, and the prose under `docs/`, `README.md`
-and `REVIEW.md`. It does NOT cover, and must not be read as covering:
+`scripts/asof/`, `scripts/release/`, `paper/build_paper.py`, and the prose under
+`docs/`, `README.md` and `REVIEW.md`. It does NOT cover, and must not be read as covering:
 
   * the shipped data files derived from BindingDB measurements, whose terms are
     analysed file by file in `docs/ATTRIBUTION.md` §3 and include an unresolved
     ChEMBL share-alike question;
-  * the model-derived artifacts `predictions.npz` and `protein-transform.npz`
-    (`docs/ATTRIBUTION.md` §4);
+  * the model-derived artifacts `predictions.npz` and `protein-transform.npz`,
+    both of which ship under CC BY-SA 3.0 as a conservative packaging decision
+    (`DATA_LICENSE.draft`, "THE ONE OPEN QUESTION"; `docs/ATTRIBUTION.md` §4);
+  * the verbatim Creative Commons legal code in `licenses/`, which is CC's own
+    text, available under CC0 1.0 and reproduced unmodified;
   * any third-party dependency, model weight set, or protein structure, none of
     which is redistributed here.
 

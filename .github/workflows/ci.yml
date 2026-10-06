@@ -60,28 +60,32 @@ jobs:
       # PORTABLE tests only, and the boundary is MEASURED from real runs of
       # this workflow rather than guessed.
       #
-      # Two separate causes put a test out of CI's reach:
+      # ONE cause now puts a test out of CI's reach:
       #
-      #  (a) ARTIFACT-DEPENDENT -- 16 files. A checkout excludes 1.83 GB of
-      #      docking runs, M9 per-seed records, feature caches and the 433 MB
-      #      training-membership export, and a CI database is migrated but
-      #      empty. Reproduced locally against a separate empty database:
-      #      90 failures and 34 errors, matching the real run.
+      #   ARTIFACT-DEPENDENT -- 16 files. A checkout excludes 1.83 GB of
+      #   docking runs, M9 per-seed records, feature caches and the 433 MB
+      #   training-membership export, and a CI database is migrated but empty.
+      #   Reproduced locally against a separate empty database: 90 failures and
+      #   34 errors, matching the real run.
       #
-      #  (b) ENVIRONMENT-DEPENDENT -- 2 files. These assert that a flag name
-      #      appears in CLI --help output. On the runner, Rich emits ANSI
-      #      escapes inside the flag names, so the substring match fails.
-      #      Reproduced locally with FORCE_COLOR=1 COLUMNS=80. NO_COLOR does
-      #      not help: FORCE_COLOR takes precedence. This is a test defect, not
-      #      a missing artifact, and is recorded as such in docs/CI_SCOPE.md.
+      # There used to be a second cause. tests/test_cli.py and
+      # tests/test_safeguards.py each had one test that greps a flag name out of
+      # CLI --help output, and Rich styles every switch, so on a runner with
+      # colour the substring was never there. NO_COLOR cannot fix it because
+      # FORCE_COLOR takes precedence, and at a narrow width Rich *truncates* the
+      # switch ("--rel..."), so no text normalisation recovers it either. Both
+      # tests now read the switch names and the documented guarantees from
+      # Click's own parameter objects and render the CLI in a child process at a
+      # width the test pins -- see tests/cli_help.py. Nothing was skipped or
+      # weakened; both files run here, and were verified green under
+      # FORCE_COLOR=1 at widths 80, 40 and 20.
       #
-      # Nothing is weakened, skipped or deselected inside the test code. These
-      # files are excluded HERE so the boundary is visible, and a green CI run
-      # is not a claim that they passed -- they did not run.
+      # Nothing is weakened, skipped or deselected inside the test code. The 16
+      # files are excluded HERE so the boundary is visible, and a green CI run is
+      # not a claim that they passed -- they did not run.
       - name: Test (portable subset)
         run: >-
           uv run pytest -v
-          --ignore=tests/test_cli.py
           --ignore=tests/test_dual_encoder.py
           --ignore=tests/test_eval_contracts.py
           --ignore=tests/test_eval_verification.py
@@ -97,7 +101,6 @@ jobs:
           --ignore=tests/test_m9_followup.py
           --ignore=tests/test_m9_wiring.py
           --ignore=tests/test_result_versions.py
-          --ignore=tests/test_safeguards.py
           --ignore=tests/test_splits.py
 
       # The README offers this as the no-database workflow, so CI has to prove
@@ -105,7 +108,6 @@ jobs:
       - name: Test without a database (portable subset)
         run: >-
           uv run pytest
-          --ignore=tests/test_cli.py
           --ignore=tests/test_dual_encoder.py
           --ignore=tests/test_eval_contracts.py
           --ignore=tests/test_eval_verification.py
@@ -121,7 +123,6 @@ jobs:
           --ignore=tests/test_m9_followup.py
           --ignore=tests/test_m9_wiring.py
           --ignore=tests/test_result_versions.py
-          --ignore=tests/test_safeguards.py
           --ignore=tests/test_splits.py
         env:
           SEQ2LEAD_SKIP_DB_TESTS: "1"
@@ -147,9 +148,8 @@ jobs:
           echo "    tests/test_m9_wiring.py"
           echo "    tests/test_result_versions.py"
           echo "    tests/test_splits.py"
-          echo "  environment-dependent (2 files) -- ANSI-styled CLI help breaks a substring assert:"
-          echo "    tests/test_cli.py"
-          echo "    tests/test_safeguards.py"
+          echo "  environment-dependent: none. The two ANSI/help-output tests were"
+          echo "  repaired and now run above; see tests/cli_help.py."
           echo "See docs/CI_SCOPE.md. Run the full suite on a complete local tree."
 
       - name: Smoke-check the CLI

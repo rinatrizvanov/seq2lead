@@ -1,5 +1,7 @@
 # Reproduction and verification
 
+For what the release as a whole does and does not let a reader reproduce — saved-prediction benchmark reproduction versus a full raw-to-fit rebuild, with the excluded artifacts measured and the re-obtainability of each pinned input stated — see [release scope](RELEASE_SCOPE.md).
+
 ## 1. Saved-prediction review — no database, vectors or refitting required
 
 Use the repository root as the working directory: recorded paths are relative to it. Install the declared environment with `uv sync --all-groups`.

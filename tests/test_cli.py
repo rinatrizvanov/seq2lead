@@ -1,5 +1,6 @@
 from typer.testing import CliRunner
 
+from cli_help import documented, rendered, squash, switches
 from seq2lead import __version__
 from seq2lead.cli import app
 
@@ -34,11 +35,18 @@ def test_asof_export_is_registered_and_documents_its_read_only_guarantee() -> No
     An artifact that two snapshots are compared from is not reproducible if the
     only way to regenerate it is a script that was never committed.
     """
-    result = runner.invoke(app, ["asof", "export", "--help"])
-    assert result.exit_code == 0
-    assert "--release-id" in result.stdout
-    assert "--out" in result.stdout
-    assert "READ ONLY" in result.stdout
+    # What the command declares, read from Click rather than from a rendering, so
+    # no terminal participates -- see tests/cli_help.py for why that matters.
+    assert {"--release-id", "--out"} <= switches(app, "asof", "export")
+    assert "READ ONLY" in documented(app, "asof", "export")
+
+    # And it reaches a help screen a user can actually read, which declarations
+    # alone cannot show: a parameter can be declared and hidden.
+    status, help_screen = rendered("asof", "export")
+    assert status == 0, help_screen
+    shown = squash(help_screen)
+    for text in ("--release-id", "--out", "READ ONLY"):
+        assert squash(text) in shown, text
 
 
 def test_asof_export_requires_both_arguments() -> None:

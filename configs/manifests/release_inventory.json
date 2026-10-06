@@ -8,26 +8,25 @@
   }
  ],
  "by_category": {
-  "code": 177,
+  "code": 179,
   "configuration": 22,
   "figure": 12,
   "fitted statistic": 1,
   "other": 4,
   "prediction": 1,
-  "prose": 50,
+  "prose": 51,
   "source data (structures/sequences)": 4,
   "third-party licence text": 2,
   "transformed data / identifiers": 73
  },
  "by_licence": {
   "CC-BY-3.0": 3,
-  "CC-BY-3.0 (verbatim licence text)": 1,
-  "CC-BY-SA-3.0": 15,
-  "CC-BY-SA-3.0 (verbatim licence text)": 1,
-  "MIT": 326
+  "CC-BY-SA-3.0": 16,
+  "CC0-1.0": 2,
+  "MIT": 328
  },
- "commit": "a83ee470afcd5e3bf8d1a5c437b814c9f996ffa8",
- "digest_note": "every digest here was computed from the file as it stands at the commit named above; an inventory whose digests do not match its files records nothing",
+ "classification": "seq2lead-release-classification-v1",
+ "digest_note": "every digest here was computed from the working tree as it stood when this file was generated, one commit after `generated_after_commit`. An inventory whose digests do not match its files records nothing, so the check that matters is `python scripts/release/build_inventory.py --check`, which recomputes every digest from the files as they are now. Two files were once edited after generation and the inventory described bytes that no longer existed; this is the guard against repeating that.",
  "entries": [
   {
    "bytes": 364,
@@ -37,11 +36,11 @@
    "sha256": "8a7be7f027e2f39d207763221a8dfd5c45d408b14c7793a9eefbf80fdef59ed1"
   },
   {
-   "bytes": 6150,
+   "bytes": 6283,
    "category": "code",
    "licence": "MIT",
    "path": ".github/workflows/ci.yml",
-   "sha256": "3872fa1e54b6baf5a1fbd63498b18b13a9339ec19502977b80058b4f4a0cb1f6"
+   "sha256": "3d0486c9a1ee009c2458c9fd3d571b7c73dad795f42acf25d8e8778a0deaa8fa"
   },
   {
    "bytes": 5155,
@@ -58,25 +57,25 @@
    "sha256": "6f6dc9902e2260c4294a18c651d5f7f94524ef5c0b65582bf313cc5637bdb350"
   },
   {
-   "bytes": 8643,
+   "bytes": 14384,
    "category": "prose",
    "licence": "MIT",
    "path": "DATA_LICENSE.draft",
-   "sha256": "12310756f5d0b5174bc5fbee7f1a9c12811a0cb6fc91d5f619d16efa3a9c9c05"
+   "sha256": "960a65dc38df0ff8d5b33cc964590f75986237658322ad4451583845db3a5436"
   },
   {
-   "bytes": 2372,
+   "bytes": 2659,
    "category": "prose",
    "licence": "MIT",
    "path": "LICENSE.draft",
-   "sha256": "625bb4b090e65e2d34708e7b7a7a24a241ded3ce4bbcb27b7ae54fb79a17e073"
+   "sha256": "2e1d71231ba74479fefead1e182dd18fe442a7de3bf4416815b07b2a736d64f8"
   },
   {
-   "bytes": 11104,
+   "bytes": 12333,
    "category": "prose",
    "licence": "MIT",
    "path": "README.md",
-   "sha256": "5b40455e7c5c05e46d5095018e2fce6063e69aada2424c6201b02711bf6c21d8"
+   "sha256": "75b17cd474eb9fcf3972036be7519839e69710c3d565e79260bf4c1125192eec"
   },
   {
    "bytes": 3140,
@@ -515,7 +514,8 @@
   {
    "bytes": 11000,
    "category": "fitted statistic",
-   "licence": "MIT",
+   "licence": "CC-BY-SA-3.0",
+   "licence_exception": "conservative assignment, not a legal conclusion. The file is 2,560 summary statistics and a row count, carrying no identifier, sequence, structure or measured value -- but it was fitted over 353,957 A-train pairs of which 251,811 (71.14%) have at least one ChEMBL-sourced exact-Ki record, and 67.07% of the 454,694 underlying records are ChEMBL-sourced. Whether a fitted statistic is an 'Adaptation' under CC BY-SA 3.0 is not answered by either provider's published terms. Labelled CC-BY-SA-3.0 so the file is correctly licensed whichever way that resolves; see DATA_LICENSE.draft.",
    "path": "data/asof/m11h/run-20261005T134842Z/protein-transform.npz",
    "sha256": "40154b7228691cdddf6164adee7d130c3e139124a4ef2c6fdb9e85fec0cb1620"
   },
@@ -562,11 +562,11 @@
    "sha256": "345ac8b3289fb4b023f809176e913f5e43802e9fe467e32bd4585672277b3bf6"
   },
   {
-   "bytes": 18826,
+   "bytes": 22596,
    "category": "prose",
    "licence": "MIT",
    "path": "docs/ATTRIBUTION.md",
-   "sha256": "64121854368982686a9fb740157b236fa923b8f186717f6787db69bdf2bfb52b"
+   "sha256": "52e70991f5d50fafdcd1fef9e11d9eb185ca2db076c3805cd617077fd18959df"
   },
   {
    "bytes": 5382,
@@ -576,11 +576,11 @@
    "sha256": "58e425fbbe9ddd9ebfe0ee6f6b76a6b24061891eac89cccbd965a9cfeb9bb2ac"
   },
   {
-   "bytes": 4379,
+   "bytes": 9830,
    "category": "prose",
    "licence": "MIT",
    "path": "docs/CI_SCOPE.md",
-   "sha256": "619f176852b85003642d3bcd82de744f0489e5a8b76c013a15cd29cf7e4203c8"
+   "sha256": "45e4457184aae7848b2d2582baadd5fa045e082c97b1c9743379f0ae5eba3315"
   },
   {
    "bytes": 1866,
@@ -646,11 +646,18 @@
    "sha256": "3de6e7e104cf97bcf5e206258e4932785ad6fab44e01dcb863eaff0b37fdbe04"
   },
   {
-   "bytes": 4111,
+   "bytes": 6063,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/RELEASE_SCOPE.md",
+   "sha256": "7437c15e3b634ed9e2d7ad41b1c6487322cf86a6d8d3265ab3b997bbaa3e001d"
+  },
+  {
+   "bytes": 4396,
    "category": "prose",
    "licence": "MIT",
    "path": "docs/REPRODUCIBILITY.md",
-   "sha256": "82174d9d1032ae7ce60f580ca2be12689b26c20a260efab58e9e3647221f1cd1"
+   "sha256": "c647c1554c5e5eaf806037c36c5915d373e240fbc6c586ed0422108aadc2b96a"
   },
   {
    "bytes": 1454,
@@ -688,32 +695,34 @@
    "sha256": "335cd2f62d1a5a52f5ef353a62dce5d23d99826be7bfa119f7fc18e7dc12d556"
   },
   {
-   "bytes": 4704,
+   "bytes": 5674,
    "category": "prose",
    "licence": "MIT",
    "path": "docs/inquiries/bindingdb-chembl-derived-artifacts.md",
-   "sha256": "bbc16f17332f813d7c2a382620df1fa42cc662450e72eff48ed440385cba9296"
+   "sha256": "39ae9288a6a30512425bd6eb6fd7050f771b0a84a968abf2c40ea2c4a30a4d66"
   },
   {
    "bytes": 19467,
    "category": "third-party licence text",
-   "licence": "CC-BY-3.0 (verbatim licence text)",
+   "licence": "CC0-1.0",
+   "licence_exception": "verbatim, unmodified Creative Commons legal code. Not project content and not third-party data: it is the licence document itself, shipped because CC BY 3.0 and CC BY-SA 3.0 section 4(a) each require a copy of the licence to accompany every copy of the Work distributed. Creative Commons makes the legal code of its licenses available under CC0 1.0 (creativecommons.org/policies, 'Legal text (we call this legal code) and Commons deeds'), which is the basis for reproducing it here. CC reserves all trademark and branding rights, and a changed licence text may no longer be called a CC licence, so the bytes are reproduced exactly and never edited.",
    "path": "licenses/CC-BY-3.0.txt",
    "sha256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76"
   },
   {
    "bytes": 22240,
    "category": "third-party licence text",
-   "licence": "CC-BY-SA-3.0 (verbatim licence text)",
+   "licence": "CC0-1.0",
+   "licence_exception": "verbatim, unmodified Creative Commons legal code. Not project content and not third-party data: it is the licence document itself, shipped because CC BY 3.0 and CC BY-SA 3.0 section 4(a) each require a copy of the licence to accompany every copy of the Work distributed. Creative Commons makes the legal code of its licenses available under CC0 1.0 (creativecommons.org/policies, 'Legal text (we call this legal code) and Commons deeds'), which is the basis for reproducing it here. CC reserves all trademark and branding rights, and a changed licence text may no longer be called a CC licence, so the bytes are reproduced exactly and never edited.",
    "path": "licenses/CC-BY-SA-3.0.txt",
    "sha256": "3f941b3b89cf7b8370ceb83cc76d2120d471b58735d8ca60238a751a48d7f72f"
   },
   {
-   "bytes": 903,
+   "bytes": 2252,
    "category": "prose",
    "licence": "MIT",
    "path": "licenses/README.md",
-   "sha256": "3e7ea0e17453ec40fbb6c2b8fdf4e6a5fce98dab9a40dd2e7464c45fec81103a"
+   "sha256": "1c4ad21558c0124d3139859c4a58bdf39ad566dfb2c0686cb3de537b6f332fc6"
   },
   {
    "bytes": 1493,
@@ -1351,6 +1360,13 @@
    "licence": "MIT",
    "path": "scripts/asof/m11h_verify.py",
    "sha256": "677f8c36eb7ff86e3d1b3354f49201e957dd2d924a0f281db15c54ec553e66bb"
+  },
+  {
+   "bytes": 9511,
+   "category": "code",
+   "licence": "MIT",
+   "path": "scripts/release/build_inventory.py",
+   "sha256": "ed5229763116b47c0d65f78114a04ca626b033ae03bb0a30f864e678c9957db6"
   },
   {
    "bytes": 122,
@@ -2095,6 +2111,13 @@
    "sha256": "324436ed58de81a4b6c6a2b3b5615c38d7d1cdc8178d09b3fde58ab109a77a83"
   },
   {
+   "bytes": 4195,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/cli_help.py",
+   "sha256": "0724c07b7ea6154de5a89858ea1c8dd6f28aa3419450989f9a2bd9544adc2956"
+  },
+  {
    "bytes": 1069,
    "category": "code",
    "licence": "MIT",
@@ -2116,11 +2139,11 @@
    "sha256": "08b105d35d6623afe8c793ab51e6545117f2347296487b9dfb8543ccaa9ee02f"
   },
   {
-   "bytes": 1459,
+   "bytes": 1963,
    "category": "code",
    "licence": "MIT",
    "path": "tests/test_cli.py",
-   "sha256": "f408bd29e378373bb9c8d6b8223bea16e600e06017319b96db0fd9881ebc42f3"
+   "sha256": "cc4cca91e9ea57d463e7ed2d9b2dcf8f50cb7dc198c1b0e0d1b8f454f8fbe9cc"
   },
   {
    "bytes": 1538,
@@ -2417,11 +2440,11 @@
    "sha256": "6986e8e33cc8cfcb8571b54eb29f6a479c195b8e509207602f29f7c882ec233a"
   },
   {
-   "bytes": 9321,
+   "bytes": 12585,
    "category": "code",
    "licence": "MIT",
    "path": "tests/test_safeguards.py",
-   "sha256": "3de919027183483f8f21f1604d756247c265784f82d2dca228f0b702e23566ab"
+   "sha256": "b0443db12b9b8f447bb49ca640bb757aecff70d956e77c401c6c89d4734141d5"
   },
   {
    "bytes": 27269,
@@ -2452,20 +2475,45 @@
    "sha256": "9968e1302733399b00670fcba47f1e1749c90093b28aac6e46fb70b2af77f908"
   }
  ],
- "files": 346,
- "inventory": "seq2lead-complete-release-inventory-v1",
+ "files": 349,
+ "generated_after_commit": "0034bdc9f9b9acce09a3bfcfc6b64e30281d8a00",
+ "generated_by": "scripts/release/build_inventory.py",
+ "inventory": "seq2lead-complete-release-inventory-v2",
  "licence_basis": {
   "CC-BY-3.0": "data traceable to BindingDB-staff-curated rows only; BindingDB's own terms page",
   "CC-BY-SA-3.0": "data whose referenced compounds have measurements with Curation/DataSource = ChEMBL; BindingDB imports those under CC BY-SA 3.0 and ChEMBL confirms the same licence. Share-alike governs where a file mixes sources.",
+  "CC0-1.0": "Creative Commons' own legal code, which CC makes available under CC0 1.0. Applies only to the licence texts in licenses/, never to project content or to third-party data.",
   "MIT": "project code, configuration, figures, prose and artifacts carrying no third-party data; see LICENSE.draft"
  },
+ "licence_exceptions": {
+  "count": 3,
+  "note": "An exception is a file whose licence needs a stated reason beyond the licence_basis line. Each entry carries that reason in its own `licence_exception` field. Every licence label is a single licence: the earlier revision put the reason inside the label itself ('CC-BY-3.0 (verbatim licence text)'), which made the labels fail to sum to the file count.",
+  "paths": [
+   "data/asof/m11h/run-20261005T134842Z/protein-transform.npz",
+   "licenses/CC-BY-3.0.txt",
+   "licenses/CC-BY-SA-3.0.txt"
+  ]
+ },
  "provenance_method": "row-level Curation/DataSource from the preserved raw payloads; 202609 for B-side entities and the isolated seq2lead_m11c_202601 schema for A-only entities",
- "recorded_at": "2026-10-06T07:28:37.166109+00:00",
+ "reconciliation": {
+  "accounts_for_every_tracked_file": true,
+  "entries": 349,
+  "licence_labels_sum": 349,
+  "self_excluded": [
+   "configs/manifests/release_classification.json",
+   "configs/manifests/release_inventory.json"
+  ],
+  "tracked_at_head": 351
+ },
+ "recorded_at": "2026-10-06T08:12:38.665814+00:00",
  "release_option": "A - complete benchmark, pending owner approval. Repository remains PRIVATE.",
  "scientific_bytes_preserved": true,
  "self_excluded": {
-  "path": "configs/manifests/release_inventory.json",
-  "why": "this file cannot record its own digest: writing the digest changes the bytes it describes. Verify it by the commit it is attached to, not by a self-reference."
+  "paths": [
+   "configs/manifests/release_classification.json",
+   "configs/manifests/release_inventory.json"
+  ],
+  "why": "Neither file can record its own digest: writing the digest changes the bytes being described. Verify both by the commit they are attached to."
  },
- "total_bytes": 36524126
+ "total_bytes": 36566878
 }

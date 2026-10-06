@@ -249,6 +249,26 @@ outputs. Missing wording is neither permission nor prohibition, so a draft
 inquiry is held at `docs/inquiries/bindingdb-chembl-derived-artifacts.md`. It has
 **not** been sent.
 
+**The transform's licence was corrected on measurement, not on reading.** An
+earlier revision of this audit placed `protein-transform.npz` under MIT because it
+holds only numeric arrays. That remains true of the bytes and does not settle the
+question, because the file is a statistic *over* licensed data. Resolving the
+exact rows it was fitted on — its `n_fitted` is 353,957, which is precisely the
+A-train pairs `data/asof/m11f/partition-summary.json` records as supplied to
+fitting — against BindingDB's row-level `Curation/DataSource`:
+
+| Of the population the transform summarises | |
+| --- | ---: |
+| exact-Ki records behind those pairs | 454,694 |
+| ChEMBL-sourced records | 304,963 (67.07%) |
+| pairs with ≥1 ChEMBL-sourced record | 251,811 (71.14%) |
+| train sequences touching ChEMBL rows | 2,613 of 3,466 (75.4%) |
+
+A file summarising a population that is roughly seven-tenths CC BY-SA 3.0 is not
+safely labelled MIT on the strength of containing no identifier. It is now listed
+under CC BY-SA 3.0 in `DATA_LICENSE.draft`, with the reason recorded as an
+explicit `licence_exception` in the release inventory.
+
 ## 5. Figures and manuscript
 
 | Item | Origin | Terms |
@@ -283,35 +303,71 @@ the providers' own terms**. What remains is approval plus one genuine unknown.
 
 1. **Confirm rights and rename** `LICENSE.draft` → `LICENSE` (MIT, project code)
    and `DATA_LICENSE.draft` → `DATA_LICENSE` (CC BY 3.0 / CC BY-SA 3.0 per file).
-2. **Accept the per-file licence assignment** in `DATA_LICENSE.draft` and the
-   inventory at `configs/manifests/release_inventory.json`: 323 files MIT,
-   15 CC BY-SA 3.0, 3 CC BY 3.0.
+2. **Accept the per-file licence assignment** in `DATA_LICENSE.draft`, the
+   inventory at `configs/manifests/release_inventory.json` and the assignment it
+   is built from at `configs/manifests/release_classification.json`: **328 MIT,
+   16 CC BY-SA 3.0, 3 CC BY 3.0, 2 CC0 1.0** — 349 entries, every label a single
+   licence, plus the 2 self-excluded manifests, accounting for all 351 files git
+   would ship. Three entries carry a `licence_exception` giving the reason their
+   label needs one: the two CC licence texts and `protein-transform.npz`.
 3. **Accept the attribution set** — BindingDB's 2025 *NAR* citation, deposit DOI
    `10.6075/J0V40W61`, the pinned 202609 release, ChEMBL under CC BY-SA 3.0, and
    ESM-2 at its pinned revision.
 4. **Decide on `docs/CLAUDE_CLOSEOUT_PROMPT.md`.** Untracked in HEAD but
    reachable in history at `4a64d90`; publication would expose it. It carries no
    third-party data. History was deliberately not rewritten.
-5. **Accept the CI scope** in `docs/CI_SCOPE.md` — 18 files out of CI's reach,
-   split by cause.
-6. **Fix or accept the two ANSI-dependent CLI tests.** A test-code change, so
-   not made unreviewed; see `docs/CI_SCOPE.md` §(b).
+5. **Accept the CI scope** in `docs/CI_SCOPE.md` — now **16** files out of CI's
+   reach, all for one cause: they need local artifacts a checkout does not carry.
+6. ~~Fix or accept the two ANSI-dependent CLI tests.~~ **Done.** Both now read
+   switch names and documented guarantees from Click's parameter objects and
+   render the CLI in a child process at a pinned width, so neither colour nor
+   terminal width can decide the result (`tests/cli_help.py`). They run in CI;
+   nothing was skipped, deselected or weakened. See `docs/CI_SCOPE.md`.
 7. **Perform the backup** in `docs/BACKUP_CHECKLIST.md` — 1.85 GB, single copy.
+8. **Accept the release scope** in `docs/RELEASE_SCOPE.md`: this release is a
+   **saved-prediction benchmark reproduction**, not a from-raw rebuild. Approving
+   it does not claim a third party can regenerate the predictions from BindingDB,
+   and the blocker on that is external — the 202609 snapshot is a rolling release
+   BindingDB does not archive at a stable URL. Re-pinning the evaluation to two
+   archival deposits would fix it and is a scientific change, deliberately not
+   made here.
 
 ### The one unresolved permission question
 
-8. **Are model predictions and fitted statistics "Adaptations" under CC BY-SA
-   3.0?** Affects `predictions.npz` and, on a stricter reading,
-   `protein-transform.npz`. Not addressed by either provider's published terms.
+9. **Are model predictions and fitted statistics "Adaptations" under CC BY-SA
+   3.0?** Affects `predictions.npz` and `protein-transform.npz`. Not addressed
+   by either provider's published terms.
    A draft inquiry is ready at
    `docs/inquiries/bindingdb-chembl-derived-artifacts.md` and has **not** been
    sent — sending it is your call.
 
-   This does **not** block a complete release as currently packaged, because
-   `predictions.npz` is already assigned CC BY-SA 3.0 on the strength of the
-   16,795 InChIKeys it carries. Answering it could only *relax* that, or extend
-   share-alike to `protein-transform.npz`. The conservative assignment is already
-   in place.
+   **Both affected files now ship under CC BY-SA 3.0.** `predictions.npz` on
+   the strength of the 16,795 InChIKeys it carries, and `protein-transform.npz`
+   as a conservative packaging decision, because 71.14% of the pairs it was
+   fitted over carry a ChEMBL-sourced exact-Ki record (measurement above).
+
+   The uncertainty is **not** being called non-blocking on the ground that
+   obligations could be added later. It is blocking for the permissive option,
+   because the error is asymmetric and only one direction can be undone: a
+   CC BY-SA label that turns out to be unnecessary can be relaxed by the owner,
+   whereas an MIT label that turns out to be wrong cannot be withdrawn from
+   recipients who already hold the file, and breaks the share-alike chain for
+   everyone downstream of them. What makes the release shippable is not that the
+   question is unimportant — it is that a label exists which is correct under
+   either answer, and that label is in use.
+
+   What is decided here is a **packaging decision** (these files ship, under
+   these terms, with this attribution). What is *not* decided, and is not ours to
+   decide, is the **legal conclusion** (whether either file is an "Adaptation"
+   under CC BY-SA 3.0 §1(a), or whether a database right is engaged). Seq2Lead
+   licenses only whatever rights it holds in these two files and makes no grant
+   over BindingDB's or ChEMBL's data, which it does not own and cannot license.
+
+   Excluding `protein-transform.npz` would also dispose of the question and was
+   rejected: `scripts/asof/m11h_reproduce_integrity.py` copies it into the
+   self-contained run clone used for tamper detection, so dropping it would trade
+   reproduction coverage for a labelling question a label already answers. That
+   option remains open to the owner.
 
 Nothing in this file grants or assumes any permission, and no dataset or model
 term was inferred from the software licence.

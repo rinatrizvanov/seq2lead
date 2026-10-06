@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import zipfile
 from datetime import UTC, datetime
 from typing import TYPE_CHECKING
@@ -10,6 +11,7 @@ from typing import TYPE_CHECKING
 import pytest
 from typer.testing import CliRunner
 
+from cli_help import documented, rendered, squash, switches
 from seq2lead.cli import app
 from seq2lead.db import connect, transaction
 from seq2lead.ingest import auxiliary
@@ -219,12 +221,79 @@ def test_profile_report_does_not_compact_by_default() -> None:
 
 
 def test_compact_flag_warns_about_the_lock() -> None:
-    result = runner.invoke(app, ["profile", "report", "--help"])
-    assert result.exit_code == 0
-    text = " ".join(result.stdout.split())
-    assert "--compact" in text
-    assert "--no-compact" not in text  # opt-in, not opt-out
-    assert "EXCLUSIVE" in text
+    # Read from Click rather than from a rendering, so no terminal participates.
+    # Absence is asserted here and not against help text, because a flag missing
+    # from a help screen may be hidden rather than undeclared.
+    declared = switches(app, "profile", "report")
+    assert "--compact" in declared
+    assert "--no-compact" not in declared  # opt-in, not opt-out
+    assert "ACCESS EXCLUSIVE" in documented(app, "profile", "report")
+
+    # And the warning reaches a help screen a user can actually read.
+    status, help_screen = rendered("profile", "report")
+    assert status == 0, help_screen
+    shown = squash(help_screen)
+    assert squash("--compact") in shown
+    assert squash("ACCESS EXCLUSIVE") in shown
+
+
+# ================================================= 3b. release inventory
+
+
+def _inventory_module():
+    """Load the generator by path; scripts/ is not an importable package."""
+    import importlib.util
+    from pathlib import Path as _Path  # Path is a TYPE_CHECKING-only import here
+
+    path = _Path(__file__).resolve().parents[1] / "scripts/release/build_inventory.py"
+    spec = importlib.util.spec_from_file_location("build_inventory", path)
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_every_shipped_file_carries_a_licence_assignment() -> None:
+    """The release inventory must account for every file git would ship.
+
+    `build()` performs the refusals: a tracked file with no assignment, an
+    assignment naming an untracked path, a self-excluded manifest that is also an
+    entry, or a licence label with no `licence_basis` entry each raise SystemExit.
+    Calling it here is what keeps that reconciliation true after this commit
+    rather than only at the moment it was written.
+    """
+    built = _inventory_module().build()  # raises SystemExit if anything is unaccounted for
+    recon = built["reconciliation"]
+    assert recon["accounts_for_every_tracked_file"]
+    assert recon["entries"] + len(recon["self_excluded"]) == recon["tracked_at_head"]
+    # Every label is a single licence. Folding a reason into the label -- the old
+    # "CC-BY-3.0 (verbatim licence text)" -- is what made the labels stop summing.
+    assert recon["licence_labels_sum"] == recon["entries"]
+    assert sum(built["by_licence"].values()) == built["files"]
+    for licence in built["by_licence"]:
+        assert licence in built["licence_basis"], licence
+        assert "(" not in licence, f"compound licence label: {licence}"
+
+
+def test_committed_inventory_matches_the_bytes_it_describes() -> None:
+    """An inventory whose digests do not match its files records nothing.
+
+    Two files were once edited after the inventory was generated, so it described
+    bytes that no longer existed. This fails if that happens again.
+    """
+    module = _inventory_module()
+    built = module.build()
+    committed = json.loads(module.INVENTORY.read_text())
+    fresh = {e["path"]: (e["sha256"], e["bytes"]) for e in built["entries"]}
+    stored = {e["path"]: (e["sha256"], e["bytes"]) for e in committed["entries"]}
+    assert set(fresh) == set(stored), {
+        "only_on_disk": sorted(set(fresh) - set(stored)),
+        "only_in_inventory": sorted(set(stored) - set(fresh)),
+    }
+    drifted = {
+        p: {"recorded": stored[p], "actual": fresh[p]} for p in fresh if fresh[p] != stored[p]
+    }
+    assert not drifted, drifted
 
 
 # ======================================================== 4. migrations

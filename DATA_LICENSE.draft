@@ -60,7 +60,32 @@ Model predictions keyed by compound identifier:
       26,444 rows; the `pair` array carries 16,795 InChIKeys. Listed here
       because of those identifiers, not because the scores are ChEMBL content.
       Whether the scores themselves are an "Adaptation" under CC BY-SA 3.0 is
-      an open question — see UNRESOLVED below.
+      an open question — see THE ONE OPEN
+      QUESTION below.
+
+Fitted statistics over predominantly ChEMBL-sourced rows:
+  data/asof/m11h/run-20261005T134842Z/protein-transform.npz
+      A 1x1280 mean, a 1x1280 scale and a fitted-row count: 2,560 summary
+      statistics over ESM-2 embeddings of training proteins. The bytes carry no
+      identifier, no structure, no sequence and no measured value.
+
+      Listed here as a CONSERVATIVE PACKAGING DECISION, not as a legal
+      conclusion that share-alike attaches. The reason is the population it
+      summarises, which was measured rather than assumed: the transform's own
+      `n_fitted` is 353,957, exactly the A-train pairs the partition record
+      reports as supplied to fitting, and resolving those pairs against
+      BindingDB's row-level `Curation/DataSource` gives
+
+        exact-Ki records behind them        454,694
+        ChEMBL-sourced records              304,963  (67.07%)
+        pairs with >=1 ChEMBL-sourced row   251,811  (71.14%)
+        train sequences touching ChEMBL      2,613 of 3,466  (75.4%)
+
+      An earlier revision of this file placed the transform under MIT on the
+      ground that it contains no identifier. That is true of the bytes and does
+      not settle the question, because the file is a statistic over data that is
+      roughly seven-tenths CC BY-SA 3.0. See THE ONE OPEN QUESTION below for what
+      is and is not being decided here.
 
 --- CC BY 3.0 (attribution) ------------------------------------------------
 
@@ -73,11 +98,6 @@ Model predictions keyed by compound identifier:
                                                ChEMBL-sourced rows
 
 --- No third-party data; covered by LICENSE.draft (MIT) --------------------
-
-  data/asof/m11h/run-20261005T134842Z/protein-transform.npz
-      A 1x1280 mean, a 1x1280 scale and a fitted-row count. Summary statistics
-      over ESM-2 embeddings of training proteins. Contains no identifier, no
-      structure, no sequence and no measured value.
 
   All other tracked data and report files: counts, digests, metrics, cohort
   sizes, verification records and manifests. These carry no structures, no
@@ -103,7 +123,11 @@ Snapshot A, the historical training snapshot:
   BindingDB archival deposit, 2026-01-01. DOI 10.6075/J0V40W61.
   UC San Diego Library Digital Collections.
 
-Snapshot B: the locally pinned BindingDB 202609 rolling release.
+Snapshot B: the locally pinned BindingDB 202609 rolling release. BindingDB
+replaces the rolling file monthly and does not archive prior months at a stable
+URL, so these exact bytes may not be re-acquirable by a third party; the SHA-256
+pin in `src/seq2lead/ingest/sources.py` detects a substitution rather than
+tolerating one. See `docs/RELEASE_SCOPE.md`.
 
 ChEMBL, for the rows BindingDB attributes to it:
 
@@ -123,6 +147,27 @@ ESM-2, for the protein representations:
   code nor its weights are redistributed here.
 
 Full licence texts: licenses/CC-BY-3.0.txt, licenses/CC-BY-SA-3.0.txt.
+
+Those two files are a third class of their own, and the release inventory records
+them as such rather than labelling them with the licence they contain. They are
+Creative Commons' legal code, reproduced verbatim and unmodified:
+
+  * They are shipped because CC BY 3.0 and CC BY-SA 3.0 section 4(a) each
+    require that a copy of the licence, or its URI, accompany every copy of the
+    Work distributed. Shipping the text is compliance, not redistribution of
+    someone's content by choice.
+  * The basis for reproducing them is Creative Commons' own policy: "Creative
+    Commons makes the legal code of its licenses and the CC0 Public Domain
+    Dedication available under the CC0 Public Domain Dedication, as well as the
+    text of all of the notices and accompanying text on the license pages"
+    (creativecommons.org/policies, "Legal text (we call this legal code) and
+    Commons deeds"). So the inventory labels them CC0-1.0.
+  * CC "reserves fully and unconditionally all trademark and branding rights",
+    and states that if you change the text of a CC licence "you may no longer
+    refer to it as a Creative Commons or CC license". The bytes are therefore
+    reproduced exactly, with their digests recorded in licenses/README.md, and
+    are never edited. Nothing in this repository uses CC branding to suggest
+    Creative Commons endorses it.
 
 ================================================================================
 HOW THE DATA WAS TRANSFORMED
@@ -156,24 +201,75 @@ internal surrogate id; it contains no structure and no measured value. The two
 files that do ship structures are named explicitly above.
 
 ================================================================================
-UNRESOLVED — READ BEFORE REDISTRIBUTING
+THE ONE OPEN QUESTION, AND WHAT WAS DECIDED ABOUT IT
 ================================================================================
 
-One question is not answered by either provider's published terms:
+The question is not answered by either provider's published terms:
 
   Are model predictions and fitted statistics derived from CC BY-SA 3.0 data
   themselves "Adaptations" under that licence, such that share-alike attaches
   to them?
 
 What is affected: `predictions.npz` (scores for 26,444 pairs, keyed by 16,795
-InChIKeys) and, on a stricter reading, `protein-transform.npz` (2,560 summary
-statistics with no identifiers).
+InChIKeys) and `protein-transform.npz` (2,560 summary statistics with no
+identifiers, fitted over a population that is 71.14% ChEMBL-linked by pair).
 
-Neither BindingDB's nor ChEMBL's published terms address statistical or
-model-derived outputs. Missing wording is not permission and not prohibition.
-A draft inquiry to the providers is held at
+Neither BindingDB's nor ChEMBL's terms address statistical or model-derived
+outputs, and ChEMBL's CC BY-SA 3.0 defines "Adaptation" without contemplating a
+fitted parameter. Missing wording is not permission and it is not prohibition. A
+draft inquiry to both providers is held at
 `docs/inquiries/bindingdb-chembl-derived-artifacts.md`; it has not been sent.
 
-Until that is answered, the conservative course is to treat `predictions.npz` as
-CC BY-SA 3.0 — which is how it is listed above — because it carries ChEMBL-linked
-identifiers regardless of how the scores are characterised.
+--- What is decided, and by whom -------------------------------------------
+
+A PACKAGING DECISION (ours; made here; final for this release). Both files ship,
+and both are labelled CC BY-SA 3.0 with the attribution block above. The release
+inventory records the transform's label as an explicit `licence_exception` naming
+this reasoning, so the choice is visible rather than implied by a bare label.
+
+A LEGAL CONCLUSION (not ours; NOT made). Whether either file is an "Adaptation"
+under CC BY-SA 3.0 section 1(a), and whether any database right is engaged by
+extracting aggregate statistics, are questions this repository does not answer and
+does not need to answer in order to ship correctly.
+
+--- Why the conservative label, stated without evasion ---------------------
+
+Not because obligations could be added later. The reason is that the error is
+asymmetric and only one direction is recoverable:
+
+  * Label CC BY-SA 3.0, and later learn share-alike does not attach -> the owner
+    can relax the terms, because the only restriction being withdrawn is one we
+    imposed.
+  * Label MIT, and later learn share-alike does attach -> nothing can be
+    withdrawn. Recipients already hold the file under terms we had no standing to
+    offer, and the share-alike chain is broken for everyone downstream of them.
+
+So the uncertainty IS treated as blocking for the permissive option. It is not
+blocking for the release as a whole only because a label exists that is correct
+under either answer, and that label is being used.
+
+--- What is NOT being claimed ----------------------------------------------
+
+Seq2Lead does not own the BindingDB or ChEMBL data and cannot license it to
+anyone. The grant works in one direction only: to whatever extent Seq2Lead holds
+any right in `predictions.npz` or `protein-transform.npz`, that right is licensed
+under CC BY-SA 3.0, so the file is usable on those terms without anyone needing to
+resolve the question above. Rights in the underlying measurements rest on
+BindingDB's and ChEMBL's own grants, whose texts are reproduced in `licenses/` and
+whose attribution is required above. Nothing here purports to grant, waive or
+narrow a right held by BindingDB, ChEMBL, EMBL-EBI, UC San Diego or Meta.
+
+--- The alternative that was considered and not taken ----------------------
+
+Excluding `protein-transform.npz` from the release would also dispose of the
+question. It was rejected because the file is load-bearing for reproduction, not
+decorative: `scripts/asof/m11h_reproduce_integrity.py` copies it into the
+self-contained run clone it builds, and the run manifest records its digest, so
+removing it would weaken the tamper-detection reproduction in order to avoid a
+labelling question that a label already answers. Excluding it remains available to
+the owner at the cost of that coverage.
+
+--- Owner approval required ------------------------------------------------
+
+This draft is not in effect. The owner is asked to confirm the conservative
+labelling of both model-derived artifacts, or to direct the alternative.
