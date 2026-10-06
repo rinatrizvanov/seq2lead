@@ -289,7 +289,9 @@ def declared_config(seed: int, settings: dict[str, Any]):
 
 def write_transform(transform, path: Path) -> str:
     np.savez(
-        path, mean=transform.mean, scale=transform.scale,
+        path,
+        mean=transform.mean,
+        scale=transform.scale,
         n_fitted=np.asarray([transform.n_fitted]),
     )
     return hashlib.sha256(path.read_bytes()).hexdigest()

@@ -46,24 +46,24 @@ def build_run(root: Path, *, n_targets: int = 3, per_target: int = 14) -> Path:
         for c in range(per_target):
             pair = f"CMPD{t:02d}{c:03d}AAAAA-AAAAAAAAAA-N|{target}"
             pairs.append(pair)
-            rows.append({
-                "pair": pair,
-                "stratum": "new_absent_from_a",
-                "participated_in_model_selection": False,
-                "arms": {
-                    arm: {
-                        "scoreable": True,
-                        "label": "active" if c % 2 else "inactive",
-                        "branches": {"screened_primary": True, "unscreened_sensitivity": True},
-                        "audit_stratum": "new_pair",
-                    }
-                    for arm in ("declared_increment", "cross_slot_excluded")
-                },
-            })
+            rows.append(
+                {
+                    "pair": pair,
+                    "stratum": "new_absent_from_a",
+                    "participated_in_model_selection": False,
+                    "arms": {
+                        arm: {
+                            "scoreable": True,
+                            "label": "active" if c % 2 else "inactive",
+                            "branches": {"screened_primary": True, "unscreened_sensitivity": True},
+                            "audit_stratum": "new_pair",
+                        }
+                        for arm in ("declared_increment", "cross_slot_excluded")
+                    },
+                }
+            )
     table = root / "evaluation-pairs.jsonl"
-    table.write_text(
-        "".join(json.dumps(r, sort_keys=True) + "\n" for r in rows), encoding="utf-8"
-    )
+    table.write_text("".join(json.dumps(r, sort_keys=True) + "\n" for r in rows), encoding="utf-8")
     predictions = root / "predictions.npz"
     np.savez_compressed(
         predictions,
@@ -72,33 +72,42 @@ def build_run(root: Path, *, n_targets: int = 3, per_target: int = 14) -> Path:
     )
     (root / "training-records.json").write_text("[]\n", encoding="utf-8")
     (root / "manifest.json").write_text(
-        json.dumps({
-            "run_id": "test",
-            "contract_version": "test-contract",
-            "runner_version": "test-runner",
-            "fitting_version": "test-fitting",
-            "seeds": [1, 2],
-            "inputs_verified": {},
-            "roles_derived": {},
-            "feature_bindings": {},
-            "emitted_matches_pinned": {},
-            "output_preflight": {"planned": {}, "planned_checkpoints": [], "collisions": []},
-            "transform": {"path": str(root / "t.npz"), "sha256": "", "fitted_on": "a_train",
-                          "n_fitted": 1},
-            "training_records": {"path": str(root / "training-records.json"), "sha256": ""},
-            "predictions": {
-                "path": str(predictions),
-                "sha256": sha256(predictions),
-                "models": sorted(TAGS),
-                "rows": len(pairs),
+        json.dumps(
+            {
+                "run_id": "test",
+                "contract_version": "test-contract",
+                "runner_version": "test-runner",
+                "fitting_version": "test-fitting",
+                "seeds": [1, 2],
+                "inputs_verified": {},
+                "roles_derived": {},
+                "feature_bindings": {},
+                "emitted_matches_pinned": {},
+                "output_preflight": {"planned": {}, "planned_checkpoints": [], "collisions": []},
+                "transform": {
+                    "path": str(root / "t.npz"),
+                    "sha256": "",
+                    "fitted_on": "a_train",
+                    "n_fitted": 1,
+                },
+                "training_records": {"path": str(root / "training-records.json"), "sha256": ""},
+                "predictions": {
+                    "path": str(predictions),
+                    "sha256": sha256(predictions),
+                    "models": sorted(TAGS),
+                    "rows": len(pairs),
+                },
+                "evaluation_table": {"path": str(table), "sha256": sha256(table)},
+                # the loader verifies this, so a tampered table is caught before scoring
+                "checkpoints": {},
+                "selection": {},
+                "failures": [],
+                "qualifications": [],
             },
-            "evaluation_table": {"path": str(table), "sha256": sha256(table)},
-            # the loader verifies this, so a tampered table is caught before scoring
-            "checkpoints": {},
-            "selection": {},
-            "failures": [],
-            "qualifications": [],
-        }, indent=1, sort_keys=True) + "\n",
+            indent=1,
+            sort_keys=True,
+        )
+        + "\n",
         encoding="utf-8",
     )
     return root
@@ -134,9 +143,7 @@ def test_a_sound_run_verifies_loads_and_scores(run_dir) -> None:
 
 def test_scoring_the_same_predictions_twice_is_identical(run_dir) -> None:
     run = verify_and_load(run_dir)
-    assert json.dumps(score_run(run), sort_keys=True) == json.dumps(
-        score_run(run), sort_keys=True
-    )
+    assert json.dumps(score_run(run), sort_keys=True) == json.dumps(score_run(run), sort_keys=True)
 
 
 def test_nothing_in_the_path_fits_or_loads_a_checkpoint(run_dir) -> None:
@@ -231,9 +238,7 @@ def rewrite_table(run_dir: Path, rows: list[dict], *, refresh_digest: bool) -> N
     with the predictions.
     """
     path = run_dir / "evaluation-pairs.jsonl"
-    path.write_text(
-        "".join(json.dumps(r, sort_keys=True) + "\n" for r in rows), encoding="utf-8"
-    )
+    path.write_text("".join(json.dumps(r, sort_keys=True) + "\n" for r in rows), encoding="utf-8")
     if refresh_digest:
         manifest = json.loads((run_dir / "manifest.json").read_text())
         manifest["evaluation_table"]["sha256"] = sha256(path)
@@ -273,16 +278,20 @@ def test_a_missing_pair_table_refuses(run_dir) -> None:
 
 def test_a_wrong_length_prediction_array_refuses(run_dir) -> None:
     pairs = ["a|b", "c|d"]
-    table = [{"pair": p, "stratum": "x", "participated_in_model_selection": False,
-              "arms": {}} for p in pairs]
+    table = [
+        {"pair": p, "stratum": "x", "participated_in_model_selection": False, "arms": {}}
+        for p in pairs
+    ]
     with pytest.raises(RecomputeError, match="expected \\(2,\\)"):
         check_alignment(pairs, table, {"m": np.zeros(3)})
 
 
 def test_a_non_finite_prediction_refuses(run_dir) -> None:
     pairs = ["a|b", "c|d"]
-    table = [{"pair": p, "stratum": "x", "participated_in_model_selection": False,
-              "arms": {}} for p in pairs]
+    table = [
+        {"pair": p, "stratum": "x", "participated_in_model_selection": False, "arms": {}}
+        for p in pairs
+    ]
     with pytest.raises(RecomputeError, match="non-finite"):
         check_alignment(pairs, table, {"m": np.array([1.0, np.nan])})
 
@@ -339,8 +348,12 @@ def test_the_real_runs_seeds_did_not_produce_identical_predictions() -> None:
 def test_a_copy_of_the_real_run_refuses_when_its_predictions_are_touched(tmp_path) -> None:
     copy = tmp_path / "copy"
     copy.mkdir()
-    for name in ("manifest.json", "predictions.npz", "evaluation-pairs.jsonl",
-                 "training-records.json"):
+    for name in (
+        "manifest.json",
+        "predictions.npz",
+        "evaluation-pairs.jsonl",
+        "training-records.json",
+    ):
         shutil.copy2(REAL / name, copy / name)
     manifest = json.loads((copy / "manifest.json").read_text())
     manifest["predictions"]["path"] = str(copy / "predictions.npz")

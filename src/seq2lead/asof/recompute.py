@@ -226,10 +226,7 @@ def check_alignment(
         raise RecomputeError(msg)
     for tag, array in sorted(scores.items()):
         if array.shape != (len(pairs),):
-            msg = (
-                f"{tag}: prediction array has shape {array.shape}, expected "
-                f"({len(pairs)},)"
-            )
+            msg = f"{tag}: prediction array has shape {array.shape}, expected ({len(pairs)},)"
             raise RecomputeError(msg)
         if not np.all(np.isfinite(array)):
             msg = f"{tag}: prediction array holds non-finite values"
@@ -336,9 +333,7 @@ def prediction_differences(run: LoadedRun) -> dict[str, Any]:
             ),
             "max_abs_delta_pki": float(max(float(d.max()) for d in deltas)),
             "mean_abs_delta_pki": float(max(float(d.mean()) for d in deltas)),
-            "rows_differing_from_the_first_seed": int(
-                max(int((d > 0).sum()) for d in deltas)
-            ),
+            "rows_differing_from_the_first_seed": int(max(int((d > 0).sum()) for d in deltas)),
             "rows": int(base.shape[0]),
             "per_row_sd_max": float(stacked.std(axis=0).max()),
             "constant_within_target": bool(
@@ -393,7 +388,8 @@ def score_run(run: LoadedRun) -> dict[str, Any]:
             cell = f"{arm}/{branch}"
             labels = [r["arms"][arm]["label"] or "none" for r in run.table]
             eligible = [
-                i for i, r in enumerate(run.table)
+                i
+                for i, r in enumerate(run.table)
                 if r["arms"][arm]["scoreable"] and r["arms"][arm]["branches"][branch]
             ]
             groups = {
@@ -417,8 +413,7 @@ def score_run(run: LoadedRun) -> dict[str, Any]:
                     "pairs": len(rows),
                     "participated_in_model_selection": sum(1 for i in rows if selection_flag[i]),
                     "by_model": {
-                        tag: score_slice(rows, run.pairs, labels, run.scores[tag])
-                        for tag in tags
+                        tag: score_slice(rows, run.pairs, labels, run.scores[tag]) for tag in tags
                     },
                 }
             cell_out["groups"]["recurrent"]["note"] = (

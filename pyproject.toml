@@ -44,11 +44,20 @@ markers = [
 [tool.ruff]
 line-length = 100
 src = ["src", "tests"]
+# Two directories are excluded from lint and formatting because their value is
+# being byte-identical to something recorded elsewhere, not being tidy.
+#
 # `paper/` is documentation tooling supplied by the closeout pack: it regenerates
 # the manuscript and figures, is imported by nothing under `src/`, and fits
-# nothing. It is excluded rather than reformatted so the artifact stays exactly
-# as supplied, which is what its provenance record describes.
-extend-exclude = ["paper"]
+# nothing. Excluding it keeps the artifact exactly as supplied, which is what its
+# provenance record describes.
+#
+# `scripts/asof/` holds the execution scripts as they actually ran. Their SHA-256
+# digests are recorded in `scripts/asof/README.md` and in
+# `configs/manifests/m11h_fit.json`, and the whole point of keeping them is that
+# those digests match. Reformatting would invalidate all thirteen and break the
+# claim that the preserved code is the code that executed.
+extend-exclude = ["paper", "scripts/asof"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]

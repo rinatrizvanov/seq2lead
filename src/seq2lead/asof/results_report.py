@@ -128,8 +128,10 @@ def render(run: LoadedRun, results: dict[str, Any], verification: dict[str, Any]
         if corrected:
             A("One published figure was wrong, and not because of a different computation:\n")
             for fig in corrected:
-                A(f"- **{fig['figure']}**: `{fig['before']}` \u2192 `{fig['after']}`. "
-                  f"{fig['cause']}.")
+                A(
+                    f"- **{fig['figure']}**: `{fig['before']}` \u2192 `{fig['after']}`. "
+                    f"{fig['cause']}."
+                )
             A("")
         A("Wording changes are recorded apart from numerical ones because they carry")
         A("different risk: a wording change can be checked by reading, a numerical one")
@@ -162,21 +164,31 @@ def render(run: LoadedRun, results: dict[str, Any], verification: dict[str, Any]
     n_inputs = len(manifest["inputs_verified"])
     A("| Check | Result |")
     A("| --- | --- |")
-    A(f"| Pinned inputs verified through the corrected runner | **{n_inputs} of "
-      f"{n_inputs}** re-hashed from disk |")
+    A(
+        f"| Pinned inputs verified through the corrected runner | **{n_inputs} of "
+        f"{n_inputs}** re-hashed from disk |"
+    )
     for kind, m in sorted(manifest["feature_bindings"].items()):
-        A(f"| Reuse map `{kind}` verified against the pinned resolution | "
-          f"{m['entries']:,} entries, `{m['sha256'][:12]}…` |")
+        A(
+            f"| Reuse map `{kind}` verified against the pinned resolution | "
+            f"{m['entries']:,} entries, `{m['sha256'][:12]}…` |"
+        )
     for role, counts in sorted(manifest["roles_derived"].items()):
-        A(f"| Role `{role}` derived from the pinned artifacts | {counts['compounds']:,} "
-          f"compounds, {counts['sequences']:,} sequences |")
+        A(
+            f"| Role `{role}` derived from the pinned artifacts | {counts['compounds']:,} "
+            f"compounds, {counts['sequences']:,} sequences |"
+        )
     for role, got in sorted(manifest["emitted_matches_pinned"].items()):
-        A(f"| Emitted `{role}` matches the pinned record | {got['pairs']:,} pairs, "
-          f"`{got['digest'][:12]}…` |")
+        A(
+            f"| Emitted `{role}` matches the pinned record | {got['pairs']:,} pairs, "
+            f"`{got['digest'][:12]}…` |"
+        )
     plan = manifest["output_preflight"]
-    A(f"| Output paths preflighted before the first fit | "
-      f"{len(plan['planned']) + len(plan['planned_checkpoints'])} planned, "
-      f"**{len(plan['collisions'])}** collisions |")
+    A(
+        f"| Output paths preflighted before the first fit | "
+        f"{len(plan['planned']) + len(plan['planned_checkpoints'])} planned, "
+        f"**{len(plan['collisions'])}** collisions |"
+    )
     A("")
     A("Nothing the run consumed was a caller parameter: the membership, the feature")
     A("caches, the reuse maps and every role's entities are derived from the verified")
@@ -187,24 +199,36 @@ def render(run: LoadedRun, results: dict[str, Any], verification: dict[str, Any]
     sel = manifest["selection"]
     A("| Guarantee | How it is held |")
     A("| --- | --- |")
-    A(f"| Learned transforms fitted on A-train only | `ProteinTransform` on "
-      f"{tr['n_fitted']:,} A-train rows, `fitted_on=\"{tr['fitted_on']}\"`, frozen and "
-      f"saved (`{tr['sha256'][:12]}…`) |")
-    A(f"| A-validation used only for checkpoint selection | {sel['validation_pairs']:,} "
-      f"pairs, metric `{sel['selection_metric']}`, direction `{sel['selection_direction']}` |")
-    A(f"| The selection set is the one the runner holds | digest re-derived and refused "
-      f"on mismatch: `{sel['validation_digest'][:12]}…` |")
-    A(f"| Best validation checkpoint restored before evaluation | {len(sel['restored'])} "
-      "fits, each checked against its own history |")
-    A(f"| Never refit on train + validation | `{sel['never_refit_on_train_plus_validation']}` "
-      "— there is no such code path |")
+    A(
+        f"| Learned transforms fitted on A-train only | `ProteinTransform` on "
+        f'{tr["n_fitted"]:,} A-train rows, `fitted_on="{tr["fitted_on"]}"`, frozen and '
+        f"saved (`{tr['sha256'][:12]}…`) |"
+    )
+    A(
+        f"| A-validation used only for checkpoint selection | {sel['validation_pairs']:,} "
+        f"pairs, metric `{sel['selection_metric']}`, direction `{sel['selection_direction']}` |"
+    )
+    A(
+        f"| The selection set is the one the runner holds | digest re-derived and refused "
+        f"on mismatch: `{sel['validation_digest'][:12]}…` |"
+    )
+    A(
+        f"| Best validation checkpoint restored before evaluation | {len(sel['restored'])} "
+        "fits, each checked against its own history |"
+    )
+    A(
+        f"| Never refit on train + validation | `{sel['never_refit_on_train_plus_validation']}` "
+        "— there is no such code path |"
+    )
     A("")
 
     # -------------------------------------------------------------- the fits
     A("---\n")
     A("## 3. The fits: runtime, stopping and curves\n")
-    A(f"Declared models: **{len(fams)}**, five seeds "
-      f"(`{', '.join(str(s) for s in manifest['seeds'])}`), no sweep and no tuning.")
+    A(
+        f"Declared models: **{len(fams)}**, five seeds "
+        f"(`{', '.join(str(s) for s in manifest['seeds'])}`), no sweep and no tuning."
+    )
     A("Two models are fitted once because the declared protocol treats them as")
     A("deterministic; that is a protocol choice, and §5 reports what the prediction")
     A("arrays actually show for the rest.\n")
@@ -213,18 +237,24 @@ def render(run: LoadedRun, results: dict[str, Any], verification: dict[str, Any]
     for rec in records:
         stop = "—"
         if rec["model"] == "dual-encoder":
-            stop = (f"best epoch {rec['best_epoch']} of {rec['epochs_run']}"
-                    + (", early" if rec["stopped_early"] else ", ran to cap"))
+            stop = f"best epoch {rec['best_epoch']} of {rec['epochs_run']}" + (
+                ", early" if rec["stopped_early"] else ", ran to cap"
+            )
         elif rec["notes"].get("round_cap_was_binding") is not None:
-            stop = (f"{rec['notes']['best_iteration']} rounds"
-                    + (" — **cap bound**" if rec["notes"]["round_cap_was_binding"] else ""))
+            stop = f"{rec['notes']['best_iteration']} rounds" + (
+                " — **cap bound**" if rec["notes"]["round_cap_was_binding"] else ""
+            )
         elif rec["best_epoch"]:
             stop = f"best epoch {rec['best_epoch']}"
-        A(f"| `{rec['model']}` | {rec['seed'] or '—'} | {rec['seconds']:.1f}s | {stop} | "
-          f"{fmt(rec['best_validation_rmse'])} | {rec['notes'].get('curve_recorded', '—')} |")
+        A(
+            f"| `{rec['model']}` | {rec['seed'] or '—'} | {rec['seconds']:.1f}s | {stop} | "
+            f"{fmt(rec['best_validation_rmse'])} | {rec['notes'].get('curve_recorded', '—')} |"
+        )
     A("")
-    A(f"**Failures: {len(manifest['failures']) or 'none'}.**"
-      + ("" if not manifest["failures"] else f" {manifest['failures']}"))
+    A(
+        f"**Failures: {len(manifest['failures']) or 'none'}.**"
+        + ("" if not manifest["failures"] else f" {manifest['failures']}")
+    )
     A("")
     A("- **The LightGBM round cap bound.** B1 and B2 ran all 400 boosting rounds with")
     A("  50-round early stopping wired and never triggered: validation RMSE was still")
@@ -281,19 +311,25 @@ def render(run: LoadedRun, results: dict[str, Any], verification: dict[str, Any]
     # -------------------------------------------------- seeds and predictions
     A("---\n")
     A("## 5. Seeds: what varied, and what did not\n")
-    A("| Model | Seeds | Mean AUROC | AUROC SD | Predictions bit-identical | "
-      "max abs Δ pKi | mean abs Δ pKi | Rows differing |")
+    A(
+        "| Model | Seeds | Mean AUROC | AUROC SD | Predictions bit-identical | "
+        "max abs Δ pKi | mean abs Δ pKi | Rows differing |"
+    )
     A("| --- | ---: | ---: | ---: | --- | ---: | ---: | ---: |")
     for family in fams:
         m, d = means[family], diffs[family]
         if not d.get("comparable"):
-            A(f"| `{family}` | {m['seeds']} (fitted once) | {fmt(m['auroc_mean'], 6)} | — | "
-              "n/a | n/a | n/a | n/a |")
+            A(
+                f"| `{family}` | {m['seeds']} (fitted once) | {fmt(m['auroc_mean'], 6)} | — | "
+                "n/a | n/a | n/a | n/a |"
+            )
             continue
-        A(f"| `{family}` | {m['seeds']} | {fmt(m['auroc_mean'], 6)} | "
-          f"{sci(m['auroc_sd'])} | **{d['bit_identical_predictions']}** | "
-          f"{sci(d['max_abs_delta_pki'])} | {sci(d['mean_abs_delta_pki'])} | "
-          f"{d['rows_differing_from_the_first_seed']:,} / {d['rows']:,} |")
+        A(
+            f"| `{family}` | {m['seeds']} | {fmt(m['auroc_mean'], 6)} | "
+            f"{sci(m['auroc_sd'])} | **{d['bit_identical_predictions']}** | "
+            f"{sci(d['max_abs_delta_pki'])} | {sci(d['mean_abs_delta_pki'])} | "
+            f"{d['rows_differing_from_the_first_seed']:,} / {d['rows']:,} |"
+        )
     A("")
     A("### Correction: the seeds did not produce identical fits\n")
     A("An earlier revision of this report stated that B1 and B2 were *seed-invariant*")
@@ -355,8 +391,11 @@ def render(run: LoadedRun, results: dict[str, Any], verification: dict[str, Any]
     A("is a contrast between populations and is not attributable to any single one of")
     A("those causes without analysis that was not performed.\n")
     A("Mean AUROC over seeds, primary cell, **with the scored-target count beside each**:\n")
-    A("| Population | Pairs | Scored targets | " + " | ".join(
-        f"`{f.split('-')[0]}`" for f in fams) + " |")
+    A(
+        "| Population | Pairs | Scored targets | "
+        + " | ".join(f"`{f.split('-')[0]}`" for f in fams)
+        + " |"
+    )
     A("| --- | ---: | ---: | " + " | ".join("---:" for _ in fams) + " |")
     order = (
         ("new_to_fitting", "new to fitting (headline)"),
@@ -401,8 +440,7 @@ def render(run: LoadedRun, results: dict[str, Any], verification: dict[str, Any]
     A("Every cell is scored from the **same fitted models** — the four are slices of one")
     A("evaluation table, not four separate experiments.\n")
     per_cell = {
-        cell: family_mean(results["cells"][cell]["groups"]["new_to_fitting"], tags,
-                          "B4-concat-mlp")
+        cell: family_mean(results["cells"][cell]["groups"]["new_to_fitting"], tags, "B4-concat-mlp")
         for cell in results["cells"]
     }
     arm_gap = abs(per_cell[PRIMARY] - per_cell["cross_slot_excluded/screened_primary"])
@@ -417,8 +455,10 @@ def render(run: LoadedRun, results: dict[str, Any], verification: dict[str, Any]
             c = results["cells"][cell]
             g = c["groups"]["new_to_fitting"]
             mark = " **(primary)**" if c["is_primary"] else ""
-            A(f"**`{cell}`**{mark} — {g['pairs']:,} new-to-fitting pairs, "
-              f"{c['eligible_pairs']:,} eligible in the cell\n")
+            A(
+                f"**`{cell}`**{mark} — {g['pairs']:,} new-to-fitting pairs, "
+                f"{c['eligible_pairs']:,} eligible in the cell\n"
+            )
             A("| Model | Scored targets | AUROC | AUPRC | Recall@10 | EF@1% | EF@5% |")
             A("| --- | ---: | ---: | ---: | ---: | ---: | ---: |")
             out.extend(model_rows(g, tags))
@@ -430,33 +470,51 @@ def render(run: LoadedRun, results: dict[str, Any], verification: dict[str, Any]
     checks = verification["checks"]
     A("| Check | Result |")
     A("| --- | --- |")
-    A(f"| **Published results reproduce from the saved predictions** | "
-      f"**{checks['published_results_reproduce_from_saved_predictions']}** — compared "
-      "against the published bytes, not against a second fresh scoring |")
+    A(
+        f"| **Published results reproduce from the saved predictions** | "
+        f"**{checks['published_results_reproduce_from_saved_predictions']}** — compared "
+        "against the published bytes, not against a second fresh scoring |"
+    )
     A(f"| Scoring is deterministic | {checks['scoring_is_deterministic']} |")
-    A(f"| Independent AUROC, written from scratch | agrees for "
-      f"**{checks['independent_auroc_model_tags']}** model tags |")
-    A(f"| Fit-artifact digests compared | {checks['artifact_digests_checked']} checked, "
-      f"**{checks['artifact_digests_stale']}** stale, "
-      f"{checks['artifact_digests_unavailable']} unavailable |")
-    A(f"| Evaluation table matches the fit's recorded digest | "
-      f"**{checks['evaluation_table_matches_the_manifest']}** |")
-    A(f"| Predictions match the fit's recorded digest | "
-      f"**{checks['predictions_match_the_manifest']}** |")
-    A(f"| Restored checkpoints are the best-validation epoch | "
-      f"{checks['checkpoints_are_best_epoch']} |")
-    A(f"| Recurrent evaluation pairs that really are train pairs | "
-      f"{fmt(checks['recurrent_pairs_in_train'])} |")
-    A(f"| **Non-recurrent evaluation pairs found in train** | "
-      f"**{fmt(checks['non_recurrent_pairs_in_train'])}** |")
+    A(
+        f"| Independent AUROC, written from scratch | agrees for "
+        f"**{checks['independent_auroc_model_tags']}** model tags |"
+    )
+    A(
+        f"| Fit-artifact digests compared | {checks['artifact_digests_checked']} checked, "
+        f"**{checks['artifact_digests_stale']}** stale, "
+        f"{checks['artifact_digests_unavailable']} unavailable |"
+    )
+    A(
+        f"| Evaluation table matches the fit's recorded digest | "
+        f"**{checks['evaluation_table_matches_the_manifest']}** |"
+    )
+    A(
+        f"| Predictions match the fit's recorded digest | "
+        f"**{checks['predictions_match_the_manifest']}** |"
+    )
+    A(
+        f"| Restored checkpoints are the best-validation epoch | "
+        f"{checks['checkpoints_are_best_epoch']} |"
+    )
+    A(
+        f"| Recurrent evaluation pairs that really are train pairs | "
+        f"{fmt(checks['recurrent_pairs_in_train'])} |"
+    )
+    A(
+        f"| **Non-recurrent evaluation pairs found in train** | "
+        f"**{fmt(checks['non_recurrent_pairs_in_train'])}** |"
+    )
     A(f"| Verification verdict | **{'PASSED' if verification['passed'] else 'FAILED'}** |")
     A("")
     not_performed = verification.get("checks_not_performed") or {}
     if not_performed:
         A("**Checks that did not run, named rather than implied:**\n")
         for key, detail in sorted(not_performed.items()):
-            A(f"- **`{key}`** — " + ("; ".join(str(d) for d in detail)
-                                      if isinstance(detail, list) else str(detail)))
+            A(
+                f"- **`{key}`** — "
+                + ("; ".join(str(d) for d in detail) if isinstance(detail, list) else str(detail))
+            )
         A("")
         A("These are reported as *not performed*, not as passed. A review copy that")
         A("excludes the checkpoints and the training-membership export cannot verify")
@@ -516,8 +574,10 @@ def render(run: LoadedRun, results: dict[str, Any], verification: dict[str, Any]
     A("   the ligand-only one.")
     A("7. **Two baselines are 0.5 by construction**, so a margin over them measures")
     A("   only that a model breaks ties within a target.")
-    A(f"8. **Macro-averages rest on {s0['targets_scored']} of {s0['targets_in_slice']} "
-      "targets**; the rest fall below the floor.")
+    A(
+        f"8. **Macro-averages rest on {s0['targets_scored']} of {s0['targets_in_slice']} "
+        "targets**; the rest fall below the floor."
+    )
     A("9. **The LightGBM round cap bound**, so B1 and B2 are not at their own optimum.")
     A("10. **Between-stratum differences are contrasts between populations** (§6), not")
     A("    one model's performance changing.")
@@ -565,9 +625,7 @@ def build_manifest(
         if (run.root / name).exists()
     }
     derived[str(report_path)] = sha256(report_path)
-    scripts = {
-        str(s): sha256(s) for s in sorted(Path("scripts/asof").glob("*")) if s.is_file()
-    }
+    scripts = {str(s): sha256(s) for s in sorted(Path("scripts/asof").glob("*")) if s.is_file()}
     return {
         "manifest": version,
         "supersedes": supersedes,

@@ -95,8 +95,7 @@ def test_the_declared_threshold_and_primary_cell_are_unchanged(contract) -> None
     }
     assert len(contract["cells"]["sensitivities"]) == 3
     arms = {
-        (c["increment_arm"], c["consistency_branch"])
-        for c in contract["cells"]["sensitivities"]
+        (c["increment_arm"], c["consistency_branch"]) for c in contract["cells"]["sensitivities"]
     }
     assert ("declared_increment", "screened_primary") not in arms, (
         "the primary cell must not also be listed as a sensitivity"
@@ -156,9 +155,7 @@ def test_nothing_was_fitted(contract) -> None:
 def test_the_accepted_caches_are_recorded_as_preserved(contract) -> None:
     for kind in STORED_DIMS:
         assert contract["feature_bindings"][kind]["accepted"]["preserved_byte_for_byte"] is True
-    assert json.loads(MANIFEST.read_text())[
-        "accepted_caches_preserved_byte_for_byte"
-    ] is True
+    assert json.loads(MANIFEST.read_text())["accepted_caches_preserved_byte_for_byte"] is True
 
 
 def test_the_corrections_record_the_defects_this_step_closed(contract) -> None:

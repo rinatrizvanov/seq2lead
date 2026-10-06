@@ -327,8 +327,11 @@ def verify_bindings_and_coverage(
     return {
         "stored_dims_verified": dict(sorted(STORED_DIMS.items())),
         "reuse_maps_verified": {
-            kind: {"path": str(s.reuse_map_path), "sha256": s.reuse_map_sha256,
-                   "entries": len(s.reuse_map)}
+            kind: {
+                "path": str(s.reuse_map_path),
+                "sha256": s.reuse_map_sha256,
+                "entries": len(s.reuse_map),
+            }
             for kind, s in sorted(sources.items())
         },
         "coverage": coverage,
@@ -358,12 +361,14 @@ def load_verified_datasets(
         raise PreflightError(msg)
     return (
         load_dataset(
-            path, TRAIN_ROLE,
+            path,
+            TRAIN_ROLE,
             usable_compounds=roles[TRAIN_ROLE].compounds,
             usable_sequences=roles[TRAIN_ROLE].sequences,
         ),
         load_dataset(
-            path, VALIDATION_ROLE,
+            path,
+            VALIDATION_ROLE,
             usable_compounds=roles[VALIDATION_ROLE].compounds,
             usable_sequences=roles[VALIDATION_ROLE].sequences,
         ),

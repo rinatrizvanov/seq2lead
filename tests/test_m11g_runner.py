@@ -78,11 +78,13 @@ class Harness:
         cached = (*TRAIN_COMPOUNDS, SPARE_COMPOUND)
         ids = np.arange(1, len(cached) + 1, dtype=np.int64)
         self.ecfp4_accepted = write_npz(
-            self.root / "ecfp4-accepted.npz", ids=ids,
+            self.root / "ecfp4-accepted.npz",
+            ids=ids,
             vectors=np.stack([vector("ecfp4", 256, n) for n in range(len(cached))]),
         )
         self.esm2_accepted = write_npz(
-            self.root / "esm2-accepted.npz", ids=np.array([1], dtype=np.int64),
+            self.root / "esm2-accepted.npz",
+            ids=np.array([1], dtype=np.int64),
             vectors=np.stack([vector("esm2", 1280, 0)]),
         )
         self.ecfp4_extension = write_npz(
@@ -91,7 +93,8 @@ class Harness:
             vectors=np.stack([vector("ecfp4", 256, 900)]),
         )
         self.esm2_extension = write_npz(
-            self.root / "esm2-extension.npz", keys=np.asarray([], dtype=object),
+            self.root / "esm2-extension.npz",
+            keys=np.asarray([], dtype=object),
             vectors=np.zeros((0, 1280), dtype=np.float32),
         )
 
@@ -141,14 +144,18 @@ class Harness:
     @staticmethod
     def special() -> set[str]:
         return {
-            "a_membership", "feature_binding", "feature_resolution",
-            "evaluation_entities", "model_facing_datasets",
+            "a_membership",
+            "feature_binding",
+            "feature_resolution",
+            "evaluation_entities",
+            "model_facing_datasets",
         }
 
     def write_membership(self, rows) -> None:
         records = [
             {
-                "pair": f"{c}|{SEQUENCES[0]}", "partition": p,
+                "pair": f"{c}|{SEQUENCES[0]}",
+                "partition": p,
                 "classification_eligible": True,
                 "regression_eligible": regression,
                 "validation_rmse_eligible": rmse,
@@ -210,7 +217,8 @@ class Harness:
         body = {}
         for role in (TRAIN_ROLE, VALIDATION_ROLE):
             ds = load_dataset(
-                self.membership, role,
+                self.membership,
+                role,
                 usable_compounds=roles[role].compounds,
                 usable_sequences=roles[role].sequences,
             )
@@ -321,16 +329,18 @@ def test_there_is_no_membership_path_to_substitute(harness) -> None:
     params = set(inspect.signature(run).parameters)
     assert "membership_path" not in params
     assert params == {
-        "expected_digests", "artifacts", "config",
-        "fit_transforms", "fit_model", "select_checkpoint",
+        "expected_digests",
+        "artifacts",
+        "config",
+        "fit_transforms",
+        "fit_model",
+        "select_checkpoint",
     }
     out = harness.run()
     assert out["derived_from"]["membership"] == "a_membership"
 
 
-def test_the_membership_is_re_verified_at_the_moment_of_consumption(
-    harness, monkeypatch
-) -> None:
+def test_the_membership_is_re_verified_at_the_moment_of_consumption(harness, monkeypatch) -> None:
     """A digest checked at the gate does not protect a file that changed since.
 
     The file has to change *between* the gate and the read for this to mean
@@ -356,10 +366,12 @@ def test_the_membership_is_re_verified_at_the_moment_of_consumption(
 
 def test_a_substituted_membership_with_a_refreshed_digest_still_refuses(harness) -> None:
     """Rewriting the file AND its digest changes what is emitted, which is pinned."""
-    harness.write_membership([
-        (TRAIN_COMPOUNDS[0], TRAIN, True, True),
-        (VALIDATION_COMPOUNDS[0], VALIDATION, True, True),
-    ])
+    harness.write_membership(
+        [
+            (TRAIN_COMPOUNDS[0], TRAIN, True, True),
+            (VALIDATION_COMPOUNDS[0], VALIDATION, True, True),
+        ]
+    )
     harness.refresh()
     with pytest.raises(PreflightError, match="not the pinned ones"):
         harness.run()
@@ -590,9 +602,7 @@ def test_a_membership_entity_outside_the_reuse_map_refuses(harness) -> None:
         (VALIDATION_ROLE, "distinct_sequences", 7),
     ],
 )
-def test_an_emitted_dataset_that_is_not_the_pinned_one_refuses(
-    harness, role, field, value
-) -> None:
+def test_an_emitted_dataset_that_is_not_the_pinned_one_refuses(harness, role, field, value) -> None:
     harness.write_pinned_datasets(**{role: {field: value}})
     harness.refresh()
     with pytest.raises(PreflightError, match=rf"{role}\.{field}"):

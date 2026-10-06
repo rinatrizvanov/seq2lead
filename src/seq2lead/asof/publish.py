@@ -117,8 +117,7 @@ def check_expected_inputs(run) -> dict[str, Any]:
         }
         if actual != entry["sha256"]:
             stale.append(
-                f"{name} ({path}): expected {entry['sha256'][:16]}\u2026, "
-                f"found {actual[:16]}\u2026"
+                f"{name} ({path}): expected {entry['sha256'][:16]}\u2026, found {actual[:16]}\u2026"
             )
     for path, expected in sorted(manifest.get("checkpoints", {}).items()):
         if not Path(path).exists():
@@ -176,7 +175,10 @@ def publish(
 
     report_path = results_report.render(run, results, record)
     manifest = results_report.build_manifest(
-        run, results, record, inputs,
+        run,
+        results,
+        record,
+        inputs,
         report_path=report_path,
         version=bump or (previous or {}).get("manifest", "m11h-fit-v2"),
         supersedes=(previous or {}).get("manifest") if bump else (previous or {}).get("supersedes"),

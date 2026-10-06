@@ -61,8 +61,9 @@ The three stages are deliberately separate: publication refuses a verification r
 
 ```python
 from seq2lead.asof.verify_results import verify
-verdict = verify('data/asof/m11h/run-20261005T134842Z')
-print(verdict['passed'], verdict['checks_not_performed'])
+
+verdict = verify("data/asof/m11h/run-20261005T134842Z")
+print(verdict["passed"], verdict["checks_not_performed"])
 ```
 
 Saved-prediction reproduction needs no refitting. A full raw-to-fit rebuild has further local dependencies and historical identity assumptions, and is **not** a tested one-command fresh clone — see the [reproduction guide](docs/REPRODUCIBILITY.md).

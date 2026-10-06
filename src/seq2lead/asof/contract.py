@@ -22,22 +22,24 @@ CONTRACT_VERSION = "m11f-asof-evaluation-contract-v5"
 #: contract file uses. A run that cannot name all of these is refused: a result
 #: whose inputs are not all pinned is not reproducible, and an empty set is not
 #: a verified one.
-REQUIRED_DIGESTS = frozenset({
-    "a_export",
-    "b_export",
-    "a_membership",
-    "partition_summary",
-    "cross_slot_exclusion_set",
-    "sensitivity_spec",
-    "cohort_preflight",
-    "feature_binding",
-    "feature_coverage",
-    "feature_resolution",
-    "feature_extension",
-    "model_facing_datasets",
-    "evaluation_entities",
-    "m9_config",
-})
+REQUIRED_DIGESTS = frozenset(
+    {
+        "a_export",
+        "b_export",
+        "a_membership",
+        "partition_summary",
+        "cross_slot_exclusion_set",
+        "sensitivity_spec",
+        "cohort_preflight",
+        "feature_binding",
+        "feature_coverage",
+        "feature_resolution",
+        "feature_extension",
+        "model_facing_datasets",
+        "evaluation_entities",
+        "m9_config",
+    }
+)
 
 #: Every declared execution setting with the value it must equal. Checked by
 #: comparison, never by presence.

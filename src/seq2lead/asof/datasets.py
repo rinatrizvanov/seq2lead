@@ -186,10 +186,7 @@ def verify_preconditions(
             raise PreflightError(msg)
     faults = check_settings(config)
     if faults:
-        msg = (
-            "precondition: configuration departs from the frozen contract -- "
-            + "; ".join(faults)
-        )
+        msg = "precondition: configuration departs from the frozen contract -- " + "; ".join(faults)
         raise PreflightError(msg)
 
 
@@ -216,9 +213,7 @@ def prepare_fitting(
     transforms are fitted on **train only**, then the model on train, and only
     then is validation used -- for selection and nothing else.
     """
-    verify_preconditions(
-        expected_digests=expected_digests, artifacts=artifacts, config=config
-    )
+    verify_preconditions(expected_digests=expected_digests, artifacts=artifacts, config=config)
     if train.role != TRAIN_ROLE:
         msg = f"the fitting dataset must be {TRAIN_ROLE!r}, got {train.role!r}"
         raise DatasetError(msg)

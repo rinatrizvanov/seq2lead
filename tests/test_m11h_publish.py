@@ -35,8 +35,11 @@ REAL = Path("data/asof/m11h/run-20261005T134842Z")
 pytestmark = pytest.mark.skipif(not REAL.exists(), reason="the real run is not present")
 
 COPIED = (
-    "manifest.json", "predictions.npz", "evaluation-pairs.jsonl",
-    "training-records.json", "protein-transform.npz",
+    "manifest.json",
+    "predictions.npz",
+    "evaluation-pairs.jsonl",
+    "training-records.json",
+    "protein-transform.npz",
 )
 
 
@@ -313,8 +316,9 @@ def test_verification_compares_against_the_published_result(published) -> None:
     """Altering the published results must fail the check, not pass by self-agreement."""
     results = json.loads((published["root"] / "results.json").read_text())
     cell = results["cells"]["declared_increment/screened_primary"]
-    cell["groups"]["new_to_fitting"]["by_model"]["dual-encoder-seed20260930"][
-        "metrics"]["auroc"] = 0.99
+    cell["groups"]["new_to_fitting"]["by_model"]["dual-encoder-seed20260930"]["metrics"][
+        "auroc"
+    ] = 0.99
     (published["root"] / "results.json").write_text(
         json.dumps(results, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )

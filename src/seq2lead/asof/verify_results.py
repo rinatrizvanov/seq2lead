@@ -76,7 +76,8 @@ def verify(run_dir: str | Path) -> dict[str, Any]:
     # 2. an independent AUROC on the headline
     arm, branch = PRIMARY_CELL
     rows = [
-        i for i, r in enumerate(run.table)
+        i
+        for i, r in enumerate(run.table)
         if r["arms"][arm]["scoreable"]
         and r["arms"][arm]["branches"][branch]
         and r["stratum"] in NEW_TO_FITTING
@@ -120,9 +121,7 @@ def verify(run_dir: str | Path) -> dict[str, Any]:
         **manifest["checkpoints"],
     }
     unavailable = sorted(p for p in recorded if not Path(p).exists())
-    stale = sorted(
-        p for p, d in recorded.items() if Path(p).exists() and sha256(Path(p)) != d
-    )
+    stale = sorted(p for p, d in recorded.items() if Path(p).exists() and sha256(Path(p)) != d)
     if stale:
         failures.append(f"{len(stale)} recorded digests do not match their files: {stale[:3]}")
     # Absent is not the same as wrong. A ZIP-only copy has no checkpoints, and
@@ -158,8 +157,7 @@ def verify(run_dir: str | Path) -> dict[str, Any]:
         )
         if leaked:
             failures.append(
-                f"{leaked} evaluation pairs outside the recurrent stratum are in the "
-                "training set"
+                f"{leaked} evaluation pairs outside the recurrent stratum are in the training set"
             )
     else:
         not_performed["train_membership_overlap_not_checked"] = [
