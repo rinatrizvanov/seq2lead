@@ -9,6 +9,45 @@ PostgreSQL, no feature caches and no upload**. This is the product path from the
 > evidence that any compound binds. Nothing has been experimentally tested by
 > this project. The ranking is a hypothesis for triage.
 
+## Install
+
+Three steps. No database, no compiler, no upload.
+
+```bash
+# 1. the tool
+git clone https://github.com/rinatrizvanov/seq2lead.git
+cd seq2lead && uv sync --all-groups
+
+# 2. the inference bundle, from the v0.2.0 release
+curl -LO https://github.com/rinatrizvanov/seq2lead/releases/download/v0.2.0/seq2lead-inference-bundle-v1.tar.gz
+
+# 3. check it against the digest published in the release notes, then unpack
+shasum -a 256 seq2lead-inference-bundle-v1.tar.gz
+# expect: 941280a6ce2959a4bc46a0920b869a8e798456f9283c45d8e76c5b0d757a57d1
+tar -xzf seq2lead-inference-bundle-v1.tar.gz
+mv seq2lead-inference-bundle-v1 seq2lead-bundle
+```
+
+Confirm before your first query:
+
+```bash
+uv run seq2lead bundle verify --bundle ./seq2lead-bundle
+```
+
+That re-hashes every file against the bundle's manifest. The same manifest is
+tracked in this repository at
+`configs/bundles/seq2lead-inference-bundle-v1.manifest.json`, so you can check a
+download against version control rather than against itself:
+
+```bash
+diff <(shasum -a 256 seq2lead-bundle/manifest.json | cut -d' ' -f1) \
+     <(shasum -a 256 configs/bundles/seq2lead-inference-bundle-v1.manifest.json | cut -d' ' -f1)
+```
+
+**ESM-2 weights are not in the bundle and are not redistributed by this project.**
+`transformers` fetches them from the pinned revision on your first query — about
+2.43 GiB, once. That download is not included in any timing below.
+
 ## Use it
 
 ```bash
@@ -107,26 +146,51 @@ score is untied, because two correct implementations may order a tie differently
 
 ## Measured cost
 
-Apple M4, 16 GB, macOS. One process, 25,000 compounds, measured not estimated.
+**Benchmark hardware:** Apple M4, 10 cores, 16 GiB unified memory, macOS 15.6.1
+(build 24G90), Python 3.11.15, PyTorch 2.14.0. One process, 25,000 compounds,
+measured rather than estimated. Your numbers will differ.
 
 | | CPU | MPS |
 | --- | ---: | ---: |
 | bundle load | 0.05 s | 0.06 s |
-| **first query** (includes loading the encoder) | 2.92 s | 6.05 s |
+| **first query** | 2.92 s | 6.05 s |
 | **repeat query** (median of 3, same process) | 0.52 s | 0.27 s |
 | peak process RSS | 3,228 MB | 582 MB |
 
+**First-query timings exclude downloads.** They were measured with the ESM-2
+weights already in the local `transformers` cache. A genuine first run on a new
+machine also pays for fetching 2.43 GiB of weights, which depends on your network
+and is not included in any number above. The "first query" cost here is
+constructing and loading the encoder into memory, not obtaining it.
+
 The encoder and the compound projections are loaded once and reused, which is why
-a repeat query costs a fraction of the first. MPS has the lower RSS because the
-weights sit in GPU memory rather than process memory — it is not using less
-total memory.
+a repeat query costs a fraction of the first.
+
+**RSS is not total memory.** The figures above are peak *process* resident set
+size. On MPS the model weights live in accelerator memory, which this measurement
+does not capture, so the 582 MB figure is **not** evidence that MPS uses less
+memory overall — it is evidence that less of it is counted against the process.
+On this machine the accelerator shares the same 16 GiB of unified memory as the
+CPU. The CPU figure of 3,228 MB is closer to a true total because there is no
+separate accelerator allocation to miss.
 
 **Backends.** CPU and MPS are **tested**. CUDA is *supported by the code path*
-and has not been run here; nothing in this repository is evidence that it works.
+and has not been run here; nothing in this repository is evidence that it works,
+and on a discrete CUDA card the RSS/accelerator-memory distinction above matters
+more, not less.
 
 **Sequence length.** Ranking was run at 20, 50, 100, 250, 443, 800, 1022, 1023,
 1500 and 2000 residues. Per-query CPU time grows roughly linearly, from 0.17 s at
 50 residues to 3.49 s at 2000.
+
+> **What that range does and does not establish.** It establishes that the code
+> **executes** and returns a ranking across 20–2000 residues. It says nothing
+> about whether the ranking is any **good** at those lengths. Beyond ESM-2's
+> 1,022-residue pre-training window the protein representation is extrapolation:
+> it was never evaluated there, no accuracy was measured at any length, and the
+> benchmark in this repository does not cover it. Long-sequence results are
+> flagged in the output for that reason. Treat a 2000-residue ranking as
+> untested in quality, not as validated.
 
 **Download.**
 

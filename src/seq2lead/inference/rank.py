@@ -29,9 +29,14 @@ if TYPE_CHECKING:
 
 #: Sequence lengths this path has actually been run at, measured rather than
 #: assumed: 20, 50, 100, 250, 443, 800, 1022, 1023, 1500 and 2000 residues all
-#: produced a ranking. Reported rather than enforced -- the refusal point is the
-#: bundle's own `max_length` -- and lengths past the encoder's 1,022-residue
-#: pre-training window are flagged in the output.
+#: produced a ranking.
+#:
+#: This range establishes **execution, not predictive reliability**. No accuracy
+#: was measured at any length, and beyond the encoder's 1,022-residue
+#: pre-training window the protein representation is extrapolation that the
+#: benchmark in this repository does not cover. Reported rather than enforced --
+#: the refusal point is the bundle's own `max_length` -- and queries past the
+#: training window are flagged in the output.
 TESTED_LENGTH_RANGE = (20, 2000)
 
 

@@ -9,7 +9,7 @@
  ],
  "by_category": {
   "code": 188,
-  "configuration": 22,
+  "configuration": 23,
   "figure": 12,
   "fitted statistic": 1,
   "other": 4,
@@ -23,7 +23,7 @@
   "CC-BY-3.0": 3,
   "CC-BY-SA-3.0": 16,
   "CC0-1.0": 2,
-  "MIT": 335
+  "MIT": 336
  },
  "classification": "seq2lead-release-classification-v1",
  "digest_note": "every digest here was computed from the working tree as it stood when this file was generated, one commit after `generated_after_commit`. An inventory whose digests do not match its files records nothing, so the check that matters is `python scripts/release/build_inventory.py --check`, which recomputes every digest from the files as they are now. Two files were once edited after generation and the inventory described bytes that no longer existed; this is the guard against repeating that.",
@@ -90,6 +90,13 @@
    "licence": "MIT",
    "path": "configs/.gitkeep",
    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "bytes": 4388,
+   "category": "configuration",
+   "licence": "MIT",
+   "path": "configs/bundles/seq2lead-inference-bundle-v1.manifest.json",
+   "sha256": "513027b92647c9c372a5a3abd2df74d06dfa0d2b72ecfbde1b7bfc5fa66be483"
   },
   {
    "bytes": 2901,
@@ -653,11 +660,11 @@
    "sha256": "4ecac749f261ab33f41b897c535467d9dfa56f96b8a6a8c0189cf42be78ce3c4"
   },
   {
-   "bytes": 11060,
+   "bytes": 14038,
    "category": "prose",
    "licence": "MIT",
    "path": "docs/STANDALONE.md",
-   "sha256": "a4688cd9a259dc2783671c4c788716c432178b8c5e01d6f151974eb4633aa90a"
+   "sha256": "b9a66ed68de801402d8a1e182b19079913aac3e07d97bdfe5ce86539678b8aae"
   },
   {
    "bytes": 1691,
@@ -1887,11 +1894,11 @@
    "sha256": "9dda2b0733b3d2e20a162f3c79e6213afe3d6e4b85d31dd49016b4f864337a39"
   },
   {
-   "bytes": 9047,
+   "bytes": 9297,
    "category": "code",
    "licence": "MIT",
    "path": "src/seq2lead/inference/rank.py",
-   "sha256": "de7b019a86cdd2cab396dd973ed565d5af9946e2d98e907553631ee4a494a8a6"
+   "sha256": "5a7312e77d5eaf7b453862d95ba64f76b6e82320e0e0fccc1de21e04ab2a05b6"
   },
   {
    "bytes": 5285,
@@ -2524,8 +2531,8 @@
    "sha256": "9968e1302733399b00670fcba47f1e1749c90093b28aac6e46fb70b2af77f908"
   }
  ],
- "files": 356,
- "generated_after_commit": "6cdee0153d0b60eb5d505f08bdf0f0595378655a",
+ "files": 357,
+ "generated_after_commit": "ca990fede5bd474bb875d4b45da41bca4476ba57",
  "generated_by": "scripts/release/build_inventory.py",
  "inventory": "seq2lead-complete-release-inventory-v2",
  "licence_basis": {
@@ -2546,15 +2553,15 @@
  "provenance_method": "row-level Curation/DataSource from the preserved raw payloads; 202609 for B-side entities and the isolated seq2lead_m11c_202601 schema for A-only entities",
  "reconciliation": {
   "accounts_for_every_tracked_file": true,
-  "entries": 356,
-  "licence_labels_sum": 356,
+  "entries": 357,
+  "licence_labels_sum": 357,
   "self_excluded": [
    "configs/manifests/release_classification.json",
    "configs/manifests/release_inventory.json"
   ],
-  "tracked_at_head": 358
+  "tracked_at_head": 359
  },
- "recorded_at": "2026-10-07T10:51:40.432573+00:00",
+ "recorded_at": "2026-10-07T11:41:20.026156+00:00",
  "release_option": "A - complete benchmark, pending owner approval. Repository remains PRIVATE.",
  "scientific_bytes_preserved": true,
  "self_excluded": {
@@ -2564,5 +2571,5 @@
   ],
   "why": "Neither file can record its own digest: writing the digest changes the bytes being described. Verify both by the commit they are attached to."
  },
- "total_bytes": 36686198
+ "total_bytes": 36693814
 }

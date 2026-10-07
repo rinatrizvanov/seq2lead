@@ -1,0 +1,84 @@
+{
+ "bundle_version": "seq2lead-inference-bundle-v1",
+ "counts": {
+  "compounds": 25000,
+  "flagged_unusable_fingerprint": 3,
+  "projection_dim": 512,
+  "projection_rows": 25000
+ },
+ "created_at": "2026-10-07T10:40:46.258543+00:00",
+ "files": {
+  "library/compounds.csv": {
+   "bytes": 2030841,
+   "sha256": "97ff5a44868c63bb047b3440a971e62af9e93ae13fd999b16b7aeccef3827133"
+  },
+  "library/projections.npy": {
+   "bytes": 51200128,
+   "sha256": "475916f23a3e7b63bbd03ddbded73155848e391fb1e4b1919e05c1858156259f"
+  },
+  "model/compound_tower.npz": {
+   "bytes": 5247982,
+   "sha256": "9a49f1566a109def6dc51f61938b9e1a350fe649b4baba705bb05b7242ea1821"
+  },
+  "model/protein_tower.npz": {
+   "bytes": 3675612,
+   "sha256": "01172d32313ab5b77975c356fa8325de38395a978f3ba4815e66070b26fc2cee"
+  },
+  "model/protein_transform.npz": {
+   "bytes": 11000,
+   "sha256": "1af74ca0d2b92b239818e833d5df77d363f67d428d877ffdea213bb2128ba2d4"
+  }
+ },
+ "library": {
+  "cap": 25000,
+  "description": "Compounds carrying at least one exact-relation (=) Ki measurement in the pinned BindingDB source release, ordered by internal surrogate key and capped. Membership says a measured Ki value existed for the compound against SOME protein -- not that it is a drug, not that it is approved, not that it is safe, and not that it has any measured relationship to your query. The ordering is arbitrary with respect to anything a model predicts.",
+  "licence": "Compound identifiers and structures derive from BindingDB, which publishes staff-curated rows under CC BY 3.0 and rows imported from ChEMBL under CC BY-SA 3.0 Unported. See DATA_LICENSE.",
+  "member_sha256": "7c0ea2ec20f8b30ec875da741f34106dd7c442b60b0d837ff59179f98662f184",
+  "members": 25000,
+  "name": "curated-ki-25k-v1",
+  "origin": "Derived from BindingDB measurements under this project's curation pipeline. Compound structures are the RDKit-standardised parents of BindingDB-supplied SMILES.",
+  "scope": "A benchmark pool, not a screening deck. It is biased towards targets and chemistry that have been measured by Ki radioligand-style assays, and away from chemistry nobody has published a Ki for.",
+  "selection_rule": "compounds with at least one eligible exact-relation (=) Ki measurement in the pinned source release, ordered by compound.id ascending, capped at 25000. The ordering is a stable surrogate key and is arbitrary with respect to predicted affinity; compounds are not selected by score, by similarity to any query, or by any property of a model."
+ },
+ "model": {
+  "compound_dim": 2048,
+  "offset": 7.061907768249512,
+  "projection_dim": 512,
+  "protein_dim": 1280,
+  "scale": 7.087676048278809,
+  "scoring_rule": "predicted_pKi = scale * cosine(compound_z, protein_z) + offset",
+  "transform_fitted_on": "train",
+  "transform_n_fitted": 286664
+ },
+ "not_included_and_why": {
+  "PostgreSQL corpus": "not consulted by the standalone path",
+  "fingerprint cache": "superseded by the precomputed projections",
+  "measured evidence": "Prior measured activity is deliberately absent. It is not validation of a ranking, and the partition-filtered evidence API that would be needed to show it safely is unimplemented."
+ },
+ "provenance": "v0.2 standalone-inference bundle, first export",
+ "representation": {
+  "compound": {
+   "cache": "ecfp4-compound-42351e003acb",
+   "fingerprint": "chiral ECFP4, radius 2, 2048 bits",
+   "manifest_sha256": "cba42fd66563d2360ad05b77c48df87f8ce0fe6a75cc4fb31341da07c5ee9620",
+   "note": "Fingerprints are NOT shipped. The compound projections in library/projections.npy were computed from them with the compound tower below, which is the only use inference makes of them.",
+   "storage_sha256": "964471e0055f9178dc76e1f5ed577a0ae7251dce7953b682ada47535b427c0be"
+  },
+  "protein": {
+   "dtype": "float32",
+   "length_policy": "full",
+   "max_length": 40000,
+   "model": "facebook/esm2_t33_650M_UR50D",
+   "model_revision": "08e4846e537177426273712802403f7ba8261b6c",
+   "pooling": "mean_over_residues_excluding_special_tokens",
+   "training_window": 1022
+  }
+ },
+ "source_checkpoint": {
+  "config_sha256": "58662cd2033d81c73e0b3b90fdea0861d7d9f19fe76bff49cbb7ee37958b951f",
+  "experiment": "m9-dual-encoder-v1",
+  "path": "data/m9/final/M9-dual-encoder__cold_protein-v3__seed20260930.pt",
+  "sha256": "934adcdb1a71b71c3147a00b9bd74a953394642522abeb4a038e99d7f6c86c6e"
+ },
+ "total_bytes": 62165563
+}

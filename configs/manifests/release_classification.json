@@ -45,6 +45,10 @@
    "category": "configuration",
    "licence": "MIT"
   },
+  "configs/bundles/seq2lead-inference-bundle-v1.manifest.json": {
+   "category": "configuration",
+   "licence": "MIT"
+  },
   "configs/experiments/baseline-v1.yaml": {
    "category": "configuration",
    "licence": "MIT"
