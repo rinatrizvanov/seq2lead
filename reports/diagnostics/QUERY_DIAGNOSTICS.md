@@ -3,10 +3,17 @@
 Exploratory diagnosis, run 2026-10-07 against the v0.2.0 inference bundle
 (`seq2lead-inference-bundle-v1`, library `curated-ki-25k-v1`, 25,000 compounds).
 
-**Scope and limits, stated first.** Nothing here evaluates accuracy, nothing here
-was used to tune anything, and nothing here supports a claim of biological
-specificity. None of the five panel proteins appears in the benchmark, so no
-measured labels exist for any pair discussed below. Two queries agreeing is not
+**This is the unlabelled, exploratory panel.** It is retained as exploratory
+evidence and is *not* the basis for any conclusion about target specificity. The
+labelled measurement is in
+[`labelled_panel.md`](labelled_panel.md), which uses held-out labels, a
+pre-declared selection rule and a query-independent baseline. Where the two
+disagree, the labelled panel is the one that measured the question.
+
+**Scope and limits.** Nothing here evaluates accuracy, nothing here was used to
+tune anything, and nothing here supports a claim of biological specificity. None
+of the five panel proteins appears in the benchmark, so no measured labels exist
+for any pair discussed below. Two queries agreeing is not
 evidence that either ranking is correct, and two queries disagreeing is not
 evidence that either is right. Scores and ranks were read, never modified.
 
@@ -88,13 +95,13 @@ unrelated ones. `RELA` and `NFKB1` are both Rel homology domains and agree at
 against each other's. In this panel, ranking similarity does not track biological
 relatedness.
 
-## Where the agreement comes from — measured on the protein side
+## The protein side, measured
 
 The rank agreement above could arise from the compound side, from the protein
 side, or from the scoring geometry. Since the score is
-`scale · cos(compound_z, protein_z) + offset`, two query vectors that are nearly
-parallel must produce nearly identical rankings. So the projected query vectors
-were measured directly rather than inferred from the correlated outputs:
+`scale · cos(compound_z, protein_z) + offset`, two query vectors that are exactly
+parallel would produce identical rankings. So the projected query vectors were
+measured directly rather than inferred from the correlated outputs:
 
 | Pair | cosine, raw mean-pooled ESM-2 | cosine, projected query vector | change |
 | --- | --- | --- | --- |
@@ -110,22 +117,61 @@ were measured directly rather than inferred from the correlated outputs:
 | `BUNDLED` vs `SACS` | 0.9337 | 0.4122 | −0.5216 |
 | mean | 0.8626 | 0.5631 | −0.2995 |
 
-The mean-pooled ESM-2 embeddings of five unrelated proteins are already highly
-similar — mean pairwise cosine 0.8626, minimum 0.6728. That is a property of mean
-pooling over a 650M-parameter language model, present before Seq2Lead sees the
-sequence at all.
+### What this measures
 
-**Every projection moves the pair apart, without exception** (all ten deltas
-negative, −0.098 to −0.522; mean cosine 0.8626 → 0.5631). The learned protein
-tower is therefore *decorrelating* these queries, not collapsing them. The
-residual rank agreement is inherited from the input geometry that the single
-linear layer only partly undoes, and the pairs that stay closest after projection
-(`NFKB1`/`VCP` 0.8590, `SACS`/`VCP` 0.8247) are exactly the pairs with the highest
-rank correlation. That is the mechanism, and it sits upstream of the tower.
+- Mean-pooled ESM-2 embeddings of these five proteins are highly similar to one
+  another: mean pairwise cosine 0.8626, minimum 0.6728. That is a property of the
+  embedding, present before Seq2Lead sees the sequence.
+- The projection moves every pair apart, without exception: all ten cosines fall,
+  by 0.098 to 0.522, mean 0.8626 → 0.5631.
+- Within this panel, the two pairs with the highest projected cosine
+  (`NFKB1`/`VCP` 0.8590, `SACS`/`VCP` 0.8247) are also the two with the highest
+  rank correlation.
 
-This parallels the finding in `projection_repeats.json` on the compound side: in
-both cases the representation entering the tower, not the tower, is where
-information is lost.
+### What this does not establish
+
+**It does not establish the cause of the cross-query rank agreement.** An earlier
+version of this report said the residual agreement was "inherited from the input
+geometry" that the tower "only partly undoes". That was an inference presented as
+a measurement, and it is withdrawn. A drop in pairwise cosine shows the
+projection separates these queries more than the embedding did; it says nothing
+about which stage is responsible for the agreement that remains, and the
+association between projected cosine and rank correlation is an ordering over ten
+points in a panel of five, not a causal test.
+
+Ten paired cosines also cannot separate the candidate explanations. Agreement
+could come from the compound side — a direction in compound space that most query
+vectors have a positive component along — from the protein side, from the
+interaction of the two, or from the embedding and the tower jointly. Nothing here
+distinguishes them.
+
+### Correction: the tower architecture
+
+The same withdrawn passage described the protein tower as a "single linear
+layer". That is wrong. Read directly from the shipped bundle
+(`model/protein_tower.npz`, `model/compound_tower.npz`):
+
+| Tower | Shape | Structure |
+| --- | --- | --- |
+| protein | `0.weight` (512, 1280), `0.bias` (512), `2.weight` (512, 512), `2.bias` (512) | 1280 → 512, ReLU, 512 → 512 |
+| compound | `0.weight` (512, 2048), `0.bias` (512), `2.weight` (512, 512), `2.bias` (512) | 2048 → 512, ReLU, 512 → 512 |
+
+Each tower is a **two-layer MLP with a ReLU between the layers**, and the protein
+tower is preceded by a standardisation transform (`protein_transform.npz`, a
+fitted mean and scale over the 1280 embedding dimensions). `project_query` in
+`src/seq2lead/inference/rank.py` applies exactly that sequence. The map is
+non-linear, so reasoning that treats it as a single linear operator — including
+any expectation that it should act uniformly on pairwise angles — does not hold.
+
+### Hypotheses this suggests, none of them tested here
+
+- That mean-pooled embeddings discard pocket-level detail, so proteins that
+  differ functionally can arrive close together. *Testable by comparing pooling
+  strategies; not attempted.*
+- That a compound-side prior dominates for queries far from the training
+  distribution. *Partly addressed by the labelled panel below.*
+- That agreement shrinks for targets inside the training distribution.
+  **This one was tested — see the next section — and the measurement supports it.**
 
 ## Shortlist chemical redundancy
 
@@ -153,7 +199,9 @@ quantity, and these are the numbers it is there to address.
 
 ## What this does and does not establish
 
-Established, by measurement:
+### Measured
+
+These are read off the numbers above and require no interpretation:
 
 - rankings for unrelated proteins in this panel agree at ρ up to 0.9366 with
   18–19/20 shortlist overlap;
@@ -163,19 +211,35 @@ Established, by measurement:
   pairs;
 - top-20 shortlists are chemically redundant for four of five queries.
 
-Not established, and not claimed:
+### Hypotheses
+
+These are consistent with the measurements and are *not* established by them.
+They are listed so they are not mistaken for findings:
+
+- that a compound-side prior contributes a large shared component to every
+  ranking. The labelled panel measures this directly and finds a
+  query-independent baseline reaching 0.7014 macro AUROC, which supports it;
+- that mean pooling is where protein detail is lost. Untested;
+- that the tower's effect on pairwise angles explains the residual agreement.
+  Withdrawn as stated above; ten paired cosines cannot support it.
+
+### Not established, and not claimed
 
 - that any of these rankings is accurate — there are no labels here;
 - that the model does or does not discriminate between protein families in
-  general, from a panel of five with one related pair and four out-of-domain
-  proteins;
+  general. A panel of five, with one related pair and four proteins far outside
+  the training distribution, cannot answer that. **The labelled panel shows this
+  panel was not representative**: across twelve in-domain targets the mean
+  pairwise rank correlation is 0.42, against 0.88–0.94 for the unrelated pairs
+  here;
 - that the published benchmark numbers are affected. They are not recomputed,
   revised or contradicted by anything above; the benchmark's own ligand-only gate
   (B1) is the measurement that speaks to compound-side dominance under labels, and
   it is unchanged.
 
-Open questions a future experiment could settle: whether the agreement shrinks for
-proteins inside the training distribution; whether a per-residue or attention
-pooling replaces enough of the lost protein detail to separate the queries; and
-how much of the shared ranking survives the ligand-only baseline's prediction.
-None of these was pursued, because each needs training and this was diagnosis.
+Open questions. Whether the agreement shrinks for proteins inside the training
+distribution **has since been measured** — it does; see
+[`labelled_panel.md`](labelled_panel.md). Still open: whether per-residue or
+attention pooling would recover enough protein detail to separate queries, and
+how much of the shared ranking survives the ligand-only baseline. Both need
+training and neither was attempted.

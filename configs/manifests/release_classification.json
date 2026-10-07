@@ -492,6 +492,18 @@
    "category": "transformed data / identifiers",
    "licence": "CC-BY-SA-3.0"
   },
+  "reports/diagnostics/labelled_panel.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "reports/diagnostics/labelled_panel.md": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "reports/diagnostics/labelled_panel_selection_rule.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
   "reports/diagnostics/projection_repeats.json": {
    "category": "source data (structures/sequences)",
    "licence": "CC-BY-SA-3.0"

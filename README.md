@@ -219,6 +219,17 @@ Predicted pKi is neither a calibrated probability nor proof of binding.
   results were inspected before the historical study ran, and the prospective
   freeze is unsigned.
 - **The macro metrics cover a minority of targets** — 123 of 992.
+- **Target specificity is limited and uneven, and much of the ranking is
+  query-independent.** On a pre-declared panel of 12 held-out targets with
+  measured labels, the target-specific ranking reached macro AUROC 0.8129 against
+  **0.7014 for a baseline that ignores the query entirely** — a mean gain of
+  +0.1116 whose 95% interval over targets is [+0.006, +0.220], improving on 8 of
+  12 targets (sign test p = 0.388). Per-target the gain runs from **−0.22 to
+  +0.47**: for some targets the sequence matters a great deal, for others a
+  query-independent compound ranking does better. All 12 targets were seen in
+  training, so this is not a cold-target result. Treat a shortlist as partly a
+  generic compound prior rather than a target-specific prediction. Measured in
+  [`reports/diagnostics/labelled_panel.md`](reports/diagnostics/labelled_panel.md).
 - **Ki poolability across assay contexts is unresolved**; every count assumes the
   current pooling rule.
 - **Declared but unbuilt**: the retrieval layer, evaluation-mode evidence display,

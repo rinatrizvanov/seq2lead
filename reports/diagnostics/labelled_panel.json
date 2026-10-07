@@ -1,0 +1,384 @@
+{
+ "what_this_is": "Target-specificity diagnostic on a bounded, pre-declared panel with held-out labels. Reads the shipped bundle only; no score, rank, bundle or published result is modified, and nothing here was tuned.",
+ "selection_rule": "SELECTION_RULE.md, fixed before any score was computed",
+ "reference_set": {
+  "n": 40,
+  "drawn_from": 10698,
+  "seed": 20261007,
+  "disjoint_from_panel": true,
+  "uses_labels": false
+ },
+ "full_library_rank_agreement_between_panel_targets": {
+  "mean_spearman": 0.42,
+  "min": -0.0243,
+  "max": 0.8783,
+  "n_pairs": 66
+ },
+ "per_target": [
+  {
+   "sequence_sha256": "A9754AA0EED81BF0E9E2FD8EF8D35D6F3D58F467B794F3E3B2A3037373E0C7AD",
+   "length": 440,
+   "n_active": 157,
+   "n_inactive": 10,
+   "positive_rate": 0.9401,
+   "target_specific": {
+    "auroc": 0.9994,
+    "average_precision": 1.0,
+    "ef_at_10pct": 1.064
+   },
+   "query_independent_reference40": {
+    "auroc": 0.9274,
+    "average_precision": 0.9951,
+    "ef_at_10pct": 1.064
+   },
+   "query_independent_loo_panel": {
+    "auroc": 0.8962,
+    "average_precision": 0.9922
+   },
+   "spearman_specific_vs_baseline_on_labelled": 0.4233,
+   "training_exposure": {
+    "target_in_training_membership": true,
+    "training_rows_for_this_target": 3947,
+    "evaluation_compounds_also_seen_with_this_target_in_training": 42,
+    "evaluation_compounds": 167
+   }
+  },
+  {
+   "sequence_sha256": "8BB8E760C142B1A44BA1409375E34DE5C0836B1B5E77EC6FAC96A7A9D07D121F",
+   "length": 458,
+   "n_active": 137,
+   "n_inactive": 29,
+   "positive_rate": 0.8253,
+   "target_specific": {
+    "auroc": 0.8807,
+    "average_precision": 0.9662,
+    "ef_at_10pct": 1.212
+   },
+   "query_independent_reference40": {
+    "auroc": 0.7289,
+    "average_precision": 0.9187,
+    "ef_at_10pct": 1.14
+   },
+   "query_independent_loo_panel": {
+    "auroc": 0.7901,
+    "average_precision": 0.9189
+   },
+   "spearman_specific_vs_baseline_on_labelled": 0.6444,
+   "training_exposure": {
+    "target_in_training_membership": true,
+    "training_rows_for_this_target": 907,
+    "evaluation_compounds_also_seen_with_this_target_in_training": 59,
+    "evaluation_compounds": 166
+   }
+  },
+  {
+   "sequence_sha256": "075CD160A22E392AD92776143A4AF52ED1C6AC1E68BA82BC253BA8DD9DAEF9C1",
+   "length": 431,
+   "n_active": 87,
+   "n_inactive": 74,
+   "positive_rate": 0.5404,
+   "target_specific": {
+    "auroc": 0.9231,
+    "average_precision": 0.9122,
+    "ef_at_10pct": 1.735
+   },
+   "query_independent_reference40": {
+    "auroc": 0.708,
+    "average_precision": 0.7286,
+    "ef_at_10pct": 1.272
+   },
+   "query_independent_loo_panel": {
+    "auroc": 0.5629,
+    "average_precision": 0.5772
+   },
+   "spearman_specific_vs_baseline_on_labelled": 0.721,
+   "training_exposure": {
+    "target_in_training_membership": true,
+    "training_rows_for_this_target": 240,
+    "evaluation_compounds_also_seen_with_this_target_in_training": 48,
+    "evaluation_compounds": 161
+   }
+  },
+  {
+   "sequence_sha256": "4D0C1AE8D9C6ECF5FFEF01BD5A16F859DAC3AE273225407783296131C695C1FD",
+   "length": 400,
+   "n_active": 50,
+   "n_inactive": 33,
+   "positive_rate": 0.6024,
+   "target_specific": {
+    "auroc": 0.857,
+    "average_precision": 0.9136,
+    "ef_at_10pct": 1.66
+   },
+   "query_independent_reference40": {
+    "auroc": 0.4539,
+    "average_precision": 0.5408,
+    "ef_at_10pct": 0.415
+   },
+   "query_independent_loo_panel": {
+    "auroc": 0.7418,
+    "average_precision": 0.7541
+   },
+   "spearman_specific_vs_baseline_on_labelled": -0.0994,
+   "training_exposure": {
+    "target_in_training_membership": true,
+    "training_rows_for_this_target": 6217,
+    "evaluation_compounds_also_seen_with_this_target_in_training": 23,
+    "evaluation_compounds": 83
+   }
+  },
+  {
+   "sequence_sha256": "945340616BAFD8D32B4CDB5A4F6A1F13EE9DE829FD7DACCF5F63FC94149D6B34",
+   "length": 380,
+   "n_active": 52,
+   "n_inactive": 29,
+   "positive_rate": 0.642,
+   "target_specific": {
+    "auroc": 0.8402,
+    "average_precision": 0.897,
+    "ef_at_10pct": 1.363
+   },
+   "query_independent_reference40": {
+    "auroc": 0.618,
+    "average_precision": 0.6716,
+    "ef_at_10pct": 0.584
+   },
+   "query_independent_loo_panel": {
+    "auroc": 0.7619,
+    "average_precision": 0.779
+   },
+   "spearman_specific_vs_baseline_on_labelled": 0.2049,
+   "training_exposure": {
+    "target_in_training_membership": true,
+    "training_rows_for_this_target": 4525,
+    "evaluation_compounds_also_seen_with_this_target_in_training": 22,
+    "evaluation_compounds": 81
+   }
+  },
+  {
+   "sequence_sha256": "0CF62E1CCB94ABD03E5ADAE50CA58B2B43690058C5CC6E176C4650E6C4F083E0",
+   "length": 176,
+   "n_active": 62,
+   "n_inactive": 12,
+   "positive_rate": 0.8378,
+   "target_specific": {
+    "auroc": 0.754,
+    "average_precision": 0.9485,
+    "ef_at_10pct": 1.194
+   },
+   "query_independent_reference40": {
+    "auroc": 0.8078,
+    "average_precision": 0.95,
+    "ef_at_10pct": 1.194
+   },
+   "query_independent_loo_panel": {
+    "auroc": 0.6519,
+    "average_precision": 0.8556
+   },
+   "spearman_specific_vs_baseline_on_labelled": 0.8768,
+   "training_exposure": {
+    "target_in_training_membership": true,
+    "training_rows_for_this_target": 785,
+    "evaluation_compounds_also_seen_with_this_target_in_training": 12,
+    "evaluation_compounds": 74
+   }
+  },
+  {
+   "sequence_sha256": "B75060695513D21AC502DA540921882C3E99FD716A491E99F6757D7B78B3C62B",
+   "length": 372,
+   "n_active": 39,
+   "n_inactive": 33,
+   "positive_rate": 0.5417,
+   "target_specific": {
+    "auroc": 0.9068,
+    "average_precision": 0.8727,
+    "ef_at_10pct": 1.582
+   },
+   "query_independent_reference40": {
+    "auroc": 0.4328,
+    "average_precision": 0.4856,
+    "ef_at_10pct": 0.264
+   },
+   "query_independent_loo_panel": {
+    "auroc": 0.8244,
+    "average_precision": 0.7909
+   },
+   "spearman_specific_vs_baseline_on_labelled": -0.1359,
+   "training_exposure": {
+    "target_in_training_membership": true,
+    "training_rows_for_this_target": 4403,
+    "evaluation_compounds_also_seen_with_this_target_in_training": 18,
+    "evaluation_compounds": 72
+   }
+  },
+  {
+   "sequence_sha256": "0F79DD8C1EA278EDBE797CA3CCB235DE12E8D482492499A37A977A0692D3E49B",
+   "length": 770,
+   "n_active": 10,
+   "n_inactive": 59,
+   "positive_rate": 0.1449,
+   "target_specific": {
+    "auroc": 0.7356,
+    "average_precision": 0.336,
+    "ef_at_10pct": 2.957
+   },
+   "query_independent_reference40": {
+    "auroc": 0.6627,
+    "average_precision": 0.2414,
+    "ef_at_10pct": 1.971
+   },
+   "query_independent_loo_panel": {
+    "auroc": 0.6441,
+    "average_precision": 0.2996
+   },
+   "spearman_specific_vs_baseline_on_labelled": 0.9239,
+   "training_exposure": {
+    "target_in_training_membership": true,
+    "training_rows_for_this_target": 408,
+    "evaluation_compounds_also_seen_with_this_target_in_training": 0,
+    "evaluation_compounds": 69
+   }
+  },
+  {
+   "sequence_sha256": "0153DBEBB226A1E5B5F70A1CA9ADD9FC132E086045E02EE6797B928C3F08547D",
+   "length": 465,
+   "n_active": 49,
+   "n_inactive": 19,
+   "positive_rate": 0.7206,
+   "target_specific": {
+    "auroc": 0.5478,
+    "average_precision": 0.7867,
+    "ef_at_10pct": 1.388
+   },
+   "query_independent_reference40": {
+    "auroc": 0.768,
+    "average_precision": 0.8973,
+    "ef_at_10pct": 1.388
+   },
+   "query_independent_loo_panel": {
+    "auroc": 0.6756,
+    "average_precision": 0.8664
+   },
+   "spearman_specific_vs_baseline_on_labelled": 0.4891,
+   "training_exposure": {
+    "target_in_training_membership": true,
+    "training_rows_for_this_target": 447,
+    "evaluation_compounds_also_seen_with_this_target_in_training": 35,
+    "evaluation_compounds": 68
+   }
+  },
+  {
+   "sequence_sha256": "8C2B6E1477FF21093D6BDEE1A4482A36B1024AAEBBD4E968C54262742CEFD3E0",
+   "length": 443,
+   "n_active": 25,
+   "n_inactive": 41,
+   "positive_rate": 0.3788,
+   "target_specific": {
+    "auroc": 0.7873,
+    "average_precision": 0.7605,
+    "ef_at_10pct": 2.263
+   },
+   "query_independent_reference40": {
+    "auroc": 0.8068,
+    "average_precision": 0.7633,
+    "ef_at_10pct": 2.263
+   },
+   "query_independent_loo_panel": {
+    "auroc": 0.8517,
+    "average_precision": 0.8157
+   },
+   "spearman_specific_vs_baseline_on_labelled": 0.475,
+   "training_exposure": {
+    "target_in_training_membership": true,
+    "training_rows_for_this_target": 9735,
+    "evaluation_compounds_also_seen_with_this_target_in_training": 57,
+    "evaluation_compounds": 66
+   }
+  },
+  {
+   "sequence_sha256": "351664067C22D7E6A071E811DDB3B5759E91101E0C46D4454FC61CE4BCA10FA2",
+   "length": 622,
+   "n_active": 48,
+   "n_inactive": 16,
+   "positive_rate": 0.75,
+   "target_specific": {
+    "auroc": 0.9635,
+    "average_precision": 0.9884,
+    "ef_at_10pct": 1.333
+   },
+   "query_independent_reference40": {
+    "auroc": 0.8776,
+    "average_precision": 0.9569,
+    "ef_at_10pct": 1.333
+   },
+   "query_independent_loo_panel": {
+    "auroc": 0.7865,
+    "average_precision": 0.8637
+   },
+   "spearman_specific_vs_baseline_on_labelled": 0.7824,
+   "training_exposure": {
+    "target_in_training_membership": true,
+    "training_rows_for_this_target": 4664,
+    "evaluation_compounds_also_seen_with_this_target_in_training": 16,
+    "evaluation_compounds": 64
+   }
+  },
+  {
+   "sequence_sha256": "051FC4732E4921492421CDA1544C298561F4D5E41751C6E73886E38ED9280207",
+   "length": 326,
+   "n_active": 19,
+   "n_inactive": 44,
+   "positive_rate": 0.3016,
+   "target_specific": {
+    "auroc": 0.5598,
+    "average_precision": 0.381,
+    "ef_at_10pct": 1.658
+   },
+   "query_independent_reference40": {
+    "auroc": 0.6244,
+    "average_precision": 0.4008,
+    "ef_at_10pct": 0.553
+   },
+   "query_independent_loo_panel": {
+    "auroc": 0.7285,
+    "average_precision": 0.5561
+   },
+   "spearman_specific_vs_baseline_on_labelled": 0.8653,
+   "training_exposure": {
+    "target_in_training_membership": true,
+    "training_rows_for_this_target": 452,
+    "evaluation_compounds_also_seen_with_this_target_in_training": 2,
+    "evaluation_compounds": 63
+   }
+  }
+ ],
+ "macro": {
+  "target_specific_auroc": 0.8129,
+  "query_independent_auroc": 0.7014,
+  "loo_panel_auroc": 0.743,
+  "target_specific_ap": 0.8136,
+  "query_independent_ap": 0.7125,
+  "n_targets_where_specific_beats_baseline": 8
+ },
+ "uncertainty": {
+  "mean_delta_auroc": 0.1116,
+  "bootstrap_ci95_over_targets": [
+   0.0063,
+   0.2203
+  ],
+  "n_targets_improved": 8,
+  "n_targets": 12,
+  "sign_test_p_two_sided": 0.3877,
+  "delta_range": [
+   -0.2202,
+   0.474
+  ],
+  "corr_delta_with_training_overlap": -0.011,
+  "labelled_per_target": {
+   "min": 63,
+   "median": 73,
+   "max": 167
+  },
+  "caveat": "The bootstrap resamples the 12 targets, so it describes this panel's spread, not the population of all targets. Per-target AUROC also carries its own sampling error from 63-167 labelled compounds, which this interval does not include."
+ }
+}
