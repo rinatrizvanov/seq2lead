@@ -1228,11 +1228,35 @@
    "category": "code",
    "licence": "MIT"
   },
+  "src/seq2lead/web/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/web/api.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/web/jobs.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/web/server.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/web/ui.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
   "tests/cli_help.py": {
    "category": "code",
    "licence": "MIT"
   },
   "tests/conftest.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/conftest_bundle.py": {
    "category": "code",
    "licence": "MIT"
   },
@@ -1433,6 +1457,10 @@
    "licence": "MIT"
   },
   "tests/test_toolchain.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_web_interface.py": {
    "category": "code",
    "licence": "MIT"
   },

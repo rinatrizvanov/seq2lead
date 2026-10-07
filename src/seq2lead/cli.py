@@ -2320,5 +2320,44 @@ def prioritise(
         typer.secho(f"wrote {written}", fg=typer.colors.GREEN)
 
 
+@app.command("web")
+def web(
+    bundle: str = typer.Option(
+        "", help="Bundle directory. Default: $SEQ2LEAD_BUNDLE, ./seq2lead-bundle."
+    ),
+    port: int = typer.Option(8765, help="Port to listen on."),
+    host: str = typer.Option("127.0.0.1", help="Loopback only; anything else is refused."),
+    device: str = typer.Option("", help="Force a torch device (cpu, mps, cuda)."),
+    preload: bool = typer.Option(
+        False, help="Load the protein encoder at startup instead of on the first query."
+    ),
+) -> None:
+    """Serve the local browser interface for standalone ranking.
+
+    Localhost only. There is no authentication, no TLS and no rate limiting: this
+    is a single-user local tool, not a hosted service.
+    """
+    from seq2lead.inference.bundle import BundleError, resolve_bundle
+    from seq2lead.web.server import serve
+
+    try:
+        resolved = resolve_bundle(bundle or None)
+        httpd = serve(resolved, host=host, port=port, device=device or None, preload=preload)
+    except (BundleError, ValueError) as exc:
+        raise _fail(str(exc)) from exc
+    except OSError as exc:
+        raise _fail(f"could not bind {host}:{port}: {exc}") from exc
+
+    typer.secho(f"Seq2Lead local interface: http://{host}:{port}", fg=typer.colors.GREEN, bold=True)
+    typer.echo(f"  bundle {resolved}")
+    typer.echo("  localhost only, no authentication. Ctrl-C to stop.")
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        typer.echo("\n  stopped")
+    finally:
+        httpd.server_close()
+
+
 if __name__ == "__main__":  # pragma: no cover
     app()

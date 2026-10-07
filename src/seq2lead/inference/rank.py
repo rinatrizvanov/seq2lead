@@ -106,25 +106,72 @@ class ProteinEncoder:
         self.device = resolve_device(device)
         self._tokenizer = None
         self._model = None
+        self.load_warnings: list[str] = []
 
-    def load(self) -> None:
+    #: Keys the encoder checkpoint and `EsmModel` are *expected* to disagree on,
+    #: verified rather than assumed. `lm_head.*` is the masked-language-model head:
+    #: it exists in the published checkpoint, `EsmModel` has no such layer, and it
+    #: is discarded on load. `pooler.*` is the reverse -- `EsmModel` defines a
+    #: pooler that the checkpoint does not carry, so it is randomly initialised.
+    #:
+    #: The pooler being random would matter if we read it. We do not: the
+    #: embedding is the mean over `last_hidden_state`, never `pooler_output`.
+    #: Measured, by loading the model twice under different torch seeds: the
+    #: pooler weights differ, `pooler_output` differs, and our embedding is
+    #: bit-identical. Anything outside these two prefixes is a real mismatch in
+    #: the backbone that actually produces the embedding, and is reported.
+    BENIGN_UNEXPECTED = ("lm_head.",)
+    BENIGN_MISSING = ("pooler.",)
+
+    def load(self) -> list[str]:
+        """Load the encoder. Returns warnings for mismatches that are NOT benign."""
         if self._model is not None:
-            return
+            return []
         import torch
         from transformers import AutoModel, AutoTokenizer
 
         name, revision = self.spec["model"], self.spec["model_revision"]
         self._tokenizer = AutoTokenizer.from_pretrained(name, revision=revision)
-        self._model = (
-            AutoModel.from_pretrained(name, revision=revision, dtype=torch.float32)
-            .eval()
-            .to(self.device)
+        model, info = AutoModel.from_pretrained(
+            name, revision=revision, dtype=torch.float32, output_loading_info=True
         )
+        self._model = model.eval().to(self.device)
+
+        surprising_missing = [
+            k for k in info.get("missing_keys", ()) if not k.startswith(self.BENIGN_MISSING)
+        ]
+        surprising_unexpected = [
+            k for k in info.get("unexpected_keys", ()) if not k.startswith(self.BENIGN_UNEXPECTED)
+        ]
+        mismatched = [str(k) for k in info.get("mismatched_keys", ())]
+
+        warnings: list[str] = []
+        if surprising_missing:
+            warnings.append(
+                f"the protein encoder loaded with {len(surprising_missing)} randomly "
+                f"initialised weight(s) OUTSIDE the known-benign pooler: "
+                f"{surprising_missing[:6]}. These are in the backbone that produces "
+                "the embedding, so the query may be represented differently from the "
+                "library this bundle was built against."
+            )
+        if surprising_unexpected:
+            warnings.append(
+                f"the encoder checkpoint carries {len(surprising_unexpected)} weight(s) "
+                f"this architecture does not use, outside the known-benign language-model "
+                f"head: {surprising_unexpected[:6]}."
+            )
+        if mismatched:
+            warnings.append(
+                f"the encoder has {len(mismatched)} weight(s) whose shape does not match "
+                f"the checkpoint: {mismatched[:6]}. This is a genuine architecture "
+                "mismatch, not a discarded head."
+            )
+        return warnings
 
     def embed(self, sequence: str) -> np.ndarray:
         import torch
 
-        self.load()
+        self.load_warnings = self.load()
         encoded = {
             k: v.to(self.device) for k, v in self._tokenizer(sequence, return_tensors="pt").items()
         }
@@ -190,6 +237,7 @@ def rank(
     """Rank the bundled library. `encoder` is reused across queries when supplied."""
     encoder = encoder or ProteinEncoder(bundle.protein_spec, device)
     embedding = encoder.embed(sequence)
+    encoder_warnings = list(encoder.load_warnings)
     protein_z = project_query(bundle, embedding, encoder.device)
     scores = score_library(bundle, protein_z)
 
@@ -227,6 +275,7 @@ def rank(
                 flags=list(flags_by_row.get(row, ())),
             )
         )
+    result.warnings.extend(encoder_warnings)
     tied = sum(1 for r in result.rows if r.tied_with)
     if tied:
         result.warnings.append(

@@ -11,63 +11,112 @@ PostgreSQL, no feature caches and no upload**. This is the product path from the
 
 ## Install
 
-Three steps. No database, no compiler, no upload.
+Four steps. No database, no compiler, no upload. Every command below is
+copy-pasteable into an interactive shell: there are no inline `#` comments, which
+zsh rejects unless `interactive_comments` is set.
 
 ```bash
-# 1. the tool
-git clone https://github.com/rinatrizvanov/seq2lead.git
-cd seq2lead && uv sync --all-groups
-
-# 2. the inference bundle, from the v0.2.0 release
-curl -LO https://github.com/rinatrizvanov/seq2lead/releases/download/v0.2.0/seq2lead-inference-bundle-v1.tar.gz
-
-# 3. check it against the digest published in the release notes, then unpack
-shasum -a 256 seq2lead-inference-bundle-v1.tar.gz
-# expect: 941280a6ce2959a4bc46a0920b869a8e798456f9283c45d8e76c5b0d757a57d1
-tar -xzf seq2lead-inference-bundle-v1.tar.gz
-mv seq2lead-inference-bundle-v1 seq2lead-bundle
+git clone --branch v0.2.0 https://github.com/rinatrizvanov/seq2lead.git
+cd seq2lead
+uv sync --all-groups
 ```
 
-Confirm before your first query:
+```bash
+curl -LO https://github.com/rinatrizvanov/seq2lead/releases/download/v0.2.0/seq2lead-inference-bundle-v1.tar.gz
+shasum -a 256 seq2lead-inference-bundle-v1.tar.gz
+```
+
+That must print:
+
+```
+941280a6ce2959a4bc46a0920b869a8e798456f9283c45d8e76c5b0d757a57d1
+```
+
+If it does not, stop and re-download. Then unpack and check:
 
 ```bash
+tar -xzf seq2lead-inference-bundle-v1.tar.gz
+mv seq2lead-inference-bundle-v1 seq2lead-bundle
 uv run seq2lead bundle verify --bundle ./seq2lead-bundle
 ```
 
-That re-hashes every file against the bundle's manifest. The same manifest is
-tracked in this repository at
-`configs/bundles/seq2lead-inference-bundle-v1.manifest.json`, so you can check a
-download against version control rather than against itself:
+`bundle verify` re-hashes every file against the bundle's manifest, without
+loading a model, so a damaged bundle is refused in about a tenth of a second. The
+same manifest is tracked in this repository, so you can also check the download
+against version control rather than against itself:
 
 ```bash
-diff <(shasum -a 256 seq2lead-bundle/manifest.json | cut -d' ' -f1) \
-     <(shasum -a 256 configs/bundles/seq2lead-inference-bundle-v1.manifest.json | cut -d' ' -f1)
+shasum -a 256 seq2lead-bundle/manifest.json
+shasum -a 256 configs/bundles/seq2lead-inference-bundle-v1.manifest.json
 ```
 
-**ESM-2 weights are not in the bundle and are not redistributed by this project.**
-`transformers` fetches them from the pinned revision on your first query — about
-2.43 GiB, once. That download is not included in any timing below.
+Those two digests must be equal.
+
+### The first query downloads ESM-2
+
+The bundle does **not** contain the protein language model, and this project does
+not redistribute it. On your first query `transformers` downloads
+`facebook/esm2_t33_650M_UR50D` at the pinned revision from Hugging Face — about
+**2.43 GiB**, once, cached under `~/.cache/huggingface`. Later queries reuse it.
+
+A genuine first run therefore costs that download *plus* the first-query timing
+in [Measured cost](#measured-cost). Every timing there was taken with the weights
+already cached and excludes the download.
+
+### What the ESM-2 load report means
+
+The first load prints a table with `lm_head.*` marked UNEXPECTED and `pooler.*`
+marked MISSING. **Both are expected, and neither affects your results.**
+
+- `lm_head.*` is the masked-language-model head. It is in the published
+  checkpoint, the encoder architecture has no such layer, and it is discarded.
+- `pooler.*` is the reverse: the architecture defines a pooler the checkpoint does
+  not carry, so it is randomly initialised.
+
+A randomly initialised layer would matter if the embedding read it. It does not —
+the embedding is the mean over `last_hidden_state`, never `pooler_output`. Loading
+the model twice under different torch seeds gives different pooler weights and a
+different `pooler_output`, and a **bit-identical** embedding.
+
+Anything outside those two prefixes is a genuine mismatch in the backbone that
+produces the embedding. Seq2Lead reports those as warnings on the ranking rather
+than letting them pass as noise.
 
 ## Use it
 
+Point `--sequence-file` at your own FASTA. The repository ships one to try first,
+`reports/examples/query_target.fasta` (443 residues):
+
 ```bash
-# a FASTA file with ONE record
-seq2lead prioritise --bundle ./seq2lead-bundle --sequence-file target.fasta --top-n 50
-
-# or paste the sequence
-seq2lead prioritise --sequence MDPLNLSWYDDDLERQNWSRPFNGSD... --top-n 20
-
-# write the full result alongside the table
-seq2lead prioritise --sequence-file target.fasta --top-n 50 --out-csv ranking.csv
+uv run seq2lead prioritise --bundle ./seq2lead-bundle --sequence-file reports/examples/query_target.fasta --top-n 50
 ```
 
-The bundle is found at `--bundle`, else `$SEQ2LEAD_BUNDLE`, else
-`./seq2lead-bundle`, else `~/.seq2lead/bundle`. If none exists the error names
-every place it looked.
+With your own file, give its path, absolute or relative to where you are:
 
-`seq2lead bundle verify` checks the manifest and every digest without loading a
-model. The ranking path runs the same check first, so a damaged bundle is refused
-in about a tenth of a second rather than after the encoder has loaded.
+```bash
+uv run seq2lead prioritise --bundle ./seq2lead-bundle --sequence-file /path/to/your_target.fasta --top-n 50
+```
+
+The FASTA must hold exactly one record. To paste a sequence instead, pass it in
+full — this is the same protein as the bundled example:
+
+```bash
+uv run seq2lead prioritise --bundle ./seq2lead-bundle --top-n 20 --sequence MDPLNLSWYDDDLERQNWSRPFNGSDGKADRPHYNYYATLLTLLIAVIVFGNVLVCMAVSREKALQTTTNYLIVSLAVADLLVATLVMPWVVYLEVVGEWKFSRIHCDIFVTLDVMMCTASILNLCAISIDRYTAVAMPMLYNTRYSSKRRVTVMISIVWVLSFTISCPLLFGLNNADQNECIIANPAFVVYSSIVSFYVPFIVTLLVYIKIYIVLRRRRKRVNTKRSSRAFRAHLRAPLKGNCTHPEDMKLCTVIMKSNGSFPVNRRRVEAARRAQELEMEMLSSTSPPERTRYSPIPPSHHQLTLPDPSHHGLHSTPDSPAKPEKNGHAKDHPKIAKIFEIQTMPNGKTRTSLKTMSRRKLSQQKEKKATQMLAIVLGVFIICWLPFFITHILNIHCDCNIPPVLYSAFTWLGYVNSAVNPIIYTTFNIEFRKAFLKILHC
+```
+
+Write the ranking to a file as well as the terminal:
+
+```bash
+uv run seq2lead prioritise --bundle ./seq2lead-bundle --sequence-file reports/examples/query_target.fasta --top-n 50 --out-csv ranking_top50.csv
+```
+
+**`--out-csv` overwrites its target without asking, and without warning.** Give
+each run its own filename if you want to keep earlier results; the examples here
+use distinct names for that reason.
+
+The bundle is found at `--bundle`, else `$SEQ2LEAD_BUNDLE`, else
+`./seq2lead-bundle`, else `~/.seq2lead/bundle`. If none exists, the error names
+every place it looked.
 
 ### What it refuses, and why
 
@@ -83,20 +132,57 @@ in about a tenth of a second rather than after the encoder has loaded.
 
 ## The bundled library: what it is and is not
 
-`curated-ki-25k-v1`, 25,000 compounds. Membership means **a measured exact Ki
-value existed for that compound against some protein** in the pinned BindingDB
-release. That is all it means.
+`curated-ki-25k-v1`, exactly 25,000 compounds, frozen.
 
-It is **not** a set of approved drugs, not a safety-screened set, not a vendor
-catalogue, and carries no implied relationship to your query. Compounds are
-ordered for selection by an internal surrogate key, which is arbitrary with
-respect to anything a model predicts.
+### The selection rule, in full
 
-Its scope is biased, and the bias matters when reading a ranking: it is drawn
-towards targets and chemistry that have been measured by Ki-style assays, and
-away from chemistry nobody has published a Ki for. Structures are the
-RDKit-standardised parents of BindingDB-supplied SMILES. Identifiers and
-structures derive from BindingDB; see [`DATA_LICENSE`](../DATA_LICENSE).
+> Compounds with at least one eligible exact-relation (`=`) Ki measurement in the
+> pinned BindingDB source release, **ordered by internal compound id ascending**,
+> **capped at 25,000**.
+
+Three consequences worth being explicit about, because each is a way the library
+could be misread:
+
+1. **It is a prefix, not a sample.** 232,721 compounds in the curated database
+   satisfy the eligibility condition. The library is the first 25,000 of them by
+   surrogate key — not a random draw, not the best-scoring, not the most
+   drug-like. Re-running the rule gives the same 25,000 every time, which is the
+   point: a ranking is only reproducible if the pool it ranked is.
+2. **The ordering is arbitrary with respect to anything predicted**, which is why
+   it is safe to truncate on. Compound id is an insertion-order surrogate, so it
+   correlates loosely with how long a compound has been in BindingDB — the
+   library therefore leans towards earlier entries. It does **not** correlate
+   with affinity, with similarity to your query, or with any model output.
+3. **Membership means a measured exact Ki existed against *some* protein.** It
+   does not mean the compound is a drug, is approved, is safe, is purchasable, or
+   has ever been measured against the protein you are querying.
+
+### How it relates to the full database
+
+| | |
+| --- | ---: |
+| compounds in the curated database | 1,424,670 |
+| activity rows | 3,233,963 |
+| compounds with at least one exact-relation Ki | 232,721 |
+| **in this bundled library** | **25,000** |
+
+The bundle is a **screening pool for the ranking prototype**, not an export of the
+database. It carries 1.8% of the curated compounds and about 10.7% of those
+eligible by the rule above. The full database is not distributed: it is tens of
+gigabytes, it needs PostgreSQL, and the historical benchmark — not this library —
+is what the published metrics were computed on.
+
+The cap exists to keep the bundle downloadable. Raising it is a bundle rebuild,
+not a code change, and would mint a new library version rather than amend this
+one.
+
+### Scope and bias
+
+Its coverage is biased, and the bias matters when reading a ranking: it is drawn
+towards targets and chemistry measured by Ki-style assays, and away from chemistry
+nobody has published a Ki for. Structures are the RDKit-standardised parents of
+BindingDB-supplied SMILES. Identifiers and structures derive from BindingDB; see
+[`DATA_LICENSE`](../DATA_LICENSE).
 
 ## The bundle
 
@@ -200,6 +286,66 @@ more, not less.
 | ESM-2 weights, fetched once by `transformers` | 2,609,506,392 B (2.43 GiB) |
 | **total before a first query** | **2.49 GiB** |
 
+## Local browser interface
+
+A browser front end over the same inference API, for people who would rather not
+use a terminal. It is **localhost only**.
+
+```bash
+uv run seq2lead web --bundle ./seq2lead-bundle
+```
+
+Then open <http://127.0.0.1:8765>. `--preload` loads the protein encoder at
+startup instead of on the first query, trading a slower start for a faster first
+result.
+
+> **This is not a hosted service and must not be run as one.** It binds to
+> 127.0.0.1 and refuses any other address. There is no authentication, no TLS and
+> no rate limiting. If you need it from another machine, forward the port over
+> SSH rather than binding publicly.
+
+### What it does
+
+- **Rank a sequence** — paste a sequence or a single FASTA record, or choose a
+  `.fasta` file, which is read in the browser rather than uploaded as multipart.
+  Configurable top-N. Results show the structure, the predicted pKi, ties and any
+  warnings, with the same wording as the CLI.
+- **Browse the library** — paginated, 24 compounds a page with depictions, search
+  by identifier or SMILES substring, and the same optional molecular-weight and
+  TPSA windows. Depictions are drawn once per compound and cached.
+- **Export CSV** — byte-for-byte the file `--out-csv` writes, produced by the same
+  function, caveat preamble included.
+- **Progress and cancellation** — each ranking is a job with a phase, a progress
+  bar and a Cancel button. Cancellation is cooperative: the worker checks between
+  phases, so a cancel during embedding takes effect when that phase ends rather
+  than instantly.
+
+### How it behaves under the hood
+
+- **The encoder is loaded once** and reused for every query in the process, which
+  is why the first ranking is slow and later ones are not.
+- **Inference is serialised.** One ranking runs at a time; a second request
+  queues and the browser shows its position. Two concurrent rankings would
+  contend for the same encoder and the same accelerator, making both slower and
+  the reported timings meaningless.
+- **Shortlisting is a view, exactly as on the CLI.** The unfiltered ranking is
+  always returned in full; removed rows are dimmed and listed underneath with
+  their original rank, score and the reason.
+- **No external resources.** The page is served inline and the
+  Content-Security-Policy allows nothing off-origin, so it works with no network
+  beyond the first ESM-2 download.
+
+### Verified against the CLI
+
+The interface does not re-implement scoring; it calls
+`seq2lead.inference.rank` exactly as the CLI does. A test asserts the rows
+returned over HTTP equal the rows the library call produces for the same query,
+and the live server was driven against the real 25,000-compound bundle and
+reproduced the database-backed reference ranking exactly.
+
+Not built, deliberately: custom-library upload (same reason as on the CLI), user
+accounts, and any form of deployment.
+
 ## Optional shortlisting
 
 **Off unless asked for, and it never replaces the ranking.** Shortlisting is a
@@ -207,12 +353,16 @@ view: every removed compound keeps the rank and score it had and is reported wit
 the reason, so you can see what the filter did rather than infer it from an
 absence.
 
-```bash
-# property windows
-seq2lead prioritise --sequence-file t.fasta --top-n 200 --max-mw 500 --max-tpsa 140
+Property windows:
 
-# chemical diversity
-seq2lead prioritise --sequence-file t.fasta --top-n 200 --diverse 20 --diversity-threshold 0.7
+```bash
+uv run seq2lead prioritise --bundle ./seq2lead-bundle --sequence-file reports/examples/query_target.fasta --top-n 200 --max-mw 500 --max-tpsa 140 --out-csv ranking_filtered.csv
+```
+
+Chemical diversity:
+
+```bash
+uv run seq2lead prioritise --bundle ./seq2lead-bundle --sequence-file reports/examples/query_target.fasta --top-n 200 --diverse 20 --diversity-threshold 0.7 --out-csv ranking_diverse.csv
 ```
 
 **Diversity method, stated because the claim is meaningless without it:**

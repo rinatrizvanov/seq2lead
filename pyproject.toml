@@ -59,6 +59,12 @@ src = ["src", "tests"]
 # claim that the preserved code is the code that executed.
 extend-exclude = ["paper", "scripts/asof"]
 
+[tool.ruff.lint.per-file-ignores]
+# `web/ui.py` is a single embedded HTML/CSS/JS document held in one string. Its
+# lines are markup, not Python, and reflowing them to 100 columns would break
+# the markup to satisfy a Python rule.
+"src/seq2lead/web/ui.py" = ["E501"]
+
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
 

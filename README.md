@@ -105,14 +105,33 @@ print(verdict["passed"], verdict["checks_not_performed"])
 **In v0.2 this works without a database**, from an inference bundle:
 
 ```bash
-seq2lead prioritise --bundle ./seq2lead-bundle --sequence-file target.fasta --top-n 50
+uv run seq2lead prioritise --bundle ./seq2lead-bundle --sequence-file reports/examples/query_target.fasta --top-n 50
+```
+
+Install and bundle download, pinned to the release:
+
+```bash
+git clone --branch v0.2.0 https://github.com/rinatrizvanov/seq2lead.git
+cd seq2lead
+uv sync --all-groups
+curl -LO https://github.com/rinatrizvanov/seq2lead/releases/download/v0.2.0/seq2lead-inference-bundle-v1.tar.gz
+tar -xzf seq2lead-inference-bundle-v1.tar.gz
+mv seq2lead-inference-bundle-v1 seq2lead-bundle
+uv run seq2lead bundle verify --bundle ./seq2lead-bundle
 ```
 
 It needs the bundle (59 MiB of precomputed compound projections and model
 pieces, distributed separately from the source) and the revision-pinned ESM-2
-weights (2.43 GiB, fetched once, never redistributed). Nothing else: no
+weights (2.43 GiB, downloaded once on your first query, never redistributed).
+Nothing else: no
 PostgreSQL, no feature caches, no upload. Full detail, measured costs and the
 optional shortlisting are in [standalone ranking](docs/STANDALONE.md).
+
+A browser interface over the same API, localhost only:
+
+```bash
+uv run seq2lead web --bundle ./seq2lead-bundle
+```
 
 `seq2lead rank`, the original database-backed path, still exists and additionally
 needs a local corpus and the bound feature caches — see the
@@ -171,7 +190,7 @@ subset and names what it skipped — [CI scope](docs/CI_SCOPE.md).
 
 - [Release scope](docs/RELEASE_SCOPE.md) — the three run modes, and what each one establishes.
 - [Reproduction guide](docs/REPRODUCIBILITY.md) — commands and per-check availability.
-- [Standalone ranking](docs/STANDALONE.md) — **v0.2**: rank a bundled library from one sequence, no database.
+- [Standalone ranking](docs/STANDALONE.md) — **v0.2**: rank a bundled library from one sequence, no database, CLI or local browser interface.
 - [Demo guide](docs/DEMO.md) — the database-backed ranking path and evidence modes.
 - [Evaluation](docs/EVALUATION.md) · [Splits](docs/SPLITS.md) · [Features](docs/FEATURES.md) · [Schema](docs/SCHEMA.md) · [Docking](docs/DOCKING.md) — method detail.
 - [Related work](docs/RELATED_WORK.md) — comparison with the nearest prior work, and what is not claimed.

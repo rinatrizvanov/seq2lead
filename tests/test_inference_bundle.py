@@ -331,3 +331,65 @@ def test_the_table_never_calls_results_validated(tmp_path: Path) -> None:
         assert f" {forbidden}" not in text.replace("not a binding probability", "").replace(
             "not a calibrated confidence", ""
         )
+
+
+# ================================================= 5. the encoder load report
+
+
+def test_only_the_known_benign_keys_are_treated_as_benign() -> None:
+    """lm_head and pooler are expected; anything else is a real backbone mismatch.
+
+    The pooler is genuinely randomly initialised, which would matter if the
+    embedding read it. It does not -- the embedding is the mean over
+    last_hidden_state, never pooler_output -- and loading the model under two
+    different torch seeds gives a bit-identical embedding. That is what makes
+    suppressing this particular message honest rather than convenient.
+    """
+    from seq2lead.inference.rank import ProteinEncoder
+
+    assert ProteinEncoder.BENIGN_UNEXPECTED == ("lm_head.",)
+    assert ProteinEncoder.BENIGN_MISSING == ("pooler.",)
+
+
+def test_a_backbone_mismatch_is_reported_not_swallowed(monkeypatch) -> None:
+    """A missing encoder weight must surface; a missing pooler must not."""
+    from seq2lead.inference.rank import ProteinEncoder
+
+    spec = {
+        "model": "x",
+        "model_revision": "y",
+        "pooling": ProteinEncoder.SUPPORTED_POOLING,
+        "dtype": "float32",
+        "length_policy": "full",
+    }
+
+    class _Model:
+        def eval(self):
+            return self
+
+        def to(self, _device):
+            return self
+
+    def fake_model(*_a, **_k):
+        return _Model(), {
+            "missing_keys": ["pooler.dense.weight", "encoder.layer.3.attention.self.query.weight"],
+            "unexpected_keys": ["lm_head.bias"],
+            "mismatched_keys": [],
+        }
+
+    import transformers
+
+    monkeypatch.setattr(transformers.AutoModel, "from_pretrained", staticmethod(fake_model))
+    monkeypatch.setattr(
+        transformers.AutoTokenizer, "from_pretrained", staticmethod(lambda *a, **k: object())
+    )
+
+    encoder = ProteinEncoder(spec, "cpu")
+    warnings = encoder.load()
+    joined = " ".join(warnings)
+    # Assert on the reported KEYS, not the prose: the explanatory text names the
+    # pooler precisely because it is the thing being excluded.
+    assert "encoder.layer.3" in joined, "a genuine backbone mismatch must be reported"
+    assert "pooler.dense.weight" not in joined, "the benign pooler key must not be listed"
+    assert "lm_head.bias" not in joined, "the discarded language-model head must not be listed"
+    assert len(warnings) == 1, f"exactly one warning expected, got {warnings}"
