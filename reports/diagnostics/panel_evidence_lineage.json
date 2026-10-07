@@ -1,0 +1,168 @@
+{
+ "split": "cold_protein-v3 (split_id 10)",
+ "targets": [
+  {
+   "sequence_sha256": "A9754AA0EED81BF0E9E2FD8EF8D35D6F3D58F467B794F3E3B2A3037373E0C7AD",
+   "target_id": 569,
+   "target_partition": null,
+   "by_partition": {
+    "unassigned": {
+     "activity_rows": 353,
+     "pairs": 167
+    },
+    "_pairs_without_any_activity_row": 0
+   },
+   "n_labelled_pairs": 167
+  },
+  {
+   "sequence_sha256": "8BB8E760C142B1A44BA1409375E34DE5C0836B1B5E77EC6FAC96A7A9D07D121F",
+   "target_id": 250,
+   "target_partition": null,
+   "by_partition": {
+    "unassigned": {
+     "activity_rows": 394,
+     "pairs": 166
+    },
+    "_pairs_without_any_activity_row": 0
+   },
+   "n_labelled_pairs": 166
+  },
+  {
+   "sequence_sha256": "075CD160A22E392AD92776143A4AF52ED1C6AC1E68BA82BC253BA8DD9DAEF9C1",
+   "target_id": 326,
+   "target_partition": null,
+   "by_partition": {
+    "unassigned": {
+     "activity_rows": 296,
+     "pairs": 161
+    },
+    "_pairs_without_any_activity_row": 0
+   },
+   "n_labelled_pairs": 161
+  },
+  {
+   "sequence_sha256": "4D0C1AE8D9C6ECF5FFEF01BD5A16F859DAC3AE273225407783296131C695C1FD",
+   "target_id": 619,
+   "target_partition": null,
+   "by_partition": {
+    "unassigned": {
+     "activity_rows": 318,
+     "pairs": 83
+    },
+    "_pairs_without_any_activity_row": 0
+   },
+   "n_labelled_pairs": 83
+  },
+  {
+   "sequence_sha256": "945340616BAFD8D32B4CDB5A4F6A1F13EE9DE829FD7DACCF5F63FC94149D6B34",
+   "target_id": 618,
+   "target_partition": null,
+   "by_partition": {
+    "unassigned": {
+     "activity_rows": 206,
+     "pairs": 81
+    },
+    "_pairs_without_any_activity_row": 0
+   },
+   "n_labelled_pairs": 81
+  },
+  {
+   "sequence_sha256": "0CF62E1CCB94ABD03E5ADAE50CA58B2B43690058C5CC6E176C4650E6C4F083E0",
+   "target_id": 1452,
+   "target_partition": null,
+   "by_partition": {
+    "unassigned": {
+     "activity_rows": 86,
+     "pairs": 74
+    },
+    "_pairs_without_any_activity_row": 0
+   },
+   "n_labelled_pairs": 74
+  },
+  {
+   "sequence_sha256": "B75060695513D21AC502DA540921882C3E99FD716A491E99F6757D7B78B3C62B",
+   "target_id": 550,
+   "target_partition": null,
+   "by_partition": {
+    "unassigned": {
+     "activity_rows": 147,
+     "pairs": 72
+    },
+    "_pairs_without_any_activity_row": 0
+   },
+   "n_labelled_pairs": 72
+  },
+  {
+   "sequence_sha256": "0F79DD8C1EA278EDBE797CA3CCB235DE12E8D482492499A37A977A0692D3E49B",
+   "target_id": 1255,
+   "target_partition": null,
+   "by_partition": {
+    "unassigned": {
+     "activity_rows": 69,
+     "pairs": 69
+    },
+    "_pairs_without_any_activity_row": 0
+   },
+   "n_labelled_pairs": 69
+  },
+  {
+   "sequence_sha256": "0153DBEBB226A1E5B5F70A1CA9ADD9FC132E086045E02EE6797B928C3F08547D",
+   "target_id": 1530,
+   "target_partition": null,
+   "by_partition": {
+    "unassigned": {
+     "activity_rows": 180,
+     "pairs": 68
+    },
+    "_pairs_without_any_activity_row": 0
+   },
+   "n_labelled_pairs": 68
+  },
+  {
+   "sequence_sha256": "8C2B6E1477FF21093D6BDEE1A4482A36B1024AAEBBD4E968C54262742CEFD3E0",
+   "target_id": 577,
+   "target_partition": null,
+   "by_partition": {
+    "unassigned": {
+     "activity_rows": 462,
+     "pairs": 66
+    },
+    "_pairs_without_any_activity_row": 0
+   },
+   "n_labelled_pairs": 66
+  },
+  {
+   "sequence_sha256": "351664067C22D7E6A071E811DDB3B5759E91101E0C46D4454FC61CE4BCA10FA2",
+   "target_id": 263,
+   "target_partition": null,
+   "by_partition": {
+    "unassigned": {
+     "activity_rows": 156,
+     "pairs": 64
+    },
+    "_pairs_without_any_activity_row": 0
+   },
+   "n_labelled_pairs": 64
+  },
+  {
+   "sequence_sha256": "051FC4732E4921492421CDA1544C298561F4D5E41751C6E73886E38ED9280207",
+   "target_id": 139,
+   "target_partition": null,
+   "by_partition": {
+    "unassigned": {
+     "activity_rows": 113,
+     "pairs": 63
+    },
+    "_pairs_without_any_activity_row": 0
+   },
+   "n_labelled_pairs": 63
+  }
+ ],
+ "activity_rows_assigned_in_split": 0,
+ "totals_activity_rows": {
+  "unassigned": 2780
+ },
+ "totals_pairs_touched": {
+  "unassigned": 1134
+ }
+}

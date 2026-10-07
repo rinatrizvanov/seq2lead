@@ -32,14 +32,38 @@ kinds of exposure, reported separately:
 
 | Exposure | Definition | Panel total |
 | --- | --- | --- |
-| **Training-pair** | the (compound, target) pair is in the `train` partition of `cold_protein-v3`, so it was available to fit the weights | **804 of 1,134 pairs (71%)** |
+| **Training-pair** | the (compound, target) pair is in the `train` partition of `cold_protein-v3`, so the pair was available to fit the weights | **804 of 1,134 pairs (71%)** |
 | **Validation-pair** | the pair is in the `validation` partition, so it was available for model selection and early stopping | **0** |
-| **Measurement-evidence** | a curated measurement for the pair exists in the snapshot at all, in any partition | 1,134 of 1,134 |
+| **Evaluation-label existence** | an m11h as-of evaluation label exists for the pair | 1,134 of 1,134 — true by construction, and **not an exposure measure** |
+| **Underlying-evidence consumption** | the specific measurement rows supporting that label were consumed when fitting this checkpoint | **unresolved — see below** |
 
-Measurement evidence exists for every panel pair by construction — they are
-labelled pairs. What distinguishes them is whether that evidence reached the
-fitting process, and the first two rows answer that. No panel pair fell in the
-validation partition, so validation-pair exposure is nil across the panel.
+The third and fourth rows are different things, and an earlier version of this
+report ran them together under one "measurement-evidence" heading. That a label
+exists says nothing about exposure: every panel pair has a label because the
+panel was built from labelled pairs. The question that bears on exposure is
+whether the evidence beneath the label reached the fit.
+
+**That lineage is unresolved, and the reason is structural.** `cold_protein-v3`
+is assigned at **pair** level: `split_pair_assignment` holds 487,562 rows for it,
+and `split_activity_assignment` holds **none**. Activity-level assignment exists
+only for the temporal splits (ids 8, 15, 16), which need it because temporal
+partitioning must precede aggregation. For this split the record therefore shows
+which *pairs* were trainable, not which *measurement rows* were aggregated into
+each trainable pair label. All 2,780 activity rows behind the panel's 1,134 pairs
+come back `unassigned` under this split — an absence of record, not evidence of
+non-use.
+
+A second gap compounds it. The panel's labels come from the **m11h as-of**
+evaluation, built from the 202601/202609 observation snapshots; the split's own
+labels come from endpoint **`ki-pki6-v2`** (KI, pKi ≥ 6.0) over the curated
+snapshot. Whether a given m11h evaluation label rests on the same underlying
+measurements that the m9 pair label aggregated has **not been established**, and
+nothing in the artifacts consulted here resolves it.
+
+What survives this uncertainty: the pair-level fact is recorded and unambiguous —
+804 panel pairs sat in a partition the checkpoint could fit on, and 0 sat in
+validation. The restratification below rests on that pair-level record and on the
+target-level partition, neither of which depends on the unresolved lineage.
 
 `cold_protein-v3` holds out whole protein clusters and is clean at target level:
 of 1,610 train targets and 1,124 test targets, **0 appear in both**. So each
@@ -142,10 +166,14 @@ the result is not an artifact of the particular draw.
 **Confidence-interval procedure.** Percentile bootstrap, 20,000 resamples, seed
 7. **The resampling unit is the target**: each resample draws *n* targets with
 replacement from the *n* panel targets and recomputes the mean Δ; the 2.5th and
-97.5th percentiles are reported. Per-target AUROC is held fixed, so the interval
-captures spread **between** targets and **excludes** the sampling error within
-each target's 63–167 labelled compounds. The true uncertainty is wider than
-stated.
+97.5th percentiles are reported. Per-target AUROC is treated as a fixed quantity,
+so the interval describes dispersion **between** targets and does not separately
+model the sampling error within each target's 63–167 labelled compounds. How the
+reported width compares with an interval that modelled both sources was not
+determined here; a paired scheme that resamples compounds within targets is
+specified in
+[`checkpoint_bound_evaluation_spec.md`](checkpoint_bound_evaluation_spec.md) and
+has not been run.
 
 **Sign test.** Two-sided exact binomial on the number of targets with Δ > 0,
 against the null that Δ is equally likely positive or negative (p = 0.5). The

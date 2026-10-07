@@ -390,6 +390,10 @@
    "category": "other",
    "licence": "MIT"
   },
+  "docs/releases/v0.3.0.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
   "licenses/CC-BY-3.0.txt": {
    "category": "third-party licence text",
    "exception": "verbatim, unmodified Creative Commons legal code. Not project content and not third-party data: it is the licence document itself, shipped because CC BY 3.0 and CC BY-SA 3.0 section 4(a) each require a copy of the licence to accompany every copy of the Work distributed. Creative Commons makes the legal code of its licenses available under CC0 1.0 (creativecommons.org/policies, 'Legal text (we call this legal code) and Commons deeds'), which is the basis for reproducing it here. CC reserves all trademark and branding rights, and a changed licence text may no longer be called a CC licence, so the bytes are reproduced exactly and never edited.",
@@ -492,6 +496,10 @@
    "category": "transformed data / identifiers",
    "licence": "CC-BY-SA-3.0"
   },
+  "reports/diagnostics/checkpoint_bound_evaluation_spec.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
   "reports/diagnostics/labelled_panel.json": {
    "category": "transformed data / identifiers",
    "licence": "CC-BY-SA-3.0"
@@ -503,6 +511,10 @@
   "reports/diagnostics/labelled_panel_selection_rule.md": {
    "category": "prose",
    "licence": "MIT"
+  },
+  "reports/diagnostics/panel_evidence_lineage.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
   },
   "reports/diagnostics/panel_exposure.json": {
    "category": "transformed data / identifiers",

@@ -256,5 +256,13 @@
    0.0729
   ]
  },
- "validation_exposed": null
+ "validation_exposed": null,
+ "exposure_definitions": {
+  "training_pair": "pair in the train partition of cold_protein-v3; available to fit the weights. Measured: 804 of 1134.",
+  "validation_pair": "pair in the validation partition; available for model selection. Measured: 0.",
+  "evaluation_label_exists": "an m11h as-of label exists for the pair. True for 1134 of 1134 by construction, because the panel was built from labelled pairs. This is NOT an exposure measure and must not be read as one.",
+  "underlying_evidence_consumed": "whether the specific measurement rows supporting the label were consumed in fitting this checkpoint. UNRESOLVED. cold_protein-v3 is assigned at pair level only (split_pair_assignment 487562 rows; split_activity_assignment 0 rows for split 10 -- activity-level assignment exists only for temporal splits 8/15/16). All 2780 activity rows behind the panel pairs read as unassigned under this split, which is an absence of record, not evidence of non-use. Separately, the panel labels come from the m11h as-of snapshots while the split labels come from endpoint ki-pki6-v2 over the curated snapshot, and the correspondence between the two has not been established."
+ },
+ "lineage_detail": "reports/diagnostics/panel_evidence_lineage.json",
+ "uncertainty_note": "The reported intervals resample targets. They describe between-target dispersion and do not separately model within-target sampling error. No claim is made about how their width compares with an interval modelling both; a paired scheme is specified in checkpoint_bound_evaluation_spec.md and has not been run."
 }
