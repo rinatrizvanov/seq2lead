@@ -12,12 +12,14 @@ treated as the hard part. The pipeline keeps raw evidence, records which dated
 release every measurement came from, keeps exact and censored measurements apart,
 and refuses to publish a metric whose inputs it cannot re-verify.
 
-**What this is today: a command-line prototype with an auditable benchmark of it.**
-`seq2lead rank` works and is a CLI only — no web interface, no hosted service, no
-API. The benchmark is a historical January → September 2026 BindingDB evaluation
-whose predictions, labels, provenance and verification records are published so the
-reported numbers can be recomputed independently. The benchmark is the
-contribution; the prototype is what it measures.
+**What this is today: a local prototype with an auditable benchmark of it.**
+It runs as a command line and, since v0.2, as a browser interface served from your
+own machine over a localhost-only HTTP API. There is no hosted service, no account,
+no upload and no public endpoint: the server binds to the loopback address and
+refuses anything else. The benchmark is a historical January → September 2026
+BindingDB evaluation whose predictions, labels, provenance and verification records
+are published so the reported numbers can be recomputed independently. The benchmark
+is the contribution; the prototype is what it measures.
 
 Results are **exploratory**. Ki pooling across assay contexts is provisional, the
 prospective confirmatory freeze is unsigned, and no paper has been submitted or
@@ -127,17 +129,89 @@ Nothing else: no
 PostgreSQL, no feature caches, no upload. Full detail, measured costs and the
 optional shortlisting are in [standalone ranking](docs/STANDALONE.md).
 
-A browser interface over the same API, localhost only:
+#### What the bundled library is
+
+The bundle carries one frozen library, `curated-ki-25k-v1`. Its membership rule is
+exact and worth stating before you read a ranking:
+
+> every compound with **at least one exact-relation (`=`) Ki measurement** in the
+> pinned BindingDB source release, **ordered by ascending internal compound id**,
+> **capped at the first 25,000**.
+
+**That is a deterministic prefix, not a representative sample.** 232,721 compounds
+in the curated database satisfy the eligibility condition; the library is the first
+25,000 of them in id order. The id is a surrogate key that roughly tracks when a
+compound entered the database, so the prefix is not random, not stratified, not
+drug-like-filtered and not chosen for diversity or for relevance to your query.
+Re-running the rule reproduces the same 25,000 every time, which is why it is used —
+reproducibility, not representativeness. Membership means only that *somebody*
+measured a Ki for that compound against *some* protein. It says nothing about your
+protein, and nothing about whether the compound is a drug, approved or safe. The
+full accounting is in [standalone ranking](docs/STANDALONE.md#the-bundled-library-what-it-is-and-is-not).
+
+#### Preparing a database is a different job from running inference
+
+These are two separate paths and only the first is needed to rank a sequence:
+
+| | **Standalone inference** (v0.2) | **Database preparation** |
+| --- | --- | --- |
+| Commands | `seq2lead prioritise`, `seq2lead web` | `seq2lead ingest`, `curate`, `endpoint build`, `split build`, `features build` |
+| Needs | the 59 MiB bundle and ESM-2 weights | raw BindingDB archives, PostgreSQL, feature caches, hours of compute |
+| Library | fixed at the bundled 25,000 | whatever you curate |
+| Why you would | rank a sequence | rebuild or extend the benchmark, or change the library |
+
+Standalone inference reads only precomputed compound projections, so RDKit,
+PostgreSQL and the fingerprint caches are not in its path at all. `seq2lead rank`,
+the original database-backed path, still exists and needs the local corpus and the
+bound feature caches — see the [demo guide](docs/DEMO.md). A recorded example output
+is at `reports/examples/rank_demo.txt`.
+
+### The local browser interface
 
 ```bash
 uv run seq2lead web --bundle ./seq2lead-bundle
 ```
 
-`seq2lead rank`, the original database-backed path, still exists and additionally
-needs a local corpus and the bound feature caches — see the
-[demo guide](docs/DEMO.md). A recorded example output is at
-`reports/examples/rank_demo.txt`. Predicted pKi is neither a calibrated
-probability nor proof of binding.
+It serves `http://127.0.0.1:8765` and calls the same inference code as the CLI; the
+tests assert the rows it returns match `seq2lead.inference.rank` exactly. How it
+behaves:
+
+- **The model loads once.** ESM-2 is loaded on the first query and kept in memory
+  for the life of the process, so the first ranking pays the load and later ones do
+  not. `--preload` moves that cost to startup instead. The status line at the top of
+  the page says which state the encoder is in.
+- **Queries run one at a time.** A single worker serializes jobs against the one
+  loaded encoder; a second request queues and the page shows its position. This is a
+  single-user local tool — there is no authentication, no TLS and no rate limiting.
+- **A running query can be cancelled.** Cancellation is cooperative: the job stops
+  at its next checkpoint, returns no partial ranking, and the server and queue stay
+  usable afterwards.
+- **Results export as CSV**, byte-identical to the CSV the CLI writes, including the
+  framing comments. Compound identifiers can be copied as a list, and any single
+  compound's full SMILES can be copied from its detail panel.
+- **The library browser's search is a substring match** over the compound identifier
+  and over the SMILES *text*. It is not a structure, substructure or similarity
+  search: searching `OCCCCC` finds SMILES strings that literally contain those
+  characters, which is not the same as the compounds containing that group.
+
+#### Candidate pool and shortlist are two different numbers
+
+Every compound in the library is always scored. Two separate settings then decide
+what you see, and conflating them is the easiest way to misread a result:
+
+| | What it does |
+| --- | --- |
+| **Candidate pool** (`--top-n`, "Candidate pool" in the browser) | how many of the scored rows are kept and returned, best first |
+| **Shortlist** (property filters, diversity) | a *view* over those kept rows |
+
+**Filters and diversity currently operate within the candidate pool, not over the
+whole library.** Asking for a molecular-weight window with a pool of 50 filters
+those 50 rows; it does not search the other 24,950 compounds for ones that match.
+If you want filtering to range more widely, raise the pool first. Shortlisting never
+re-scores and never re-orders: the unfiltered rank and score stay on every row, and
+removed rows are reported with the reason they were removed.
+
+Predicted pKi is neither a calibrated probability nor proof of binding.
 
 ## Limitations
 

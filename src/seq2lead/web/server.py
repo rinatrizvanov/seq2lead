@@ -20,6 +20,7 @@ from seq2lead.web.api import (
     Session,
     browse,
     bundle_summary,
+    compound_detail,
     depict,
     ranking_csv,
     ranking_payload,
@@ -92,23 +93,32 @@ class _Handler(BaseHTTPRequestHandler):
                 self._json(
                     browse(
                         self.session,
-                        page=int(q.get("page", 1)),
-                        page_size=int(q.get("page_size", 24)),
+                        page=_page_arg(q, "page", 1, low=1, high=10**6),
+                        page_size=_page_arg(q, "page_size", 24, low=1, high=96),
                         query=q.get("q", ""),
-                        min_mw=_number(q.get("min_mw")),
-                        max_mw=_number(q.get("max_mw")),
-                        min_tpsa=_number(q.get("min_tpsa")),
-                        max_tpsa=_number(q.get("max_tpsa")),
+                        **_windows(q),
                     )
                 )
             elif url.path == "/api/depict":
-                svg = depict(self.session, int(q.get("row", 0)))
-                self._send(200, svg.encode("utf-8"), "image/svg+xml")
+                self._send(
+                    200,
+                    depict(
+                        self.session,
+                        _page_arg(q, "row", 0, low=0, high=10**9),
+                        width=_page_arg(q, "w", 260, low=80, high=900),
+                        height=_page_arg(q, "h", 200, low=60, high=900),
+                    ).encode("utf-8"),
+                    "image/svg+xml",
+                )
+            elif url.path == "/api/compound":
+                self._json(
+                    compound_detail(self.session, _page_arg(q, "row", 0, low=0, high=10**9))
+                )
             elif url.path.startswith("/api/job/"):
                 self._job(url.path.rsplit("/", 1)[-1])
             else:
                 self._error(404, f"no such path: {url.path}")
-        except (ValueError, KeyError, IndexError) as exc:
+        except (FilterError, ValueError, KeyError, IndexError) as exc:
             self._error(400, str(exc))
 
     def do_POST(self) -> None:  # noqa: N802
@@ -165,13 +175,65 @@ class _Handler(BaseHTTPRequestHandler):
         self._json(payload)
 
 
-def _number(value: str | None) -> float | None:
-    if value in (None, "", "0"):
+class FilterError(ValueError):
+    """A filter value cannot be used, and saying so beats filtering to nothing."""
+
+
+def _number(value: str | None, name: str) -> float | None:
+    """Parse one filter bound, refusing anything that cannot mean a measurement.
+
+    Silence was the old failure here. `nan`, `inf` and `1e400` all parsed and
+    then matched nothing, so the page came back empty with no indication that the
+    filter, not the library, was the reason; and a typo like `abc` was discarded
+    entirely, so the filter silently did not apply.
+    """
+    import math
+
+    if value in (None, ""):
         return None
     try:
-        return float(value)
-    except (TypeError, ValueError):
-        return None
+        parsed = float(value)
+    except (TypeError, ValueError) as exc:
+        raise FilterError(
+            f"{name}={value!r} is not a number. Leave it empty to disable this bound."
+        ) from exc
+    if not math.isfinite(parsed):
+        raise FilterError(
+            f"{name}={value!r} is not a finite number. A non-finite bound matches "
+            "nothing, which looks like an empty library rather than a bad filter."
+        )
+    if parsed < 0:
+        raise FilterError(f"{name}={value!r} is negative; molecular weight and TPSA are not.")
+    return parsed
+
+
+def _windows(q: dict[str, str]) -> dict[str, float | None]:
+    """Parse all four bounds and check each window is the right way round."""
+    values = {
+        name: _number(q.get(name), name) for name in ("min_mw", "max_mw", "min_tpsa", "max_tpsa")
+    }
+    for low, high, label in (
+        ("min_mw", "max_mw", "molecular weight"),
+        ("min_tpsa", "max_tpsa", "TPSA"),
+    ):
+        lo, hi = values[low], values[high]
+        if lo is not None and hi is not None and lo > hi:
+            raise FilterError(
+                f"the {label} window is inverted: {low}={lo:g} is above {high}={hi:g}, "
+                "so nothing can satisfy it. Swap them."
+            )
+    return values
+
+
+def _page_arg(q: dict[str, str], name: str, default: int, *, low: int, high: int) -> int:
+    raw = q.get(name, str(default))
+    try:
+        value = int(raw)
+    except (TypeError, ValueError) as exc:
+        raise FilterError(f"{name}={raw!r} is not a whole number") from exc
+    if not low <= value <= high:
+        raise FilterError(f"{name}={value} is outside the allowed range {low}-{high}")
+    return value
 
 
 def serve(

@@ -1,6 +1,6 @@
 [project]
 name = "seq2lead"
-version = "0.1.0"
+version = "0.3.0"
 description = "Sequence-to-lead ranking over a reproducible bioactivity database with a leakage-controlled benchmark."
 readme = "README.md"
 requires-python = ">=3.11,<3.12"

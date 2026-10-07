@@ -6,3 +6,11 @@ authors:
   - family-names: Rizvanov
     given-names: Rinat
     affiliation: "Boston University, Boston, MA, USA"
+repository-code: "https://github.com/rinatrizvanov/seq2lead"
+license: MIT
+license-url: "https://github.com/rinatrizvanov/seq2lead/blob/main/LICENSE"
+version: "0.3.0"
+abstract: "Ranks a frozen compound library against one protein sequence, with a
+  leakage-controlled historical BindingDB benchmark whose predictions, labels and
+  verification records are published. The MIT licence covers the project code only;
+  shipped data derived from BindingDB carries its own terms in DATA_LICENSE."

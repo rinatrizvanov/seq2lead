@@ -308,13 +308,28 @@ result.
 
 - **Rank a sequence** — paste a sequence or a single FASTA record, or choose a
   `.fasta` file, which is read in the browser rather than uploaded as multipart.
-  Configurable top-N. Results show the structure, the predicted pKi, ties and any
-  warnings, with the same wording as the CLI.
-- **Browse the library** — paginated, 24 compounds a page with depictions, search
-  by identifier or SMILES substring, and the same optional molecular-weight and
-  TPSA windows. Depictions are drawn once per compound and cached.
-- **Export CSV** — byte-for-byte the file `--out-csv` writes, produced by the same
-  function, caveat preamble included.
+  The candidate pool is configurable. Results show the structure, the predicted
+  pKi, ties and any warnings, with the same wording as the CLI.
+- **See the whole score distribution** — every ranking opens with a histogram of
+  all 25,000 scores for that query, with the band the kept rows occupy marked, plus
+  the quartiles and standard deviation. A predicted pKi is close to meaningless
+  without the spread it came out of: measured spreads are narrow, and medians sit
+  near 6.4 for every query in the diagnostic panel
+  (`reports/diagnostics/QUERY_DIAGNOSTICS.md`).
+- **Inspect one compound** — selecting any row or tile opens a detail panel with a
+  large depiction, the full SMILES with a copy button, and computed properties:
+  formula, molecular weight, cLogP, TPSA, hydrogen-bond donors and acceptors,
+  rotatable bonds, rings, heavy atoms and stereocentres. These are computed from
+  the structure with RDKit, not predicted, and none of them took part in ranking —
+  the model saw only the ECFP4 fingerprint.
+- **Browse the library** — paginated, 24 compounds a page with depictions and
+  molecular weight, **substring** search over the compound identifier and the SMILES
+  text (not a structure or similarity search), and the same optional
+  molecular-weight and TPSA windows. Depictions are drawn once per compound and
+  cached per bundle.
+- **Export** — CSV byte-for-byte the file `--out-csv` writes, produced by the same
+  function, caveat preamble included; and the shortlisted identifiers as a plain
+  list for pasting elsewhere.
 - **Progress and cancellation** — each ranking is a job with a phase, a progress
   bar and a Cancel button. Cancellation is cooperative: the worker checks between
   phases, so a cancel during embedding takes effect when that phase ends rather
@@ -329,8 +344,18 @@ result.
   contend for the same encoder and the same accelerator, making both slower and
   the reported timings meaningless.
 - **Shortlisting is a view, exactly as on the CLI.** The unfiltered ranking is
-  always returned in full; removed rows are dimmed and listed underneath with
-  their original rank, score and the reason.
+  always returned in full; a removed row keeps its original rank and score and is
+  marked in place with the reason it was removed. Filters and diversity act on the
+  candidate pool that was kept, not on the whole library — with a pool of 50, a
+  weight window filters those 50 rows rather than searching the other 24,950.
+- **Bad input is refused with a reason.** A non-finite or unparseable bound, a
+  negative one, an inverted window, an out-of-range page or a row outside the
+  library each return 400 with a specific message instead of an empty-looking
+  result. The browser shows that message next to the control that caused it.
+- **Accessible by keyboard.** Every control is reachable by Tab with a visible
+  focus ring, arrow keys move between ranked rows, Enter opens the detail panel,
+  and closing it returns focus to the row it came from. Contrast is at least
+  4.5:1 in both the light and dark colour schemes.
 - **No external resources.** The page is served inline and the
   Content-Security-Policy allows nothing off-origin, so it works with no network
   beyond the first ESM-2 download.

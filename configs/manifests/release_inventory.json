@@ -15,13 +15,13 @@
   "other": 4,
   "prediction": 1,
   "prose": 49,
-  "source data (structures/sequences)": 4,
+  "source data (structures/sequences)": 6,
   "third-party licence text": 2,
-  "transformed data / identifiers": 73
+  "transformed data / identifiers": 75
  },
  "by_licence": {
   "CC-BY-3.0": 3,
-  "CC-BY-SA-3.0": 16,
+  "CC-BY-SA-3.0": 20,
   "CC0-1.0": 2,
   "MIT": 343
  },
@@ -43,18 +43,18 @@
    "sha256": "3d0486c9a1ee009c2458c9fd3d571b7c73dad795f42acf25d8e8778a0deaa8fa"
   },
   {
-   "bytes": 5155,
+   "bytes": 5345,
    "category": "code",
    "licence": "MIT",
    "path": ".gitignore",
-   "sha256": "93a8837b9a6dfe30456f55fce39e887c979fcdab38cef35e420726098d43aec9"
+   "sha256": "440ede702dc60dae47b11bd99a5c200f3c6dd21be78f893ad9f841a49e25592c"
   },
   {
-   "bytes": 360,
+   "bytes": 850,
    "category": "prose",
    "licence": "MIT",
    "path": "CITATION.cff",
-   "sha256": "b98afa08687693c39c6e0de12bb1db1e3742fa6ac1e6278438dea275f43677c6"
+   "sha256": "cfffc3b26840ce82ef650d14fe011fab53ac29ff5ad6ea2c09267f29c18aadf4"
   },
   {
    "bytes": 14325,
@@ -71,11 +71,11 @@
    "sha256": "0d0287eb83193cf1e00b23cd534df8656f8d681f37fd360d835e58e77358c957"
   },
   {
-   "bytes": 11455,
+   "bytes": 15995,
    "category": "prose",
    "licence": "MIT",
    "path": "README.md",
-   "sha256": "1a701f54c6935495af2432c911a2b5e01862fa08b551418af8016e0977c0ff5d"
+   "sha256": "4a56520560076f6f5ccdb2cc8fae148d5f8d218956fe1e916c531e604a2279db"
   },
   {
    "bytes": 3155,
@@ -660,11 +660,11 @@
    "sha256": "4ecac749f261ab33f41b897c535467d9dfa56f96b8a6a8c0189cf42be78ce3c4"
   },
   {
-   "bytes": 21204,
+   "bytes": 23080,
    "category": "prose",
    "licence": "MIT",
    "path": "docs/STANDALONE.md",
-   "sha256": "00a2942eb5d5ffdc37a4ce8cac3366989c38ce81c9bf64fb1ca7c74187af28c8"
+   "sha256": "abb632097713641230530a11c2cad0fa439620a08901b0a03556f455118b0329"
   },
   {
    "bytes": 1691,
@@ -841,7 +841,7 @@
    "category": "code",
    "licence": "MIT",
    "path": "pyproject.toml",
-   "sha256": "1b212b668c35837c879c5a2e730a157fe3f97b202594ef4864341acd61d95e91"
+   "sha256": "0ef6654f549339708f6935767dbec56bcebad9c099df3addc1365f9694efcbdc"
   },
   {
    "bytes": 0,
@@ -863,6 +863,34 @@
    "licence": "MIT",
    "path": "reports/curation.md",
    "sha256": "ca205e98678726a9e9054acafa25c12676d17d5b735fc4ff5c9b04245df622e7"
+  },
+  {
+   "bytes": 9255,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "reports/diagnostics/QUERY_DIAGNOSTICS.md",
+   "sha256": "488e4ecf32e9471457b587439f2549ffffc0617ed3a314db67dbec6e6028827f"
+  },
+  {
+   "bytes": 1692,
+   "category": "source data (structures/sequences)",
+   "licence": "CC-BY-SA-3.0",
+   "path": "reports/diagnostics/projection_repeats.json",
+   "sha256": "4968e118ed0854a192c8b12dab481e06903854cca69cb942445e2c1a53fc92ef"
+  },
+  {
+   "bytes": 4702,
+   "category": "source data (structures/sequences)",
+   "licence": "CC-BY-SA-3.0",
+   "path": "reports/diagnostics/projection_repeats.md",
+   "sha256": "39ae1bd755573a280faa1f94a57bc8044384633b32c5cc0a12a5549359ca829f"
+  },
+  {
+   "bytes": 11816,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "reports/diagnostics/query_panel.json",
+   "sha256": "268c2d799a6ca5403d9f1dd8f5d72bee394b73ffa24ce5e24883e80c9c4e93f8"
   },
   {
    "bytes": 11959,
@@ -1373,7 +1401,7 @@
    "category": "code",
    "licence": "MIT",
    "path": "src/seq2lead/__init__.py",
-   "sha256": "20c1097532a3d5179fb4f4bbfe63df3e406c8a50cae1e45a570ff5c1b2b78c31"
+   "sha256": "e5bb9ef912d25c691e6bd25d5e597a1ab872499b005146ae3d2b6d3ae8c6d787"
   },
   {
    "bytes": 609,
@@ -1894,11 +1922,11 @@
    "sha256": "9dda2b0733b3d2e20a162f3c79e6213afe3d6e4b85d31dd49016b4f864337a39"
   },
   {
-   "bytes": 12002,
+   "bytes": 13073,
    "category": "code",
    "licence": "MIT",
    "path": "src/seq2lead/inference/rank.py",
-   "sha256": "696ba429eb89ba39fb64876c864fbb58b18eb3037cd1e24c797b6ee926b1a544"
+   "sha256": "946ea2ae2b8ba5228f80a4d5c339d20acdb9f1292c76a3f22137d5783c43f7ae"
   },
   {
    "bytes": 5285,
@@ -1908,11 +1936,11 @@
    "sha256": "be2a771368534728c7993b04a14a3ab2523fcdaf0273c5a3a25a9c228d494f96"
   },
   {
-   "bytes": 5391,
+   "bytes": 6869,
    "category": "code",
    "licence": "MIT",
    "path": "src/seq2lead/inference/sequence.py",
-   "sha256": "4c3a9c230ce37dc8387944045d39dc3f44559866a2ccf21e9d98a404a19e1b54"
+   "sha256": "8c7c350f75d4c81ba72579127a5d431c60ed2f884aed500ca57ac9fe15a2636d"
   },
   {
    "bytes": 8798,
@@ -2167,11 +2195,11 @@
    "sha256": "08afd98e1eac495ef686c3a7c497f683820aae86e1e707b942ce35a8479352cc"
   },
   {
-   "bytes": 9705,
+   "bytes": 14262,
    "category": "code",
    "licence": "MIT",
    "path": "src/seq2lead/web/api.py",
-   "sha256": "035cdef3e02d47c1b8fc0ce3b9ad3955c2e7d5c74948c8ecbd01ff8605ccf977"
+   "sha256": "612ce033a8faf39b77e2568ddd73b6aa49af776b05edf61ae1f7cd1bc0de1e0b"
   },
   {
    "bytes": 4888,
@@ -2181,18 +2209,18 @@
    "sha256": "1be447b05601a9606a707c09ca50a3f60a1da9a18652d13264cd62fd55643441"
   },
   {
-   "bytes": 8019,
+   "bytes": 10499,
    "category": "code",
    "licence": "MIT",
    "path": "src/seq2lead/web/server.py",
-   "sha256": "c3ec40a461a1aca470e7339d16b4f70d0d5b0025fbf7cab5c990d64fc6e89dbf"
+   "sha256": "9443da832de9f6289966c4a7472409ac737d7eef43e4415acfcf1111ae28d72e"
   },
   {
-   "bytes": 15296,
+   "bytes": 39920,
    "category": "code",
    "licence": "MIT",
    "path": "src/seq2lead/web/ui.py",
-   "sha256": "cc9dc216711e9896c2291563f44590f58dbd0b2b5a7c7abbb62d704a01dbc148"
+   "sha256": "1cae3cd2a9e042eb9634886c20696e107d5cf5533743a2544897af7d779a7f4f"
   },
   {
    "bytes": 4195,
@@ -2321,11 +2349,11 @@
    "sha256": "d36e0320924640fcd26e056c2c5e08cb221edb3620bd1ba3219b3c86118719ca"
   },
   {
-   "bytes": 14584,
+   "bytes": 16017,
    "category": "code",
    "licence": "MIT",
    "path": "tests/test_inference_bundle.py",
-   "sha256": "311a7c7a6f67d91828ecf1476e28893fe696b328f7823dfaba7f50284ed9cf0f"
+   "sha256": "ed1e8b002cf1d0fa8aebf705f18f87e7bee34ed6b2e5cf253c125498f3c93271"
   },
   {
    "bytes": 19338,
@@ -2566,22 +2594,22 @@
    "sha256": "8210b064a7ad546672de0d43f92b708ab61c598a4acef00bf469728eb5138ba2"
   },
   {
-   "bytes": 9397,
+   "bytes": 19236,
    "category": "code",
    "licence": "MIT",
    "path": "tests/test_web_interface.py",
-   "sha256": "8a92833d1d233b5f1f3de53a344ae24017473544d6b430173c75366f48d7b4a0"
+   "sha256": "77d71aca2894a9a7d94e88cdd929b7a93aeeb82e57ea4c4f2263fe7180551914"
   },
   {
    "bytes": 91653,
    "category": "code",
    "licence": "MIT",
    "path": "uv.lock",
-   "sha256": "9968e1302733399b00670fcba47f1e1749c90093b28aac6e46fb70b2af77f908"
+   "sha256": "06e501e4cba46edfbe6c06ced7fbfaedacf115812699b676ce667b9f3dbf0050"
   }
  ],
- "files": 364,
- "generated_after_commit": "c490c2b5eba87a9fccd19305d5e4925d6e055927",
+ "files": 368,
+ "generated_after_commit": "1a622559c8fa61f9c0ed39859977eaffc732c79d",
  "generated_by": "scripts/release/build_inventory.py",
  "inventory": "seq2lead-complete-release-inventory-v2",
  "licence_basis": {
@@ -2602,15 +2630,15 @@
  "provenance_method": "row-level Curation/DataSource from the preserved raw payloads; 202609 for B-side entities and the isolated seq2lead_m11c_202601 schema for A-only entities",
  "reconciliation": {
   "accounts_for_every_tracked_file": true,
-  "entries": 364,
-  "licence_labels_sum": 364,
+  "entries": 368,
+  "licence_labels_sum": 368,
   "self_excluded": [
    "configs/manifests/release_classification.json",
    "configs/manifests/release_inventory.json"
   ],
-  "tracked_at_head": 366
+  "tracked_at_head": 370
  },
- "recorded_at": "2026-10-07T13:23:48.748492+00:00",
+ "recorded_at": "2026-10-07T15:51:42.826556+00:00",
  "release_option": "A - complete benchmark, pending owner approval. Repository remains PRIVATE.",
  "scientific_bytes_preserved": true,
  "self_excluded": {
@@ -2620,5 +2648,5 @@
   ],
   "why": "Neither file can record its own digest: writing the digest changes the bytes being described. Verify both by the commit they are attached to."
  },
- "total_bytes": 36759141
+ "total_bytes": 36839184
 }

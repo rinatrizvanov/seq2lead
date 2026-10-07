@@ -20,8 +20,24 @@ if TYPE_CHECKING:
     from seq2lead.inference.bundle import InferenceBundle
     from seq2lead.web.jobs import Job
 
-#: Depictions are expensive to draw and never change, so each row is drawn once.
-_DEPICTION_CACHE: dict[int, str] = {}
+#: Depictions are expensive to draw and never change for a given compound, so
+#: each is drawn once. Keyed by (bundle identity, row): keying on the row alone
+#: would serve one bundle's structure for another bundle's compound, because row
+#: 0 means a different molecule in every library.
+# Keyed by bundle identity, row AND size. Dropping the size from the key meant
+# whichever size was drawn first was served for every later size, so the detail
+# panel's large depiction came back at thumbnail resolution.
+_DEPICTION_CACHE: dict[tuple[str, int, int, int], str] = {}
+
+#: Descriptors are pure functions of a SMILES string, and the filtered library
+#: browser asked for them again on every page. Cached by SMILES, so a second page
+#: of the same filter costs nothing rather than recomputing all 25,000.
+_DESCRIPTOR_CACHE: dict[str, dict[str, float] | None] = {}
+
+# The detail panel shows more than the two descriptors the filters use. Keeping
+# it in its own cache leaves `properties()` — and therefore the filter
+# semantics shared with the CLI — untouched.
+_DETAIL_CACHE: dict[str, dict[str, Any] | None] = {}
 
 
 @dataclass
@@ -34,6 +50,20 @@ class Session:
     @classmethod
     def open(cls, bundle: InferenceBundle, device: str | None = None) -> Session:
         return cls(bundle=bundle, encoder=ProteinEncoder(bundle.protein_spec, device))
+
+    @property
+    def identity(self) -> str:
+        """What distinguishes this bundle's rows from another bundle's.
+
+        The library member digest if the bundle records one, else the projection
+        file's digest, which changes whenever the compounds do.
+        """
+        library = self.bundle.manifest.get("library", {})
+        recorded = library.get("member_sha256")
+        if recorded:
+            return str(recorded)
+        files = self.bundle.manifest.get("files", {})
+        return str(files.get("library/projections.npy", {}).get("sha256", "unknown"))
 
 
 def bundle_summary(session: Session) -> dict[str, Any]:
@@ -50,10 +80,71 @@ def bundle_summary(session: Session) -> dict[str, Any]:
     }
 
 
-def depict(session: Session, row: int, width: int = 190, height: int = 150) -> str:
+def descriptors(smiles: str) -> dict[str, float] | None:
+    """Molecular weight and TPSA for one SMILES, computed at most once."""
+    if smiles not in _DESCRIPTOR_CACHE:
+        from seq2lead.inference.shortlist import properties
+
+        _DESCRIPTOR_CACHE[smiles] = properties(smiles)
+    return _DESCRIPTOR_CACHE[smiles]
+
+
+def detail_descriptors(smiles: str) -> dict[str, Any] | None:
+    """Standard medicinal-chemistry readouts for one compound, computed once.
+
+    These describe the molecule as drawn. None is predicted, and none took part
+    in ranking: the model sees only the ECFP4 fingerprint.
+    """
+    if smiles in _DETAIL_CACHE:
+        return _DETAIL_CACHE[smiles]
+    try:
+        from rdkit import Chem, RDLogger
+        from rdkit.Chem import Crippen, Descriptors, rdMolDescriptors
+
+        RDLogger.DisableLog("rdApp.*")
+        mol = Chem.MolFromSmiles(smiles)
+        if mol is None:
+            raise ValueError("unparseable")
+        out: dict[str, Any] = {
+            "formula": rdMolDescriptors.CalcMolFormula(mol),
+            "molecular_weight": round(float(Descriptors.MolWt(mol)), 2),
+            "clogp": round(float(Crippen.MolLogP(mol)), 2),
+            "tpsa": round(float(Descriptors.TPSA(mol)), 1),
+            "h_bond_donors": int(rdMolDescriptors.CalcNumHBD(mol)),
+            "h_bond_acceptors": int(rdMolDescriptors.CalcNumHBA(mol)),
+            "rotatable_bonds": int(rdMolDescriptors.CalcNumRotatableBonds(mol)),
+            "rings": int(rdMolDescriptors.CalcNumRings(mol)),
+            "aromatic_rings": int(rdMolDescriptors.CalcNumAromaticRings(mol)),
+            "heavy_atoms": int(mol.GetNumHeavyAtoms()),
+            "stereocentres": len(Chem.FindMolChiralCenters(mol, includeUnassigned=True)),
+        }
+    except Exception:
+        out = None
+    _DETAIL_CACHE[smiles] = out
+    return out
+
+
+def compound_detail(session: Session, row: int) -> dict[str, Any]:
+    """Everything the detail panel shows for one library member."""
+    if not 0 <= row < session.bundle.n_compounds:
+        raise IndexError(f"row {row} is outside this library's 0-{session.bundle.n_compounds - 1}")
+    smiles = session.bundle.smiles[row]
+    return {
+        "row": row,
+        "compound_id": session.bundle.compound_ids[row],
+        "smiles": smiles,
+        "descriptors": detail_descriptors(smiles),
+        "library": session.bundle.library.get("name", "unknown"),
+    }
+
+
+def depict(session: Session, row: int, width: int = 260, height: int = 200) -> str:
     """An SVG depiction of one library compound, or a readable placeholder."""
-    if row in _DEPICTION_CACHE:
-        return _DEPICTION_CACHE[row]
+    key = (session.identity, row, width, height)
+    if key in _DEPICTION_CACHE:
+        return _DEPICTION_CACHE[key]
+    if not 0 <= row < session.bundle.n_compounds:
+        raise IndexError(f"row {row} is outside this library's 0-{session.bundle.n_compounds - 1}")
     smiles = session.bundle.smiles[row]
     try:
         from rdkit import Chem, RDLogger
@@ -74,7 +165,7 @@ def depict(session: Session, row: int, width: int = 190, height: int = 150) -> s
             f"<text x='50%' y='50%' text-anchor='middle' font-size='11' fill='#999'>"
             f"no depiction</text></svg>"
         )
-    _DEPICTION_CACHE[row] = svg
+    _DEPICTION_CACHE[key] = svg
     return svg
 
 
@@ -99,11 +190,9 @@ def browse(
 
     filtered_out = 0
     if any(v is not None for v in (min_mw, max_mw, min_tpsa, max_tpsa)):
-        from seq2lead.inference.shortlist import properties
-
         kept = []
         for i in rows:
-            props = properties(smiles[i])
+            props = descriptors(smiles[i])
             if props is None:
                 filtered_out += 1
                 continue
@@ -129,7 +218,18 @@ def browse(
         "total": total,
         "library_total": len(ids),
         "filtered_out": filtered_out,
-        "rows": [{"row": i, "compound_id": ids[i], "smiles": smiles[i]} for i in window],
+        # Descriptors for the 24 rows actually shown, from the shared cache: the
+        # browser displays them per tile, and recomputing a page is free once the
+        # cache is warm.
+        "rows": [
+            {
+                "row": i,
+                "compound_id": ids[i],
+                "smiles": smiles[i],
+                "properties": descriptors(smiles[i]),
+            }
+            for i in window
+        ],
     }
 
 
@@ -226,6 +326,7 @@ def ranking_payload(outcome: dict[str, Any], session: Session) -> dict[str, Any]
         "device": result.device,
         "notes": result.notes,
         "warnings": result.warnings,
+        "distribution": result.distribution,
         "rows": rows,
         "shortlist": None,
     }
@@ -267,7 +368,9 @@ __all__ = [
     "Session",
     "browse",
     "bundle_summary",
+    "compound_detail",
     "depict",
+    "detail_descriptors",
     "ranking_csv",
     "ranking_payload",
     "run_ranking",

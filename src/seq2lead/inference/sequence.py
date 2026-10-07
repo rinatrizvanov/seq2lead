@@ -29,16 +29,27 @@ class Query:
 
 
 def parse_fasta(text: str, source: str) -> Query:
-    """One record only. Two or more is an error, not a choice made for the caller."""
+    """One record only. Two or more is an error, not a choice made for the caller.
+
+    Tolerates the preamble forms a real file arrives with -- a byte-order mark, a
+    legacy ``;`` comment block, CRLF endings, blank lines inside the sequence --
+    because silently treating any of them as residues corrupts the query. An
+    earlier version did exactly that: a ``;`` comment became sequence data, and a
+    BOM hid the ``>`` so the whole file was read as one bare sequence.
+    """
     if not text.strip():
         raise SequenceError(f"{source} is empty")
 
+    text = text.lstrip("\ufeff")  # a BOM before ">" would hide the header
+
     records: list[tuple[str, list[str]]] = []
     bare: list[str] = []
-    for line in text.splitlines():
-        stripped = line.strip()
+    for raw in text.splitlines():
+        stripped = raw.strip().lstrip("\ufeff")
         if not stripped:
             continue
+        if stripped.startswith(";"):
+            continue  # legacy FASTA comment; never sequence data
         if stripped.startswith(">"):
             records.append((stripped[1:].strip(), []))
             continue
@@ -91,6 +102,22 @@ def validate(
     if not cleaned:
         raise SequenceError("sequence is empty after stripping whitespace")
 
+    # A trailing stop codon is a translation artefact, not a residue. Dropped with
+    # a note rather than refused, because the intent is unambiguous.
+    stop_removed = False
+    while cleaned.endswith("*"):
+        cleaned, stop_removed = cleaned[:-1], True
+
+    # Numbered or aligned output pasted from a viewer arrives with position
+    # numbers embedded. Saying so beats listing the stray digits as "not amino
+    # acid codes", which is true but unhelpful.
+    if any(c.isdigit() for c in cleaned):
+        raise SequenceError(
+            "the sequence contains digits, which usually means it was copied from "
+            "a numbered or aligned view (for example '   1 MKVL AAAA'). Remove the "
+            "position numbers and supply plain one-letter residues."
+        )
+
     if cleaned.startswith(("ATG", "AUG")) and set(cleaned) <= set("ACGTU"):
         raise SequenceError(
             "this looks like a nucleotide sequence: it uses only A, C, G, T/U. "
@@ -117,6 +144,8 @@ def validate(
         )
 
     notes: list[str] = []
+    if stop_removed:
+        notes.append("a trailing stop codon (*) was removed before embedding")
     if len(cleaned) > training_window:
         notes.append(
             f"sequence is {len(cleaned):,} residues, past the {training_window:,}-residue "

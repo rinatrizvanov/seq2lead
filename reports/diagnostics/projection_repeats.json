@@ -1,0 +1,64 @@
+{
+ "projection_rows": 25000,
+ "projection_dim": 512,
+ "distinct_projection_vectors": 24702,
+ "groups_with_more_than_one_member": 218,
+ "compounds_in_repeated_groups": 516,
+ "largest_group_sizes": [
+  16,
+  7,
+  6,
+  6,
+  5,
+  5,
+  5,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  3,
+  3,
+  3,
+  3
+ ],
+ "named_compounds": [
+  "1382339",
+  "1382341",
+  "1382343",
+  "1382347",
+  "1382349",
+  "1382356"
+ ],
+ "named_share_one_projection": true,
+ "named_distinct_fingerprints": 1,
+ "named_fingerprint_bitcounts": [
+  78,
+  78,
+  78,
+  78,
+  78,
+  78
+ ],
+ "named_smiles": {
+  "1382339": "COc1ccc2c(c1)OCCCCCCCCCCN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]3OCC[C@H]31)S2(=O)=O",
+  "1382341": "COc1ccc2c(c1)OCCCCCCCCCN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]3OCC[C@H]31)S2(=O)=O",
+  "1382343": "COc1ccc2c(c1)OCCCCCCCCN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]3OCC[C@H]31)S2(=O)=O",
+  "1382347": "COc1ccc2c(c1)OCCCCCCN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]3OCC[C@H]31)S2(=O)=O",
+  "1382349": "COc1ccc2c(c1)OCCCCCN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]3OCC[C@H]31)S2(=O)=O",
+  "1382356": "COc1ccc2c(c1)OCCCCCCCN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]3OCC[C@H]31)S2(=O)=O"
+ },
+ "verdict": "identical fingerprints -> the repetition is upstream of the tower",
+ "all_groups": {
+  "repeated_projection_groups": 218,
+  "groups_with_identical_fingerprints": 218,
+  "groups_with_differing_fingerprints": 0,
+  "duplicate_fingerprint_groups": 218,
+  "duplicate_fingerprints_with_differing_outputs": 0,
+  "conclusion": "every repeated projection traces to an identical ECFP4 fingerprint; the learned tower is a deterministic function and collapses nothing extra"
+ }
+}

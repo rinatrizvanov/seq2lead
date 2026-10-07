@@ -205,6 +205,41 @@ def test_past_the_training_window_is_a_note_not_a_refusal() -> None:
     assert any("pre-training window" in n for n in notes)
 
 
+def test_a_legacy_semicolon_comment_is_not_read_as_sequence() -> None:
+    """The comment used to be concatenated onto the residues and embedded."""
+    q = parse_fasta("; legacy comment\n>sp|P1 thing\nMKVLAAAA\n", "x.fasta")
+    assert q.sequence == "MKVLAAAA"
+    assert ";" not in q.sequence
+    assert q.header.startswith("sp|P1")
+
+
+def test_a_byte_order_mark_does_not_hide_the_header() -> None:
+    """With the BOM in front of '>', the whole file was read as one bare sequence."""
+    q = parse_fasta("\ufeff>sp|P1 thing\nMKVLAAAA\n", "x.fasta")
+    assert q.header.startswith("sp|P1")
+    assert q.sequence == "MKVLAAAA"
+    assert "\ufeff" not in q.sequence
+
+
+def test_a_byte_order_mark_on_a_bare_sequence_is_stripped() -> None:
+    q = parse_fasta("\ufeffMKVLAAAA\n", "pasted")
+    assert q.sequence == "MKVLAAAA"
+
+
+def test_a_trailing_stop_codon_is_removed_and_reported() -> None:
+    q = parse_fasta("MKVLAAAA" + "A" * 20 + "*", "pasted")
+    cleaned, notes = validate(q, training_window=1022, max_length=40000)
+    assert not cleaned.endswith("*")
+    assert any("stop codon" in n for n in notes)
+
+
+def test_digits_in_a_sequence_name_the_likely_cause() -> None:
+    """A numbered alignment view pasted straight in is the common case."""
+    q = parse_fasta("1 MKVLAAAA" + "A" * 20, "pasted")
+    with pytest.raises(SequenceError, match="numbered or aligned"):
+        validate(q, training_window=1022, max_length=40000)
+
+
 def test_ambiguous_codes_are_flagged() -> None:
     q = parse_fasta("MKVLAAXXBZ" + "A" * 20, "pasted")
     _, notes = validate(q, training_window=1022, max_length=40000)

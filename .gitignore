@@ -42,6 +42,7 @@ data/predictions_m9/
 !data/
 !reports/
 !data/asof/
+!reports/diagnostics/
 !reports/examples/
 !reports/probes/
 !reports/results/
@@ -96,6 +97,10 @@ data/predictions_m9/
 !data/asof/m11h/run-20261005T134842Z/verification.json
 !data/asof/readiness-stats.json
 !reports/.gitkeep
+!reports/diagnostics/QUERY_DIAGNOSTICS.md
+!reports/diagnostics/projection_repeats.json
+!reports/diagnostics/projection_repeats.md
+!reports/diagnostics/query_panel.json
 !reports/examples/query_target.fasta
 !reports/examples/rank_demo.txt
 !reports/probes/chirality_impact.json

@@ -488,6 +488,22 @@
    "category": "prose",
    "licence": "MIT"
   },
+  "reports/diagnostics/QUERY_DIAGNOSTICS.md": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "reports/diagnostics/projection_repeats.json": {
+   "category": "source data (structures/sequences)",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "reports/diagnostics/projection_repeats.md": {
+   "category": "source data (structures/sequences)",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "reports/diagnostics/query_panel.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
   "reports/docking.md": {
    "category": "prose",
    "licence": "MIT"

@@ -66,6 +66,11 @@ class Ranking:
     notes: list[str] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
     shortlist: dict[str, Any] = field(default_factory=dict)
+    # Summary of the scores for the *whole* library, not just the rows kept. A
+    # single pKi means little without the spread it came out of, and the top-N
+    # rows cannot show that spread. Descriptive only: no score or rank is
+    # derived from it.
+    distribution: dict[str, Any] = field(default_factory=dict)
 
 
 class ProteinEncoder:
@@ -275,6 +280,7 @@ def rank(
                 flags=list(flags_by_row.get(row, ())),
             )
         )
+    result.distribution = _distribution(scores)
     result.warnings.extend(encoder_warnings)
     tied = sum(1 for r in result.rows if r.tied_with)
     if tied:
@@ -284,6 +290,24 @@ def rank(
             "library row, which carries no information about preference."
         )
     return result
+
+
+def _distribution(scores: np.ndarray, bins: int = 48) -> dict[str, Any]:
+    """Where the kept rows sit among every score the query produced."""
+    counts, edges = np.histogram(scores, bins=bins)
+    p25, median, p75 = (float(v) for v in np.percentile(scores, (25, 50, 75)))
+    return {
+        "bins": [int(c) for c in counts],
+        "edges": [round(float(e), 4) for e in edges],
+        "n": int(scores.size),
+        "min": round(float(scores.min()), 4),
+        "p25": round(p25, 4),
+        "median": round(median, 4),
+        "p75": round(p75, 4),
+        "max": round(float(scores.max()), 4),
+        "mean": round(float(scores.mean()), 4),
+        "sd": round(float(scores.std()), 4),
+    }
 
 
 def _flags(bundle: InferenceBundle) -> dict[int, list[str]]:
