@@ -366,6 +366,10 @@
    "category": "prose",
    "licence": "MIT"
   },
+  "docs/STANDALONE.md": {
+   "category": "prose",
+   "licence": "MIT"
+  },
   "docs/archive/ARCHIVE_POLICY.md": {
    "category": "prose",
    "licence": "MIT"
@@ -1056,6 +1060,34 @@
    "category": "code",
    "licence": "MIT"
   },
+  "src/seq2lead/inference/__init__.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/inference/bundle.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/inference/export.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/inference/rank.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/inference/report.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/inference/sequence.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "src/seq2lead/inference/shortlist.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
   "src/seq2lead/ingest/__init__.py": {
    "category": "code",
    "licence": "MIT"
@@ -1257,6 +1289,10 @@
    "licence": "MIT"
   },
   "tests/test_fingerprint_stereo.py": {
+   "category": "code",
+   "licence": "MIT"
+  },
+  "tests/test_inference_bundle.py": {
    "category": "code",
    "licence": "MIT"
   },

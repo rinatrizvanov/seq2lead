@@ -60,7 +60,7 @@ Full numbers and denominators: [M11h report](reports/m11h_results.md) ·
 | Mode | From a clone? | Needs |
 | --- | --- | --- |
 | **Saved-prediction reproduction** — recompute the published metrics | **yes** | tracked files only |
-| **Live sequence-query ranking** — `seq2lead rank` on a new sequence | **no** | checkpoint, frozen library, bound feature caches, ESM-2 weights |
+| **Live sequence-query ranking** — `seq2lead prioritise` on a new sequence | **in v0.2**, with one download | an inference bundle (59 MiB) plus ESM-2 weights. No database — see [standalone ranking](docs/STANDALONE.md) |
 | **Raw-to-fit rebuild** — ingest and refit end to end | **no** | raw archives, databases, full intermediate set |
 
 Definitions and measured artifact sizes: [release scope](docs/RELEASE_SCOPE.md).
@@ -102,18 +102,23 @@ print(verdict["passed"], verdict["checks_not_performed"])
 
 ### Live-ranking prerequisites
 
-`seq2lead rank` does not work from a clone. It needs, all stored separately and
-none of it tracked here:
+**In v0.2 this works without a database**, from an inference bundle:
 
-- a trained checkpoint,
-- a registered frozen compound library in a local PostgreSQL corpus,
-- the exact bound feature caches — the CLI refuses a missing or incompatible
-  binding rather than using whichever cache is current,
-- the revision-pinned ESM-2 weights (2.6 GB, never redistributed).
+```bash
+seq2lead prioritise --bundle ./seq2lead-bundle --sequence-file target.fasta --top-n 50
+```
 
-A recorded example output is at `reports/examples/rank_demo.txt`. Prerequisites,
-evidence modes and the exact commands are in the [demo guide](docs/DEMO.md).
-Predicted pKi is neither a calibrated probability nor proof of binding.
+It needs the bundle (59 MiB of precomputed compound projections and model
+pieces, distributed separately from the source) and the revision-pinned ESM-2
+weights (2.43 GiB, fetched once, never redistributed). Nothing else: no
+PostgreSQL, no feature caches, no upload. Full detail, measured costs and the
+optional shortlisting are in [standalone ranking](docs/STANDALONE.md).
+
+`seq2lead rank`, the original database-backed path, still exists and additionally
+needs a local corpus and the bound feature caches — see the
+[demo guide](docs/DEMO.md). A recorded example output is at
+`reports/examples/rank_demo.txt`. Predicted pKi is neither a calibrated
+probability nor proof of binding.
 
 ## Limitations
 
@@ -166,7 +171,8 @@ subset and names what it skipped — [CI scope](docs/CI_SCOPE.md).
 
 - [Release scope](docs/RELEASE_SCOPE.md) — the three run modes, and what each one establishes.
 - [Reproduction guide](docs/REPRODUCIBILITY.md) — commands and per-check availability.
-- [Demo guide](docs/DEMO.md) — live ranking prerequisites and evidence modes.
+- [Standalone ranking](docs/STANDALONE.md) — **v0.2**: rank a bundled library from one sequence, no database.
+- [Demo guide](docs/DEMO.md) — the database-backed ranking path and evidence modes.
 - [Evaluation](docs/EVALUATION.md) · [Splits](docs/SPLITS.md) · [Features](docs/FEATURES.md) · [Schema](docs/SCHEMA.md) · [Docking](docs/DOCKING.md) — method detail.
 - [Related work](docs/RELATED_WORK.md) — comparison with the nearest prior work, and what is not claimed.
 - [Roadmap](docs/ROADMAP.md) — what is built, what is declared but unbuilt.

@@ -2179,5 +2179,146 @@ def dock_verify_manifest(
         )
 
 
+bundle_app = typer.Typer(help="Exportable inference bundles (standalone ranking).")
+app.add_typer(bundle_app, name="bundle")
+
+
+@bundle_app.command("export")
+def bundle_export(
+    model: str = typer.Option(..., help="Dual-encoder checkpoint to export."),
+    out: str = typer.Option(..., help="Directory to write the bundle into."),
+    library: str = typer.Option("curated-ki-25k-v1", help="Frozen library version."),
+    provenance: str = typer.Option("", help="One line recording why this bundle exists."),
+) -> None:
+    """Build a standalone inference bundle. Needs the database; users do not run this."""
+    from seq2lead.db import connect
+    from seq2lead.inference.export import export
+
+    destination = pathlib.Path(out)
+    with connect() as conn:
+        try:
+            manifest = export(
+                conn, pathlib.Path(model), destination, library_name=library, provenance=provenance
+            )
+        except (LookupError, ValueError, RuntimeError) as exc:
+            raise _fail(str(exc)) from exc
+    counts = manifest["counts"]
+    typer.secho(f"wrote {destination}", fg=typer.colors.GREEN)
+    typer.echo(f"  {counts['compounds']:,} compounds, projection_dim {counts['projection_dim']}")
+    typer.echo(f"  {manifest['total_bytes']:,} bytes across {len(manifest['files'])} files")
+    for name, entry in sorted(manifest["files"].items()):
+        typer.echo(f"    {name:32} {entry['bytes']:>12,}  {entry['sha256'][:16]}…")
+
+
+@bundle_app.command("verify")
+def bundle_verify(
+    bundle: str = typer.Option("", help="Bundle directory. Default: $SEQ2LEAD_BUNDLE."),
+) -> None:
+    """Check a bundle's manifest and every digest, without loading a model."""
+    from seq2lead.inference.bundle import BundleError, resolve_bundle, verify_bundle
+
+    try:
+        manifest = verify_bundle(resolve_bundle(bundle or None))
+    except BundleError as exc:
+        raise _fail(str(exc)) from exc
+    typer.secho(f"bundle verified: {manifest['bundle_version']}", fg=typer.colors.GREEN)
+    typer.echo(
+        f"  library {manifest['library']['name']}  {manifest['counts']['compounds']:,} compounds"
+    )
+    typer.echo(f"  source checkpoint {manifest['source_checkpoint']['sha256'][:16]}…")
+    for name, entry in sorted(manifest["files"].items()):
+        typer.echo(f"    ok {name:32} {entry['bytes']:>12,}")
+
+
+@app.command("prioritise")
+def prioritise(
+    bundle: str = typer.Option(
+        "", help="Bundle directory. Default: $SEQ2LEAD_BUNDLE, ./seq2lead-bundle."
+    ),
+    sequence_file: str = typer.Option("", help="FASTA file holding ONE protein."),
+    sequence: str = typer.Option("", help="Or paste the sequence directly."),
+    top_n: int = typer.Option(50, help="How many compounds to show. 0 means all."),
+    out_csv: str = typer.Option("", help="Also write the full result here as CSV."),
+    device: str = typer.Option("", help="Force a torch device (cpu, mps, cuda)."),
+    diverse: int = typer.Option(0, help="Opt in: pick this many chemically diverse compounds."),
+    diversity_threshold: float = typer.Option(0.7, help="Max Tanimoto to anything already kept."),
+    min_mw: float = typer.Option(0.0, help="Opt in: minimum molecular weight."),
+    max_mw: float = typer.Option(0.0, help="Opt in: maximum molecular weight."),
+    min_tpsa: float = typer.Option(0.0, help="Opt in: minimum TPSA."),
+    max_tpsa: float = typer.Option(0.0, help="Opt in: maximum TPSA."),
+) -> None:
+    """Rank a bundled compound library against one protein sequence. No database needed.
+
+    Results are PRIORITISED CANDIDATES FOR TESTING. Predicted pKi is a ranking
+    score, not a binding probability and not a calibrated confidence.
+    """
+    from seq2lead.inference.bundle import BundleError, load_bundle, resolve_bundle
+    from seq2lead.inference.rank import ProteinEncoder, rank
+    from seq2lead.inference.report import render, write_csv
+    from seq2lead.inference.sequence import SequenceError, read_query, validate
+    from seq2lead.inference.shortlist import (
+        ShortlistError,
+        filter_by_properties,
+        select_diverse,
+    )
+
+    if bool(sequence_file) == bool(sequence):
+        raise _fail("supply exactly one of --sequence-file or --sequence")
+    try:
+        query = read_query(
+            path=pathlib.Path(sequence_file) if sequence_file else None,
+            sequence=sequence or None,
+        )
+    except SequenceError as exc:
+        raise _fail(str(exc)) from exc
+
+    try:
+        loaded = load_bundle(resolve_bundle(bundle or None))
+    except BundleError as exc:
+        raise _fail(str(exc)) from exc
+
+    spec = loaded.protein_spec
+    try:
+        cleaned, notes = validate(
+            query, training_window=spec["training_window"], max_length=spec["max_length"]
+        )
+    except SequenceError as exc:
+        raise _fail(str(exc)) from exc
+
+    try:
+        encoder = ProteinEncoder(spec, device or None)
+        result = rank(
+            loaded, cleaned, header=query.header, top_n=top_n, encoder=encoder, notes=notes
+        )
+    except BundleError as exc:
+        raise _fail(str(exc)) from exc
+
+    shortlist = None
+    windows = any(v for v in (min_mw, max_mw, min_tpsa, max_tpsa))
+    try:
+        if windows:
+            shortlist = filter_by_properties(
+                result.rows,
+                min_mw=min_mw or None,
+                max_mw=max_mw or None,
+                min_tpsa=min_tpsa or None,
+                max_tpsa=max_tpsa or None,
+            )
+        if diverse > 0:
+            source = shortlist.kept if shortlist else result.rows
+            picked = select_diverse(source, n=diverse, threshold=diversity_threshold)
+            if shortlist:
+                picked.removed = shortlist.removed + picked.removed
+                picked.applied = shortlist.applied + picked.applied
+            shortlist = picked
+    except ShortlistError as exc:
+        raise _fail(str(exc)) from exc
+
+    typer.echo(render(result, shortlist))
+    if out_csv:
+        written = write_csv(pathlib.Path(out_csv), result, shortlist)
+        typer.secho(f"wrote {written}", fg=typer.colors.GREEN)
+
+
 if __name__ == "__main__":  # pragma: no cover
     app()

@@ -8,13 +8,13 @@
   }
  ],
  "by_category": {
-  "code": 180,
+  "code": 188,
   "configuration": 22,
   "figure": 12,
   "fitted statistic": 1,
   "other": 4,
   "prediction": 1,
-  "prose": 48,
+  "prose": 49,
   "source data (structures/sequences)": 4,
   "third-party licence text": 2,
   "transformed data / identifiers": 73
@@ -23,7 +23,7 @@
   "CC-BY-3.0": 3,
   "CC-BY-SA-3.0": 16,
   "CC0-1.0": 2,
-  "MIT": 326
+  "MIT": 335
  },
  "classification": "seq2lead-release-classification-v1",
  "digest_note": "every digest here was computed from the working tree as it stood when this file was generated, one commit after `generated_after_commit`. An inventory whose digests do not match its files records nothing, so the check that matters is `python scripts/release/build_inventory.py --check`, which recomputes every digest from the files as they are now. Two files were once edited after generation and the inventory described bytes that no longer existed; this is the guard against repeating that.",
@@ -71,11 +71,11 @@
    "sha256": "0d0287eb83193cf1e00b23cd534df8656f8d681f37fd360d835e58e77358c957"
   },
   {
-   "bytes": 10405,
+   "bytes": 10821,
    "category": "prose",
    "licence": "MIT",
    "path": "README.md",
-   "sha256": "8179e4054c1625b7426dec70adf3e2ba027957d2c1c63d300a514b24c7788cfe"
+   "sha256": "2116ae6519c9dbc5c6a788386cb036a3df17ab0eed0cf33ac8ed60e706b0deba"
   },
   {
    "bytes": 3155,
@@ -651,6 +651,13 @@
    "licence": "MIT",
    "path": "docs/SPLITS.md",
    "sha256": "4ecac749f261ab33f41b897c535467d9dfa56f96b8a6a8c0189cf42be78ce3c4"
+  },
+  {
+   "bytes": 11060,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "docs/STANDALONE.md",
+   "sha256": "a4688cd9a259dc2783671c4c788716c432178b8c5e01d6f151974eb4633aa90a"
   },
   {
    "bytes": 1691,
@@ -1502,11 +1509,11 @@
    "sha256": "17aa92dfa88f96fc6e90eea323e1a3fe8d1fbfcef331bcc96ffa82d233edfb3d"
   },
   {
-   "bytes": 91225,
+   "bytes": 97320,
    "category": "code",
    "licence": "MIT",
    "path": "src/seq2lead/cli.py",
-   "sha256": "488e494ec3ed4447c747852fbc16bc0942f0ba2921be3c21f75a96e3635194b4"
+   "sha256": "401798f4c5177877775865e4b33804080c4c88a23d81a5edd9f57f32c1b21236"
   },
   {
    "bytes": 2257,
@@ -1857,6 +1864,55 @@
    "licence": "MIT",
    "path": "src/seq2lead/features/validate.py",
    "sha256": "a09b629fed5ca73c96c10aed53a385dc9b58137328f496a473e2b02b079f2856"
+  },
+  {
+   "bytes": 838,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/inference/__init__.py",
+   "sha256": "2ffda54b2e0af07b129da49f06be4cdad1e763e0445ef7c12897865325b53068"
+  },
+  {
+   "bytes": 14660,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/inference/bundle.py",
+   "sha256": "4d518f3d598038a538207116c2764ebc4597144dbb770ccbbf25ddfb6638123f"
+  },
+  {
+   "bytes": 4123,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/inference/export.py",
+   "sha256": "9dda2b0733b3d2e20a162f3c79e6213afe3d6e4b85d31dd49016b4f864337a39"
+  },
+  {
+   "bytes": 9047,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/inference/rank.py",
+   "sha256": "de7b019a86cdd2cab396dd973ed565d5af9946e2d98e907553631ee4a494a8a6"
+  },
+  {
+   "bytes": 5285,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/inference/report.py",
+   "sha256": "be2a771368534728c7993b04a14a3ab2523fcdaf0273c5a3a25a9c228d494f96"
+  },
+  {
+   "bytes": 5391,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/inference/sequence.py",
+   "sha256": "4c3a9c230ce37dc8387944045d39dc3f44559866a2ccf21e9d98a404a19e1b54"
+  },
+  {
+   "bytes": 8798,
+   "category": "code",
+   "licence": "MIT",
+   "path": "src/seq2lead/inference/shortlist.py",
+   "sha256": "4cf7efd9e9774f3ead3f4a610a2e3cebf01e0371d930fcfc519796ea395e38a1"
   },
   {
    "bytes": 975,
@@ -2216,6 +2272,13 @@
    "sha256": "d36e0320924640fcd26e056c2c5e08cb221edb3620bd1ba3219b3c86118719ca"
   },
   {
+   "bytes": 12175,
+   "category": "code",
+   "licence": "MIT",
+   "path": "tests/test_inference_bundle.py",
+   "sha256": "b174ffe95638e12f1561ad003858d3d1b6651562cee41c5ba5ce576e21de7770"
+  },
+  {
    "bytes": 19338,
    "category": "code",
    "licence": "MIT",
@@ -2461,8 +2524,8 @@
    "sha256": "9968e1302733399b00670fcba47f1e1749c90093b28aac6e46fb70b2af77f908"
   }
  ],
- "files": 347,
- "generated_after_commit": "e4c123e7a58559af15d6193772b9b8f9d2f61991",
+ "files": 356,
+ "generated_after_commit": "6cdee0153d0b60eb5d505f08bdf0f0595378655a",
  "generated_by": "scripts/release/build_inventory.py",
  "inventory": "seq2lead-complete-release-inventory-v2",
  "licence_basis": {
@@ -2483,15 +2546,15 @@
  "provenance_method": "row-level Curation/DataSource from the preserved raw payloads; 202609 for B-side entities and the isolated seq2lead_m11c_202601 schema for A-only entities",
  "reconciliation": {
   "accounts_for_every_tracked_file": true,
-  "entries": 347,
-  "licence_labels_sum": 347,
+  "entries": 356,
+  "licence_labels_sum": 356,
   "self_excluded": [
    "configs/manifests/release_classification.json",
    "configs/manifests/release_inventory.json"
   ],
-  "tracked_at_head": 349
+  "tracked_at_head": 358
  },
- "recorded_at": "2026-10-06T20:08:49.553407+00:00",
+ "recorded_at": "2026-10-07T10:51:40.432573+00:00",
  "release_option": "A - complete benchmark, pending owner approval. Repository remains PRIVATE.",
  "scientific_bytes_preserved": true,
  "self_excluded": {
@@ -2501,5 +2564,5 @@
   ],
   "why": "Neither file can record its own digest: writing the digest changes the bytes being described. Verify both by the commit they are attached to."
  },
- "total_bytes": 36608310
+ "total_bytes": 36686198
 }
