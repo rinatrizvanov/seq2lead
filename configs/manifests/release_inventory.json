@@ -17,11 +17,11 @@
   "prose": 50,
   "source data (structures/sequences)": 6,
   "third-party licence text": 2,
-  "transformed data / identifiers": 77
+  "transformed data / identifiers": 78
  },
  "by_licence": {
   "CC-BY-3.0": 3,
-  "CC-BY-SA-3.0": 22,
+  "CC-BY-SA-3.0": 23,
   "CC0-1.0": 2,
   "MIT": 344
  },
@@ -43,11 +43,11 @@
    "sha256": "3d0486c9a1ee009c2458c9fd3d571b7c73dad795f42acf25d8e8778a0deaa8fa"
   },
   {
-   "bytes": 5479,
+   "bytes": 5520,
    "category": "code",
    "licence": "MIT",
    "path": ".gitignore",
-   "sha256": "9944a76bd06e8ac72cfd49e51c3fe150adc2e6c51638ba1c1a06d465ec17b12d"
+   "sha256": "4ea63415a320618ec4705e50ec451a4e575b3cb4db13e55076f3b4a7204d9439"
   },
   {
    "bytes": 850,
@@ -71,11 +71,11 @@
    "sha256": "0d0287eb83193cf1e00b23cd534df8656f8d681f37fd360d835e58e77358c957"
   },
   {
-   "bytes": 16860,
+   "bytes": 17316,
    "category": "prose",
    "licence": "MIT",
    "path": "README.md",
-   "sha256": "2e9951eb2387ba2a028d632c5f903dd0277484f2712ebe66679f4962a8d7a0e6"
+   "sha256": "b84622a71522cf36ac92f5bb0f9c9aab6f9775b32f654812e16b9435f2823fb2"
   },
   {
    "bytes": 3155,
@@ -865,32 +865,39 @@
    "sha256": "ca205e98678726a9e9054acafa25c12676d17d5b735fc4ff5c9b04245df622e7"
   },
   {
-   "bytes": 12551,
+   "bytes": 13167,
    "category": "transformed data / identifiers",
    "licence": "CC-BY-SA-3.0",
    "path": "reports/diagnostics/QUERY_DIAGNOSTICS.md",
-   "sha256": "c8cb13028ce5d87e2efbf2e768e9d1a8b4c01c9905ec5e7684f49009311fd400"
+   "sha256": "36aea39d8b9afe7adc3f3afbcee2b4217445bc7237fa31194694521329109dba"
   },
   {
-   "bytes": 10850,
+   "bytes": 12052,
    "category": "transformed data / identifiers",
    "licence": "CC-BY-SA-3.0",
    "path": "reports/diagnostics/labelled_panel.json",
-   "sha256": "212cb70bb6d15dfbbeb862d2237d4c1dccc5348c71113ec9bc4d9b35ec1e40db"
+   "sha256": "19a170f9473957f96b4ac89c7751ea0b4fe071698ebe3a1a08253e04eb5c6ac6"
   },
   {
-   "bytes": 7607,
+   "bytes": 9928,
    "category": "transformed data / identifiers",
    "licence": "CC-BY-SA-3.0",
    "path": "reports/diagnostics/labelled_panel.md",
-   "sha256": "68208f17ef201bdf9a59417d360ec29457c16b575aa176f32f6ad9a1d0a3b6ed"
+   "sha256": "1c0e14457fce02ffff476c477aa4f0652ce2dd01d772b64b176b69046d1a302e"
   },
   {
-   "bytes": 1725,
+   "bytes": 2361,
    "category": "prose",
    "licence": "MIT",
    "path": "reports/diagnostics/labelled_panel_selection_rule.md",
-   "sha256": "96ce5ad3a35025ae6aa5081900679a4a7407a829f4d631ce4ac5b5b5985cc8bd"
+   "sha256": "c747d8cc4c191e82f3b0b4385aecbdf21a9a3a01754763bbdf9442d9f299edfa"
+  },
+  {
+   "bytes": 6631,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "reports/diagnostics/panel_exposure.json",
+   "sha256": "d8d85ae3f68bb4b04a1c1729759de0e9b3f59c5109fed75094f419e8d8831171"
   },
   {
    "bytes": 1692,
@@ -2237,11 +2244,11 @@
    "sha256": "9443da832de9f6289966c4a7472409ac737d7eef43e4415acfcf1111ae28d72e"
   },
   {
-   "bytes": 41060,
+   "bytes": 40563,
    "category": "code",
    "licence": "MIT",
    "path": "src/seq2lead/web/ui.py",
-   "sha256": "83761ed7c87a33d460f0609ed42a6229e35e15f64d845864c980b48bbc7d4982"
+   "sha256": "8075c7aa2d55fddd93f4111df77b734d20b6ce7c9a039bf8d5c7a9c5c084566f"
   },
   {
    "bytes": 4195,
@@ -2629,8 +2636,8 @@
    "sha256": "06e501e4cba46edfbe6c06ced7fbfaedacf115812699b676ce667b9f3dbf0050"
   }
  ],
- "files": 371,
- "generated_after_commit": "3918c5f56aa88d2983a781d709da61406d5f59b6",
+ "files": 372,
+ "generated_after_commit": "31dc7020269bd09477ec851189ce49aa5045beec",
  "generated_by": "scripts/release/build_inventory.py",
  "inventory": "seq2lead-complete-release-inventory-v2",
  "licence_basis": {
@@ -2651,15 +2658,15 @@
  "provenance_method": "row-level Curation/DataSource from the preserved raw payloads; 202609 for B-side entities and the isolated seq2lead_m11c_202601 schema for A-only entities",
  "reconciliation": {
   "accounts_for_every_tracked_file": true,
-  "entries": 371,
-  "licence_labels_sum": 371,
+  "entries": 372,
+  "licence_labels_sum": 372,
   "self_excluded": [
    "configs/manifests/release_classification.json",
    "configs/manifests/release_inventory.json"
   ],
-  "tracked_at_head": 373
+  "tracked_at_head": 374
  },
- "recorded_at": "2026-10-07T16:34:39.457873+00:00",
+ "recorded_at": "2026-10-07T17:06:38.530917+00:00",
  "release_option": "A - complete benchmark, pending owner approval. Repository remains PRIVATE.",
  "scientific_bytes_preserved": true,
  "self_excluded": {
@@ -2669,5 +2676,5 @@
   ],
   "why": "Neither file can record its own digest: writing the digest changes the bytes being described. Verify both by the commit they are attached to."
  },
- "total_bytes": 36864801
+ "total_bytes": 36876207
 }

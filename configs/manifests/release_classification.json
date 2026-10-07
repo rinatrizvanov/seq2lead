@@ -504,6 +504,10 @@
    "category": "prose",
    "licence": "MIT"
   },
+  "reports/diagnostics/panel_exposure.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
   "reports/diagnostics/projection_repeats.json": {
    "category": "source data (structures/sequences)",
    "licence": "CC-BY-SA-3.0"

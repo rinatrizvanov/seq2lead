@@ -25,3 +25,15 @@ Nothing below refers to a predicted score, a rank or a metric.
 
 No target is added, dropped, reordered or re-cut after metrics are seen. If the
 rule yields fewer than 12 targets, the panel is smaller and that is reported.
+
+## What the rule did not include
+
+Exposure to the **shipped checkpoint** was not a selection criterion. The rule
+screens on label availability and class counts only, and "held out" above refers
+to the m11h as-of evaluation partition, which is a different experiment from the
+m9 `cold_protein-v3` run whose checkpoint the bundle ships. Exposure to that
+checkpoint was measured *after* the panel was fixed, and 8 of the 12 targets
+proved to be train-exposed to it. That is reported in
+[`labelled_panel.md`](labelled_panel.md) and
+[`panel_exposure.json`](panel_exposure.json) and was **not** used to reselect,
+reorder or drop any target.

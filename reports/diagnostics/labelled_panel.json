@@ -380,5 +380,34 @@
    "max": 167
   },
   "caveat": "The bootstrap resamples the 12 targets, so it describes this panel's spread, not the population of all targets. Per-target AUROC also carries its own sampling error from 63-167 labelled compounds, which this interval does not include."
+ },
+ "exposure_correction": {
+  "what_changed": "The macro numbers in this file pool twelve targets without regard to what the SHIPPED checkpoint was trained on. The bundle ships M9-dual-encoder__cold_protein-v3__seed20260930.pt, whose split is cold_protein-v3 -- not the m11h as-of design that supplied the labels. Under that split 8 of the 12 panel targets sit in the TRAIN partition. Those targets are not held out for this checkpoint.",
+  "where": "reports/diagnostics/panel_exposure.json and the Exposure section of labelled_panel.md",
+  "headline_after_restratification": {
+   "held_out_from_this_checkpoint": {
+    "n_targets": 4,
+    "macro_auroc_target_specific": 0.6493,
+    "macro_auroc_query_independent": 0.7157,
+    "mean_delta": -0.0664,
+    "bootstrap_ci95_over_targets": [
+     -0.1786,
+     0.0385
+    ],
+    "improved": 1
+   },
+   "train_exposed": {
+    "n_targets": 8,
+    "macro_auroc_target_specific": 0.8947,
+    "macro_auroc_query_independent": 0.6942,
+    "mean_delta": 0.2006,
+    "bootstrap_ci95_over_targets": [
+     0.0966,
+     0.3134
+    ],
+    "improved": 7
+   }
+  },
+  "nothing_removed": "The original per-target rows and pooled macros are retained above, unmodified."
  }
 }

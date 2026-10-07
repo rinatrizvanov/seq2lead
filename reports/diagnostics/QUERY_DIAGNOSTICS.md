@@ -168,10 +168,13 @@ any expectation that it should act uniformly on pairwise angles — does not hol
 - That mean-pooled embeddings discard pocket-level detail, so proteins that
   differ functionally can arrive close together. *Testable by comparing pooling
   strategies; not attempted.*
-- That a compound-side prior dominates for queries far from the training
-  distribution. *Partly addressed by the labelled panel below.*
+- That a query-independent compound ordering accounts for much of what the model
+  produces for queries far from the training distribution. The labelled panel
+  shows such an ordering is *competitive*, which is consistent with this but does
+  not measure a share — AUROC does not decompose that way.
 - That agreement shrinks for targets inside the training distribution.
-  **This one was tested — see the next section — and the measurement supports it.**
+  **This was measured on the labelled panel: mean pairwise rank correlation 0.42
+  there, against 0.88–0.94 here.**
 
 ## Shortlist chemical redundancy
 
@@ -216,9 +219,12 @@ These are read off the numbers above and require no interpretation:
 These are consistent with the measurements and are *not* established by them.
 They are listed so they are not mistaken for findings:
 
-- that a compound-side prior contributes a large shared component to every
-  ranking. The labelled panel measures this directly and finds a
-  query-independent baseline reaching 0.7014 macro AUROC, which supports it;
+- that a query-independent compound ordering explains a given *share* of any
+  ranking. The labelled panel shows such a baseline is **competitive** — macro
+  AUROC 0.7014 pooled, and 0.7157 on the four targets held out from the shipped
+  checkpoint, where it beat the target-specific ranking. "Competitive" is a
+  comparison, not an attribution: AUROC is not additive and no share of
+  performance is assigned to either side;
 - that mean pooling is where protein detail is lost. Untested;
 - that the tower's effect on pairwise angles explains the residual agreement.
   Withdrawn as stated above; ten paired cosines cannot support it.
@@ -231,7 +237,9 @@ They are listed so they are not mistaken for findings:
   the training distribution, cannot answer that. **The labelled panel shows this
   panel was not representative**: across twelve in-domain targets the mean
   pairwise rank correlation is 0.42, against 0.88–0.94 for the unrelated pairs
-  here;
+  here. Note also that eight of those twelve targets were train-exposed to the
+  shipped checkpoint, so even that comparison is not a clean unseen-target
+  measurement — see [`labelled_panel.md`](labelled_panel.md);
 - that the published benchmark numbers are affected. They are not recomputed,
   revised or contradicted by anything above; the benchmark's own ligand-only gate
   (B1) is the measurement that speaks to compound-side dominance under labels, and

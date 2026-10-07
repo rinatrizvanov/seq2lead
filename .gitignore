@@ -101,6 +101,7 @@ data/predictions_m9/
 !reports/diagnostics/labelled_panel.json
 !reports/diagnostics/labelled_panel.md
 !reports/diagnostics/labelled_panel_selection_rule.md
+!reports/diagnostics/panel_exposure.json
 !reports/diagnostics/projection_repeats.json
 !reports/diagnostics/projection_repeats.md
 !reports/diagnostics/query_panel.json

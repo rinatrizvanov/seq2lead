@@ -1,0 +1,260 @@
+{
+ "checkpoint": "M9-dual-encoder__cold_protein-v3__seed20260930.pt",
+ "checkpoint_sha256": "934adcdb1a71b71c3147a00b9bd74a953394642522abeb4a038e99d7f6c86c6e",
+ "split": "cold_protein-v3 (split_id 10)",
+ "per_target": [
+  {
+   "sequence_sha256": "A9754AA0EED81BF0E9E2FD8EF8D35D6F3D58F467B794F3E3B2A3037373E0C7AD",
+   "target_id": 569,
+   "target_partition": "train",
+   "n_labelled": 167,
+   "exposure": {
+    "training_pairs": 166,
+    "validation_pairs": 0,
+    "test_pairs": 0,
+    "excluded_pairs": 1,
+    "absent_pairs": 0,
+    "pairs_with_measurement_evidence": 167
+   },
+   "auroc_target_specific": 0.9994,
+   "auroc_query_independent": 0.9274,
+   "delta": 0.072
+  },
+  {
+   "sequence_sha256": "8BB8E760C142B1A44BA1409375E34DE5C0836B1B5E77EC6FAC96A7A9D07D121F",
+   "target_id": 250,
+   "target_partition": "train",
+   "n_labelled": 166,
+   "exposure": {
+    "training_pairs": 148,
+    "validation_pairs": 0,
+    "test_pairs": 0,
+    "excluded_pairs": 18,
+    "absent_pairs": 0,
+    "pairs_with_measurement_evidence": 166
+   },
+   "auroc_target_specific": 0.8807,
+   "auroc_query_independent": 0.7289,
+   "delta": 0.1518
+  },
+  {
+   "sequence_sha256": "075CD160A22E392AD92776143A4AF52ED1C6AC1E68BA82BC253BA8DD9DAEF9C1",
+   "target_id": 326,
+   "target_partition": "train",
+   "n_labelled": 161,
+   "exposure": {
+    "training_pairs": 154,
+    "validation_pairs": 0,
+    "test_pairs": 0,
+    "excluded_pairs": 7,
+    "absent_pairs": 0,
+    "pairs_with_measurement_evidence": 161
+   },
+   "auroc_target_specific": 0.9231,
+   "auroc_query_independent": 0.708,
+   "delta": 0.2151
+  },
+  {
+   "sequence_sha256": "4D0C1AE8D9C6ECF5FFEF01BD5A16F859DAC3AE273225407783296131C695C1FD",
+   "target_id": 619,
+   "target_partition": "train",
+   "n_labelled": 83,
+   "exposure": {
+    "training_pairs": 78,
+    "validation_pairs": 0,
+    "test_pairs": 0,
+    "excluded_pairs": 5,
+    "absent_pairs": 0,
+    "pairs_with_measurement_evidence": 83
+   },
+   "auroc_target_specific": 0.857,
+   "auroc_query_independent": 0.4539,
+   "delta": 0.4031
+  },
+  {
+   "sequence_sha256": "945340616BAFD8D32B4CDB5A4F6A1F13EE9DE829FD7DACCF5F63FC94149D6B34",
+   "target_id": 618,
+   "target_partition": "train",
+   "n_labelled": 81,
+   "exposure": {
+    "training_pairs": 77,
+    "validation_pairs": 0,
+    "test_pairs": 0,
+    "excluded_pairs": 4,
+    "absent_pairs": 0,
+    "pairs_with_measurement_evidence": 81
+   },
+   "auroc_target_specific": 0.8402,
+   "auroc_query_independent": 0.618,
+   "delta": 0.2222
+  },
+  {
+   "sequence_sha256": "0CF62E1CCB94ABD03E5ADAE50CA58B2B43690058C5CC6E176C4650E6C4F083E0",
+   "target_id": 1452,
+   "target_partition": "test",
+   "n_labelled": 74,
+   "exposure": {
+    "training_pairs": 0,
+    "validation_pairs": 0,
+    "test_pairs": 74,
+    "excluded_pairs": 0,
+    "absent_pairs": 0,
+    "pairs_with_measurement_evidence": 74
+   },
+   "auroc_target_specific": 0.754,
+   "auroc_query_independent": 0.8078,
+   "delta": -0.0538
+  },
+  {
+   "sequence_sha256": "B75060695513D21AC502DA540921882C3E99FD716A491E99F6757D7B78B3C62B",
+   "target_id": 550,
+   "target_partition": "train",
+   "n_labelled": 72,
+   "exposure": {
+    "training_pairs": 68,
+    "validation_pairs": 0,
+    "test_pairs": 0,
+    "excluded_pairs": 4,
+    "absent_pairs": 0,
+    "pairs_with_measurement_evidence": 72
+   },
+   "auroc_target_specific": 0.9068,
+   "auroc_query_independent": 0.4328,
+   "delta": 0.474
+  },
+  {
+   "sequence_sha256": "0F79DD8C1EA278EDBE797CA3CCB235DE12E8D482492499A37A977A0692D3E49B",
+   "target_id": 1255,
+   "target_partition": "test",
+   "n_labelled": 69,
+   "exposure": {
+    "training_pairs": 0,
+    "validation_pairs": 0,
+    "test_pairs": 69,
+    "excluded_pairs": 0,
+    "absent_pairs": 0,
+    "pairs_with_measurement_evidence": 69
+   },
+   "auroc_target_specific": 0.7356,
+   "auroc_query_independent": 0.6627,
+   "delta": 0.0729
+  },
+  {
+   "sequence_sha256": "0153DBEBB226A1E5B5F70A1CA9ADD9FC132E086045E02EE6797B928C3F08547D",
+   "target_id": 1530,
+   "target_partition": "test",
+   "n_labelled": 68,
+   "exposure": {
+    "training_pairs": 0,
+    "validation_pairs": 0,
+    "test_pairs": 59,
+    "excluded_pairs": 9,
+    "absent_pairs": 0,
+    "pairs_with_measurement_evidence": 68
+   },
+   "auroc_target_specific": 0.5478,
+   "auroc_query_independent": 0.768,
+   "delta": -0.2202
+  },
+  {
+   "sequence_sha256": "8C2B6E1477FF21093D6BDEE1A4482A36B1024AAEBBD4E968C54262742CEFD3E0",
+   "target_id": 577,
+   "target_partition": "train",
+   "n_labelled": 66,
+   "exposure": {
+    "training_pairs": 52,
+    "validation_pairs": 0,
+    "test_pairs": 0,
+    "excluded_pairs": 14,
+    "absent_pairs": 0,
+    "pairs_with_measurement_evidence": 66
+   },
+   "auroc_target_specific": 0.7873,
+   "auroc_query_independent": 0.8068,
+   "delta": -0.0195
+  },
+  {
+   "sequence_sha256": "351664067C22D7E6A071E811DDB3B5759E91101E0C46D4454FC61CE4BCA10FA2",
+   "target_id": 263,
+   "target_partition": "train",
+   "n_labelled": 64,
+   "exposure": {
+    "training_pairs": 61,
+    "validation_pairs": 0,
+    "test_pairs": 0,
+    "excluded_pairs": 3,
+    "absent_pairs": 0,
+    "pairs_with_measurement_evidence": 64
+   },
+   "auroc_target_specific": 0.9635,
+   "auroc_query_independent": 0.8776,
+   "delta": 0.0859
+  },
+  {
+   "sequence_sha256": "051FC4732E4921492421CDA1544C298561F4D5E41751C6E73886E38ED9280207",
+   "target_id": 139,
+   "target_partition": "test",
+   "n_labelled": 63,
+   "exposure": {
+    "training_pairs": 0,
+    "validation_pairs": 0,
+    "test_pairs": 61,
+    "excluded_pairs": 2,
+    "absent_pairs": 0,
+    "pairs_with_measurement_evidence": 63
+   },
+   "auroc_target_specific": 0.5598,
+   "auroc_query_independent": 0.6244,
+   "delta": -0.0646
+  }
+ ],
+ "all_twelve": {
+  "n_targets": 12,
+  "macro_auroc_target_specific": 0.8129,
+  "macro_auroc_query_independent": 0.7014,
+  "mean_delta": 0.1116,
+  "bootstrap_ci95_over_targets": [
+   0.0063,
+   0.2203
+  ],
+  "improved": 8,
+  "sign_test_p_two_sided": 0.3877,
+  "delta_range": [
+   -0.2202,
+   0.474
+  ]
+ },
+ "train_exposed": {
+  "n_targets": 8,
+  "macro_auroc_target_specific": 0.8947,
+  "macro_auroc_query_independent": 0.6942,
+  "mean_delta": 0.2006,
+  "bootstrap_ci95_over_targets": [
+   0.0966,
+   0.3134
+  ],
+  "improved": 7,
+  "sign_test_p_two_sided": 0.0703,
+  "delta_range": [
+   -0.0195,
+   0.474
+  ]
+ },
+ "held_out_from_this_checkpoint": {
+  "n_targets": 4,
+  "macro_auroc_target_specific": 0.6493,
+  "macro_auroc_query_independent": 0.7157,
+  "mean_delta": -0.0664,
+  "bootstrap_ci95_over_targets": [
+   -0.1786,
+   0.0385
+  ],
+  "improved": 1,
+  "sign_test_p_two_sided": 1.0,
+  "delta_range": [
+   -0.2202,
+   0.0729
+  ]
+ },
+ "validation_exposed": null
+}

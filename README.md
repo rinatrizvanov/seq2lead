@@ -219,16 +219,22 @@ Predicted pKi is neither a calibrated probability nor proof of binding.
   results were inspected before the historical study ran, and the prospective
   freeze is unsigned.
 - **The macro metrics cover a minority of targets** — 123 of 992.
-- **Target specificity is limited and uneven, and much of the ranking is
-  query-independent.** On a pre-declared panel of 12 held-out targets with
-  measured labels, the target-specific ranking reached macro AUROC 0.8129 against
-  **0.7014 for a baseline that ignores the query entirely** — a mean gain of
-  +0.1116 whose 95% interval over targets is [+0.006, +0.220], improving on 8 of
-  12 targets (sign test p = 0.388). Per-target the gain runs from **−0.22 to
-  +0.47**: for some targets the sequence matters a great deal, for others a
-  query-independent compound ranking does better. All 12 targets were seen in
-  training, so this is not a cold-target result. Treat a shortlist as partly a
-  generic compound prior rather than a target-specific prediction. Measured in
+- **Target specificity has not been established for unseen targets, and a
+  query-independent ranking is competitive.** On a panel of 12 targets with
+  measured labels, selected only by label availability and class counts, the
+  pooled target-specific macro AUROC was 0.8129 against 0.7014 for a baseline
+  that ignores the query entirely. That pooled figure is misleading on its own:
+  **8 of the 12 targets are in the training partition of `cold_protein-v3`, the
+  split the shipped checkpoint was fitted on.** Split by exposure, the
+  target-specific advantage sits entirely with the seen targets (macro AUROC
+  0.8947 vs 0.6942, mean Δ +0.2006), while on the **4 targets genuinely held out
+  from that checkpoint the target-specific ranking scored below the
+  query-independent baseline** (0.6493 vs 0.7157, mean Δ −0.0664, 95% interval
+  over targets [−0.179, +0.039], improving on 1 of 4). Four targets is weak
+  evidence and the interval spans zero, so no directional claim is made — but
+  nothing here demonstrates that the model ranks better than a query-independent
+  ordering on a target it has not seen. The panel's interval describes these
+  targets only and does not establish generalisation to others. Measured in
   [`reports/diagnostics/labelled_panel.md`](reports/diagnostics/labelled_panel.md).
 - **Ki poolability across assay contexts is unresolved**; every count assumes the
   current pooling rule.

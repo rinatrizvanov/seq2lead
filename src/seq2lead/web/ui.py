@@ -161,8 +161,7 @@ summary::marker{color:var(--accent)}
 .dist .why{color:var(--slate); font-size:.8rem; max-width:70ch; margin:.1rem 0 .7rem}
 .caution{background:var(--amber-soft); border-left:3px solid var(--amber); color:var(--amber);
   padding:.65rem .8rem; margin:var(--gap) 0 0; font-size:.84rem}
-.caution strong{display:block; margin-bottom:.15rem}
-.caution p{margin:.3rem 0 0; max-width:78ch}
+.caution p{margin:0; max-width:78ch}
 .dist svg{display:block; width:100%; height:auto}
 .quant{display:flex; flex-wrap:wrap; gap:.1rem 1.5rem; margin:.7rem 0 0; padding:0}
 .quant>div{min-width:3.6rem}
@@ -648,14 +647,11 @@ function renderResult(r) {
     // Measured target specificity belongs next to the ranking it qualifies, not
     // only in the documentation nobody has open while reading a shortlist.
     const warn = el("div", "caution");
-    warn.append(el("strong", null, "Part of this ranking does not depend on your sequence"));
     warn.append(el("p", null,
-      "On a pre-declared panel of 12 held-out targets with measured labels, a ranking " +
-      "that ignores the query entirely reached 0.70 macro AUROC against 0.81 for the " +
-      "target-specific ranking. The per-target gain ranged from \u22120.22 to +0.47, so " +
-      "for some targets the sequence matters a great deal and for others a generic " +
-      "compound ranking does better. All 12 targets had been seen in training. Read a " +
-      "shortlist as partly a generic compound prior, not a target-specific prediction."));
+      "Rankings combine compound preferences with information from your sequence. " +
+      "Performance varies by target; accuracy for unfamiliar targets has not been " +
+      "established."));
+
     const qd = el("dl", "quant");
     qd.append(dl([["Lowest", d.min.toFixed(2)], ["25th", d.p25.toFixed(2)], ["Median", d.median.toFixed(2)],
       ["75th", d.p75.toFixed(2)], ["Highest", d.max.toFixed(2)], ["SD", d.sd.toFixed(3)]]));
