@@ -111,9 +111,7 @@ class _Handler(BaseHTTPRequestHandler):
                     "image/svg+xml",
                 )
             elif url.path == "/api/compound":
-                self._json(
-                    compound_detail(self.session, _page_arg(q, "row", 0, low=0, high=10**9))
-                )
+                self._json(compound_detail(self.session, _page_arg(q, "row", 0, low=0, high=10**9)))
             elif url.path.startswith("/api/job/"):
                 self._job(url.path.rsplit("/", 1)[-1])
             else:
