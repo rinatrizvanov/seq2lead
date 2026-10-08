@@ -900,11 +900,11 @@
    "sha256": "f2b730824ca2c345fdba560f3bab64a82ddd4ada470cdfac50b5228608287ad9"
   },
   {
-   "bytes": 12415,
+   "bytes": 13324,
    "category": "prose",
    "licence": "MIT",
    "path": "reports/diagnostics/checkpoint_bound_evaluation_spec.md",
-   "sha256": "c5cc82c6f7cdefadd6e63a751ddcc7398a08600935c2d1cc8b11c8b76faff9da"
+   "sha256": "671216f809305df9d5db0ec8f15de121ef733d58e9766bac7a8bff1e4859e20c"
   },
   {
    "bytes": 12052,
@@ -2679,7 +2679,7 @@
   }
  ],
  "files": 378,
- "generated_after_commit": "1f3b2640b79dc54f0fac2952299ffb815779d2c3",
+ "generated_after_commit": "b5d4840401aae9d2bf91be77896df92299f9e6b4",
  "generated_by": "scripts/release/build_inventory.py",
  "inventory": "seq2lead-complete-release-inventory-v2",
  "licence_basis": {
@@ -2708,7 +2708,7 @@
   ],
   "tracked_at_head": 380
  },
- "recorded_at": "2026-10-08T14:04:17.610370+00:00",
+ "recorded_at": "2026-10-08T15:30:30.516381+00:00",
  "release_option": "A - complete benchmark, pending owner approval. Repository remains PRIVATE.",
  "scientific_bytes_preserved": true,
  "self_excluded": {
@@ -2718,5 +2718,5 @@
   ],
   "why": "Neither file can record its own digest: writing the digest changes the bytes being described. Verify both by the commit they are attached to."
  },
- "total_bytes": 37345109
+ "total_bytes": 37346018
 }

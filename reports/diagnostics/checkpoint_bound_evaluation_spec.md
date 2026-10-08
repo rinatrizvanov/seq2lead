@@ -58,16 +58,28 @@ Its query joined `pair_label` without constraining `endpoint_id`, and
 every pair matched several label rows and the counts were inflated. With
 `endpoint_id = 96` applied, and the sequence-length filter from §2:
 
-| Floor | Complete cohort: targets | labelled compounds | Bundle intersection: targets | labelled compounds |
+| Floor | Complete cohort: targets | labelled **pair observations** | Bundle intersection: targets | labelled **pair observations** |
 | --- | --- | --- | --- | --- |
 | ≥ 5 / ≥ 5 | 329 | 83,051 | 107 | 8,830 |
 | **≥ 10 / ≥ 10** | **244** | **79,501** | **62** | **6,596** |
 | ≥ 25 / ≥ 25 | 146 | 70,878 | 26 | 4,244 |
 
-The complete eligible test cohort is 91,639 pairs over 1,106 targets and 67,746
-compounds; 12,688 of those pairs involve a compound in the bundled library and
-78,951 do not. The superseded figures (300 / 241 / 164 targets) are recorded here
-so the error is visible rather than quietly replaced.
+**Unit.** These are **pair observations** — (target, compound) labelled rows —
+not distinct compounds. One compound measured against several targets contributes
+several rows. An earlier version of this table called them "labelled compounds",
+which was wrong.
+
+**These are pre-exclusion sizing figures.** They were computed before the cohort
+rule `exclude_unusable_fingerprints` was applied, which removed 9 compounds and 9
+pairs. The executed counts, with distinct-compound denominators alongside, are in
+[`checkpoint_bound_evaluation.md`](checkpoint_bound_evaluation.md#cohorts-and-denominators):
+79,493 pair observations over 59,912 distinct compounds at the primary floor,
+against 79,501 here. Where the two differ, the results report governs.
+
+The complete eligible test cohort is 91,639 pair observations over 1,106 targets
+and 67,746 compounds; 12,688 of those involve a compound in the bundled library
+and 78,951 do not. The superseded figures (300 / 241 / 164 targets) are recorded
+here so the error is visible rather than quietly replaced.
 
 **≥ 10 / ≥ 10 is primary.** ≥ 5 / ≥ 5 and ≥ 25 / ≥ 25 are reported as declared
 sensitivity analyses and never replace the headline.
@@ -92,8 +104,10 @@ bundle does not carry.
 
 Ambiguity about denominators is how ranking metrics become incomparable. Fixed:
 
-- **Per-target ranking set** = that target's qualifying labelled compounds only
-  (median 168), *not* the full 25,000. Every metric is computed within this set.
+- **Per-target ranking set** = that target's qualifying labelled **pair
+  observations** only, *not* the full 25,000. Within one target each compound
+  appears once, so the per-target count is also a compound count; across targets
+  it is not. Median 168 at sizing time, 159 as executed.
 - **AUROC** denominator: all (active, inactive) pairs within the ranking set.
 - **Average precision** is reported **always beside its positive rate**; the
   positive rate is the denominator that makes it readable.
