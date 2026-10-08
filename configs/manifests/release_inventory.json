@@ -695,11 +695,11 @@
    "sha256": "335cd2f62d1a5a52f5ef353a62dce5d23d99826be7bfa119f7fc18e7dc12d556"
   },
   {
-   "bytes": 10574,
+   "bytes": 10861,
    "category": "prose",
    "licence": "MIT",
    "path": "docs/releases/v0.3.0.md",
-   "sha256": "fbbc87b642aa00449d7b2285a6bb80f726c16749d37ef4664cb49482c7bc9a07"
+   "sha256": "d7fa346eaa08ba6a65f412b9f8fd33a7e2d776748574a73c88168b8a4a7f1c86"
   },
   {
    "bytes": 19467,
@@ -2279,11 +2279,11 @@
    "sha256": "1be447b05601a9606a707c09ca50a3f60a1da9a18652d13264cd62fd55643441"
   },
   {
-   "bytes": 10499,
+   "bytes": 10461,
    "category": "code",
    "licence": "MIT",
    "path": "src/seq2lead/web/server.py",
-   "sha256": "9443da832de9f6289966c4a7472409ac737d7eef43e4415acfcf1111ae28d72e"
+   "sha256": "53f241c856110da053581bff63eddce6b8bb4e7dfd8f4f7ba9390802c731eabf"
   },
   {
    "bytes": 40563,
@@ -2679,7 +2679,7 @@
   }
  ],
  "files": 378,
- "generated_after_commit": "b9478b8afe39dc60182222f84ca9fd9e80cd8a49",
+ "generated_after_commit": "1f3b2640b79dc54f0fac2952299ffb815779d2c3",
  "generated_by": "scripts/release/build_inventory.py",
  "inventory": "seq2lead-complete-release-inventory-v2",
  "licence_basis": {
@@ -2708,7 +2708,7 @@
   ],
   "tracked_at_head": 380
  },
- "recorded_at": "2026-10-08T13:32:40.842267+00:00",
+ "recorded_at": "2026-10-08T14:04:17.610370+00:00",
  "release_option": "A - complete benchmark, pending owner approval. Repository remains PRIVATE.",
  "scientific_bytes_preserved": true,
  "self_excluded": {
@@ -2718,5 +2718,5 @@
   ],
   "why": "Neither file can record its own digest: writing the digest changes the bytes being described. Verify both by the commit they are attached to."
  },
- "total_bytes": 37344860
+ "total_bytes": 37345109
 }
