@@ -14,16 +14,16 @@
   "fitted statistic": 1,
   "other": 4,
   "prediction": 1,
-  "prose": 52,
+  "prose": 53,
   "source data (structures/sequences)": 6,
   "third-party licence text": 2,
-  "transformed data / identifiers": 79
+  "transformed data / identifiers": 81
  },
  "by_licence": {
   "CC-BY-3.0": 3,
-  "CC-BY-SA-3.0": 24,
+  "CC-BY-SA-3.0": 26,
   "CC0-1.0": 2,
-  "MIT": 346
+  "MIT": 347
  },
  "classification": "seq2lead-release-classification-v1",
  "digest_note": "every digest here was computed from the working tree as it stood when this file was generated, one commit after `generated_after_commit`. An inventory whose digests do not match its files records nothing, so the check that matters is `python scripts/release/build_inventory.py --check`, which recomputes every digest from the files as they are now. Two files were once edited after generation and the inventory described bytes that no longer existed; this is the guard against repeating that.",
@@ -43,11 +43,11 @@
    "sha256": "3d0486c9a1ee009c2458c9fd3d571b7c73dad795f42acf25d8e8778a0deaa8fa"
   },
   {
-   "bytes": 5626,
+   "bytes": 5778,
    "category": "code",
    "licence": "MIT",
    "path": ".gitignore",
-   "sha256": "212ee10a53a62deb7e63b985f0987cb3e4911f38afc06ed6a3b3ca3578f44b0c"
+   "sha256": "b2c37a208ee27254ebc76a8e50f3026941da446b081a4350775bc79d43cf5865"
   },
   {
    "bytes": 850,
@@ -71,11 +71,11 @@
    "sha256": "0d0287eb83193cf1e00b23cd534df8656f8d681f37fd360d835e58e77358c957"
   },
   {
-   "bytes": 17316,
+   "bytes": 17250,
    "category": "prose",
    "licence": "MIT",
    "path": "README.md",
-   "sha256": "b84622a71522cf36ac92f5bb0f9c9aab6f9775b32f654812e16b9435f2823fb2"
+   "sha256": "c704b488bf9b04f34a7784b4ac32da7b91d0fc688f975e63f655825e47a3b21f"
   },
   {
    "bytes": 3155,
@@ -695,11 +695,11 @@
    "sha256": "335cd2f62d1a5a52f5ef353a62dce5d23d99826be7bfa119f7fc18e7dc12d556"
   },
   {
-   "bytes": 7787,
+   "bytes": 8023,
    "category": "prose",
    "licence": "MIT",
    "path": "docs/releases/v0.3.0.md",
-   "sha256": "bdf641f1c5c9a17e4790b963d51ce5b7027758cb664b2e0d11534192ca060d67"
+   "sha256": "87f2f7f8f459ac7a921d8da692dd2192b76404d0a818cdc0407ce990698b7018"
   },
   {
    "bytes": 19467,
@@ -879,11 +879,32 @@
    "sha256": "36aea39d8b9afe7adc3f3afbcee2b4217445bc7237fa31194694521329109dba"
   },
   {
-   "bytes": 9655,
+   "bytes": 736,
+   "category": "prose",
+   "licence": "MIT",
+   "path": "reports/diagnostics/analogue_dependence.json",
+   "sha256": "c4fd8ab5668bf919e6dd359d0b50346b1cfcb79a7fa6cbe7de07c4c613e025a8"
+  },
+  {
+   "bytes": 416493,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "reports/diagnostics/checkpoint_bound_evaluation.json",
+   "sha256": "8e68be69f5542391788c2aa6b89a82b1a311eed9e9d7f0df20916e861a6c3509"
+  },
+  {
+   "bytes": 10728,
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0",
+   "path": "reports/diagnostics/checkpoint_bound_evaluation.md",
+   "sha256": "d441c3b85afcbabae982706ec7cf3160554948b1fd83d21b4ef35d3bcd07ad42"
+  },
+  {
+   "bytes": 12415,
    "category": "prose",
    "licence": "MIT",
    "path": "reports/diagnostics/checkpoint_bound_evaluation_spec.md",
-   "sha256": "d0e2069ba73a254c02622bcfd5e52aef156a0b3e1d6ee5b2adc8abbfb38041f9"
+   "sha256": "c5cc82c6f7cdefadd6e63a751ddcc7398a08600935c2d1cc8b11c8b76faff9da"
   },
   {
    "bytes": 12052,
@@ -893,11 +914,11 @@
    "sha256": "19a170f9473957f96b4ac89c7751ea0b4fe071698ebe3a1a08253e04eb5c6ac6"
   },
   {
-   "bytes": 11877,
+   "bytes": 12995,
    "category": "transformed data / identifiers",
    "licence": "CC-BY-SA-3.0",
    "path": "reports/diagnostics/labelled_panel.md",
-   "sha256": "d5ea4462d9267b5c9b1d6f40de35755b1abffd7d9abed9c0239b0798f9b68ade"
+   "sha256": "ab02beaf622ca2caa6b1edf8990e7b5880c83e6c98b1fe1fdfc4406ae602242d"
   },
   {
    "bytes": 2361,
@@ -914,11 +935,11 @@
    "sha256": "2bc1a8c33d87baf9a6a934292fe6cd5521c0f73aafe47d67e9125c25863a94f8"
   },
   {
-   "bytes": 8210,
+   "bytes": 8642,
    "category": "transformed data / identifiers",
    "licence": "CC-BY-SA-3.0",
    "path": "reports/diagnostics/panel_exposure.json",
-   "sha256": "3944b3fe4d1cd57041a343c6a08c887f0930db4027dd3929db703b1bbd828b54"
+   "sha256": "5d1bcbe8a7585bf4a51ab00e39f1b2c926b41e0df2defd98cee7e6efe14c96f4"
   },
   {
    "bytes": 1692,
@@ -2657,8 +2678,8 @@
    "sha256": "06e501e4cba46edfbe6c06ced7fbfaedacf115812699b676ce667b9f3dbf0050"
   }
  ],
- "files": 375,
- "generated_after_commit": "3b7f22133910025e5762bbb102a61e22b9a74ede",
+ "files": 378,
+ "generated_after_commit": "ff60b81724d9472745ea61e86e131be5410455fe",
  "generated_by": "scripts/release/build_inventory.py",
  "inventory": "seq2lead-complete-release-inventory-v2",
  "licence_basis": {
@@ -2679,15 +2700,15 @@
  "provenance_method": "row-level Curation/DataSource from the preserved raw payloads; 202609 for B-side entities and the isolated seq2lead_m11c_202601 schema for A-only entities",
  "reconciliation": {
   "accounts_for_every_tracked_file": true,
-  "entries": 375,
-  "licence_labels_sum": 375,
+  "entries": 378,
+  "licence_labels_sum": 378,
   "self_excluded": [
    "configs/manifests/release_classification.json",
    "configs/manifests/release_inventory.json"
   ],
-  "tracked_at_head": 377
+  "tracked_at_head": 380
  },
- "recorded_at": "2026-10-07T17:54:04.962000+00:00",
+ "recorded_at": "2026-10-08T12:55:35.205730+00:00",
  "release_option": "A - complete benchmark, pending owner approval. Repository remains PRIVATE.",
  "scientific_bytes_preserved": true,
  "self_excluded": {
@@ -2697,5 +2718,5 @@
   ],
   "why": "Neither file can record its own digest: writing the digest changes the bytes being described. Verify both by the commit they are attached to."
  },
- "total_bytes": 36901264
+ "total_bytes": 37333853
 }

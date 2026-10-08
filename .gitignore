@@ -101,6 +101,9 @@ data/predictions_m9/
 !reports/diagnostics/labelled_panel.json
 !reports/diagnostics/labelled_panel.md
 !reports/diagnostics/labelled_panel_selection_rule.md
+!reports/diagnostics/analogue_dependence.json
+!reports/diagnostics/checkpoint_bound_evaluation.json
+!reports/diagnostics/checkpoint_bound_evaluation.md
 !reports/diagnostics/checkpoint_bound_evaluation_spec.md
 !reports/diagnostics/panel_evidence_lineage.json
 !reports/diagnostics/panel_exposure.json

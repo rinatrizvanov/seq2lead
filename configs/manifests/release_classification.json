@@ -496,6 +496,18 @@
    "category": "transformed data / identifiers",
    "licence": "CC-BY-SA-3.0"
   },
+  "reports/diagnostics/analogue_dependence.json": {
+   "category": "prose",
+   "licence": "MIT"
+  },
+  "reports/diagnostics/checkpoint_bound_evaluation.json": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
+  "reports/diagnostics/checkpoint_bound_evaluation.md": {
+   "category": "transformed data / identifiers",
+   "licence": "CC-BY-SA-3.0"
+  },
   "reports/diagnostics/checkpoint_bound_evaluation_spec.md": {
    "category": "prose",
    "licence": "MIT"

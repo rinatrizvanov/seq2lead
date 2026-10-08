@@ -1,7 +1,10 @@
 # Checkpoint-bound evaluation — specification
 
-**Status: SPECIFIED, NOT EXECUTED.** Nothing in this document has been run. No
-score, rank or metric described here exists yet. It is written in advance so that
+**Status: EXECUTED 2026-10-08.** Results are in
+[`checkpoint_bound_evaluation.md`](checkpoint_bound_evaluation.md). This document
+is kept as written so the frozen choices can be compared against what was run;
+the one deviation (bootstrap resample counts) is recorded in the results report.
+The text below is the specification as it stood before execution. It is written in advance so that
 every choice is fixed before any result is visible, and so that running it later
 is a mechanical act rather than a series of judgement calls made while looking at
 outcomes.
@@ -49,21 +52,41 @@ outcome.
    RDKit-standardised parent;
 5. **≥ 10 actives and ≥ 10 inactives** survive 3–4.
 
-**Measured feasibility** (counts only, computed 2026-10-07; no model was loaded):
+**Measured feasibility — corrected.** The first version of this table was wrong.
+Its query joined `pair_label` without constraining `endpoint_id`, and
+`pair_label` holds a separate row per endpoint (six at 487,562 rows each), so
+every pair matched several label rows and the counts were inflated. With
+`endpoint_id = 96` applied, and the sequence-length filter from §2:
 
-| Floor | Targets | Labelled compounds | Median per target |
-| --- | --- | --- | --- |
-| ≥ 5 / ≥ 5 | 300 | 98,126 | 112 |
-| **≥ 10 / ≥ 10** | **241** | **96,088** | **168** |
-| ≥ 15 / ≥ 15 | 212 | 94,552 | 216 |
-| ≥ 20 / ≥ 20 | 191 | 92,458 | 256 |
-| ≥ 25 / ≥ 25 | 164 | 88,920 | 288 |
+| Floor | Complete cohort: targets | labelled compounds | Bundle intersection: targets | labelled compounds |
+| --- | --- | --- | --- | --- |
+| ≥ 5 / ≥ 5 | 329 | 83,051 | 107 | 8,830 |
+| **≥ 10 / ≥ 10** | **244** | **79,501** | **62** | **6,596** |
+| ≥ 25 / ≥ 25 | 146 | 70,878 | 26 | 4,244 |
 
-621 test-partition targets have at least one bundled labelled compound. **The
-floor is ≥ 10 / ≥ 10, fixed here, giving 241 targets.** The other rows are
-recorded so the choice is visible, not so it can be revisited after seeing
-results. Results at other floors, if computed, ship as a labelled sensitivity
-analysis and never replace the headline.
+The complete eligible test cohort is 91,639 pairs over 1,106 targets and 67,746
+compounds; 12,688 of those pairs involve a compound in the bundled library and
+78,951 do not. The superseded figures (300 / 241 / 164 targets) are recorded here
+so the error is visible rather than quietly replaced.
+
+**≥ 10 / ≥ 10 is primary.** ≥ 5 / ≥ 5 and ≥ 25 / ≥ 25 are reported as declared
+sensitivity analyses and never replace the headline.
+
+**Two cohorts, reported separately**, because they answer different questions:
+
+- the **complete eligible test cohort**, which measures the checkpoint; and
+- the **bundled-library intersection**, which measures what the shipped artifact
+  can actually rank out of the box.
+
+Scoring compounds outside the bundle requires recomputing the compound side
+rather than reading `library/projections.npy`. That path was verified before use:
+for 400 bundled compounds drawn at random, recomputing ECFP4 from the stored
+SMILES (radius 2, 2048 bits, chirality on, matching feature version
+`ecfp4-compound-42351e003acb`, manifest `cba42fd6…`, storage `964471e0…` — the
+digests the bundle and the m9 config both record) and pushing it through the
+shipped compound tower reproduced the stored projection in **400 of 400** cases
+to `atol=1e-4`, cosine 1.000000. The path is therefore valid for compounds the
+bundle does not carry.
 
 ## 3. Denominators — stated per metric
 
@@ -96,9 +119,18 @@ Three, all computed without labels, all fixed here:
   checkpoint trained on would make the baseline partly a trained artifact.
 - **B-prior** — rank by each compound's mean score across the *same* reference
   set without z-scoring, to show the result is not an artifact of normalisation.
-- **B-random** — a seeded random permutation of the ranking set, seed 20261007,
-  as a floor. Expected AUROC 0.5; a run that does not reproduce ≈ 0.5 here is
-  broken and must be discarded.
+- **B-random** — a seeded random permutation of the ranking set (seed
+  `20261007 + target_id`), as a floor.
+
+**Sanity check on B-random, declared as a statistical test rather than an exact
+value.** An earlier draft said the run must reproduce "≈ 0.5" and be discarded
+otherwise. That is not a test: it has no tolerance, and a random baseline's macro
+AUROC will not land on 0.5 exactly. Replaced by: compute the macro AUROC of
+B-random across targets and its 99% percentile-bootstrap interval over targets
+(10,000 resamples, seed 7). **The check passes if that interval contains 0.5.**
+A failure indicates a defect in label handling, ranking or tie treatment and is
+reported as such; it is not interpreted as a property of the model. The observed
+value and interval are reported either way, pass or fail.
 
 The target-specific ranking is the shipped scoring path, unchanged.
 
@@ -131,6 +163,15 @@ compound sets, so the comparison is paired and must be analysed that way.
   seed 7, resampling the ranking set with replacement and recomputing **both**
   rankings' AUROC on each resample, preserving the pairing. Report the 2.5th and
   97.5th percentiles of Δ.
+
+  **Single-class resamples.** Resampling compounds with replacement can produce a
+  resample containing only actives or only inactives, and AUROC is undefined
+  there. Such a resample is **discarded, not replaced by 0.5 and not imputed**;
+  the count of discards and the effective number of usable resamples are recorded
+  per target, and any target whose usable resamples fall below 1,000 is reported
+  with its interval marked unreliable rather than silently narrowed. Discards are
+  concentrated in targets with extreme class imbalance, so the count is itself a
+  readable signal about which intervals to trust.
 - **Across targets**: a **hierarchical bootstrap**, 10,000 resamples, seed 7 —
   resample targets with replacement, then resample compounds within each drawn
   target, recomputing Δ throughout. This propagates both sources; it is the

@@ -1,0 +1,17 @@
+{
+ "sampled_test_compounds": 1500,
+ "train_validation_compounds_compared_against": 196365,
+ "test_compounds_that_are_literally_train_compounds": 455,
+ "share_identical": 0.3033,
+ "max_tanimoto_to_nearest_train_compound": {
+  "mean": 0.6318,
+  "median": 0.5419,
+  "p10": 0.3261,
+  "p90": 1.0,
+  "share_at_or_above_0.7": 0.368,
+  "share_at_or_above_0.9": 0.3067,
+  "share_equal_1.0": 0.3033
+ },
+ "sampling": "1500 test compounds drawn with seed 7; compared against every train+validation compound",
+ "what_this_means": "cold_protein-v3 holds out proteins, not compounds, so compound-side exposure is expected by design. These numbers say how much, and they bound how far any result here can be read as generalisation to new chemistry."
+}

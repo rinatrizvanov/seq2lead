@@ -261,8 +261,13 @@
   "training_pair": "pair in the train partition of cold_protein-v3; available to fit the weights. Measured: 804 of 1134.",
   "validation_pair": "pair in the validation partition; available for model selection. Measured: 0.",
   "evaluation_label_exists": "an m11h as-of label exists for the pair. True for 1134 of 1134 by construction, because the panel was built from labelled pairs. This is NOT an exposure measure and must not be read as one.",
-  "underlying_evidence_consumed": "whether the specific measurement rows supporting the label were consumed in fitting this checkpoint. UNRESOLVED. cold_protein-v3 is assigned at pair level only (split_pair_assignment 487562 rows; split_activity_assignment 0 rows for split 10 -- activity-level assignment exists only for temporal splits 8/15/16). All 2780 activity rows behind the panel pairs read as unassigned under this split, which is an absence of record, not evidence of non-use. Separately, the panel labels come from the m11h as-of snapshots while the split labels come from endpoint ki-pki6-v2 over the curated snapshot, and the correspondence between the two has not been established."
+  "underlying_evidence_consumed": "RESOLVED by positive reconstruction, not inferred from the missing activity assignments. The m9 config pins endpoint 96 and the objective pair_regression.p_median; pair_regression_support and pair_label_support record which activity rows produced each pair's value. Joining those supports to the split's pair partitions gives 0 activity rows supporting pairs in more than one partition (distinct supporting rows: train 342658, validation 48833, test 99198, excluded 48482). No measurement row underlying a test-partition label was consumed as a training target."
  },
  "lineage_detail": "reports/diagnostics/panel_evidence_lineage.json",
- "uncertainty_note": "The reported intervals resample targets. They describe between-target dispersion and do not separately model within-target sampling error. No claim is made about how their width compares with an interval modelling both; a paired scheme is specified in checkpoint_bound_evaluation_spec.md and has not been run."
+ "uncertainty_note": "The reported intervals resample targets. They describe between-target dispersion and do not separately model within-target sampling error. No claim is made about how their width compares with an interval modelling both; a paired scheme is specified in checkpoint_bound_evaluation_spec.md and has not been run.",
+ "superseded_as_an_estimate_by": {
+  "where": "reports/diagnostics/checkpoint_bound_evaluation.md",
+  "why": "A census of 244 qualifying targets in this checkpoint's own cold-protein test partition finds macro AUROC 0.6164 target-specific against 0.6224 query-independent, mean delta -0.0060, 95% hierarchical CI [-0.0192, +0.0073], Wilcoxon p=0.351. The twelve-target panel is retained in full as exploratory evidence and for its exposure analysis, which explains why its pooled number was higher.",
+  "nothing_removed": true
+ }
 }

@@ -8,6 +8,14 @@ Raw numbers: [`labelled_panel.json`](labelled_panel.json) ·
 exposure: [`panel_exposure.json`](panel_exposure.json) ·
 selection rule: [`labelled_panel_selection_rule.md`](labelled_panel_selection_rule.md).
 
+> **Superseded as an estimate.** A census of all 244 qualifying targets in the
+> deployed checkpoint's own cold-protein test partition is in
+> [`checkpoint_bound_evaluation.md`](checkpoint_bound_evaluation.md) and finds no
+> advantage for the target-specific ranking (0.6164 against 0.6224, mean Δ
+> −0.0060, Wilcoxon p = 0.351). This twelve-target panel is retained in full,
+> unmodified, as exploratory evidence and for the exposure analysis below, which
+> explains why its pooled number was higher.
+>
 > **Read the exposure section before the results.** Eight of the twelve panel
 > targets turned out to be in the training partition of the split the shipped
 > checkpoint was fitted on. Pooled across all twelve, the numbers overstate what
@@ -43,7 +51,16 @@ exists says nothing about exposure: every panel pair has a label because the
 panel was built from labelled pairs. The question that bears on exposure is
 whether the evidence beneath the label reached the fit.
 
-**That lineage is unresolved, and the reason is structural.** `cold_protein-v3`
+**Update: this lineage was subsequently resolved.** It was reconstructed
+positively from `pair_regression_support` and `pair_label_support`, the tables
+the m9 loader's objective (`pair_regression.p_median`) actually draws on: **0
+activity rows support pairs in more than one partition** of `cold_protein-v3`
+(distinct supporting rows — train 342,658, validation 48,833, test 99,198,
+excluded 48,482). No measurement row underlying a test-partition label was
+consumed as a training target. The passage below records why it was marked
+unresolved at the time, and remains accurate about the absent table.
+
+**That lineage was unresolved here, and the reason is structural.** `cold_protein-v3`
 is assigned at **pair** level: `split_pair_assignment` holds 487,562 rows for it,
 and `split_activity_assignment` holds **none**. Activity-level assignment exists
 only for the temporal splits (ids 8, 15, 16), which need it because temporal

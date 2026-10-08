@@ -219,23 +219,22 @@ Predicted pKi is neither a calibrated probability nor proof of binding.
   results were inspected before the historical study ran, and the prospective
   freeze is unsigned.
 - **The macro metrics cover a minority of targets** — 123 of 992.
-- **Target specificity has not been established for unseen targets, and a
-  query-independent ranking is competitive.** On a panel of 12 targets with
-  measured labels, selected only by label availability and class counts, the
-  pooled target-specific macro AUROC was 0.8129 against 0.7014 for a baseline
-  that ignores the query entirely. That pooled figure is misleading on its own:
-  **8 of the 12 targets are in the training partition of `cold_protein-v3`, the
-  split the shipped checkpoint was fitted on.** Split by exposure, the
-  target-specific advantage sits entirely with the seen targets (macro AUROC
-  0.8947 vs 0.6942, mean Δ +0.2006), while on the **4 targets genuinely held out
-  from that checkpoint the target-specific ranking scored below the
-  query-independent baseline** (0.6493 vs 0.7157, mean Δ −0.0664, 95% interval
-  over targets [−0.179, +0.039], improving on 1 of 4). Four targets is weak
-  evidence and the interval spans zero, so no directional claim is made — but
-  nothing here demonstrates that the model ranks better than a query-independent
-  ordering on a target it has not seen. The panel's interval describes these
-  targets only and does not establish generalisation to others. Measured in
-  [`reports/diagnostics/labelled_panel.md`](reports/diagnostics/labelled_panel.md).
+- **On held-out proteins the ranking is not better than one that ignores the
+  sequence.** Evaluated on the deployed checkpoint's own cold-protein test
+  partition — a census of **244 qualifying targets and 79,493 labelled
+  compounds**, not a sample — the target-specific ranking reached macro AUROC
+  **0.6164** against **0.6224** for a compound ordering that never reads the
+  query. Mean difference **−0.0060**, 95% hierarchical bootstrap interval
+  **[−0.019, +0.007]**, better on 112 of 244 targets, Wilcoxon signed-rank
+  p = 0.351. The two are statistically indistinguishable, and the result holds
+  across both the complete cohort and the bundled-library subset at all three
+  declared thresholds. Individual targets do move in both directions (37
+  significantly better, 50 significantly worse), so the sequence changes the
+  ranking without improving it on average. Two bounds on reading this further:
+  it is one checkpoint on one split, and **30.3% of the evaluated compounds are
+  molecules the fit had already seen** against other proteins, because a
+  cold-protein split holds out proteins and not chemistry. Measured in
+  [`reports/diagnostics/checkpoint_bound_evaluation.md`](reports/diagnostics/checkpoint_bound_evaluation.md).
 - **Ki poolability across assay contexts is unresolved**; every count assumes the
   current pooling rule.
 - **Declared but unbuilt**: the retrieval layer, evaluation-mode evidence display,
