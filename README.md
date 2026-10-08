@@ -42,6 +42,15 @@ cannot be silently substituted.
 
 ## Key results
 
+**These evaluate the historical M11h models, not the model the bundle ships.**
+The table below is the January → September 2026 as-of comparison, fitted in the
+`m11h-asof-fit-v1` run over five seeds. The inference bundle ships a different
+checkpoint from a different experiment (`m9-dual-encoder-v1`, split
+`cold_protein-v3`), and its own evaluation is
+[separate](reports/diagnostics/checkpoint_bound_evaluation.md#this-is-not-the-model-the-headline-benchmark-evaluated).
+The two sets of numbers are on different splits, populations and comparators and
+cannot be compared with each other.
+
 | Evaluation | Observed result | How to read it |
 | --- | --- | --- |
 | Historical Jan → Sep 2026, pairs new to fitting | Concat-MLP macro AUROC 0.788873; dual encoder 0.781229 | No demonstrated dual-encoder improvement. No equivalence or significance claim; no paired target-level interval was computed |
@@ -219,21 +228,24 @@ Predicted pKi is neither a calibrated probability nor proof of binding.
   results were inspected before the historical study ran, and the prospective
   freeze is unsigned.
 - **The macro metrics cover a minority of targets** — 123 of 992.
-- **On held-out proteins the ranking is not better than one that ignores the
-  sequence.** Evaluated on the deployed checkpoint's own cold-protein test
-  partition — a census of **244 qualifying targets and 79,493 labelled
-  compounds**, not a sample — the target-specific ranking reached macro AUROC
-  **0.6164** against **0.6224** for a compound ordering that never reads the
-  query. Mean difference **−0.0060**, 95% hierarchical bootstrap interval
-  **[−0.019, +0.007]**, better on 112 of 244 targets, Wilcoxon signed-rank
-  p = 0.351. The two are statistically indistinguishable, and the result holds
-  across both the complete cohort and the bundled-library subset at all three
-  declared thresholds. Individual targets do move in both directions (37
-  significantly better, 50 significantly worse), so the sequence changes the
-  ranking without improving it on average. Two bounds on reading this further:
-  it is one checkpoint on one split, and **30.3% of the evaluated compounds are
+- **On held-out proteins there is no demonstrated average improvement from
+  reading the sequence.** Evaluated on the **deployed bundle's own** checkpoint
+  and its cold-protein test partition — a census of **244 qualifying targets and
+  79,493 labelled pair observations over 59,912 distinct compounds**, not a
+  sample — the target-specific ranking reached macro AUROC **0.6164** against
+  **0.6224** for a compound ordering that never reads the query. Mean difference
+  **−0.0060**, 95% hierarchical bootstrap interval **[−0.019, +0.007]**, better
+  on 112 of 244 targets, Wilcoxon signed-rank p = 0.351. No average advantage is
+  demonstrated; this is not an equivalence claim, since no equivalence test was
+  run. The direction holds across the complete cohort and the bundled subset at
+  all three declared thresholds. Individual targets move in both directions (37
+  and 50 per-target intervals exclude zero, against ~6 each way expected by
+  chance across 244 **unadjusted, exploratory** comparisons), so the sequence
+  changes the ranking without demonstrably improving it on average. Two bounds:
+  it is one checkpoint on one split, and **30.3% of evaluated compounds are
   molecules the fit had already seen** against other proteins, because a
-  cold-protein split holds out proteins and not chemistry. Measured in
+  cold-protein split holds out proteins and not chemistry. This measures the
+  shipped artifact and is **separate from the M11h benchmark above**. Measured in
   [`reports/diagnostics/checkpoint_bound_evaluation.md`](reports/diagnostics/checkpoint_bound_evaluation.md).
 - **Ki poolability across assay contexts is unresolved**; every count assumes the
   current pooling rule.

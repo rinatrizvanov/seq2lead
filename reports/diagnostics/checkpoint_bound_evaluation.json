@@ -15,7 +15,6 @@
    "cohort": "complete",
    "floor": 10,
    "n_targets": 244,
-   "n_labelled_compounds": 79493,
    "targets_below_floor": 862,
    "macro_auroc": {
     "specific": 0.6164,
@@ -4697,13 +4696,15 @@
      "bootstrap_resamples_discarded_single_class": 0,
      "interval_reliable": true
     }
-   ]
+   ],
+   "n_labelled_pair_observations": 79493,
+   "n_distinct_compounds": 59912,
+   "n_distinct_compounds_in_bundle": 5749
   },
   "complete_floor5": {
    "cohort": "complete",
    "floor": 5,
    "n_targets": 329,
-   "n_labelled_compounds": 83043,
    "targets_below_floor": 777,
    "macro_auroc": {
     "specific": 0.5991,
@@ -11000,13 +11001,15 @@
      "bootstrap_resamples_discarded_single_class": 0,
      "interval_reliable": true
     }
-   ]
+   ],
+   "n_labelled_pair_observations": 83043,
+   "n_distinct_compounds": 62443,
+   "n_distinct_compounds_in_bundle": 6453
   },
   "complete_floor25": {
    "cohort": "complete",
    "floor": 25,
    "n_targets": 146,
-   "n_labelled_compounds": 70870,
    "targets_below_floor": 960,
    "macro_auroc": {
     "specific": 0.6033,
@@ -13826,13 +13829,15 @@
      "bootstrap_resamples_discarded_single_class": 0,
      "interval_reliable": true
     }
-   ]
+   ],
+   "n_labelled_pair_observations": 70870,
+   "n_distinct_compounds": 54557,
+   "n_distinct_compounds_in_bundle": 5362
   },
   "bundle_floor10": {
    "cohort": "bundle",
    "floor": 10,
    "n_targets": 62,
-   "n_labelled_compounds": 6596,
    "targets_below_floor": 1044,
    "macro_auroc": {
     "specific": 0.591,
@@ -15056,13 +15061,15 @@
      "bootstrap_resamples_discarded_single_class": 0,
      "interval_reliable": true
     }
-   ]
+   ],
+   "n_labelled_pair_observations": 6596,
+   "n_distinct_compounds": 3657,
+   "n_distinct_compounds_in_bundle": 3657
   },
   "bundle_floor5": {
    "cohort": "bundle",
    "floor": 5,
    "n_targets": 107,
-   "n_labelled_compounds": 8830,
    "targets_below_floor": 999,
    "macro_auroc": {
     "specific": 0.6162,
@@ -17141,13 +17148,15 @@
      "bootstrap_resamples_discarded_single_class": 1,
      "interval_reliable": true
     }
-   ]
+   ],
+   "n_labelled_pair_observations": 8830,
+   "n_distinct_compounds": 5115,
+   "n_distinct_compounds_in_bundle": 5115
   },
   "bundle_floor25": {
    "cohort": "bundle",
    "floor": 25,
    "n_targets": 26,
-   "n_labelled_compounds": 4244,
    "targets_below_floor": 1080,
    "macro_auroc": {
     "specific": 0.6349,
@@ -17687,7 +17696,10 @@
      "bootstrap_resamples_discarded_single_class": 0,
      "interval_reliable": true
     }
-   ]
+   ],
+   "n_labelled_pair_observations": 4244,
+   "n_distinct_compounds": 2231,
+   "n_distinct_compounds_in_bundle": 2231
   }
  },
  "analogue_dependence": {
@@ -17715,7 +17727,12 @@
   "pairs_outside_bundle": 78951,
   "compounds_fingerprinted": 67737,
   "compounds_in_bundle": 7107,
-  "compounds_outside_bundle": 60630
+  "compounds_outside_bundle": 60630,
+  "eligible_pair_observations_before_exclusions": 91639,
+  "eligible_pair_observations_after_exclusions": 91630,
+  "distinct_compounds_before_exclusions": 67746,
+  "distinct_compounds_after_exclusions": 67737,
+  "pairs_outside_bundle_after_exclusions": 78942
  },
  "reference_targets": [
   10785,
@@ -17767,5 +17784,19 @@
   "split": "cold_protein-v3 (id 10)",
   "endpoint": "ki-pki6-v2 (id 96), KI, pKi>=6.0",
   "compound_path_verified": "400/400 bundled compounds reproduce their stored projection from SMILES, atol 1e-4, cosine 1.000000"
+ },
+ "denominators": {
+  "unit_note": "A pair observation is one (target, compound) labelled row; a compound is a distinct molecule. A compound measured against several targets contributes several pair observations. An earlier version of this file called pair observations \"labelled compounds\"; that key is renamed, not deleted in meaning.",
+  "macro_auroc": "unweighted mean over the cell's targets",
+  "per_target_metrics": "within one target's ranking set; denominator is that target's pair observations",
+  "mean_delta_wilcoxon_sign_test": "one value per target",
+  "compound_level_bootstrap": "resamples a target's pair observations",
+  "hierarchical_bootstrap": "resamples targets, then pair observations within each",
+  "analogue_dependence": "distinct compounds: 1500 sampled from 67,737, compared against 196,365 train/validation compounds"
+ },
+ "interpretation_guardrails": {
+  "headline": "no demonstrated average improvement; NOT an equivalence claim, no equivalence test was run",
+  "per_target_intervals": "exploratory and unadjusted for multiple comparisons. 244 nominal-95% intervals, so about 6 would exclude zero in each direction by chance. No individual target is identified as significantly better or worse.",
+  "relation_to_m11h": "different checkpoints, split, population and comparator. The bundle checkpoint 934adcdb... is not among the five m11h checkpoints. 0.6164 is not a regression from the m11h dual-encoder 0.781229; the two are not on a comparable scale."
  }
 }

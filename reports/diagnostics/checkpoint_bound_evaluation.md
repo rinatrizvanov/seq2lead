@@ -11,9 +11,9 @@ Raw numbers: [`checkpoint_bound_evaluation.json`](checkpoint_bound_evaluation.js
 ## Headline
 
 On the deployed checkpoint's **own** held-out protein partition, across a
-**census of 244 qualifying targets and 79,493 labelled compounds**, the
-target-specific ranking did **not** outperform a compound ordering that never
-reads the query.
+**census of 244 qualifying targets and 79,493 labelled pair observations**, there
+is **no demonstrated average improvement** from the target-specific ranking over
+a compound ordering that never reads the query.
 
 | | Macro AUROC |
 | --- | --- |
@@ -25,13 +25,51 @@ reads the query.
 Mean Δ (specific − query-independent) = **−0.0060**, 95% hierarchical bootstrap
 interval **[−0.0192, +0.0073]**, improving on **112 of 244** targets (46%),
 Wilcoxon signed-rank **p = 0.351**. The interval contains zero and the point
-estimate is slightly negative. **The two rankings are statistically
-indistinguishable on this population.**
+estimate is slightly negative. **No average improvement is demonstrated on this
+population.**
+
+That is a statement about what the evidence shows, not a claim that the two
+rankings are equivalent. No equivalence test was performed and no equivalence
+margin was declared, so this result does not establish that the two are the same
+— only that an average advantage for the target-specific ranking was not
+demonstrated here.
 
 This does not reproduce the twelve-target panel's pooled +0.1116. That panel was
 8/12 train-exposed and, as reported there, its advantage sat entirely with the
 exposed targets. On the checkpoint's own held-out partition the advantage is
 absent.
+
+## This is not the model the headline benchmark evaluated
+
+The numbers here and the numbers in [Key results](../../README.md#key-results)
+describe **different models on different evaluations**, and must not be compared.
+
+| | Deployed checkpoint (this report) | Historical M11h comparison (Key results) |
+| --- | --- | --- |
+| Checkpoint | `M9-dual-encoder__cold_protein-v3__seed20260930.pt`, sha256 `934adcdb…` | `m11h/.../checkpoints/dual-encoder-seed20260930.pt`, sha256 `0b4e22fa…`, and four further seeds |
+| Experiment | `m9-dual-encoder-v1` | `m11h-asof-fit-v1` |
+| Split | `cold_protein-v3` — protein clusters held out | as-of temporal, January → September 2026 |
+| Evaluation population | 244 qualifying targets, cold-protein test partition | 123 targets clearing ≥5 actives and ≥5 inactives, from 22,221 pairs over 992 targets |
+| Comparator | a query-independent compound ordering | other models (concat-MLP, ligand-only, target-mean, 1-NN) |
+| Seeds | 1 | 5 |
+| Headline | macro AUROC 0.6164 vs 0.6224 query-independent | dual encoder 0.781229, concat-MLP 0.788873 |
+
+**The shipped bundle does not contain an M11h model.** Its checkpoint digest
+`934adcdb…` is not among the five M11h checkpoints. The benchmark's 0.781229
+therefore describes a model that is *not* what `uv run seq2lead prioritise` or
+the browser interface runs.
+
+The two numbers are also not on a comparable scale: different splits, different
+target populations, different label cohorts and different comparators. **0.6164
+is not a regression from 0.781229**, and neither figure can be used to check the
+other. Each is only interpretable against the comparator inside its own
+evaluation.
+
+What the two do share: neither demonstrates an improvement for the dual encoder
+over its comparator. The M11h row reports "No demonstrated dual-encoder
+improvement" against concat-MLP; this report finds no demonstrated average
+improvement over a query-independent ordering. Those are separate findings about
+separate models that happen to point the same way.
 
 ## Provenance
 
@@ -43,13 +81,47 @@ absent.
 | Endpoint | `ki-pki6-v2`, id 96, KI, pKi ≥ 6.0 |
 | Scoring | as shipped, `scale · cosine + offset` |
 
-## Cohorts, reported separately
+## Cohorts and denominators
 
-| | Pairs | Targets | Compounds |
+**Two different units are counted here and an earlier draft confused them.** A
+*pair observation* is one (target, compound) row with a label; a *compound* is a
+distinct molecule. A compound measured against six targets contributes six pair
+observations. The figure 79,493 is **pair observations**, not compounds; an
+earlier version of this report called it "labelled compounds", which was wrong.
+
+Cohort before any floor is applied:
+
+| | Pair observations | Targets | Distinct compounds |
 | --- | --- | --- | --- |
-| Complete eligible test cohort | 91,639 | 1,106 | 67,746 |
+| Eligible test cohort, before exclusions | 91,639 | 1,106 | 67,746 |
+| **After exclusions** | **91,630** | **1,106** | **67,737** |
 | …involving a bundled compound | 12,688 | — | 7,107 |
-| …outside the bundled library | 78,951 | — | 60,630 |
+| …outside the bundled library | 78,942 | — | 60,630 |
+
+Every evaluated cell, with each denominator named:
+
+| Cohort | Floor | Targets | Pair observations | Distinct compounds | …of which bundled |
+| --- | --- | --- | --- | --- | --- |
+| Complete | ≥5 | 329 | 83,043 | 62,443 | 6,453 |
+| **Complete** | **≥10** | **244** | **79,493** | **59,912** | **5,749** |
+| Complete | ≥25 | 146 | 70,870 | 54,557 | 5,362 |
+| Bundle | ≥5 | 107 | 8,830 | 5,115 | 5,115 |
+| Bundle | ≥10 | 62 | 6,596 | 3,657 | 3,657 |
+| Bundle | ≥25 | 26 | 4,244 | 2,231 | 2,231 |
+
+Which denominator each metric uses:
+
+- **AUROC, average precision, EF** — computed within one target's ranking set;
+  the denominator is that target's pair observations (median 159 at the primary
+  cell, range 23–2,796), and AUROC's pair denominator is its actives × inactives.
+- **Macro AUROC** — unweighted mean over the cell's **targets** (244 at the
+  primary cell), not over pair observations.
+- **Mean Δ, Wilcoxon, sign test** — one value per **target**; n = 244.
+- **Compound-level bootstrap** — resamples a target's **pair observations**.
+- **Hierarchical bootstrap** — resamples **targets**, then pair observations
+  within each.
+- **Analogue dependence** — denominators are **distinct compounds**, sampled 1,500
+  from the 67,737 and compared against 196,365 train/validation compounds.
 
 **Exclusions**: 9 compounds carried the `unusable_fingerprint` flag for feature
 version `ecfp4-compound-42351e003acb` and were dropped under the m9 cohort rule
@@ -97,9 +169,18 @@ Per-target Δ on the primary cell: median −0.0041, IQR [−0.041, +0.038], ran
 - **50 of 244** exclude zero in favour of the query-independent baseline,
 - **157 of 244** are inconclusive.
 
+**These per-target intervals are exploratory and unadjusted for multiple
+comparisons.** 244 intervals were computed at nominal 95%, so under a null of no
+per-target difference roughly 6 would exclude zero in each direction by chance
+alone. The observed 37 and 50 exceed that, which is consistent with genuine
+per-target heterogeneity — but **no individual target should be singled out as
+significantly better or worse on this basis**. Doing so would require a
+multiplicity adjustment that was not applied and was not pre-declared. The counts
+are reported as a description of spread, not as 87 discoveries.
+
 So the sequence does change the ranking for individual targets, sometimes
 substantially and in both directions — but across the population those movements
-do not add up to an advantage.
+do not add up to a demonstrated advantage.
 
 ## Declared checks
 
@@ -166,17 +247,19 @@ cold-compound or cold-both evaluation would be a different experiment.
 
 **Established, by measurement on this population:**
 
-- across a census of 244 qualifying targets in the deployed checkpoint's own
-  cold-protein test partition, the target-specific ranking's macro AUROC (0.6164)
-  is not higher than a query-independent ordering's (0.6224);
+- across a census of 244 qualifying targets and 79,493 labelled pair
+  observations in the deployed checkpoint's own cold-protein test partition, the
+  target-specific ranking's macro AUROC (0.6164) is not higher than a
+  query-independent ordering's (0.6224);
 - the mean difference is −0.0060 with a 95% hierarchical interval of
   [−0.0192, +0.0073], and the Wilcoxon signed-rank test does not reject equality
   (p = 0.351);
 - the direction and magnitude are stable across both cohorts and all three
   declared floors;
 - the random floor behaves as a random floor in all six cells;
-- individual targets do move substantially in both directions (37 targets
-  significantly better, 50 significantly worse).
+- individual targets do move substantially in both directions, with more
+  per-target intervals excluding zero (37 and 50) than the ~6 each way expected
+  by chance across 244 unadjusted comparisons.
 
 **Not established, and not claimed:**
 
@@ -185,11 +268,16 @@ cold-compound or cold-both evaluation would be a different experiment.
 - anything about new chemistry — 30.3% of evaluated compounds are molecules the
   fit already saw;
 - anything about calibration, which was not computed;
-- that the model is useless. It is not better than a query-independent ordering
-  *here*, which is a statement about this population and this comparison;
-- that the published benchmark numbers are wrong. They are not recomputed or
-  contradicted by this; the benchmark reports ≥ 5 seeds across five splits under
-  its own cohorts and metrics, and is unchanged.
+- that the two rankings are equivalent. No equivalence test was run and no margin
+  was declared; "no demonstrated average improvement" is not "no difference";
+- that any named target is significantly better or worse. The per-target
+  intervals are exploratory and unadjusted for 244 comparisons;
+- that the model is useless. An average advantage was not demonstrated *here*,
+  which is a statement about this population and this comparator;
+- anything about the published benchmark numbers. Those evaluate **different
+  checkpoints** on a different split and population, are not recomputed or
+  contradicted here, and remain unchanged. See the separation table above before
+  placing the two side by side.
 
 ## Lineage, now reconstructed rather than assumed
 
